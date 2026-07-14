@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH6: Fonction exponentielle - Analyse</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .math-content h4 { color: var(--primary); font-size: 1rem; margin-top: 20px; margin-bottom: 8px; }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: #1E40AF; }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1E3A8A; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid #22C55E; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid #EAB308; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .exercise-box { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); border-left: 4px solid #F97316; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .exercise-box h4 { color: #C2410C; font-size: 0.95rem; margin-bottom: 8px; }
+        .exercise-box p { margin-bottom: 6px; color: #7C2D12; }
+        .proof-box { background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-left: 4px solid #8B5CF6; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .proof-box h4 { color: #6D28D9; font-size: 0.95rem; margin-bottom: 8px; }
+        .proof-box p { margin-bottom: 6px; color: #4C1D95; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+               <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #3B82F6;">
+            <h1>CH6: Fonction exponentielle</h1>
+            <p class="breadcrumb">Mathématiques > Analyse > CH6</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan du chapitre</h3>
+            <ol>
+                <li><a href="#p1">Définition de la fonction exponentielle</a></li>
+                <li><a href="#p2">Propriétés algébriques de exp</a></li>
+                <li><a href="#p3">Limites et dérivée de exp</a></li>
+                <li><a href="#p4">Équations et inéquations exponentielles</a></li>
+                <li><a href="#p5">Fonction eᵘ⁽ˣ⁾ et applications</a></li>
+                <li><a href="#p6">Exercices résolus</a></li>
+            </ol>
+        </div>
+
+        <!-- SECTION PODCAST -->
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1QLvIbTsPN_TZot9vXrTvIH7GX59I5d5I/preview
+"
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Définition de la fonction exponentielle</h3>
+            <h4>Rappel — Pourquoi exp ?</h4>
+            <p>La fonction logarithme népérien <strong>ln(x)</strong> est définie sur ]0, +∞[ et est strictement croissante. Elle admet une fonction réciproque appelée <strong>fonction exponentielle</strong>, notée <strong>exp(x)</strong> ou <strong>eˣ</strong>.</p>
+
+            <h4>Définition formelle</h4>
+            <div class="formula-box">
+                <div class="formula-title">Définition</div>
+                exp(x) = eˣ est l'unique fonction f telle que :<br>
+                f' = f &nbsp;&nbsp;|&nbsp;&nbsp; f(0) = 1<br><br>
+                <strong>Relation fondamentale :</strong><br>
+                exp(ln x) = x &nbsp;&nbsp;|&nbsp;&nbsp; ln(eˣ) = x
+            </div>
+
+            <h4>Propriétés clés de eˣ</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Définition :</strong> ∀x ∈ ℝ, eˣ > 0 (toujours positive)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Courbe :</strong> passe par (0, 1) — y = 1 à x = 0</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Croissance :</strong> strictement croissante sur ℝ</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Dérivée :</strong> (eˣ)' = eˣ (propriété extraordinaire !)</p></div>
+            </div>
+
+            <h4>Représentation graphique</h4>
+            <p>La courbe de eˣ est l'image de la courbe de ln(x) par la symétrie d'axe y = x.</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📊</span><p><strong>Domaine :</strong> ℝ</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Image :</strong> ]0, +∞[</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Asymptote horizontale :</strong> y = 0 quand x → -∞</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>En x = 0 :</strong> e⁰ = 1</p></div>
+            </div>
+
+            <h4>Valeurs remarquables</h4>
+            <div class="formula-box">
+                <div class="formula-title">Valeurs importantes</div>
+                e⁰ = 1<br>
+                e¹ = e ≈ 2,718<br>
+                e² ≈ 7,389<br>
+                e⁻¹ = 1/e ≈ 0,368<br>
+                e⁻² ≈ 0,135
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Propriétés algébriques de exp</h3>
+            <h4>Propriétés fondamentales</h4>
+            <div class="formula-box">
+                <div class="formula-title">Produit</div>
+                eᵃ × eᵇ = eᵃ⁺ᵇ &nbsp;&nbsp;|&nbsp;&nbsp; ∀a, ∀b ∈ ℝ
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Quotient</div>
+                eᵃ / eᵇ = eᵃ⁻ᵇ
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Puissance</div>
+                (eᵃ)ᵇ = eᵃᵇ &nbsp;&nbsp;|&nbsp;&nbsp; e⁻ᵃ = 1/eᵃ
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Racine</div>
+                eᵃ/² = √(eᵃ) &nbsp;&nbsp;|&nbsp;&nbsp; e^(a/2) = √(eᵃ)
+            </div>
+
+            <h4>Relation entre ln et exp</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔗</span><p><strong>ln(eˣ) = x</strong> — la composition ln∘exp "s'annule"</p></div>
+                <div class="key-point"><span class="icon">🔗</span><p><strong>e^(ln x) = x</strong> — pour x > 0</p></div>
+                <div class="key-point"><span class="icon">🔗</span><p><strong>e^a = e^b</strong> ⇔ a = b</p></div>
+                <div class="key-point"><span class="icon">🔗</span><p><strong>e^a > e^b</strong> ⇔ a > b (car exp est croissante)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — Calcul avec exp</h4>
+                <p>Simplifier : A = e² × e⁵ / e³</p>
+                <p>A = e²⁺⁵⁻³ = e⁴</p>
+                <p>Remarque : e⁴ = exp(4) et ne se calcule pas en valeur exacte simplement</p>
+                <p>Valeur approchée : e⁴ ≈ 54,6</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — Simplification</h4>
+                <p>Simplifier : B = (eˣ)² × e⁻ˣ / e³ˣ</p>
+                <p>B = e²ˣ × e⁻ˣ / e³ˣ = e²ˣ⁻ˣ⁻³ˣ = e⁻²ˣ</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — Utilisation de ln</h4>
+                <p>Résoudre eˣ = 3</p>
+                <p>⇔ ln(eˣ) = ln(3)</p>
+                <p>⇔ x = ln(3)</p>
+                <p>⇔ <strong>x = ln(3)</strong> ≈ 1,099</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Pièges à éviter</h4>
+                <p>❌ eˣ⁺ʸ ≠ eˣ + eʸ (c'est eˣ · eʸ !)</p>
+                <p>❌ eˣ² ≠ (eˣ)² (le premier = e^(x²), le second = e^(2x))</p>
+                <p>✅ eˣ est TOUJOURS positive</p>
+                <p>✅ Pour passer de ln à exp : e^(ln x) = x</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Limites et dérivée de exp</h3>
+            <h4>Dérivée</h4>
+            <div class="formula-box">
+                <div class="formula-title">Dérivée de eˣ</div>
+                (eˣ)' = eˣ &nbsp;&nbsp;|&nbsp;&nbsp; ∀x ∈ ℝ
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Dérivée de e^(u(x)) — Formule essentielle</div>
+                [e^(u(x))]' = u'(x) · e^(u(x))
+            </div>
+
+            <h4>Limites remarquables</h4>
+            <div class="formula-box">
+                <div class="formula-title">Limites fondamentales</div>
+                lim(x→-∞) eˣ = 0<br>
+                lim(x→+∞) eˣ = +∞<br>
+                lim(x→0) (eˣ - 1)/x = 1<br>
+                lim(x→+∞) eˣ / xⁿ = +∞ &nbsp;&nbsp;(∀n ∈ ℕ)<br>
+                lim(x→+∞) xⁿ / eˣ = 0
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Croissance comparée (fondamental !)</div>
+                lim(x→+∞) eˣ / xⁿ = +∞ &nbsp;&nbsp;|&nbsp;&nbsp; n'importe quelle puissance perd face à l'exponentielle<br>
+                lim(x→-∞) xⁿ · eˣ = 0
+            </div>
+
+            <h4>Formes indéterminées</h4>
+            <div class="formula-box">
+                <div class="formula-title">FI à maîtriser</div>
+                lim(x→0) (eˣ - 1)/x = 1<br>
+                lim(x→+∞) x/eˣ = 0<br>
+                lim(x→0) eˣ - 1 ~ x<br>
+                lim(x→+∞) eᵃˣ / xᵇ = +∞ &nbsp;&nbsp;(pour a > 0, b > 0)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — Dérivée</h4>
+                <p>f(x) = e^(2x + 1)</p>
+                <p>f'(x) = 2 · e^(2x + 1)</p>
+                <p>Signe : toujours positif → f strictement croissante</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — Dérivée composée</h4>
+                <p>f(x) = e^(x²)</p>
+                <p>f'(x) = 2x · e^(x²)</p>
+                <p>f'(x) > 0 si x > 0, f'(x) < 0 si x < 0</p>
+                <p>f est décroissante sur ]-∞, 0[ et croissante sur ]0, +∞[</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — Limite</h4>
+                <p>lim(x→+∞) (eˣ) / (x¹⁰)</p>
+                <p>Par croissance comparée : lim = +∞</p>
+                <p>L'exponentielle l'emporte toujours sur n'importe quelle puissance</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 4 — Primitive</h4>
+                <p>∫ e^(3x) dx</p>
+                <p>∫ e^(3x) dx = (1/3) · e^(3x) + C</p>
+                <p>Règle : ∫ e^(ax+b) dx = (1/a) · e^(ax+b) + C</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 5 — Limite avec FI</h4>
+                <p>lim(x→0) (e^(2x) - 1) / (eˣ - 1)</p>
+                <p>Quand x→0 : num → 0, denom → 0</p>
+                <p>Règle de l'Hôpital : num' = 2e^(2x), denom' = eˣ</p>
+                <p>lim = lim(x→0) 2e^(2x)/eˣ = 2e⁰/e⁰ = <strong>2</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Équations et inéquations exponentielles</h3>
+            <h4>Équations</h4>
+            <p>Principe fondamental : eᵃ = eᵇ ⇔ a = b</p>
+            <div class="formula-box">
+                <div class="formula-title">Types d'équations</div>
+                e^(u(x)) = e^(v(x)) &nbsp;⇔&nbsp; u(x) = v(x)<br>
+                e^(u(x)) = k &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⇔&nbsp; u(x) = ln(k) &nbsp;&nbsp;(k > 0)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — Équation simple</h4>
+                <p>e^(3x) = e²</p>
+                <p>⇔ 3x = 2</p>
+                <p>⇔ x = 2/3</p>
+                <p>Solution : <strong>x = 2/3</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — eˣ = k</h4>
+                <p>eˣ = 5</p>
+                <p>⇔ x = ln(5)</p>
+                <p>Solution : <strong>x = ln(5)</strong> ≈ 1,609</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — Équation avec substitution</h4>
+                <p>e^(2x) - 3eˣ + 2 = 0</p>
+                <p>On pose X = eˣ (X > 0)</p>
+                <p>X² - 3X + 2 = 0</p>
+                <p>(X - 1)(X - 2) = 0</p>
+                <p>X = 1 ou X = 2</p>
+                <p>eˣ = 1 → x = 0</p>
+                <p>eˣ = 2 → x = ln(2)</p>
+                <p>Solutions : <strong>x = 0</strong> et <strong>x = ln(2)</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 4 — Équation avec ln</h4>
+                <p>e^(x+1) = 3</p>
+                <p>⇔ x + 1 = ln(3)</p>
+                <p>⇔ x = ln(3) - 1</p>
+                <p>Solution : <strong>x = ln(3) - 1</strong></p>
+            </div>
+
+            <h4>Inéquations</h4>
+            <p>Principe : eᵃ > eᵇ ⇔ a > b (car exp est strictement croissante)</p>
+            <div class="formula-box">
+                <div class="formula-title">Inéquations</div>
+                e^(u(x)) > e^(v(x)) &nbsp;⇔&nbsp; u(x) > v(x)<br>
+                e^(u(x)) > k &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⇔&nbsp; u(x) > ln(k) &nbsp;&nbsp;(k > 0)<br>
+                e^(u(x)) < k &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⇔&nbsp; u(x) < ln(k) &nbsp;&nbsp;(k > 0)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 5 — Inéquation</h4>
+                <p>e^(2x) > 3</p>
+                <p>⇔ 2x > ln(3)</p>
+                <p>⇔ x > ln(3)/2</p>
+                <p>Solution : <strong>]ln(3)/2, +∞[</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 6 — Inéquation quadratique</h4>
+                <p>e^(2x) - 3eˣ + 2 < 0</p>
+                <p>On pose X = eˣ, X > 0</p>
+                <p>X² - 3X + 2 < 0</p>
+                <p>(X - 1)(X - 2) < 0</p>
+                <p>⇔ 1 < X < 2</p>
+                <p>⇔ 1 < eˣ < 2</p>
+                <p>⇔ ln(1) < x < ln(2)</p>
+                <p>⇔ <strong>0 < x < ln(2)</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Fonction eᵘ⁽ˣ⁾ et applications</h3>
+            <h4>Fonction e^(u(x))</h4>
+            <p>La forme la plus générale de l'exponentielle qu'on étudie est f(x) = e^(u(x)) où u(x) est une fonction.</p>
+            <div class="formula-box">
+                <div class="formula-title">Étude de f(x) = e^(u(x))</div>
+                <strong>Dérivée :</strong> f'(x) = u'(x) · e^(u(x))<br>
+                <strong>Signe :</strong> même signe que u'(x) (car e^(u) > 0 toujours)<br>
+                <strong>Tableau :</strong> les variations de u se reflètent dans f
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple — Étude complète</h4>
+                <p>f(x) = e^(x² - 2x)</p>
+                <p>• Domaine : ℝ</p>
+                <p>• u(x) = x² - 2x, u'(x) = 2x - 2</p>
+                <p>• f'(x) = (2x - 2) · e^(x² - 2x)</p>
+                <p>• Signe : f'(x) > 0 ⇔ x > 1</p>
+                <p>• Décroissante sur ]-∞, 1[, croissante sur ]1, +∞[</p>
+                <p>• Minimum en x = 1 : f(1) = e^(1 - 2) = e^(-1) = 1/e</p>
+                <p>• Asymptote horizontale : y = 0 en -∞</p>
+            </div>
+
+            <h4>Applications concrètes</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📈</span><p><strong>Croissance / décroissance exponentielle</strong> : y = e^(kt)</p></div>
+                <div class="key-point"><span class="icon">📈</span><p><strong>Intérêts composés</strong> : C(t) = C₀·e^(rt) — capital croissant continuellement</p></div>
+                <div class="key-point"><span class="icon">📈</span><p><strong>Désintégration radioactive</strong> : N(t) = N₀·e^(-λt)</p></div>
+                <div class="key-point"><span class="icon">📈</span><p><strong>Physique</strong> : charge d'un condensateur RC, réponse d'un circuit RL</p></div>
+            </div>
+
+            <h4>Équation différentielle fondamentale</h4>
+            <div class="formula-box">
+                <div class="formula-title">Équation différentielle y' = y</div>
+                Les solutions de y' = y sont f(x) = C·eˣ (C ∈ ℝ)<br>
+                C'est l'équation fondamentale de la croissance exponentielle
+            </div>
+        </div>
+
+        <!-- PARTIE 6 -->
+        <div class="math-content" id="p6">
+            <h3>📓 6. Exercices résolus</h3>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 1 — Dérivation</h4>
+                <p>Calculer la dérivée de f(x) = eˣ · (x² + 1)</p>
+                <p><strong>Solution :</strong></p>
+                <p>f'(x) = eˣ · (x² + 1) + eˣ · 2x</p>
+                <p>= eˣ · (x² + 2x + 1)</p>
+                <p>= eˣ · (x + 1)²</p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 2 — Limite</h4>
+                <p>lim(x→+∞) (eˣ - 1) / x²</p>
+                <p><strong>Solution :</strong></p>
+                <p>Par croissance comparée : eˣ domine x²</p>
+                <p>lim = +∞ / +∞ (FI)</p>
+                <p>Règle de l'Hôpital appliquée 2 fois :</p>
+                <p>lim = lim eˣ / (2x) = lim eˣ / 2 = <strong>+∞</strong></p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 3 — Équation</h4>
+                <p>eˣ + e⁻ˣ = 3</p>
+                <p><strong>Solution :</strong></p>
+                <p>On pose t = eˣ, t > 0</p>
+                <p>t + 1/t = 3</p>
+                <p>t² + 1 = 3t</p>
+                <p>t² - 3t + 1 = 0</p>
+                <p>Δ = 9 - 4 = 5</p>
+                <p>t = (3 ± √5)/2</p>
+                <p>Les deux sont > 0</p>
+                <p>x = ln((3 ± √5)/2)</p>
+                <p>Solutions : <strong>x = ln((3+√5)/2)</strong> et <strong>x = ln((3-√5)/2)</strong></p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 4 — Primitive</h4>
+                <p>∫ (eˣ - 1) / eˣ dx</p>
+                <p><strong>Solution :</strong></p>
+                <p>(eˣ - 1) / eˣ = 1 - e⁻ˣ</p>
+                <p>∫ (1 - e⁻ˣ) dx = x + e⁻ˣ + C</p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 5 — Inéquation avec ln et exp</h4>
+                <p>e^(2x) ≤ 4</p>
+                <p><strong>Solution :</strong></p>
+                <p>⇔ 2x ≤ ln(4) = 2ln(2)</p>
+                <p>⇔ x ≤ ln(2)</p>
+                <p>Solution : <strong>]-∞, ln(2)]</strong></p>
+            </div>
+        </div>
+
+         <!-- SECTION RÉSUMÉ IMAGE -->
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+            <div class="resume-image-container">
+               <a href="https://drive.google.com/file/d/1ocrMvCnUDZgC5vnYkglg9Z94IsozRDoQ/view?usp=drive_link" download>
+                    <button>📥 Télécharger la photo</button>
+                </a>
+                
+            </div>
+        </section>
+
+        <!-- SECTION VIDÉO -->
+       <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1v75jCCd0Svk0-Ez6zY59ObcTHKIDRTHY/preview
+"
+                        width="640" height="360" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+          <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/15-OPKvA_xwl9bc7eQD-QKjJyCipcqwyb/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+        <a href="CH7-fonction-puissance.html" class="next-lesson" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">
+            <div>
+                <p class="next-lesson-text">Chapitre suivant</p>
+                <p class="next-lesson-title">CH7: Fonction puissance →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

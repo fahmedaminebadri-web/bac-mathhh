@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon 9 : Statistique - Mathématiques</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .formula-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid #EAB308; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: #92400E; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); border-left: 4px solid #F97316; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #C2410C; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #FDE68A; }
+        .toc h3 { color: #92400E; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: #B45309; font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .table-box { overflow-x: auto; margin: 16px 0; }
+        .table-box table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+        .table-box th { background: var(--primary); color: white; padding: 10px; text-align: center; }
+        .table-box td { padding: 8px 12px; text-align: center; border-bottom: 1px solid var(--border-light); }
+        .table-box tr:nth-child(even) { background: var(--bg-gray-50); }
+        .serie-download-section { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 2px solid #10B981; text-align: center; }
+        .serie-download-section h3 { color: #065F46; margin-bottom: 12px; font-size: 1.1rem; }
+        .serie-download-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; border-radius: var(--radius-lg); font-size: 1.05rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+        .serie-download-btn:hover { background: linear-gradient(135deg, #059669, #047857); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
+        .serie-download-btn svg { width: 20px; height: 20px; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+               <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #EAB308;">
+            <h1>Leçon 9 : Statistique</h1>
+            <p class="breadcrumb">Mathématiques › Leçon 9</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan de la leçon</h3>
+            <ol>
+                <li><a href="#p1">Notions de base — Population et caractère</a></li>
+                <li><a href="#p2">Tableaux et graphiques</a></li>
+                <li><a href="#p3">Paramètres de position</a></li>
+                <li><a href="#p4">Paramètres de dispersion</a></li>
+                <li><a href="#p5">Nuage de points et ajustement affine</a></li>
+                <li><a href="#p6">Corrélation et droite de régression</a></li>
+            </ol>
+        </div>
+
+       <!-- SECTION PODCAST -->
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1um-P8uh57OzcoapcsU7u6pqGkR8VklLy/preview
+"
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Notions de base — Population et caractère</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">Définitions fondamentales</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">👥</span><p><strong>Population</strong> : ensemble des individus étudiés</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Échantillon</strong> : partie de la population réellement observée</p></div>
+                <div class="key-point"><span class="icon">🔍</span><p><strong>Caractère (variable)</strong> : propriété étudiée chez chaque individu</p></div>
+                <div class="key-point"><span class="icon">🎯</span><p><strong>Modalités</strong> : valeurs possibles du caractère</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Types de caractères</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔢</span><p><strong>Quantitatif discret</strong> : valeurs numériques isolées (notes, nombre d'enfants...)</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>Quantitatif continu</strong> : valeurs dans un intervalle (taille, poids, salaire...)</p></div>
+                <div class="key-point"><span class="icon">🏷️</span><p><strong>Qualitatif</strong> : non numérique (sexe, profession, couleur...)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemples</h4>
+                <p>• Population : élèves d'une classe de Terminale Math</p>
+                <p>• Caractère quantitatif discret : note sur 20 (0, 1, 2, ..., 20)</p>
+                <p>• Caractère quantitatif continu : taille en cm</p>
+                <p>• Caractère qualitatif : section (Math, Sciences, Lettres...)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Vocabulaire essentiel</h3>
+            <div class="formula-box">
+                <div class="formula-title">Série statistique</div>
+                <strong>xi</strong> : valeurs du caractère (modalités)<br>
+                <strong>ni</strong> : effectif de la valeur xi (nombre d'individus)<br>
+                <strong>fi = ni / N</strong> : fréquence de xi (N = effectif total)<br>
+                <strong>Ni</strong> : effectif cumulé croissant
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Notes des élèves</h4>
+                <p>40 élèves, notes obtenues :</p>
+                <div class="table-box">
+                    <table>
+                        <tr><th>Note (xi)</th><th>Effectif (ni)</th><th>Fréquence (fi)</th><th>Effectif cumulé (Ni)</th></tr>
+                        <tr><td>5</td><td>3</td><td>0,075</td><td>3</td></tr>
+                        <tr><td>8</td><td>7</td><td>0,175</td><td>10</td></tr>
+                        <tr><td>10</td><td>12</td><td>0,300</td><td>22</td></tr>
+                        <tr><td>12</td><td>10</td><td>0,250</td><td>32</td></tr>
+                        <tr><td>15</td><td>8</td><td>0,200</td><td>40</td></tr>
+                        <tr><td><strong>Total</strong></td><td><strong>40</strong></td><td><strong>1</strong></td><td></td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Caractère continu — Classes</h3>
+            <p>Quand le caractère est continu (ou avec beaucoup de modalités), on regroupe en <strong>classes</strong>.</p>
+            <div class="formula-box">
+                <div class="formula-title">Classes</div>
+                [a, b[ : classe de amplitude <strong>h = b − a</strong><br>
+                <strong>Centre de classe</strong> : c = (a + b)/2<br>
+                <strong>Fréquence</strong> d'une classe = somme des fi dans la classe
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Tableaux et graphiques</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">Diagrammes pour caractères qualitatifs</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📊</span><p><strong>Diagramme en secteurs (camembert)</strong> : angles proportionnels aux effectifs</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Diagramme en barres</strong> : barres de hauteurs proportionnelles aux effectifs</p></div>
+                <div class="key-point"><span class="icon">📊</span><p>Angle du secteur i = <strong>fi × 360°</strong></p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Diagrammes pour caractères quantitatifs</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📈</span><p><strong>Diagramme en bâtons</strong> : caractères discrets (hauteurs = ni ou fi)</p></div>
+                <div class="key-point"><span class="icon">📉</span><p><strong>Histogramme</strong> : caractères continus (aires proportionnelles aux effectifs)</p></div>
+                <div class="key-point"><span class="icon">📉</span><p><strong>Polygone des effectifs</strong> : ligne reliant les sommets des bâtons ou les centres de classes</p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Construction de l'histogramme</div>
+                Pour une classe [a, b[ d'amplitude h :<br>
+                <strong>Hauteur du rectangle = effectif / amplitude</strong><br>
+                (l'aire = ni × 1 = ni, proportionnelle à l'effectif)
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Courbe cumulative (ogive)</h3>
+            <p>La <strong>courbe cumulative</strong> représente la fonction de répartition.</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p>Pour discret : on joint les points (xi, Ni) en escalier</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Pour continu : on joint les points (bi, Ni) où bi = borne supérieure de chaque classe</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Permet de lire graphiquement la médiane et les quartiles</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Salaires en dinars (caractère continu)</h4>
+                <div class="table-box">
+                    <table>
+                        <tr><th>Classe (DT)</th><th>Centre</th><th>Effectif ni</th><th>Amplitude h</th><th>Hauteur (ni/h)</th></tr>
+                        <tr><td>[500, 800[</td><td>650</td><td>10</td><td>300</td><td>0,033</td></tr>
+                        <tr><td>[800, 1100[</td><td>950</td><td>25</td><td>300</td><td>0,083</td></tr>
+                        <tr><td>[1100, 1500[</td><td>1300</td><td>20</td><td>400</td><td>0,050</td></tr>
+                        <tr><td>[1500, 2000[</td><td>1750</td><td>15</td><td>500</td><td>0,030</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Erreurs fréquentes en histogramme</h4>
+                <p>• <strong>Ne pas diviser par l'amplitude</strong> si les classes n'ont pas la même largeur</p>
+                <p>• Confusion entre histogramme et diagramme en barres (l'histogramme utilise les aires)</p>
+                <p>• Oublier que dans une classe [a, b[, la borne a est incluse et b est exclue</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Paramètres de position</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">Mode (Mo)</h3>
+            <p>Le <strong>mode</strong> est la valeur du caractère qui a le plus grand effectif.</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔺</span><p>Caractère discret : valeur xi de ni maximum</p></div>
+                <div class="key-point"><span class="icon">🔺</span><p>Caractère continu : classe modale = classe de plus haute densité (ni/h)</p></div>
+                <div class="key-point"><span class="icon">🔺</span><p>Une série peut avoir <strong>plusieurs modes</strong> (série multimodale)</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Moyenne arithmétique (x̄)</h3>
+            <div class="formula-box">
+                <div class="formula-title">Moyenne arithmétique</div>
+                <strong>x̄ = (Σ xi·ni) / N = Σ xi·fi</strong><br><br>
+                Pour des données brutes : <strong>x̄ = (x₁ + x₂ + ... + xN) / N</strong><br><br>
+                Propriété : <strong>x̄ = Σ ci·ni / N</strong> (avec ci = centre de classe)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calcul de la moyenne des notes</h4>
+                <div class="table-box">
+                    <table>
+                        <tr><th>Note xi</th><th>Effectif ni</th><th>xi·ni</th></tr>
+                        <tr><td>5</td><td>3</td><td>15</td></tr>
+                        <tr><td>8</td><td>7</td><td>56</td></tr>
+                        <tr><td>10</td><td>12</td><td>120</td></tr>
+                        <tr><td>12</td><td>10</td><td>120</td></tr>
+                        <tr><td>15</td><td>8</td><td>120</td></tr>
+                        <tr><td><strong>Total</strong></td><td><strong>40</strong></td><td><strong>431</strong></td></tr>
+                    </table>
+                </div>
+                <p>x̄ = 431/40 = <strong>10,775 ≈ 10,78</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Médiane (Me)</h3>
+            <p>La <strong>médiane</strong> est la valeur qui partage la série en deux parties égales (50% avant, 50% après).</p>
+
+            <div class="formula-box">
+                <div class="formula-title">Calcul de la médiane</div>
+                <strong>① Ranger les données par ordre croissant</strong><br>
+                <strong>② Si N est impair</strong> : Me = valeur de rang (N+1)/2<br>
+                <strong>③ Si N est pair</strong> : Me = moyenne des valeurs de rang N/2 et N/2 + 1
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 : N impair</h4>
+                <p>Données : 3, 5, 7, 9, 12 → N = 5</p>
+                <p>Rang = (5+1)/2 = 3 → <strong>Me = 7</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 : N pair</h4>
+                <p>Données : 3, 5, 7, 9 → N = 4</p>
+                <p>Rangs 2 et 3 : 5 et 7 → <strong>Me = (5+7)/2 = 6</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Médiane avec tableau (cas discret)</h3>
+            <div class="formula-box">
+                <div class="formula-title">Médiane par effectif cumulé</div>
+                Chercher la plus petite valeur xi telle que <strong>Ni ≥ N/2</strong><br><br>
+                Si N = 40 : N/2 = 20<br>
+                Ni = 3, 10, 22 → 22 ≥ 20 → Me = <strong>10</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Médiane avec classes (cas continu)</h3>
+            <div class="formula-box">
+                <div class="formula-title">Interpolation linéaire</div>
+                <strong>Me = a + [(N/2 − N_{avant}) / n_i] × h</strong><br><br>
+                où :<br>
+                • a = borne inférieure de la classe médiane<br>
+                • N_{avant} = effectif cumulé avant la classe<br>
+                • n_i = effectif de la classe médiane<br>
+                • h = amplitude de la classe
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Salaires</h4>
+                <p>Classe médiane : [800, 1100[, N/2 = 35/2 = 17,5</p>
+                <p>N_{avant} = 10, n_i = 25, h = 300</p>
+                <p>Me = 800 + [(17,5 − 10)/25] × 300</p>
+                <p>Me = 800 + (7,5/25) × 300 = 800 + 0,3 × 300</p>
+                <p><strong>Me = 800 + 90 = 890 DT</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Quartiles et déciles</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Q₁</strong> (1er quartile) : 25% des données lui sont inférieures</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Q₂</strong> (2ème quartile) = Médiane</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Q₃</strong> (3ème quartile) : 75% des données lui sont inférieures</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>D₁, D₉</strong> : 1er et 9ème déciles (10% et 90%)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Même formule que la médiane avec N/4, 3N/4...</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Paramètres de dispersion</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">Étendue</h3>
+            <div class="formula-box">
+                <div class="formula-title">Étendue</div>
+                <strong>E = x_{max} − x_{min}</strong><br><br>
+                C'est le paramètre le plus simple mais très sensible aux valeurs extrêmes.
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Variance (V) et Écart-type (σ)</h3>
+            <div class="formula-box">
+                <div class="formula-title">Variance</div>
+                <strong>V = [(Σ xi²·ni) / N] − x̄²</strong><br>
+                (formule简化e — plus pratique)<br><br>
+                Version développée : <strong>V = Σ (xi − x̄)²·ni / N</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Écart-type</div>
+                <strong>σ = √V</strong><br><br>
+                σ a la <strong>même unité</strong> que les données (contrairement à la variance).
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple complet : Notes des 40 élèves</h4>
+                <div class="table-box">
+                    <table>
+                        <tr><th>xi</th><th>ni</th><th>xi·ni</th><th>xi²</th><th>xi²·ni</th></tr>
+                        <tr><td>5</td><td>3</td><td>15</td><td>25</td><td>75</td></tr>
+                        <tr><td>8</td><td>7</td><td>56</td><td>64</td><td>448</td></tr>
+                        <tr><td>10</td><td>12</td><td>120</td><td>100</td><td>1200</td></tr>
+                        <tr><td>12</td><td>10</td><td>120</td><td>144</td><td>1440</td></tr>
+                        <tr><td>15</td><td>8</td><td>120</td><td>225</td><td>1800</td></tr>
+                        <tr><td><strong>Σ</strong></td><td><strong>40</strong></td><td><strong>431</strong></td><td></td><td><strong>4963</strong></td></tr>
+                    </table>
+                </div>
+                <p>x̄ = 431/40 = 10,775</p>
+                <p>E(x²) = 4963/40 = 124,075</p>
+                <p><strong>V = 124,075 − (10,775)² = 124,075 − 116,101 = 7,974</strong></p>
+                <p><strong>σ = √7,974 ≈ 2,82</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Variance avec classes</h3>
+            <div class="formula-box">
+                <div class="formula-title">Variance avec classes</div>
+                <strong>V = [Σ ci²·ni / N] − x̄²</strong><br>
+                où ci = centre de la classe i
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Écart interquartile</h3>
+            <div class="formula-box">
+                <div class="formula-title">Écart interquartile</div>
+                <strong>Q = Q₃ − Q₁</strong><br><br>
+                Plus <strong>robuste</strong> que l'étendue : insensible aux valeurs extrêmes.<br>
+                50% des données sont comprises entre Q₁ et Q₃.
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📊</span><p><strong>σ petit</strong> → données concentrées autour de la moyenne</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>σ grand</strong> → données très dispersées</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Règle empirique</strong> : environ 68% des données dans [x̄−σ, x̄+σ]</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Règle empirique</strong> : environ 95% dans [x̄−2σ, x̄+2σ]</p></div>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Coefficients de variation (CV)</h4>
+                <p>Pour comparer la dispersion de deux séries <strong>incompatibles</strong> (unités différentes) :</p>
+                <p><strong>CV = σ / x̄</strong> (souvent en %)</p>
+                <p>• CV ≤ 15% → dispersion faible</p>
+                <p>• CV ≥ 30% → dispersion forte</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>🟧 5. Nuage de points et ajustement affine</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">Nuage de points</h3>
+            <p>Pour étudier la <strong>relation entre deux variables</strong> X et Y sur n individus, on place les points Mᵢ(xᵢ, yᵢ) dans un repère.</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📍</span><p><strong>X</strong> (variable explicative) : en abscisse</p></div>
+                <div class="key-point"><span class="icon">📍</span><p><strong>Y</strong> (variable à expliquer) : en ordonnée</p></div>
+                <div class="key-point"><span class="icon">📍</span><p>Chaque point représente un individu</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Taille et poids</h4>
+                <p>10 élèves :</p>
+                <div class="table-box">
+                    <table>
+                        <tr><th>Élève</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+                        <tr><td>Taille (cm)</td><td>155</td><td>160</td><td>162</td><td>165</td><td>168</td><td>170</td><td>172</td><td>175</td><td>178</td><td>180</td></tr>
+                        <tr><td>Poids (kg)</td><td>50</td><td>55</td><td>57</td><td>60</td><td>63</td><td>65</td><td>67</td><td>70</td><td>73</td><td>76</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Ajustement affine</h3>
+            <p>Si le nuage de points est <strong>presque aligné</strong>, on cherche une droite d'équation <strong>y = ax + b</strong> qui approxime le nuage.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">Covariance</div>
+                <strong>cov(X,Y) = [Σ (xi − x̄)(yi − ȳ)] / n</strong><br><br>
+                Formule pratique : <strong>cov(X,Y) = (Σ xi·yi / n) − x̄·ȳ</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Droite d'ajustement (méthode des moindres carrés)</div>
+                <strong>y = ax + b</strong><br><br>
+                <strong>a = cov(X,Y) / V(X) = cov(X,Y) / σx²</strong><br>
+                <strong>b = ȳ − a·x̄</strong><br><br>
+                La droite passe toujours par le <strong>point moyen G(x̄, ȳ)</strong>.
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Calcul : Exemple Taille-Poids</h4>
+                <p>x̄ = 168,5 cm &nbsp;|&nbsp; ȳ = 63,6 kg</p>
+                <p>cov(X,Y) ≈ 67,9 &nbsp;|&nbsp; V(X) = 71,8</p>
+                <p><strong>a = 67,9 / 71,8 ≈ 0,946</strong></p>
+                <p><strong>b = 63,6 − 0,946 × 168,5 ≈ −96,0</strong></p>
+                <p>→ <strong>y = 0,946x − 96,0</strong></p>
+                <p>Interprétation : pour 1 cm de plus, le poids augmente de ~0,95 kg</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Résidus</h3>
+            <div class="formula-box">
+                <div class="formula-title">Résidu</div>
+                <strong>rᵢ = yᵢ − (a·xᵢ + b)</strong><br><br>
+                C'est l'écart entre la valeur observée yᵢ et la valeur prédite par la droite.<br>
+                La méthode des moindres carrés minimise la somme Σrᵢ².
+            </div>
+        </div>
+
+        <!-- PARTIE 6 -->
+        <div class="math-content" id="p6">
+            <h3>🟩 6. Corrélation et droite de régression</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">Coefficient de corrélation linéaire</h3>
+            <p>Le coefficient <strong>r</strong> mesure l'<strong>intensité</strong> et le <strong>sens</strong> de la relation linéaire entre X et Y.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">Coefficient de corrélation de Pearson</div>
+                <strong>r = cov(X,Y) / (σx · σy)</strong><br><br>
+                <strong>−1 ≤ r ≤ 1</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Interprétation de r</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📈</span><p><strong>r = +1</strong> : droite croissante parfaite</p></div>
+                <div class="key-point"><span class="icon">📉</span><p><strong>r = −1</strong> : droite décroissante parfaite</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>r ≈ 0</strong> : pas de relation linéaire (mais relation possible non linéaire)</p></div>
+                <div class="key-point"><span class="icon">🌟</span><p><strong>|r| > 0,7</strong> : forte corrélation</p></div>
+                <div class="key-point"><span class="icon">🌟</span><p><strong>|r| < 0,4</strong> : faible corrélation</p></div>
+                <div class="key-point"><span class="icon">⚠️</span><p><strong>r²</strong> = coefficient de détermination (proportion de variance expliquée)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : r = 0,99</h4>
+                <p> Très forte correlation positive entre taille et poids.</p>
+                <p>r² = 0,98 → <strong>98% de la variance</strong> du poids est expliquée par la taille.</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Droite de régression de Y en X</h3>
+            <div class="formula-box">
+                <div class="formula-title">Droite de régression</div>
+                <strong>y = a·x + b</strong><br><br>
+                <strong>a = r · (σy / σx)</strong><br>
+                <strong>b = ȳ − a·x̄</strong><br><br>
+                Utilisée pour <strong>prévoir Y</strong> connaissant X.
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">Limites et précautions</h3>
+            <div class="warning-box">
+                <h4>⚠️ Avertissements importants</h4>
+                <p>• <strong>Corrélation ≠ causalité</strong> : deux variables corrélées ne sont pas forcément liées par un lien de cause à effet</p>
+                <p>• Un r proche de 0 ne signifie pas qu'il n'y a pas de relation (possible relation quadratique, logarithmique...)</p>
+                <p>• L'extrapolation (prédiction hors de l'intervalle des données) est <strong>dangereuse</strong></p>
+                <p>• Vérifier d'abord la线性ité visuellement avec le nuage de points avant de calculer r</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple classique : Glace et noyades</h4>
+                <p>On observe une forte corrélation positive entre la consommation de glaces et le nombre de noyades.</p>
+                <p>→ <strong>Fausses conclusion :</strong> les glaces causent les noyades</p>
+                <p>→ <strong>Vraie explication :</strong> une troisième variable (la température) influence les deux</p>
+                <p>→ C'est l'<strong>été</strong> qui explique la hausse des deux !</p>
+            </div>
+        </div>
+
+         <!-- SECTION RÉSUMÉ IMAGE -->
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+            <div class="resume-image-container">
+               
+                            <br><br>
+                <a href="https://drive.google.com/file/d/177zm5zcJMxXxPqYS6gc-ocxsVkvzoNEv/view?usp=drive_link" download>
+                    <button>📥 Télécharger la photo</button>
+                </a></div>
+        </section>
+
+        <!-- SECTION VIDÉO -->
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1td0jBKD66-JKYRVxAA6PSDrUr0J9qztu/preview
+"
+                        width="640" height="360" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+
+          <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/1HCvkb4-uwA5hGL5hRU_IxtmdEl4vjCBf/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+        <a href="mathematiques.html" class="next-lesson" style="background: linear-gradient(135deg, #EAB308, #CA8A04);">
+            <div>
+                <p class="next-lesson-text">fin </p>
+                <p class="next-lesson-title">tous les leçons</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

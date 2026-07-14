@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon 10 : Révision - Mathématiques</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.1rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: var(--text-light); margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid var(--warning); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .serie-download-section { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 2px solid #10B981; text-align: center; }
+        .serie-download-section h3 { color: #065F46; margin-bottom: 12px; font-size: 1.1rem; }
+        .serie-download-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; border-radius: var(--radius-lg); font-size: 1.05rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+        .serie-download-btn:hover { background: linear-gradient(135deg, #059669, #047857); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
+        .serie-download-btn svg { width: 20px; height: 20px; }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+               <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <!-- HEADER LEÇON -->
+        <div class="lesson-header">
+            <h1>Leçon 10 : Révision</h1>
+            <p class="breadcrumb">Mathématiques > Leçon 10</p>
+        </div>
+
+        <!-- PLAN -->
+        <div class="toc">
+            <h3>📋 Plan de la leçon</h3>
+            <ol>
+                <li><a href="#partie1">Rappel Analyse</a></li>
+                <li><a href="#partie2">Rappel Nombres Complexes</a></li>
+                <li><a href="#partie3">Rappel Géométrie</a></li>
+                <li><a href="#partie4">Rappel Probabilités et Statistiques</a></li>
+            </ol>
+        </div>
+
+        <!-- SECTION PODCAST -->
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Révision générale</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/VOTRE_ID_PODCAST_1/preview" width="600" height="120" frameborder="0" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="partie1">
+            <h3>📘 1. Rappel Analyse</h3>
+            <p>À compléter avec votre contenu...</p>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="partie2">
+            <h3>📗 2. Rappel Nombres Complexes</h3>
+            <p>À compléter avec votre contenu...</p>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="partie3">
+            <h3>📙 3. Rappel Géométrie</h3>
+            <p>À compléter avec votre contenu...</p>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="partie4">
+            <h3>📕 4. Rappel Probabilités et Statistiques</h3>
+            <p>À compléter avec votre contenu...</p>
+        </div>
+
+        <!-- SECTION RÉSUMÉ IMAGE -->
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+            <div class="resume-images">
+                <a href="https://drive.google.com/file/d/VOTRE_ID_IMAGE_1/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+                <a href="https://drive.google.com/file/d/VOTRE_ID_IMAGE_2/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION VIDÉO -->
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo de révision</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/VOTRE_ID_VIDEO_1/preview" width="640" height="480" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+         <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+        <!-- BOUTON RETOUR -->
+        <a href="mathematiques.html" class="next-lesson">
+            <div>
+                <p class="next-lesson-text">Retour au sommaire</p>
+                <p class="next-lesson-title">Toutes les leçons Mathématiques →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon 1 : Analyse - Mathématiques</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.1rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: var(--text-light); margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid var(--warning); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .sub-lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin: 20px 0; }
+        .sub-lesson-card { background: var(--bg-white); border-radius: var(--radius-lg); padding: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); transition: all 0.3s ease; text-decoration: none; display: block; }
+        .sub-lesson-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+        .sub-lesson-card h4 { color: var(--primary); font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .sub-lesson-card p { color: var(--text-light); font-size: 0.85rem; margin: 0; }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+              <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <!-- HEADER LEÇON -->
+        <div class="lesson-header">
+            <h1>Leçon 1 : Analyse</h1>
+            <p class="breadcrumb">Mathématiques > Leçon 1</p>
+        </div>
+
+        
+
+        <!-- SECTION PODCAST -->
+       
+
+        <!-- GRILLE DES SOUS-LEÇONS -->
+        <h2 style="margin: 30px 0 10px; color: var(--text-dark);">📚 Accéder aux chapitres</h2>
+        <div class="sub-lessons-grid">
+            <a href="analyse-ch1-suites-reelles.html" class="sub-lesson-card" id="chapter1">
+                <h4>📘 CH1: Suites réelles</h4>
+                <p>Suites arithmétiques, géométriques, limites et récurrence</p>
+            </a>
+            <a href="analyse-ch2-limites-continuite.html" class="sub-lesson-card" id="chapter2">
+                <h4>📗 CH2: Limites et continuité</h4>
+                <p>Limites de fonctions, continuité, théorèmes fondamentaux</p>
+            </a>
+            <a href="analyse-ch3-derivation.html" class="sub-lesson-card" id="chapter3">
+                <h4>📙 CH3: Dérivation</h4>
+                <p>Dérivabilité, formules de dérivation, applications</p>
+            </a>
+            <a href="analyse-ch4-fonctions-poly.html" class="sub-lesson-card" id="chapter4">
+                <h4>📕 CH4: Fonctions polynômes, rationnelles et trigonométriques</h4>
+                <p>Étude de fonctions et fonctions circulaires</p>
+            </a>
+            <a href="analyse-ch5-logarithme.html" class="sub-lesson-card" id="chapter5">
+                <h4>📒 CH5: Fonction logarithme népérien</h4>
+                <p>ln(x), propriétés, équations et inéquations logarithmiques</p>
+            </a>
+            <a href="analyse-ch6-exponentielle.html" class="sub-lesson-card" id="chapter6">
+                <h4>📓 CH6: Fonction exponentielle</h4>
+                <p>exp(x), propriétés, dérivées et équations exponentielles</p>
+            </a>
+            <a href="analyse-ch7-puissance.html" class="sub-lesson-card" id="chapter7">
+                <h4>📔 CH7: Fonction puissance</h4>
+                <p>Fonction x^n, x^(1/n) et propriétés</p>
+            </a>
+            <a href="analyse-ch8-integrale.html" class="sub-lesson-card" id="chapter8">
+                <h4>📒 CH8: Intégrale d'une fonction continue sur [a,b]</h4>
+                <p>Calcul d'aires, primitives et formule fondamentale</p>
+            </a>
+             <a href="analyse-ch8-Fonctions réciproques.html" class="sub-lesson-card" id="chapter9">
+                <h4>📜 Fonctions réciproques</h4>
+                
+            </a>
+        </div>
+
+        <!-- BOUTON LEÇON SUIVANTE -->
+        <a href="../Mathematiques/lecon2-complexe.html" class="next-lesson">
+            <div>
+                <p class="next-lesson-text">Leçon suivante</p>
+                <p class="next-lesson-title">Leçon 2 : Nombres Complexes →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

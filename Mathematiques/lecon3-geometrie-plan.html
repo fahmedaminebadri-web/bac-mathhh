@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon 3 : Géométrie dans le Plan - Mathématiques Bac Math Tunisien</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1D4ED8; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid #EAB308; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .important-box { background: linear-gradient(135deg, #FEE2E2, #FECACA); border-left: 4px solid #EF4444; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .important-box h4 { color: #B91C1C; font-size: 0.95rem; margin-bottom: 8px; }
+        .important-box p { color: #991B1B; margin-bottom: 6px; }
+        .serie-download-section { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 2px solid #10B981; text-align: center; }
+        .serie-download-section h3 { color: #065F46; margin-bottom: 12px; font-size: 1.1rem; }
+        .serie-download-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; border-radius: var(--radius-lg); font-size: 1.05rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+        .serie-download-btn:hover { background: linear-gradient(135deg, #059669, #047857); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
+        .serie-download-btn svg { width: 20px; height: 20px; }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+               <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <div class="lesson-header">
+            <h1>Leçon 3 : Géométrie dans le Plan</h1>
+            <p class="breadcrumb">Mathématiques > Bac Math > Leçon 3</p>
+        </div>
+
+        <!-- TABLE DES MATIÈRES -->
+        <div class="toc">
+            <h3>📋 Plan de la leçon</h3>
+            <ol>
+                <li><a href="#p1">Repères et coordonnées dans le plan</a></li>
+                <li><a href="#p2">Vecteurs et opérations vectorielles</a></li>
+                <li><a href="#p3">Produit scalaire</a></li>
+                <li><a href="#p4">Droites dans le plan</a></li>
+                <li><a href="#p5">Équations de droites</a></li>
+                <li><a href="#p6">Positions relatives de deux droites</a></li>
+                <li><a href="#p7">Distance d'un point à une droite</a></li>
+                <li><a href="#p8">Le cercle</a></li>
+                <li><a href="#p9">Parabole, ellipse et hyperbole</a></li>
+                <li><a href="#p10">Transformations géométriques</a></li>
+                <li><a href="#p11">Angles et trigonométrie</a></li>
+                <li><a href="#p12">Applications et problèmes types</a></li>
+            </ol>
+        </div>
+
+        <!-- SECTION PODCAST -->
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1xvl_jnDzPBF_u8-nszyEjfoRT-AIofV3/preview
+" width="600" height="120" frameborder="0" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 : REPÈRES ET COORDONNÉES -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Repères et coordonnées dans le plan</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">1.1 Repère cartésien</h3>
+            <p>Un <strong>repère cartésien</strong> du plan est défini par un point O appelé <strong>origine</strong> et deux axes perpendiculaires (ou non) définissant une base. On distingue :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Repère orthonormal (O, i⃗, j⃗)</strong> : les deux axes sont perpendiculaires et les vecteurs unitaires ont même longueur</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Repère orthogonal</strong> : les axes sont perpendiculaires mais les unités peuvent être différentes</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Repère oblique</strong> : les axes ne sont pas perpendiculaires</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">1.2 Coordonnées cartésiennes</h3>
+            <p>Tout point M du plan peut être caractérisé par un couple unique (x, y) appelé <strong>coordonnées cartésiennes</strong> :</p>
+            <div class="formula-box">
+                <div class="formula-title">Coordonnées d'un point</div>
+                <strong>OM⃗ = x·i⃗ + y·j⃗</strong>
+            </div>
+            <p>où x est l'<strong>abscisse</strong> et y l'<strong>ordonnée</strong> du point M.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemples de coordonnées</h4>
+                <p>• M(3, 4) : abscisse 3, ordonnée 4</p>
+                <p>• N(-2, 5) : abscisse -2, ordonnée 5</p>
+                <p>• P(0, -3) : sur l'axe des ordonnées négatives</p>
+                <p>• O(0, 0) : l'origine du repère</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">1.3 Coordonnées polaires</h3>
+            <p>Tout point M (différent de O) peut aussi être caractérisé par ses <strong>coordonnées polaires</strong> (ρ, θ) :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📏</span><p><strong>ρ ≥ 0</strong> : distance OM</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>θ ∈ ℝ</strong> : angle orienté (Ox⃗, OM⃗)</p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Passage coordonnées polaires → cartésiennes</div>
+                <strong>x = ρ·cos θ</strong><br>
+                <strong>y = ρ·sin θ</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Passage coordonnées cartésiennes → polaires</div>
+                <strong>ρ = √(x² + y²)</strong><br>
+                <strong>cos θ = x/ρ</strong> et <strong>sin θ = y/ρ</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Coordonnées polaires de M(3, 4)</h4>
+                <p>ρ = √(9 + 16) = 5</p>
+                <p>cos θ = 3/5 et sin θ = 4/5</p>
+                <p>θ = arctan(4/3) ≈ 53,13°</p>
+                <p>Donc M a pour coordonnées polaires (5, 53,13°)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">1.4 Milieu d'un segment</h3>
+            <p>Le <strong>milieu</strong> I du segment [AB] où A(x₁, y₁) et B(x₂, y₂) a pour coordonnées :</p>
+            <div class="formula-box">
+                <div class="formula-title">Coordonnées du milieu</div>
+                <strong>x_I = (x₁ + x₂)/2</strong><br>
+                <strong>y_I = (y₁ + y₂)/2</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Milieu de [A(2, 3)] et [B(6, 7)]</h4>
+                <p>x_I = (2 + 6)/2 = 4</p>
+                <p>y_I = (3 + 7)/2 = 5</p>
+                <p>Donc I(4, 5)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">1.5 Distance entre deux points</h3>
+            <p>Dans un repère orthonormal, la <strong>distance</strong> entre A(x₁, y₁) et B(x₂, y₂) est :</p>
+            <div class="formula-box">
+                <div class="formula-title">Distance AB</div>
+                <strong>AB = √[(x₂ - x₁)² + (y₂ - y₁)²]</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Distance entre A(1, 2) et B(4, 6)</h4>
+                <p>AB = √[(4-1)² + (6-2)²]</p>
+                <p>= √[3² + 4²] = √[9 + 16] = √25 = <strong>5</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 : VECTEURS -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Vecteurs et opérations vectorielles</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">2.1 Définition d'un vecteur</h3>
+            <p>Un <strong>vecteur</strong> est défini par une direction, un sens et une longueur (norme). Si A et B sont deux points, le vecteur AB⃗ représente le déplacement de A vers B.</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➡️</span><p><strong>Direction</strong> : la droite qui porte le vecteur</p></div>
+                <div class="key-point"><span class="icon">➡️</span><p><strong>Sens</strong> : orientation sur cette droite</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>Norme</strong> : longueur du vecteur, notée ‖AB⃗‖ ou AB</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">2.2 Coordonnées d'un vecteur</h3>
+            <p>Si A(x₁, y₁) et B(x₂, y₂), alors le vecteur AB⃗ a pour coordonnées :</p>
+            <div class="formula-box">
+                <div class="formula-title">Coordonnées du vecteur AB⃗</div>
+                <strong>AB⃗ = (x₂ - x₁, y₂ - y₁)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Vecteur de A(2, 3) à B(7, 8)</h4>
+                <p>AB⃗ = (7-2, 8-3) = <strong>(5, 5)</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">2.3 Opérations sur les vecteurs</h3>
+
+            <h4 style="color:#B45309; font-size:0.95rem;">Addition de vecteurs</h4>
+            <p>Si u⃗ = (x₁, y₁) et v⃗ = (x₂, y₂), alors :</p>
+            <div class="formula-box">
+                <div class="formula-title">Somme de deux vecteurs</div>
+                <strong>u⃗ + v⃗ = (x₁ + x₂, y₁ + y₂)</strong>
+            </div>
+
+            <h4 style="color:#B45309; font-size:0.95rem;">Multiplication par un scalaire</h4>
+            <p>Si u⃗ = (x, y) et k ∈ ℝ, alors :</p>
+            <div class="formula-box">
+                <div class="formula-title">Produit par un scalaire</div>
+                <strong>k·u⃗ = (k·x, k·y)</strong>
+            </div>
+
+            <h4 style="color:#B45309; font-size:0.95rem;">Vecteur opposé</h4>
+            <div class="formula-box">
+                <div class="formula-title">Vecteur opposé</div>
+                <strong>-u⃗ = (-x, -y)</strong>
+            </div>
+
+            <h4 style="color:#B45309; font-size:0.95rem;">Soustraction</h4>
+            <div class="formula-box">
+                <div class="formula-title">Différence de deux vecteurs</div>
+                <strong>u⃗ - v⃗ = (x₁ - x₂, y₁ - y₂)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple d'opérations</h4>
+                <p>u⃗ = (3, 4), v⃗ = (1, -2)</p>
+                <p>u⃗ + v⃗ = (4, 2)</p>
+                <p>2·u⃗ = (6, 8)</p>
+                <p>u⃗ - v⃗ = (2, 6)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">2.4 Propriétés des opérations</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➕</span><p><strong>Commutativité :</strong> u⃗ + v⃗ = v⃗ + u⃗</p></div>
+                <div class="key-point"><span class="icon">➕</span><p><strong>Associativité :</strong> (u⃗ + v⃗) + w⃗ = u⃗ + (v⃗ + w⃗)</p></div>
+                <div class="key-point"><span class="icon">🔢</span><p><strong>Élément neutre :</strong> u⃗ + 0⃗ = u⃗</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Opposé :</strong> u⃗ + (-u⃗) = 0⃗</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">2.5 Colinéarité de vecteurs</h3>
+            <p>Deux vecteurs u⃗ = (x₁, y₁) et v⃗ = (x₂, y₂) sont <strong>colinéaires</strong> si et seulement si :</p>
+            <div class="formula-box">
+                <div class="formula-title">Condition de colinéarité</div>
+                <strong>x₁·y₂ - x₂·y₁ = 0</strong>
+            </div>
+            <p>Autrement dit, il existe un réel k tel que u⃗ = k·v⃗.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Vecteurs colinéaires</h4>
+                <p>u⃗ = (4, 6) et v⃗ = (2, 3)</p>
+                <p>4×3 - 2×6 = 12 - 12 = 0</p>
+                <p>Donc u⃗ et v⃗ sont colinéaires</p>
+                <p>on a u⃗ = 2·v⃗</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">2.6 Norme d'un vecteur</h3>
+            <p>La <strong>norme</strong> (longueur) du vecteur u⃗ = (x, y) est :</p>
+            <div class="formula-box">
+                <div class="formula-title">Norme d'un vecteur</div>
+                <strong>‖u⃗‖ = √(x² + y²)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Norme de u⃗ = (3, 4)</h4>
+                <p>‖u⃗‖ = √(9 + 16) = √25 = <strong>5</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 : PRODUIT SCALAIRE -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Produit scalaire</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">3.1 Définition</h3>
+            <p>Le <strong>produit scalaire</strong> de deux vecteurs u⃗ = (x₁, y₁) et v⃗ = (x₂, y₂) est le nombre réel :</p>
+            <div class="formula-box">
+                <div class="formula-title">Produit scalaire (forme analytique)</div>
+                <strong>u⃗ · v⃗ = x₁·x₂ + y₁·y₂</strong>
+            </div>
+
+            <p>Le produit scalaire peut aussi s'écrire en fonction des normes et de l'angle :</p>
+            <div class="formula-box">
+                <div class="formula-title">Produit scalaire (forme trigonométrique)</div>
+                <strong>u⃗ · v⃗ = ‖u⃗‖ × ‖v⃗‖ × cos(u⃗, v⃗)</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">3.2 Propriétés du produit scalaire</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Symétrie :</strong> u⃗ · v⃗ = v⃗ · u⃗</p></div>
+                <div class="key-point"><span class="icon">➕</span><p><strong>Linéarité :</strong> (α·u⃗ + β·w⃗) · v⃗ = α(u⃗ · v⃗) + β(w⃗ · v⃗)</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Positivité :</strong> u⃗ · u⃗ = ‖u⃗‖² ≥ 0</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Orthogonalité :</strong> u⃗ · v⃗ = 0 ⟺ u⃗ ⟂ v⃗</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calcul du produit scalaire</h4>
+                <p>u⃗ = (2, 3) et v⃗ = (-1, 4)</p>
+                <p>u⃗ · v⃗ = 2×(-1) + 3×4 = -2 + 12 = <strong>10</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">3.3 Applications du produit scalaire</h3>
+
+            <h4 style="color:#B45309; font-size:0.95rem;">Norme d'un vecteur</h4>
+            <div class="formula-box">
+                <div class="formula-title">Norme via le produit scalaire</div>
+                <strong>‖u⃗‖ = √(u⃗ · u⃗)</strong>
+            </div>
+
+            <h4 style="color:#B45309; font-size:0.95rem;">Angle entre deux vecteurs</h4>
+            <div class="formula-box">
+                <div class="formula-title">Cosinus de l'angle</div>
+                <strong>cos θ = (u⃗ · v⃗) / (‖u⃗‖ × ‖v⃗‖)</strong>
+            </div>
+
+            <h4 style="color:#B45309; font-size:0.95rem;">Projection orthogonale</h4>
+            <div class="formula-box">
+                <div class="formula-title">Projection de u⃗ sur v⃗</div>
+                <strong>proj_{v⃗}(u⃗) = [(u⃗ · v⃗) / (v⃗ · v⃗)] × v⃗</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Angle entre u⃗ = (1, 0) et v⃗ = (1, 1)</h4>
+                <p>u⃗ · v⃗ = 1×1 + 0×1 = 1</p>
+                <p>‖u⃗‖ = 1 et ‖v⃗‖ = √2</p>
+                <p>cos θ = 1/(1×√2) = √2/2</p>
+                <p>Donc θ = 45° = π/4 rad</p>
+            </div>
+
+            <div class="important-box">
+                <h4>⛔ Critères d'orthogonalité</h4>
+                <p>Pour vérifier que deux vecteurs sont perpendiculaires, on peut utiliser :</p>
+                <p>• u⃗ · v⃗ = 0 (produit scalaire nul)</p>
+                <p>• x₁·x₂ + y₁·y₂ = 0 (coordonnées)</p>
+                <p>• cos θ = 0 ⟺ θ = π/2</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 : DROITES -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Droites dans le plan</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">4.1 Détermination d'une droite</h3>
+            <p>Une droite est entièrement déterminée par :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📍</span><p><strong>Deux points distincts</strong> A et B</p></div>
+                <div class="key-point"><span class="icon">📍</span><p><strong>Un point et une direction</strong> (vecteur directeur)</p></div>
+                <div class="key-point"><span class="icon">📍</span><p><strong>Un point et un vecteur normal</strong> (perpendiculaire)</p></div>
+                <div class="key-point"><span class="icon">📍</span><p><strong>Un point et le coefficient directeur</strong> (dans repère orthonormal)</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">4.2 Vecteur directeur</h3>
+            <p>Un <strong>vecteur directeur</strong> d'une droite D est un vecteur v⃗ qui indique la direction de D. Si A et B sont deux points de D, alors AB⃗ est un vecteur directeur.</p>
+            <div class="formula-box">
+                <div class="formula-title">Propriété</div>
+                <strong>Tous les vecteurs directeurs sont colinéaires</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">4.3 Vecteur normal</h3>
+            <p>Un <strong>vecteur normal</strong> à une droite D est un vecteur n⃗ perpendiculaire à tous les vecteurs directeurs de D.</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p>Si v⃗ = (a, b) est un vecteur directeur, alors n⃗ = (-b, a) ou n⃗ = (b, -a) est un vecteur normal</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Réciproquement, si n⃗ = (a, b) est normal, alors v⃗ = (-b, a) est directeur</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Vecteurs d'une droite</h4>
+                <p>Droite D passant par A(1, 2) et B(4, 6)</p>
+                <p>Vecteur directeur : v⃗ = AB⃗ = (3, 4)</p>
+                <p>Vecteur normal : n⃗ = (-4, 3) ou (4, -3)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">4.4 Droites remarquables</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➡️</span><p><strong>Axe Ox</strong> : y = 0, vecteur normal (0, 1)</p></div>
+                <div class="key-point"><span class="icon">⬆️</span><p><strong>Axe Oy</strong> : x = 0, vecteur normal (1, 0)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Parallèle à Ox</strong> : y = constante</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Parallèle à Oy</strong> : x = constante</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 : ÉQUATIONS DE DROITES -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Équations de droites</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">5.1 Équation cartésienne</h3>
+            <p>Dans un repère orthonormal, toute droite peut s'écrire sous la forme :</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation cartésienne</div>
+                <strong>ax + by + c = 0</strong>
+            </div>
+            <p>où (a, b) est un vecteur normal à la droite (a et b ne sont pas tous deux nuls).</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Vecteur normal :</strong> n⃗ = (a, b)</p></div>
+                <div class="key-point"><span class="icon">➡️</span><p><strong>Vecteur directeur :</strong> v⃗ = (-b, a)</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">5.2 Équation réduite</h3>
+            <p>Si b ≠ 0, on peut écrire l'équation sous forme réduite :</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation réduite</div>
+                <strong>y = mx + p</strong>
+            </div>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>m</strong> est le <strong>coefficient directeur</strong> (ou pente)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>p</strong> est l'<strong>ordonnée à l'origine</strong></p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Relation entre m et n⃗</div>
+                <strong>m = tg α</strong> où α est l'angle que fait la droite avec l'axe Ox<br>
+                <strong>m = -a/b</strong> (si ax + by + c = 0)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Passage entre formes</h4>
+                <p>Droite : 2x + 3y - 6 = 0</p>
+                <p>Forme réduite : 3y = -2x + 6 ⟹ y = (-2/3)x + 2</p>
+                <p>Coefficient directeur : m = -2/3</p>
+                <p>Ordonnée à l'origine : p = 2</p>
+                <p>Vecteur normal : n⃗ = (2, 3)</p>
+                <p>Vecteur directeur : v⃗ = (-3, 2)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">5.3 Équation paramétrique</h3>
+            <p>Une droite passant par A(x₀, y₀) et de vecteur directeur v⃗ = (a, b) a pour équation paramétrique :</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation paramétrique</div>
+                <strong>x = x₀ + t·a</strong><br>
+                <strong>y = y₀ + t·b</strong> &nbsp;&nbsp;&nbsp; (t ∈ ℝ)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Droite passant par A(1, 2) et B(4, 6)</h4>
+                <p>v⃗ = AB⃗ = (3, 4)</p>
+                <p>x = 1 + 3t</p>
+                <p>y = 2 + 4t</p>
+                <p>Pour t = 1 : on obtient B(4, 6) ✓</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">5.4 Équation passant par deux points</h3>
+            <p>La droite passant par A(x₁, y₁) et B(x₂, y₂) (avec x₁ ≠ x₂) a pour équation :</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation par deux points</div>
+                <strong>(y - y₁) / (y₂ - y₁) = (x - x₁) / (x₂ - x₁)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Droite passant par A(1, 2) et B(3, 6)</h4>
+                <p>m = (6-2)/(3-1) = 4/2 = 2</p>
+                <p>Équation : y - 2 = 2(x - 1)</p>
+                <p>Soit : y = 2x</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 6 : POSITIONS RELATIVES -->
+        <div class="math-content" id="p6">
+            <h3>📘 6. Positions relatives de deux droites</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">6.1 Droites parallèles</h3>
+            <p>Deux droites D₁ et D₂ sont <strong>parallèles</strong> si et seulement si leurs vecteurs normaux sont colinéaires :</p>
+            <div class="formula-box">
+                <div class="formula-title">Condition de parallélisme</div>
+                <strong>D₁ // D₂ ⟺ a₁·b₂ - a₂·b₁ = 0</strong><br>
+                (pour D₁ : a₁x + b₁y + c₁ = 0 et D₂ : a₂x + b₂y + c₂ = 0)
+            </div>
+
+            <p>En forme réduite, deux droites sont parallèles si et seulement si elles ont le même coefficient directeur :</p>
+            <div class="formula-box">
+                <div class="formula-title">Parallélisme en forme réduite</div>
+                <strong>D₁ // D₂ ⟺ m₁ = m₂</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">6.2 Droites perpendiculaires</h3>
+            <p>Deux droites D₁ et D₂ sont <strong>perpendiculaires</strong> si et seulement si :</p>
+            <div class="formula-box">
+                <div class="formula-title">Condition d'orthogonalité</div>
+                <strong>D₁ ⟂ D₂ ⟺ a₁·a₂ + b₁·b₂ = 0</strong>
+            </div>
+
+            <p>En forme réduite :</p>
+            <div class="formula-box">
+                <div class="formula-title">Orthogonalité en forme réduite</div>
+                <strong>D₁ ⟂ D₂ ⟺ m₁ × m₂ = -1</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Positions de droites</h4>
+                <p>D₁ : y = 2x + 3 (m₁ = 2)</p>
+                <p>D₂ : y = 2x - 1 (m₂ = 2)</p>
+                <p>D₁ // D₂ car m₁ = m₂</p>
+                <p>D₃ : y = -x/2 + 1 (m₃ = -1/2)</p>
+                <p>D₁ ⟂ D₃ car 2 × (-1/2) = -1</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">6.3 Droites sécantes</h3>
+            <p>Deux droites sont <strong>sécantes</strong> (non parallèles) si elles se coupent en un point. Pour trouver ce point, on résout le système formé par les deux équations.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Point d'intersection</h4>
+                <p>D₁ : x + y = 6</p>
+                <p>D₂ : 2x - y = 3</p>
+                <p>En additionnant : 3x = 9 ⟹ x = 3</p>
+                <p>En substituant : 3 + y = 6 ⟹ y = 3</p>
+                <p>Point d'intersection : I(3, 3)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">6.4 Tableau récapitulatif</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➡️</span><p><strong>Parallèles confondues :</strong> mêmes coefficients (a, b, c proportionnels)</p></div>
+                <div class="key-point"><span class="icon">➡️</span><p><strong>Parallèles distinctes :</strong> mêmes directions mais c différent</p></div>
+                <div class="key-point"><span class="icon">❌</span><p><strong>Sécantes :</strong> directions différentes</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Perpendiculaires :</strong> cas particulier de sécantes avec angle de 90°</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 7 : DISTANCE POINT-DROITE -->
+        <div class="math-content" id="p7">
+            <h3>📗 7. Distance d'un point à une droite</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">7.1 Formule de la distance</h3>
+            <p>Dans un repère orthonormal, la distance du point A(x₀, y₀) à la droite D : ax + by + c = 0 est :</p>
+            <div class="formula-box">
+                <div class="formula-title">Distance point-droite</div>
+                <strong>d(A, D) = |a·x₀ + b·y₀ + c| / √(a² + b²)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Distance de A(1, 2) à D : 3x + 4y - 5 = 0</h4>
+                <p>d(A, D) = |3×1 + 4×2 - 5| / √(9 + 16)</p>
+                <p>= |3 + 8 - 5| / √25</p>
+                <p>= |6| / 5 = <strong>6/5</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">7.2 Applications</h3>
+
+            <h4 style="color:#B45309; font-size:0.95rem;">Équation de la médiatrice</h4>
+            <p>La <strong>médiatrice</strong> du segment [AB] est l'ensemble des points équidistants de A et B :</p>
+            <div class="formula-box">
+                <div class="formula-title">Médiatrice de [AB]</div>
+                <strong>{M(x, y) / MA = MB}</strong><br>
+                <strong>⟺ (x - x_A)² + (y - y_A)² = (x - x_B)² + (y - y_B)²</strong>
+            </div>
+
+            <h4 style="color:#B45309; font-size:0.95rem;">Équation des bissectrices</h4>
+            <p>Les <strong>bissectrices</strong> de deux droites D₁ et D₂ sont les ensembles de points équidistants :</p>
+            <div class="formula-box">
+                <div class="formula-title">Bissectrices</div>
+                <strong>d(M, D₁) = d(M, D₂)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Bissectrices de D₁ : x = 0 et D₂ : y = 0</h4>
+                <p>d(M, D₁) = |x| et d(M, D₂) = |y|</p>
+                <p>|x| = |y| ⟹ y = x ou y = -x</p>
+                <p>Les deux bissectrices sont les droites y = x et y = -x</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">7.3 Distance entre deux droites parallèles</h3>
+            <p>Si D₁ et D₂ sont deux droites parallèles, la distance entre elles est la distance d'un point de D₁ à D₂ :</p>
+            <div class="formula-box">
+                <div class="formula-title">Distance entre deux droites parallèles</div>
+                <strong>d(D₁, D₂) = |c₂ - c₁| / √(a² + b²)</strong><br>
+                (pour D₁ : ax + by + c₁ = 0 et D₂ : ax + by + c₂ = 0)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Distance entre D₁ : 2x + y + 1 = 0 et D₂ : 2x + y - 3 = 0</h4>
+                <p>d(D₁, D₂) = |-3 - 1| / √(4 + 1)</p>
+                <p>= |-4| / √5 = <strong>4/√5</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 8 : LE CERCLE -->
+        <div class="math-content" id="p8">
+            <h3>📙 8. Le cercle</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">8.1 Définition</h3>
+            <p>Un <strong>cercle</strong> de centre C et de rayon R est l'ensemble des points M tels que CM = R.</p>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">8.2 Équation cartésienne</h3>
+            <p>Le cercle de centre C(α, β) et de rayon R a pour équation :</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation du cercle (forme canonique)</div>
+                <strong>(x - α)² + (y - β)² = R²</strong>
+            </div>
+
+            <p>Forme développée :</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation développée</div>
+                <strong>x² + y² + 2px + 2qy + d = 0</strong><br>
+                avec centre C(-p, -q) et R = √(p² + q² - d)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Cercle de centre C(2, 3) et rayon 5</h4>
+                <p>(x - 2)² + (y - 3)² = 25</p>
+                <p>En développé : x² - 4x + 4 + y² - 6y + 9 = 25</p>
+                <p>Soit : x² + y² - 4x - 6y - 12 = 0</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">8.3 Condition d'existence</h3>
+            <p>L'équation x² + y² + 2px + 2qy + d = 0 représente un cercle si et seulement si :</p>
+            <div class="formula-box">
+                <div class="formula-title">Condition d'existence</div>
+                <strong>p² + q² - d > 0</strong>
+            </div>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📌</span><p>Si = 0 : le cercle est réduit à un point (cercle dégénéré)</p></div>
+                <div class="key-point"><span class="icon">📌</span><p>Si < 0 : pas de cercle (ensemble vide)</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">8.4 Tangente à un cercle</h3>
+            <p>La <strong>tangente</strong> au cercle de centre C en un point M₀ est la droite perpendiculaire à CM⃗₀ passant par M₀.</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation de la tangente</div>
+                <strong>(x_M₀ - α)(x - x_M₀) + (y_M₀ - β)(y - y_M₀) = 0</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Tangente au cercle (x-1)² + (y-2)² = 25 au point M₀(4, 4)</h4>
+                <p>Centre C(1, 2)</p>
+                <p>CM⃗₀ = (3, 2)</p>
+                <p>Équation : 3(x-4) + 2(y-4) = 0</p>
+                <p>Soit : 3x + 2y - 20 = 0</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">8.5 Intersection cercle-droite</h3>
+            <p>Pour trouver l'intersection d'un cercle et d'une droite, on résout le système. Les cas possibles sont :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📌</span><p><strong>2 points</strong> : la droite est sécante</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>1 point</strong> : la droite est tangente</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>0 point</strong> : la droite est extérieure</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 9 : CONIQUES -->
+        <div class="math-content" id="p9">
+            <h3>📕 9. Parabole, ellipse et hyperbole</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">9.1 La parabole</h3>
+            <p>Une <strong>parabole</strong> est l'ensemble des points équidistants d'un point fixe F (foyer) et d'une droite D (directrice).</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation de la parabole (foyer F(p/2, 0), directrice x = -p/2)</div>
+                <strong>y² = 2px</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Parabole y² = 4x</h4>
+                <p>Cette parabole a pour foyer F(1, 0) et pour directrice x = -1</p>
+                <p>Le paramètre p = 2</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">9.2 L'ellipse</h3>
+            <p>Une <strong>ellipse</strong> est l'ensemble des points dont la somme des distances à deux points fixes F₁ et F₂ (foyers) est constante.</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation de l'ellipse (centre O, axes parallèles aux axes de coordonnées)</div>
+                <strong>x²/a² + y²/b² = 1</strong>
+            </div>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📌</span><p><strong>a</strong> : demi-grand axe</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>b</strong> : demi-petit axe</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>c² = a² - b²</strong> : distance focale</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Excentricité :</strong> e = c/a < 1</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">9.3 L'hyperbole</h3>
+            <p>Une <strong>hyperbole</strong> est l'ensemble des points dont la différence des distances à deux points fixes F₁ et F₂ est constante.</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation de l'hyperbole</div>
+                <strong>x²/a² - y²/b² = 1</strong>
+            </div>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📌</span><p><strong>c² = a² + b²</strong> : distance focale</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Excentricité :</strong> e = c/a > 1</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Asymptotes :</strong> y = ±(b/a)x</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Comparaison des excentricités</h4>
+                <p>• Cercle : e = 0</p>
+                <p>• Ellipse : 0 < e < 1</p>
+                <p>• Parabole : e = 1</p>
+                <p>• Hyperbole : e > 1</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 10 : TRANSFORMATIONS -->
+        <div class="math-content" id="p10">
+            <h3>📒 10. Transformations géométriques</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">10.1 Translation</h3>
+            <p>Une <strong>translation</strong> de vecteur u⃗ = (a, b) transforme un point M(x, y) en M'(x', y') avec :</p>
+            <div class="formula-box">
+                <div class="formula-title">Translation</div>
+                <strong>x' = x + a</strong><br>
+                <strong>y' = y + b</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">10.2 Homothétie</h3>
+            <p>Une <strong>homothétie</strong> de centre O et de rapport k transforme M en M' avec :</p>
+            <div class="formula-box">
+                <div class="formula-title">Homothétie de centre O</div>
+                <strong>OM⃗' = k·OM⃗</strong><br>
+                <strong>x' = k·x</strong> et <strong>y' = k·y</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">10.3 Rotation</h3>
+            <p>Une <strong>rotation</strong> de centre O et d'angle θ transforme M(x, y) en M'(x', y') :</p>
+            <div class="formula-box">
+                <div class="formula-title">Rotation de centre O et d'angle θ</div>
+                <strong>x' = x·cos θ - y·sin θ</strong><br>
+                <strong>y' = x·sin θ + y·cos θ</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Rotation de 90° (π/2) de M(1, 0)</h4>
+                <p>x' = 1×0 - 0×1 = 0</p>
+                <p>y' = 1×1 + 0×0 = 1</p>
+                <p>M'(0, 1) ✓</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">10.4 Symétrie centrale</h3>
+            <p>La <strong>symétrie centrale</strong> de centre O transforme M en M' avec :</p>
+            <div class="formula-box">
+                <div class="formula-title">Symétrie centrale</div>
+                <strong>OM⃗' = -OM⃗</strong><br>
+                <strong>x' = -x</strong> et <strong>y' = -y</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">10.5 Symétrie axiale</h3>
+            <p>La <strong>symétrie axiale</strong> par rapport à une droite D transforme M en M' tel que D soit la médiatrice de [MM'].</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Par rapport à Ox :</strong> M'(x, -y)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Par rapport à Oy :</strong> M'(-x, y)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Par rapport à y = x :</strong> M'(y, x)</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">10.6 Propriétés conservées</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">✅</span><p><strong>Translation :</strong> conserve les distances et les angles</p></div>
+                <div class="key-point"><span class="icon">✅</span><p><strong>Homothétie :</strong> conserve les angles, multiplie les distances par |k|</p></div>
+                <div class="key-point"><span class="icon">✅</span><p><strong>Rotation :</strong> conserve les distances et les angles</p></div>
+                <div class="key-point"><span class="icon">✅</span><p><strong>Symétrie :</strong> conserve les distances et les angles</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 11 : ANGLES ET TRIGONOMÉTRIE -->
+        <div class="math-content" id="p11">
+            <h3>📘 11. Angles et trigonométrie</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">11.1 Mesure des angles</h3>
+            <p>Un angle peut être mesuré en <strong>degrés</strong> ou en <strong>radians</strong> :</p>
+            <div class="formula-box">
+                <div class="formula-title">Conversion degré-radian</div>
+                <strong>180° = π rad</strong><br>
+                <strong>1 rad = 180°/π ≈ 57,3°</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">11.2 Formules trigonométriques fondamentales</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>cos² θ + sin² θ = 1</strong></p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>tan θ = sin θ / cos θ</strong></p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>1 + tan² θ = 1 / cos² θ</strong></p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">11.3 Valeurs remarquables</h3>
+            <div class="formula-box">
+                <div class="formula-title">Tableau des valeurs remarquables</div>
+                <strong>0° : cos=1, sin=0, tan=0</strong><br>
+                <strong>30° : cos=√3/2, sin=1/2, tan=√3/3</strong><br>
+                <strong>45° : cos=√2/2, sin=√2/2, tan=1</strong><br>
+                <strong>60° : cos=1/2, sin=√3/2, tan=√3</strong><br>
+                <strong>90° : cos=0, sin=1, tan=∞</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">11.4 Formules d'addition</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>cos(a+b) = cos a·cos b - sin a·sin b</strong></p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>cos(a-b) = cos a·cos b + sin a·sin b</strong></p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>sin(a+b) = sin a·cos b + cos a·sin b</strong></p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>sin(a-b) = sin a·cos b - cos a·sin b</strong></p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">11.5 Formules de duplication</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>cos(2a) = cos² a - sin² a = 2cos² a - 1 = 1 - 2sin² a</strong></p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>sin(2a) = 2·sin a·cos a</strong></p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>tan(2a) = 2·tan a / (1 - tan² a)</strong></p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calcul de cos(75°)</h4>
+                <p>cos(75°) = cos(45° + 30°)</p>
+                <p>= cos 45°·cos 30° - sin 45°·sin 30°</p>
+                <p>= (√2/2)(√3/2) - (√2/2)(1/2)</p>
+                <p>= (√6 - √2)/4</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 12 : APPLICATIONS -->
+        <div class="math-content" id="p12">
+            <h3>📗 12. Applications et problèmes types</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">12.1 Problème : Déterminer une équation de droite</h3>
+            <div class="example-box">
+                <h4>💡 Exemple : Droite passant par A(1, 2) et perpendiculaire à D : 3x + 4y - 5 = 0</h4>
+                <p>Vecteur normal de D : n⃗ = (3, 4)</p>
+                <p>La droite cherchée a pour vecteur normal v⃗ = (-4, 3) (perpendiculaire à n⃗)</p>
+                <p>Équation : -4(x-1) + 3(y-2) = 0</p>
+                <p>-4x + 4 + 3y - 6 = 0</p>
+                <p>Soit : <strong>-4x + 3y - 2 = 0</strong> ou <strong>4x - 3y + 2 = 0</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">12.2 Problème : Intersection et angle</h3>
+            <div class="example-box">
+                <h4>💡 Exemple : Angle entre D₁ : y = 2x + 1 et D₂ : y = -x/2 + 3</h4>
+                <p>m₁ = 2 et m₂ = -1/2</p>
+                <p>tan θ = |(m₁ - m₂)/(1 + m₁·m₂)|</p>
+                <p>= |(2 - (-1/2))/(1 + 2×(-1/2))|</p>
+                <p>= |(5/2)/(0)| = ∞</p>
+                <p>Donc θ = 90° (les droites sont perpendiculaires)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">12.3 Problème : Cercle inscrit et circonscrit</h3>
+            <div class="example-box">
+                <h4>💡 Exemple : Cercle circonscrit au triangle ABC avec A(0, 0), B(4, 0), C(0, 3)</h4>
+                <p>Le cercle a pour équation x² + y² + 2px + 2qy + d = 0</p>
+                <p>A(0,0) ∈ cercle ⟹ d = 0</p>
+                <p>B(4,0) ∈ cercle ⟹ 16 + 8p = 0 ⟹ p = -2</p>
+                <p>C(0,3) ∈ cercle ⟹ 9 + 6q = 0 ⟹ q = -3/2</p>
+                <p>Équation : x² + y² - 4x - 3y = 0</p>
+                <p>Centre : (2, 3/2), rayon : √(4 + 9/4) = 5/2</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Conseils pour les examens</h4>
+                <p>• Toujours identifier clairement les données et l'inconnue</p>
+                <p>• Choisir le type d'équation le plus adapté au problème</p>
+                <p>• Vérifier que vos résultats satisfont les conditions initiales</p>
+                <p>• Dessiner une figure pour visualiser le problème</p>
+            </div>
+        </div>
+
+        <!-- SECTION RÉSUMÉ IMAGE -->
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+            <div class="resume-images">
+                <a href="https://drive.google.com/file/d/1WO1FEGEN-TjngR-B99-xNv0vPAXMzg3b/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+                
+        </section>
+
+        <!-- SECTION VIDÉO -->
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1OF8bNTStnMeJwIE9nRb1AwoyhJKcXh8a/preview
+" width="640" height="480" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+         <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/13rOalxPLPbqyBuYUhBQp7uQhKztdNaDX/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+        <!-- BOUTON SUIVANT -->
+        <a href="lecon4-geometrie-espace.html" class="next-lesson">
+            <div>
+                <p class="next-lesson-text">Leçon suivante</p>
+                <p class="next-lesson-title">Leçon 4 : Géométrie dans l'Espace →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon 6 : Les Coniques - Mathématiques Bac Math</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .formula-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid #EAB308; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: #92400E; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); border-left: 4px solid #F97316; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #C2410C; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #FDE68A; }
+        .toc h3 { color: #92400E; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: #B45309; font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .theorem-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid #3B82F6; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .theorem-box h4 { color: #1E40AF; font-size: 0.95rem; margin-bottom: 8px; }
+        .theorem-box p { margin-bottom: 6px; color: #1E3A8A; }
+        .demo-box { background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-left: 4px solid #8B5CF6; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .demo-box h4 { color: #6D28D9; font-size: 0.95rem; margin-bottom: 8px; }
+        .demo-box p { margin-bottom: 6px; color: #4C1D95; }
+        .section-podcast { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .section-podcast h2 { color: #7C3AED; margin-bottom: 12px; font-size: 1.1rem; }
+        .section-video { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #FDE68A; text-align: center; }
+        .section-video h2 { color: #92400E; margin-bottom: 12px; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Mathematiques/mathematiques.html">Mathématiques</a>
+                <a href="../Informatique/informatique.html">Informatique</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philosophie</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #EAB308;">
+            <h1>Leçon 6 : Les Coniques</h1>
+            <p class="breadcrumb">Mathématiques › Leçon 6 › Bac Math Tunisie</p>
+            <span class="badge">Programme Officiel</span>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan de la leçon</h3>
+            <ol>
+                <li><a href="#p1">Définition d'une conique — Foyer and directrice</a></li>
+                <li><a href="#p2">L'ellipse</a></li>
+                <li><a href="#p3">L'hyperbole</a></li>
+                <li><a href="#p4">La parabole</a></li>
+                <li><a href="#p5">Équation générale d'une conique</a></li>
+                <li><a href="#p6">Exercices d'entraînement</a></li>
+            </ol>
+        </div>
+
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1ynzoswVVS7w6wjnO66hyCG5tmMVtn-WY/preview
+" width="600" height="120" frameborder="0" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Définition d'une conique</h3>
+
+            <h4>Définition historique (Apollonius de Perge, ~200 av. J.-C.)</h4>
+            <p>Une <strong>conique</strong> est l'intersection d'un <strong>plan</strong> avec la surface d'un <strong>cône de révolution</strong> à deux nappes.</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔵</span><p><strong>Cercle</strong> : plan ⟂ axe du cône (⊥) → cas particulier d'ellipse</p></div>
+                <div class="key-point"><span class="icon">🟡</span><p><strong>Ellipse</strong> : angle du plan > angle de la génératrice</p></div>
+                <div class="key-point"><span class="icon">🟠</span><p><strong>Parabole</strong> : angle du plan = angle de la génératrice</p></div>
+                <div class="key-point"><span class="icon">🔴</span><p><strong>Hyperbole</strong> : angle du plan < angle de la génératrice → 2 branches</p></div>
+            </div>
+
+            <h4>Définition moderne — Foyer et directrice</h4>
+            <div class="formula-box">
+                <div class="formula-title">Définition par foyer et directrice</div>
+                Une conique est l'ensemble des points M du plan tels que le rapport de la distance au foyer F et de la distance à la directrice D est constant :<br><br>
+                <strong>MF / MD = e</strong><br><br>
+                où <strong>e</strong> est l'<strong>excentricité</strong> de la conique.
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>e &lt; 1</strong> → Ellipse (courbe fermée)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>e = 1</strong> → Parabole (une branche)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>e &gt; 1</strong> → Hyperbole (deux branches)</p></div>
+            </div>
+
+            <h4>Vocabulaire commun aux trois coniques</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">·</span><p><strong>Foyer (F)</strong> : point fixe. 2 pour ellipse/hyperbole, 1 pour parabole</p></div>
+                <div class="key-point"><span class="icon">―</span><p><strong>Directrice (D)</strong> : droite fixe</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>Excentricité (e)</strong> : rapport MF/MD constant, caractérise la conique</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Paramètre (p)</strong> : distance foyer-directrice</p></div>
+                <div class="key-point"><span class="icon">↔</span><p><strong>Axe focal</strong> : droite passant par le(s) foyer(s), perpendiculaire à D</p></div>
+                <div class="key-point"><span class="icon">◆</span><p><strong>Sommet</strong> : point de la conique intersectant l'axe focal</p></div>
+            </div>
+
+            <div class="theorem-box">
+                <h4>Relation entre e, p et la distance focale</h4>
+                <p>Si F est le foyer et D la directrice, la distance foyer-directrice est p.</p>
+                <p>Le sommet S est à la distance p·e/(1−e) du foyer (pour e≠1).</p>
+                <p>Pour la parabole (e=1) : le sommet est à mi-chemin entre F et D.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Propriété fondamentale</h4>
+                <p>Pour tout point M de la conique : <strong>MF = e × MD</strong></p>
+                <p>Cette relation définit complètement la conique connaissant F, D et e.</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. L'Ellipse</h3>
+
+            <h4>Définition par les deux foyers</h4>
+            <div class="formula-box">
+                <div class="formula-title">Ellipse — Définition bifocale</div>
+                Une ellipse est l'ensemble des points M du plan tels que la <strong>somme des distances</strong> aux deux foyers est constante :<br><br>
+                <strong>MF₁ + MF₂ = 2a</strong> &nbsp;&nbsp; (avec 2a > F₁F₂, soit a > c)
+            </div>
+            <p>La constante <strong>2a</strong> est la <strong>longueur du grand axe</strong>.</p>
+
+            <h4>Équation réduite de l'ellipse</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème — Équation canonique</div>
+                Dans un repère orthonormé (O, i, j) dont l'origine O est le milieu de [F₁F₂] et l'axe (Ox) est l'axe focal :<br><br>
+                <strong>x²/a² + y²/b² = 1</strong><br><br>
+                avec <strong>a ≥ b > 0</strong> et <strong>c² = a² − b²</strong>
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📏</span><p><strong>Distance focale :</strong> F₁F₂ = 2c, avec c² = a² − b²</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Excentricité :</strong> e = c/a &lt; 1</p></div>
+                <div class="key-point"><span class="icon">↔</span><p><strong>Grand axe :</strong> 2a (sur Ox)</p></div>
+                <div class="key-point"><span class="icon">↕</span><p><strong>Petit axe :</strong> 2b (sur Oy)</p></div>
+                <div class="key-point"><span class="icon">◆</span><p><strong>Foyers :</strong> F₁(−c, 0), F₂(c, 0)</p></div>
+                <div class="key-point"><span class="icon">◆</span><p><strong>Sommets :</strong> A(a,0), A'(−a,0), B(0,b), B'(0,−b)</p></div>
+                <div class="key-point"><span class="icon">🔵</span><p><strong>Cercle principal :</strong> x² + y² = a²</p></div>
+                <div class="key-point"><span class="icon">🔵</span><p><strong>Cercle directeur :</strong> x² + y² = b² (ellipse uniquement)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 : Ellipse avec a = 5, b = 3</h4>
+                <p><strong>Équation :</strong> x²/25 + y²/9 = 1</p>
+                <p>c² = 25 − 9 = 16 → <strong>c = 4</strong></p>
+                <p><strong>Foyers :</strong> F₁(−4, 0), F₂(4, 0)</p>
+                <p><strong>Excentricité :</strong> e = 4/5 = 0,8 &lt; 1 ✓</p>
+                <p><strong>Sommets :</strong> A(5,0), A'(−5,0), B(0,3), B'(0,−3)</p>
+                <p><strong>Vérification :</strong> Pour A : AF₁ + AF₂ = 9 + 1 = 10 = 2a ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 : Déterminer l'ellipse de foyers (±4, 0) et de somme 2a = 10</h4>
+                <p>F₁F₂ = 8 → c = 4</p>
+                <p>2a = 10 → a = 5</p>
+                <p>c² = a² − b² → 16 = 25 − b² → b² = 9 → b = 3</p>
+                <p>→ <strong>Équation : x²/25 + y²/9 = 1</strong></p>
+            </div>
+
+            <h4>Propriétés de l'ellipse</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔵</span><p><strong>L'ellipse est fermée</strong> et contenue dans le rectangle |x| ≤ a, |y| ≤ b</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Tout rayon issu d'un foyer se <strong>réfléchit</strong> sur l'ellipse et passe par l'autre foyer</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Propriété optique : cette propriété est utilisée dans les salles <strong>galerie des murmures</strong></p></div>
+            </div>
+
+            <h4>Cas particulier : le cercle</h4>
+            <div class="formula-box">
+                <div class="formula-title">Cercle = ellipse d'excentricité nulle</div>
+                Quand a = b = R :<br>
+                x²/a² + y²/b² = 1 → <strong>x² + y² = R²</strong><br><br>
+                C'est l'équation d'un <strong>cercle de centre O</strong> et rayon R.<br>
+                Les deux foyers sont <strong>confondus</strong> au centre O (c = 0, e = 0).
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. L'Hyperbole</h3>
+
+            <h4>Définition par les deux foyers</h4>
+            <div class="formula-box">
+                <div class="formula-title">Hyperbole — Définition bifocale</div>
+                Une hyperbole est l'ensemble des points M du plan tels que la <strong>valeur absolue de la différence</strong> des distances aux deux foyers est constante :<br><br>
+                <strong>|MF₁ − MF₂| = 2a</strong> &nbsp;&nbsp; (avec 0 < 2a < F₁F₂, soit a < c)
+            </div>
+            <p>Contrairement à l'ellipse, ici <strong>a < c</strong>. La conique a <strong>deux branches infinies</strong>.</p>
+
+            <div class="warning-box">
+                <h4>⚠️ Différence fondamentale ellipse / hyperbole</h4>
+                <p><strong>Ellipse :</strong> MF₁ + MF₂ = 2a → courbe <strong>fermée</strong> (bornée)</p>
+                <p><strong>Hyperbole :</strong> |MF₁ − MF₂| = 2a → courbe <strong>ouverte</strong> (non bornée, 2 branches)</p>
+                <p>Cette différence de signe change complètement la nature géométrique.</p>
+            </div>
+
+            <h4>Équation réduite de l'hyperbole</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème — Équation canonique</div>
+                <strong>x²/a² − y²/b² = 1</strong><br><br>
+                avec <strong>a > 0</strong>, <strong>b > 0</strong> et <strong>c² = a² + b²</strong><br><br>
+                <em>Attention :</em> le signe est <strong>−</strong> (moins) et c² = a² + b² (différent de l'ellipse !)
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📏</span><p><strong>Distance focale :</strong> F₁F₂ = 2c, avec c² = a² + b²</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Excentricité :</strong> e = c/a &gt; 1</p></div>
+                <div class="key-point"><span class="icon">↔</span><p><strong>Demi-axe transverse :</strong> a (sur Ox)</p></div>
+                <div class="key-point"><span class="icon">↕</span><p><strong>Demi-axe conjugué :</strong> b</p></div>
+                <div class="key-point"><span class="icon">◆</span><p><strong>Foyers :</strong> F₁(−c, 0), F₂(c, 0)</p></div>
+                <div class="key-point"><span class="icon">◆</span><p><strong>Sommets :</strong> A(a,0), A'(−a,0)</p></div>
+                <div class="key-point"><span class="icon">↗</span><p><strong>Asymptotes :</strong> y = (b/a)x et y = −(b/a)x</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 : Hyperbole avec a = 3, b = 4</h4>
+                <p><strong>Équation :</strong> x²/9 − y²/16 = 1</p>
+                <p>c² = 9 + 16 = 25 → <strong>c = 5</strong></p>
+                <p><strong>Foyers :</strong> F₁(−5, 0), F₂(5, 0)</p>
+                <p><strong>Excentricité :</strong> e = 5/3 ≈ 1,67 &gt; 1 ✓</p>
+                <p><strong>Asymptotes :</strong> y = ±(4/3)x</p>
+                <p><strong>Sommets :</strong> A(3, 0), A'(−3, 0)</p>
+                <p><strong>Vérification :</strong> Pour A(3,0) : |AF₁ − AF₂| = |9 − 1| = 8 = 2a ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 : Trouver l'hyperbole de foyers (±5, 0) et |MF₁ − MF₂| = 6</h4>
+                <p>F₁F₂ = 10 → c = 5</p>
+                <p>2a = 6 → a = 3</p>
+                <p>c² = a² + b² → 25 = 9 + b² → b² = 16 → b = 4</p>
+                <p>→ <strong>Équation : x²/9 − y²/16 = 1</strong></p>
+            </div>
+
+            <h4>Asymptotes de l'hyperbole</h4>
+            <div class="formula-box">
+                <div class="formula-title">Droites asymptotes</div>
+                Les droites <strong>y = (b/a)x</strong> et <strong>y = −(b/a)x</strong><br>
+                sont les asymptotes de l'hyperbole.<br><br>
+                Quand x → +∞ ou x → −∞, chaque branche de l'hyperbole se <strong>rapproche indéfiniment</strong> de ces droites.
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Asymptotes de x²/9 − y²/16 = 1</h4>
+                <p>a = 3, b = 4</p>
+                <p>y = ±(b/a)x = ±(4/3)x</p>
+                <p>Quand x = 100 : y = ±133,33 → très proche de l'hyperbole</p>
+            </div>
+
+            <h4>Hyperbole équilatère</h4>
+            <div class="formula-box">
+                <div class="formula-title">Définition</div>
+                Une hyperbole est <strong>équilatère</strong> si ses asymptotes sont perpendiculaires, c'est-à-dire si :<br><br>
+                a = b &nbsp;⇔&nbsp; <strong>x²/a² − y²/a² = 1</strong> &nbsp;⇔&nbsp; <strong>xy = a²/2</strong> (après rotation de 45°)
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p>Asymptotes perpendiculaires si a = b</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Équation sous forme xy = k (k ≠ 0)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>e = √2 pour une hyperbole équilatère</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. La Parabole</h3>
+
+            <h4>Définition par foyer et directrice</h4>
+            <div class="formula-box">
+                <div class="formula-title">Parabole — Définition</div>
+                Une parabole est l'ensemble des points M équidistants du foyer F et de la directrice D :<br><br>
+                <strong>MF = MD</strong><br><br>
+                La parabole a <strong>un seul foyer</strong> (contrairement à l'ellipse et l'hyperbole).
+            </div>
+
+            <h4>Équation réduite de la parabole</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème — Équation canonique</div>
+                Dans un repère orthonormé (O, i, j) avec O = sommet, axe focal = (Ox) :<br><br>
+                <strong>y² = 2px</strong><br><br>
+                où p &gt; 0 est le <strong>paramètre</strong> = distance foyer-directrice.<br>
+                <strong>Foyer :</strong> F(p/2, 0) &nbsp;|&nbsp; <strong>Directrice :</strong> D : x = −p/2
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">◆</span><p><strong>Foyer :</strong> F(p/2, 0)</p></div>
+                <div class="key-point"><span class="icon">―</span><p><strong>Directrice :</strong> D : x = −p/2</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>Paramètre :</strong> p &gt; 0</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Excentricité :</strong> e = 1 (par définition)</p></div>
+                <div class="key-point"><span class="icon">◆</span><p><strong>Sommet :</strong> O(0, 0)</p></div>
+                <div class="key-point"><span class="icon">↔</span><p><strong>Axe focal :</strong> (Ox) : y = 0</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 : Parabole y² = 8x</h4>
+                <p>2p = 8 → <strong>p = 4</strong></p>
+                <p><strong>Foyer :</strong> F(2, 0) &nbsp;|&nbsp; <strong>Directrice :</strong> x = −2</p>
+                <p><strong>Vérification :</strong> M(2, 4) → y² = 16 = 8×2 ✓</p>
+                <p>MF = √((2−2)² + 4²) = 4</p>
+                <p>Distance à D : |2 − (−2)| = 4 → MF = MD ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 : x² = 12y (parabole verticale)</h4>
+                <p>On écrit : x² = 2py avec 2p = 12 → <strong>p = 6</strong></p>
+                <p><strong>Foyer :</strong> F(0, 3) &nbsp;|&nbsp; <strong>Directrice :</strong> y = −3</p>
+                <p><strong>Axe focal :</strong> (Oy)</p>
+            </div>
+
+            <h4>Autres formes de paraboles</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">↗</span><p><strong>y² = 2px</strong> → ouverture vers la droite (axe = Ox)</p></div>
+                <div class="key-point"><span class="icon">↖</span><p><strong>y² = −2px</strong> → ouverture vers la gauche</p></div>
+                <div class="key-point"><span class="icon">↗</span><p><strong>x² = 2py</strong> → ouverture vers le haut (axe = Oy)</p></div>
+                <div class="key-point"><span class="icon">↘</span><p><strong>x² = −2py</strong> → ouverture vers le bas</p></div>
+            </div>
+
+            <h4>Propriété optique de la parabole</h4>
+            <div class="formula-box">
+                <div class="formula-title">Propriété de réflexion</div>
+                En tout point M de la parabole, la tangente fait des <strong>angles égaux</strong> avec le segment MF et la perpendiculaire à la directrice.<br><br>
+                Conséquence : tout rayon <strong>parallèle à l'axe</strong> arrive au foyer après réflexion sur la parabole.
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Applications pratiques</h4>
+                <p>• <strong>Antennes paraboliques</strong> : les ondes parallèles convergent au foyer où est placé le récepteur</p>
+                <p>• <strong>Phares de voiture</strong> : la source lumineuse au foyer produit un faisceau parallèle</p>
+                <p>• <strong>Miroirs paraboliques</strong> dans les télescopes</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>📓 5. Équation générale d'une conique — Classification</h3>
+
+            <h4>Équation générale du second degré</h4>
+            <div class="formula-box">
+                <div class="formula-title">Forme générale</div>
+                <strong>Ax² + Bxy + Cy² + Dx + Ey + F = 0</strong><br><br>
+                avec (A, B, C) ≠ (0, 0, 0).<br>
+                Le discriminant Δ = B² − 4AC permet de classifier la conique :
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔵</span><p><strong>Δ &lt; 0</strong> → Ellipse (ou cercle, ou vide, ou un point)</p></div>
+                <div class="key-point"><span class="icon">🟡</span><p><strong>Δ = 0</strong> → Parabole</p></div>
+                <div class="key-point"><span class="icon">🔴</span><p><strong>Δ &gt; 0</strong> → Hyperbole (ou deux droites)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Classifier les coniques suivantes :</h4>
+                <p>• x² + y² = 25 : A=1, B=0, C=1 → Δ = 0² − 4×1×1 = −4 &lt; 0 → <strong>Ellipse</strong> (cercle)</p>
+                <p>• y² = 8x : A=0, B=0, C=1 → Δ = 0² − 0 = 0 → <strong>Parabole</strong></p>
+                <p>• x²/9 − y²/16 = 1 : A=1/9, B=0, C=−1/16 → Δ = 0 − 4×(−1/144) = 1/36 &gt; 0 → <strong>Hyperbole</strong></p>
+                <p>• 4x² + y² = 4 : A=4, B=0, C=1 → Δ = −16 &lt; 0 → <strong>Ellipse</strong></p>
+            </div>
+
+            <h4>Reconnaître une conique — Méthodologie</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">1️⃣</span><p>Regarder le discriminant Δ = B² − 4AC</p></div>
+                <div class="key-point"><span class="icon">2️⃣</span><p>Observer le nombre de variables au carré : 2 variables au carré → ellipse/hyperbole, 1 seule → parabole</p></div>
+                <div class="key-point"><span class="icon">3️⃣</span><p>Compenser les signes : + + → ellipse, + − → hyperbole, 1 au carré → parabole</p></div>
+            </div>
+
+            <h4>Tangente à une conique</h4>
+            <div class="theorem-box">
+                <h4>Tangente à l'ellipse x²/a² + y²/b² = 1</h4>
+                <p>En un point M(x₀, y₀) de l'ellipse :</p>
+                <p><strong>xx₀/a² + yy₀/b² = 1</strong></p>
+            </div>
+
+            <div class="theorem-box">
+                <h4>Tangente à l'hyperbole x²/a² − y²/b² = 1</h4>
+                <p>En un point M(x₀, y₀) de l'hyperbole :</p>
+                <p><strong>xx₀/a² − yy₀/b² = 1</strong></p>
+            </div>
+
+            <div class="theorem-box">
+                <h4>Tangente à la parabole y² = 2px</h4>
+                <p>En un point M(x₀, y₀) de la parabole :</p>
+                <p><strong>yy₀ = p(x + x₀)</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Tangente à l'ellipse x²/25 + y²/9 = 1 au point (4, 9/5)</h4>
+                <p>a² = 25, b² = 9, x₀ = 4, y₀ = 9/5</p>
+                <p>Tangente : x·4/25 + y·(9/5)/9 = 1</p>
+                <p>4x/25 + y/5 = 1</p>
+                <p>→ <strong>4x + 5y = 25</strong></p>
+            </div>
+
+            <h4>Récapitulatif comparatif des trois coniques</h4>
+            <div class="formula-box">
+                <div class="formula-title">Tableau comparatif</div>
+                <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                    <tr style="border-bottom:1px solid #92400E;">
+                        <td style="padding:6px 10px;font-weight:700;color:#92400E;">Propriété</td>
+                        <td style="padding:6px 10px;font-weight:700;color:#92400E;">Ellipse</td>
+                        <td style="padding:6px 10px;font-weight:700;color:#92400E;">Hyperbole</td>
+                        <td style="padding:6px 10px;font-weight:700;color:#92400E;">Parabole</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #E5E7EB;">
+                        <td style="padding:6px 10px;">Équation</td>
+                        <td style="padding:6px 10px;">x²/a² + y²/b² = 1</td>
+                        <td style="padding:6px 10px;">x²/a² − y²/b² = 1</td>
+                        <td style="padding:6px 10px;">y² = 2px</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #E5E7EB;">
+                        <td style="padding:6px 10px;">Excentricité</td>
+                        <td style="padding:6px 10px;">e &lt; 1</td>
+                        <td style="padding:6px 10px;">e &gt; 1</td>
+                        <td style="padding:6px 10px;">e = 1</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #E5E7EB;">
+                        <td style="padding:6px 10px;">Foyers</td>
+                        <td style="padding:6px 10px;">2 : (±c, 0)</td>
+                        <td style="padding:6px 10px;">2 : (±c, 0)</td>
+                        <td style="padding:6px 10px;">1 : (p/2, 0)</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #E5E7EB;">
+                        <td style="padding:6px 10px;">Relation c</td>
+                        <td style="padding:6px 10px;">c² = a² − b²</td>
+                        <td style="padding:6px 10px;">c² = a² + b²</td>
+                        <td style="padding:6px 10px;">p = dist(F,D)</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #E5E7EB;">
+                        <td style="padding:6px 10px;">Branches</td>
+                        <td style="padding:6px 10px;">1 (fermée)</td>
+                        <td style="padding:6px 10px;">2 (infinies)</td>
+                        <td style="padding:6px 10px;">1 (infinie)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:6px 10px;">Nature</td>
+                        <td style="padding:6px 10px;">MF₁+MF₂ = 2a</td>
+                        <td style="padding:6px 10px;">|MF₁−MF₂| = 2a</td>
+                        <td style="padding:6px 10px;">MF = MD</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Astuces pour identifier rapidement une conique</h4>
+                <p>• <strong>Deux signes +</strong> : x²/a² + y²/b² → ellipse (cercle si a = b)</p>
+                <p>• <strong>Un signe + et un −</strong> : x²/a² − y²/b² → hyperbole</p>
+                <p>• <strong>Une seule variable au carré</strong> : y² = 2px → parabole</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 6 -->
+        <div class="math-content" id="p6">
+            <h3>📔 6. Exercices d'entraînement</h3>
+
+            <div class="example-box">
+                <h4>📝 Exercice 1 — Identifier une conique</h4>
+                <p>Classifier les coniques suivantes et donner leurs éléments caractéristiques :</p>
+                <p>a) 4x² + 9y² = 36 &nbsp;&nbsp;→ Δ = 0 − 4×36 = −144 &lt; 0 → <strong>Ellipse</strong></p>
+                <p>&nbsp;&nbsp;&nbsp;x²/9 + y²/4 = 1 → a=3, b=2, c²=9−4=5, c=√5, e=√5/3</p>
+                <p>b) 3x² − y² = 12 &nbsp;&nbsp;→ Δ > 0 → <strong>Hyperbole</strong></p>
+                <p>&nbsp;&nbsp;&nbsp;x²/4 − y²/12 = 1 → a=2, b=2√3, c²=4+12=16, c=4, e=2</p>
+                <p>c) y² = 6x &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ Δ = 0 → <strong>Parabole</strong>, p=3, F(1,5; 0)</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 2 — Déterminer l'ellipse</h4>
+                <p>Une ellipse a pour foyers F₁(−4, 0) et F₂(4, 0), et passe par le point P(3, √7).</p>
+                <p>Donner son équation réduite.</p>
+                <p><strong>Solution :</strong></p>
+                <p>F₁F₂ = 8 → c = 4</p>
+                <p>P appartient à l'ellipse : PF₁ + PF₂ = 2a</p>
+                <p>PF₁ = √((3+4)² + 7) = √(49+7) = √56 = 2√14</p>
+                <p>PF₂ = √((3−4)² + 7) = √(1+7) = √8 = 2√2</p>
+                <p>2a = 2√14 + 2√2 → a = √14 + √2</p>
+                <p>a² = 14 + 2 + 2√28 = 16 + 4√7</p>
+                <p>c² = 16 = a² − b² → b² = a² − 16 = 4√7</p>
+                <p>→ <strong>x²/(16+4√7) + y²/(4√7) = 1</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 3 — Tangente à une parabole</h4>
+                <p>Écrire l'équation de la tangente à y² = 12x au point M(3, 6).</p>
+                <p><strong>Solution :</strong></p>
+                <p>2p = 12 → p = 6</p>
+                <p>Formule : yy₀ = p(x + x₀) → 6y = 6(x + 3)</p>
+                <p>6y = 6x + 18 → <strong>y = x + 3</strong></p>
+                <p>Vérification : M(3,6) → 6 = 3 + 3 ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 4 — Asymptotes de l'hyperbole</h4>
+                <p>Une hyperbole a pour équation 9x² − 4y² = 36 et pour sommets A(2, 0) et A'(−2, 0).</p>
+                <p>Trouver les équations de ses asymptotes.</p>
+                <p><strong>Solution :</strong></p>
+                <p>9x² − 4y² = 36 → x²/4 − y²/9 = 1</p>
+                <p>a² = 4, b² = 9 → a = 2, b = 3</p>
+                <p>Asymptotes : y = ±(b/a)x = ±(3/2)x</p>
+                <p>→ <strong>y = (3/2)x</strong> et <strong>y = −(3/2)x</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 5 — Problème d'orbites (application)</h4>
+                <p>La planète Mars a une orbite elliptique autour du Soleil avec a = 227,9 millions de km et b = 226,9 millions de km.</p>
+                <p>Calculer la distance focale et l'excentricité.</p>
+                <p><strong>Solution :</strong></p>
+                <p>c² = a² − b² = (227,9)² − (226,9)²</p>
+                <p>= (227,9 − 226,9)(227,9 + 226,9) = 1 × 454,8 ≈ 454,8</p>
+                <p>→ c ≈ √454,8 ≈ 21,3 millions de km</p>
+                <p>e = c/a ≈ 21,3/227,9 ≈ <strong>0,093</strong></p>
+                <p>→ L'orbite de Mars est très proche d'un cercle (e très petit).</p>
+            </div>
+        </div>
+
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel — Les Coniques</h2>
+            <div class="resume-images">
+                <a href="https://drive.google.com/file/d/1VUVoCGBAHVTDztSIMcBaGPGLQSUyukA4/view?usp=drive_link">
+                    <button>📥 Télécharger le résumé</button>
+                </a>
+            </div>
+        </section>
+
+         <!-- SECTION VIDÉO -->
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/14UW5-s6mLwJF5K2u_U7n60dE4VFOInQ9/preview
+" width="640" height="480" allow="autoplay"></iframe>
+            </div>
+        </section>
+          <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/1AjHstp4586w5QUE-PpTj20OQijaf6Fhs/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+        <a href="lecon7-equations-differentielles.html" class="next-lesson" style="background: linear-gradient(135deg, #EAB308, #CA8A04);">
+            <div>
+                <p class="next-lesson-text">Leçon suivante</p>
+                <p class="next-lesson-title">Leçon 7 :equations-differentielles →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

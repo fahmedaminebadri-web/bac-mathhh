@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH1: Suites réelles - Analyse</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .math-content h4 { color: #7C3AED; font-size: 1rem; margin: 18px 0 10px 0; }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1E40AF; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid var(--warning); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .theorem-box { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); border-left: 4px solid #7C3AED; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .theorem-box h4 { color: #6D28D9; font-size: 0.95rem; margin-bottom: 8px; }
+        .theorem-box p { color: #5B21B6; margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+         <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #7C3AED;">
+            <h1>CH1: Suites réelles</h1>
+            <p class="breadcrumb">Mathématiques > Analyse > CH1</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan du chapitre</h3>
+            <ol>
+                <li><a href="#p1">Généralités sur les suites</a></li>
+                <li><a href="#p2">Suites arithmétiques</a></li>
+                <li><a href="#p3">Suites géométriques</a></li>
+                <li><a href="#p4">Limites de suites</a></li>
+                <li><a href="#p5">Raisonner par récurrence</a></li>
+            </ol>
+        </div>
+
+         <!-- SECTION PODCAST -->
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1zy6qJMFKCd-nvLZLOqyl_g6q4dgjglIL/preview
+"
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Généralités sur les suites</h3>
+            <p>Une <strong>suite numérique</strong> est une fonction définie sur ℕ (l'ensemble des entiers naturels) qui associe à chaque entier naturel n un nombre réel u<sub>n</sub>.</p>
+            <p>On note la suite (u<sub>n</sub>)<sub>n∈ℕ</sub> ou simplement (u<sub>n</sub>).</p>
+            
+            <h4>🔹 Définitions fondamentales</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📌</span><p><strong>Suite majorée</strong> : ∃ M ∈ ℝ tel que ∀n, u<sub>n</sub> ≤ M</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Suite minorée</strong> : ∃ m ∈ ℝ tel que ∀n, u<sub>n</sub> ≥ m</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Suite bornée</strong> : elle est à la fois majorée et minorée</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Suite croissante</strong> : ∀n, u<sub>n+1</sub> ≥ u<sub>n</sub></p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Suite décroissante</strong> : ∀n, u<sub>n+1</sub> ≤ u<sub>n</sub></p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Suite constante</strong> : ∀n, u<sub>n+1</sub> = u<sub>n</sub></p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Monotonie</div>
+                Croissante : u<sub>n+1</sub> - u<sub>n</sub> ≥ 0 &nbsp;&nbsp;|&nbsp;&nbsp; Décroissante : u<sub>n+1</sub> - u<sub>n</sub> ≤ 0
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Suite bornée</h4>
+                <p>u<sub>n</sub> = (-1)<sup>n</sup> : la suite prend les valeurs 1 et -1</p>
+                <p>Elle est bornée : -1 ≤ u<sub>n</sub> ≤ 1 pour tout n</p>
+                <p>Elle n'est ni croissante ni décroissante (elle alterne)</p>
+            </div>
+
+            <h4>🔹 Modes de définition d'une suite</h4>
+            <p><strong>1. Forme explicite</strong> : u<sub>n</sub> = f(n) où f est une fonction</p>
+            <div class="formula-box">
+                <div class="formula-title">Exemple</div>
+                u<sub>n</sub> = 3n + 2 &nbsp;&nbsp;→&nbsp;&nbsp; u<sub>0</sub> = 2, u<sub>1</sub> = 5, u<sub>2</sub> = 8, u<sub>3</sub> = 11...
+            </div>
+
+            <p><strong>2. Relation de récurrence</strong> : u<sub>n+1</sub> = f(u<sub>n</sub>) avec u<sub>0</sub> connu</p>
+            <div class="formula-box">
+                <div class="formula-title">Exemple</div>
+                u<sub>0</sub> = 1, u<sub>n+1</sub> = 2u<sub>n</sub> + 1<br>
+                &nbsp;&nbsp;→&nbsp;&nbsp; u<sub>1</sub> = 2(1) + 1 = 3<br>
+                &nbsp;&nbsp;→&nbsp;&nbsp; u<sub>2</sub> = 2(3) + 1 = 7<br>
+                &nbsp;&nbsp;→&nbsp;&nbsp; u<sub>3</sub> = 2(7) + 1 = 15...
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Suites arithmétiques</h3>
+            <p>Une suite est <strong>arithmétique</strong> si la différence entre deux termes consécutifs est constante. Cette constante s'appelle la <strong>raison</strong>.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">Définition</div>
+                (u<sub>n</sub>) est arithmétique ⟺ ∃ r ∈ ℝ tel que ∀n ∈ ℕ : u<sub>n+1</sub> = u<sub>n</sub> + r
+            </div>
+
+            <h4>🔹 Formule du terme général</h4>
+            <div class="formula-box">
+                <div class="formula-title">Terme général</div>
+                u<sub>n</sub> = u<sub>0</sub> + n × r &nbsp;&nbsp;|&nbsp;&nbsp; ou &nbsp;&nbsp; u<sub>n</sub> = u<sub>p</sub> + (n - p) × r
+            </div>
+
+            <h4>🔹 Somme des termes consécutifs</h4>
+            <div class="formula-box">
+                <div class="formula-title">Somme arithmétique</div>
+                S = u<sub>0</sub> + u<sub>1</sub> + ... + u<sub>n</sub> = (n + 1) × (u<sub>0</sub> + u<sub>n</sub>) / 2
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 : Suite arithmétique</h4>
+                <p>Soit (u<sub>n</sub>) arithmétique avec u<sub>0</sub> = 3 et r = 5</p>
+                <p>u<sub>n</sub> = 3 + 5n</p>
+                <p>Calculer u<sub>10</sub> : u<sub>10</sub> = 3 + 5 × 10 = <strong>53</strong></p>
+                <p>S<sub>10</sub> = 11 × (3 + 53) / 2 = 11 × 56 / 2 = <strong>308</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 : Trouver la raison</h4>
+                <p>On donne u<sub>2</sub> = 7 et u<sub>5</sub> = 19</p>
+                <p>u<sub>5</sub> = u<sub>2</sub> + 3r ⟹ 19 = 7 + 3r ⟹ r = 4</p>
+                <p>u<sub>0</sub> = u<sub>2</sub> - 2r = 7 - 8 = -1</p>
+                <p>Donc u<sub>n</sub> = -1 + 4n</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Propriété importante</h4>
+                <p>• Si r > 0 : la suite est <strong>strictement croissante</strong></p>
+                <p>• Si r < 0 : la suite est <strong>strictement décroissante</strong></p>
+                <p>• Si r = 0 : la suite est <strong>constante</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Suites géométriques</h3>
+            <p>Une suite est <strong>géométrique</strong> si le quotient entre deux termes consécutifs est constant. Cette constante s'appelle la <strong>raison</strong>.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">Définition</div>
+                (u<sub>n</sub>) est géométrique ⟺ ∃ q ∈ ℝ tel que ∀n ∈ ℕ : u<sub>n+1</sub> = u<sub>n</sub> × q
+            </div>
+
+            <h4>🔹 Formule du terme général</h4>
+            <div class="formula-box">
+                <div class="formula-title">Terme général</div>
+                u<sub>n</sub> = u<sub>0</sub> × q<sup>n</sup> &nbsp;&nbsp;|&nbsp;&nbsp; ou &nbsp;&nbsp; u<sub>n</sub> = u<sub>p</sub> × q<sup>n-p</sup>
+            </div>
+
+            <h4>🔹 Somme des termes consécutifs</h4>
+            <div class="formula-box">
+                <div class="formula-title">Somme géométrique</div>
+                Si q ≠ 1 : S = u<sub>0</sub> × (1 - q<sup>n+1</sup>) / (1 - q)<br>
+                Si q = 1 : S = (n + 1) × u<sub>0</sub>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 : Suite géométrique</h4>
+                <p>Soit (u<sub>n</sub>) géométrique avec u<sub>0</sub> = 2 et q = 3</p>
+                <p>u<sub>n</sub> = 2 × 3<sup>n</sup></p>
+                <p>Calculer u<sub>4</sub> : u<sub>4</sub> = 2 × 3<sup>4</sup> = 2 × 81 = <strong>162</strong></p>
+                <p>S<sub>4</sub> = 2 × (1 - 3<sup>5</sup>) / (1 - 3) = 2 × (1 - 243) / (-2) = <strong>242</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 : Trouver la raison</h4>
+                <p>On donne u<sub>2</sub> = 12 et u<sub>5</sub> = 96</p>
+                <p>u<sub>5</sub> = u<sub>2</sub> × q³ ⟹ 96 = 12 × q³ ⟹ q³ = 8 ⟹ q = 2</p>
+                <p>u<sub>0</sub> = u<sub>2</sub> / q² = 12 / 4 = 3</p>
+                <p>Donc u<sub>n</sub> = 3 × 2<sup>n</sup></p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Comportement selon q</h4>
+                <p>• Si q > 1 : la suite est <strong>strictement croissante</strong> (u<sub>0</sub> > 0) ou <strong>décroissante</strong> (u<sub>0</sub> < 0)</p>
+                <p>• Si 0 < q < 1 : la suite tend vers <strong>0</strong></p>
+                <p>• Si q = 1 : la suite est <strong>constante</strong></p>
+                <p>• Si q < 0 : la suite <strong>alterne</strong> de signe</p>
+                <p>• Si |q| > 1 et u<sub>0</sub> ≠ 0 : la suite <strong>diverge</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Limites de suites</h3>
+            <p>La <strong>limite</strong> d'une suite décrit le comportement des termes quand n devient très grand.</p>
+
+            <h4>🔹 Définitions</h4>
+            <div class="theorem-box">
+                <h4>📐 Limite finie (convergence)</h4>
+                <p>lim<sub>n→+∞</sub> u<sub>n</sub> = ℓ ⟺ ∀ε > 0, ∃N ∈ ℕ : ∀n ≥ N, |u<sub>n</sub> - ℓ| < ε</p>
+                <p>Autrement dit : u<sub>n</sub> se rapproche arbitrairement de ℓ quand n grandit.</p>
+            </div>
+
+            <div class="theorem-box">
+                <h4>📐 Limite infinie (divergence)</h4>
+                <p>lim<sub>n→+∞</sub> u<sub>n</sub> = +∞ ⟺ ∀A > 0, ∃N : ∀n ≥ N, u<sub>n</sub> > A</p>
+                <p>lim<sub>n→+∞</sub> u<sub>n</sub> = -∞ ⟺ ∀A > 0, ∃N : ∀n ≥ N, u<sub>n</sub> < -A</p>
+            </div>
+
+            <h4>🔹 Limites des suites usuelles</h4>
+            <div class="formula-box">
+                <div class="formula-title">Limites fondamentales</div>
+                lim<sub>n→+∞</sub> n = +∞<br>
+                lim<sub>n→+∞</sub> n² = +∞<br>
+                lim<sub>n→+∞</sub> a<sup>n</sup> = 
+                <table style="margin-top:8px; font-size:0.9rem;">
+                    <tr><td>0</td><td>si |a| < 1</td></tr>
+                    <tr><td>1</td><td>si a = 1</td></tr>
+                    <tr><td>+∞</td><td>si a > 1</td></tr>
+                </table>
+            </div>
+
+            <h4>🔹 Opérations sur les limites</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➕</span><p><strong>Somme</strong> : ∞ + ∞ = ∞ &nbsp;&nbsp;|&nbsp;&nbsp; ∞ + ℓ = ∞</p></div>
+                <div class="key-point"><span class="icon">✖️</span><p><strong>Produit</strong> : (+∞) × (+∞) = +∞ &nbsp;&nbsp;|&nbsp;&nbsp; (+∞) × ℓ = ±∞</p></div>
+                <div class="key-point"><span class="icon">➗</span><p><strong>Quotient</strong> : ℓ/∞ = 0 &nbsp;&nbsp;|&nbsp;&nbsp; ℓ/0 = ±∞ (selon le signe)</p></div>
+                <div class="key-point"><span class="icon">⚡</span><p><strong>Formes indéterminées</strong> : ∞ - ∞, 0 × ∞, 0/0, ∞/∞, 0⁰, ∞⁰</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Lever l'indétermination</h4>
+                <p>Calculer lim<sub>n→+∞</sub> (n² - 3n + 1)</p>
+                <p>→ Forme indéterminée : ∞ - ∞</p>
+                <p>→ Factoriser n² : n²(1 - 3/n + 1/n²)</p>
+                <p>→ Quand n → ∞ : -3/n → 0 et 1/n² → 0</p>
+                <p>→ lim = +∞ × 1 = <strong>+∞</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Suite géométrique</h4>
+                <p>u<sub>n</sub> = 5 × (0.7)<sup>n</sup></p>
+                <p>Comme |0.7| < 1, lim<sub>n→+∞</sub> (0.7)<sup>n</sup> = 0</p>
+                <p>Donc lim<sub>n→+∞</sub> u<sub>n</sub> = 5 × 0 = <strong>0</strong></p>
+            </div>
+
+            <h4>🔹 Théorèmes importants</h4>
+            <div class="theorem-box">
+                <h4>📐 Théorème de convergence monotone</h4>
+                <p>• Toute suite <strong>croissante et majorée</strong> converge.</p>
+                <p>• Toute suite <strong>décroissante et minorée</strong> converge.</p>
+            </div>
+
+            <div class="theorem-box">
+                <h4>📐 Théorème des gendarmess</h4>
+                <p>Si u<sub>n</sub> ≤ v<sub>n</sub> ≤ w<sub>n</sub> et lim u<sub>n</sub> = lim w<sub>n</sub> = ℓ</p>
+                <p>Alors lim v<sub>n</sub> = ℓ</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Application du théorème des gendarmess</h4>
+                <p>Montrer que lim<sub>n→+∞</sub> sin(n)/n = 0</p>
+                <p>On a : -1 ≤ sin(n) ≤ 1</p>
+                <p>Donc : -1/n ≤ sin(n)/n ≤ 1/n</p>
+                <p>Or lim(-1/n) = lim(1/n) = 0</p>
+                <p>Par le théorème des gendarmess : lim = <strong>0</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Raisonner par récurrence</h3>
+            <p>Le <strong>raisonnement par récurrence</strong> est une méthode de démonstration essentielle pour prouver qu'une propriété dépendant de n est vraie pour tout entier naturel.</p>
+
+            <h4>🔹 Principe de la récurrence</h4>
+            <div class="theorem-box">
+                <h4>📐 Les 3 étapes</h4>
+                <p><strong>1. Initialisation</strong> : Vérifier que la propriété est vraie pour n = 0 (ou n₀)</p>
+                <p><strong>2. Hypothèse de récurrence (HR)</strong> : Supposer que la propriété est vraie pour un certain rang n</p>
+                <p><strong>3. Hérédité</strong> : Démontrer que si la propriété est vraie au rang n, alors elle est vraie au rang n+1</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Schéma logique</div>
+                P(0) vraie &nbsp;→&nbsp; Si P(n) vraie alors P(n+1) vraie &nbsp;→&nbsp; Conclusion : P(n) vraie ∀n ∈ ℕ
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Démontrer une formule</h4>
+                <p><strong>Montrer que</strong> : 1 + 2 + 3 + ... + n = n(n+1)/2 pour tout n ∈ ℕ*</p>
+                
+                <p style="margin-top:12px;"><strong>1. Initialisation</strong> :</p>
+                <p>Pour n = 1 : 1 = 1(1+1)/2 = 1 ✓</p>
+                
+                <p style="margin-top:12px;"><strong>2. Hypothèse de récurrence</strong> :</p>
+                <p>Supposons que 1 + 2 + ... + n = n(n+1)/2</p>
+                
+                <p style="margin-top:12px;"><strong>3. Hérédité</strong> :</p>
+                <p>1 + 2 + ... + n + (n+1) = n(n+1)/2 + (n+1)</p>
+                <p>= n(n+1)/2 + 2(n+1)/2 = (n+2)(n+1)/2</p>
+                <p>= (n+1)[(n+1)+1]/2 ✓</p>
+                
+                <p style="margin-top:12px;"><strong>Conclusion</strong> : La formule est vraie pour tout n ∈ ℕ*</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Suite définie par récurrence</h4>
+                <p>Soit u<sub>0</sub> = 1 et u<sub>n+1</sub> = 2u<sub>n</sub> + 1</p>
+                <p><strong>Conjecture</strong> : u<sub>n</sub> = 2<sup>n+1</sup> - 1</p>
+                
+                <p style="margin-top:12px;"><strong>1. Initialisation</strong> :</p>
+                <p>u<sub>0</sub> = 1 et 2<sup>0+1</sup> - 1 = 2 - 1 = 1 ✓</p>
+                
+                <p style="margin-top:12px;"><strong>2. HR</strong> : Supposons u<sub>n</sub> = 2<sup>n+1</sup> - 1</p>
+                
+                <p style="margin-top:12px;"><strong>3. Hérédité</strong> :</p>
+                <p>u<sub>n+1</sub> = 2u<sub>n</sub> + 1 = 2(2<sup>n+1</sup> - 1) + 1</p>
+                <p>= 2<sup>n+2</sup> - 2 + 1 = 2<sup>n+2</sup> - 1 ✓</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Types de récurrence</h4>
+                <p>• <strong>Récurrence simple</strong> : P(n) → P(n+1)</p>
+                <p>• <strong>Récurrence forte</strong> : P(0) et [P(0) et P(1) et ... et P(n)] → P(n+1)</p>
+                <p>• <strong>Récurrence double</strong> : P(n) et P(n+1) → P(n+2)</p>
+            </div>
+
+            <h4>🔹 Application aux limites</h4>
+            <div class="example-box">
+                <h4>💡 Montrer la convergence d'une suite</h4>
+                <p>Soit u<sub>0</sub> = 1 et u<sub>n+1</sub> = √(2 + u<sub>n</sub>)</p>
+                <p><strong>Montrons que (u<sub>n</sub>) est croissante et majorée par 2</strong></p>
+                
+                <p style="margin-top:12px;"><strong>1. Initialisation</strong> : u<sub>0</sub> = 1 < 2 ✓</p>
+                
+                <p style="margin-top:12px;"><strong>2. HR</strong> : Supposons u<sub>n</sub> < 2</p>
+                
+                <p style="margin-top:12px;"><strong>3. Hérédité</strong> :</p>
+                <p>u<sub>n+1</sub> = √(2 + u<sub>n</sub>) < √(2 + 2) = √4 = 2 ✓</p>
+                <p>Et u<sub>n+1</sub> - u<sub>n</sub> = √(2 + u<sub>n</sub>) - u<sub>n</sub> > 0 (facile à montrer)</p>
+                
+                <p style="margin-top:12px;"><strong>Conclusion</strong> : La suite est croissante et majorée par 2, donc elle converge.</p>
+            </div>
+        </div>
+
+        <!-- SECTION RÉSUMÉ IMAGE -->
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+          
+                            <br><br>
+                <a href="https://drive.google.com/file/d/1i-H8kEUR9SRLt0DvQbEfKY3mih5ZlkXm/view?usp=drive_link" download>
+                    <button>📥 Télécharger la photo</button>
+                </a></div>
+        </section>
+
+        <!-- SECTION VIDÉO -->
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1ffFDeGANGhfN9sNCd6yk4zX-DzTOEOsW/preview
+"
+                        width="640" height="360" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+         <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/1przow4m-oZINZcnKS5YFQ4pHjjewE0Xy/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+        <a href="CH2-limites-continuite.html" class="next-lesson" style="background: linear-gradient(135deg, #7C3AED, #6D28D9);">
+            <div>
+                <p class="next-lesson-text">Chapitre suivant</p>
+                <p class="next-lesson-title">CH2: Limites et continuité →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+        
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

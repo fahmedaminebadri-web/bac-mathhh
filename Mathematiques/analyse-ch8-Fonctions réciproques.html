@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH9: Fonctions réciproques - Analyse</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .math-content h4 { color: #7C3AED; font-size: 1rem; margin: 18px 0 10px 0; }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1E40AF; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid var(--warning); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .theorem-box { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); border-left: 4px solid #7C3AED; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .theorem-box h4 { color: #6D28D9; font-size: 0.95rem; margin-bottom: 8px; }
+        .theorem-box p { color: #5B21B6; margin-bottom: 6px; }
+        table.formula-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-family: 'Courier New', monospace; font-size: 0.95rem; }
+        table.formula-table th, table.formula-table td { padding: 8px 12px; border: 1px solid #E5E7EB; text-align: left; }
+        table.formula-table th { background: #EFF6FF; color: #1E40AF; }
+        table.formula-table tr:nth-child(even) { background: #F9FAFB; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+              <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #9333EA;">
+            <h1>CH9: Fonctions réciproques</h1>
+            <p class="breadcrumb">Mathématiques > Analyse > CH9</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan du chapitre</h3>
+            <ol>
+                <li><a href="#p1">Fonctions injectives et bijectives</a></li>
+                <li><a href="#p2">Définition de la fonction réciproque</a></li>
+                <li><a href="#p3">Propriétés de la fonction réciproque</a></li>
+                <li><a href="#p4">Fonctions trigonométriques inverses</a></li>
+                <li><a href="#p5">Fonctions hyperboliques et leurs réciproques</a></li>
+            </ol>
+        </div>
+
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1eIa90uqtGuR0JaPEYXQWUGrzB7HDaP3L/preview
+" width="600" height="120" frameborder="0" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Fonctions injectives et bijectives</h3>
+            <p>Pour qu'une fonction admette une réciproque, elle doit être <strong>bijective</strong>. Comprenons d'abord injective et surjective.</p>
+
+            <h4>🔹 Fonction injective</h4>
+            <div class="theorem-box">
+                <h4>📐 Définition</h4>
+                <p>f est <strong>injective</strong> sur I si :</p>
+                <p>∀x₁, x₂ ∈ I : x₁ ≠ x₂ ⟹ f(x₁) ≠ f(x₂)</p>
+                <p style="margin-top:8px;"><em>Deux antécédents différents ont toujours des images différentes.</em></p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Test de la droite horizontale</div>
+                Une fonction est injective ⟺ toute droite horizontale coupe son graphe au plus une fois
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Injection</h4>
+                <p>f(x) = 3x + 2 sur ℝ</p>
+                <p>Si 3x₁ + 2 = 3x₂ + 2 ⟹ 3x₁ = 3x₂ ⟹ x₁ = x₂</p>
+                <p>Donc f est <strong>injective</strong> sur ℝ ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Contre-exemple : Non injective</h4>
+                <p>f(x) = x² sur ℝ</p>
+                <p>f(2) = f(-2) = 4</p>
+                <p>Mais 2 ≠ -2</p>
+                <p>Donc f n'est <strong>pas injective</strong> sur ℝ ✗</p>
+                <p><em>Mais f(x) = x² est injective sur [0, +∞[ ou sur ]-∞, 0]</em></p>
+            </div>
+
+            <h4>🔹 Fonction surjective</h4>
+            <div class="theorem-box">
+                <h4>📐 Définition</h4>
+                <p>f est <strong>surjective</strong> de I vers J si :</p>
+                <p>∀y ∈ J, ∃x ∈ I : f(x) = y</p>
+                <p style="margin-top:8px;"><em>Tout élément de l'ensemble d'arrivée a au moins un antécédent.</em></p>
+            </div>
+
+            <h4>🔹 Fonction bijective</h4>
+            <div class="theorem-box">
+                <h4>📐 Définition</h4>
+                <p>f est <strong>bijective</strong> si elle est à la fois :</p>
+                <p>• <strong>Injective</strong> : chaque image a un antécédent unique</p>
+                <p>• <strong>Surjective</strong> : tout élément de l'arrivée a un antécédent</p>
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Bijection</strong> : chaque x a une image unique y, et chaque y a un antécédent unique x</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Condition pour admettre une réciproque</strong> : f doit être bijective</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Bijection</h4>
+                <p>f(x) = 2x + 1 de ℝ vers ℝ</p>
+                <p>• Injective : montré précédemment ✓</p>
+                <p>• Surjective : pour tout y ∈ ℝ, x = (y-1)/2 ∈ ℝ ✓</p>
+                <p>→ f est <strong>bijective</strong> sur ℝ</p>
+            </div>
+
+            <h4>🔹 Restriction d'une fonction</h4>
+            <div class="theorem-box">
+                <h4>📐 Principe</h4>
+                <p>Si f n'est pas bijective sur son domaine, on peut restreindre son domaine pour la rendre bijective.</p>
+                <p style="margin-top:8px;"><strong>Exemple</strong> : f(x) = sin(x)</p>
+                <p>• Non injective sur ℝ</p>
+                <p>• Mais injective sur [-π/2, π/2] → c'est la <strong>restriction principale</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Définition de la fonction réciproque</h3>
+            <p>La <strong>fonction réciproque</strong> permet de "remonter" de l'image vers l'antécédent.</p>
+
+            <h4>🔹 Définition formelle</h4>
+            <div class="theorem-box">
+                <h4>📐 Fonction réciproque</h4>
+                <p>Si f est <strong>bijective</strong> de I vers J, alors la <strong>fonction réciproque</strong> f⁻¹ est définie par :</p>
+                <p style="text-align:center; font-size:1.1rem;"><strong>f⁻¹(y) = x</strong> &nbsp;&nbsp;tel que&nbsp;&nbsp; <strong>f(x) = y</strong></p>
+                <p style="margin-top:8px;"><em>f⁻¹ "inverse" l'effet de f : elle renvoie l'antécédent.</em></p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Notation</div>
+                f⁻¹ se lit "f réciproque" ou "f inverse"<br>
+                <strong>Attention</strong> : f⁻¹ ≠ 1/f &nbsp;&nbsp;|&nbsp;&nbsp; (1/f) se note (f)⁻¹ ou 1/f
+            </div>
+
+            <h4>🔹 Propriétés fondamentales</h4>
+            <div class="formula-box">
+                <div class="formula-title">Identités réciproques</div>
+                f⁻¹(f(x)) = x &nbsp;&nbsp;pour tout x ∈ I &nbsp;&nbsp;<strong>(réciproque de la réciproque)</strong><br><br>
+                f(f⁻¹(y)) = y &nbsp;&nbsp;pour tout y ∈ J
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Réciproque de x → 3x + 2</h4>
+                <p>f(x) = 3x + 2, bijective de ℝ vers ℝ</p>
+                <p>y = 3x + 2 ⟺ x = (y - 2)/3</p>
+                <p>Donc f⁻¹(y) = (y - 2)/3</p>
+                <p>En variable x : <strong>f⁻¹(x) = (x - 2)/3</strong></p>
+                <p style="margin-top:8px;">Vérification :</p>
+                <p>f⁻¹(f(x)) = ((3x + 2) - 2)/3 = 3x/3 = x ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Réciproque de x → x³</h4>
+                <p>f(x) = x³ est bijective de ℝ vers ℝ</p>
+                <p>y = x³ ⟺ x = ∛y</p>
+                <p><strong>f⁻¹(x) = ∛x</strong></p>
+                <p>Vérification : f⁻¹(f(x)) = ∛(x³) = x ✓</p>
+            </div>
+
+            <h4>🔹 Représentation graphique</h4>
+            <div class="theorem-box">
+                <h4>📐 Symétrie</h4>
+                <p>Les courbes de <strong>f</strong> et <strong>f⁻¹</strong> sont <strong>symétriques par rapport à la droite y = x</strong></p>
+                <p style="margin-top:8px;"><em>Cette propriété permet de tracer f⁻¹ à partir de f.</em></p>
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📈</span><p><strong>Point (a, b)</strong> sur C<sub>f</sub> ⟺ point (b, a) sur C<sub>f⁻¹</sub></p></div>
+                <div class="key-point"><span class="icon">📉</span><p><strong>Intersection</strong> avec y = x : points invariants</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Monotonie</strong> : f et f⁻¹ ont la même monotonie</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Tracer la réciproque</h4>
+                <p>Si on a la courbe de f(x) = 2x + 1</p>
+                <p>Pour tracer f⁻¹ :</p>
+                <p>1. Tracer la droite y = x</p>
+                <p>2. Symétriser la courbe de f par rapport à cette droite</p>
+                <p>3. La courbe symétrique est celle de f⁻¹(x) = (x - 1)/2</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Propriétés de la fonction réciproque</h3>
+            <p>La fonction réciproque <strong>hérite</strong> et <strong>inverse</strong> certaines propriétés de la fonction originale.</p>
+
+            <h4>🔹 Continuité</h4>
+            <div class="theorem-box">
+                <h4>📐 Continuité de la réciproque</h4>
+                <p>Si f est <strong>continue</strong> et <strong>bijective</strong> sur I, alors f⁻¹ est <strong>continue</strong> sur J = f(I).</p>
+            </div>
+
+            <h4>🔹 Dérivabilité</h4>
+            <div class="theorem-box">
+                <h4>📐 Dérivée de la réciproque</h4>
+                <p>Si f est <strong>dérivable</strong> sur I, f⁻¹ existe, et f'(f⁻¹(y)) ≠ 0</p>
+                <p style="margin-top:8px; text-align:center; font-size:1.1rem;"><strong>(f⁻¹)'(y) = 1 / f'(f⁻¹(y))</strong></p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Formule équivalente</div>
+                (f⁻¹)'(x) = 1 / f'(f⁻¹(x))
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Dérivée de ∛x</h4>
+                <p>f(x) = x³, donc f'(x) = 3x²</p>
+                <p>f⁻¹(x) = ∛x</p>
+                <p>(f⁻¹)'(x) = 1 / f'(∛x)</p>
+                <p>= 1 / [3(∛x)²]</p>
+                <p>= 1 / (3 × x<sup>2/3</sup>)</p>
+                <p><strong>(∛x)' = 1/(3∛(x²))</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Dérivée de ln(x)</h4>
+                <p>On sait que exp et ln sont réciproques : exp(ln(x)) = x</p>
+                <p>ln'(x) = 1 / exp'(ln(x))</p>
+                <p>= 1 / exp(ln(x))</p>
+                <p>= 1 / x</p>
+                <p><strong>ln'(x) = 1/x</strong> ✓</p>
+            </div>
+
+            <h4>🔹 Monotonie</h4>
+            <div class="theorem-box">
+                <h4>📐 Monotonie de la réciproque</h4>
+                <p>• Si f est <strong>strictement croissante</strong>, alors f⁻¹ est <strong>strictement croissante</strong></p>
+                <p>• Si f est <strong>strictement décroissante</strong>, alors f⁻¹ est <strong>strictement décroissante</strong></p>
+            </div>
+
+            <h4>🔹 Limites</h4>
+            <div class="theorem-box">
+                <h4>📐 Limites de la réciproque</h4>
+                <p>Si lim<sub>x→a</sub> f(x) = b, alors lim<sub>y→b</sub> f⁻¹(y) = a</p>
+                <p style="margin-top:8px;"><em>Les limites se "renversent" avec la réciproque.</em></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Limite avec ln</h4>
+                <p>lim<sub>x→+∞</sub> ln(x) = +∞</p>
+                <p>Donc lim<sub>y→+∞</sub> exp(y) = +∞ ✓</p>
+                <p>lim<sub>x→0⁺</sub> ln(x) = -∞</p>
+                <p>Donc lim<sub>y→-∞</sub> exp(y) = 0 ✓</p>
+            </div>
+
+            <h4>🔹 Sommes et produits</h4>
+            <div class="warning-box">
+                <h4>⚠️ Propriété importante</h4>
+                <p>En général : <strong>(f + g)⁻¹ ≠ f⁻¹ + g⁻¹</strong></p>
+                <p>La réciproque d'une somme n'est pas la somme des réciproques.</p>
+                <p>De même pour le produit : (f × g)⁻¹ ≠ f⁻¹ × g⁻¹</p>
+            </div>
+
+            <h4>🔹 Composée avec la réciproque</h4>
+            <div class="formula-box">
+                <div class="formula-title">Composition avec la réciproque</div>
+                f⁻¹ ∘ f = Id<sub>I</sub> &nbsp;&nbsp;|&nbsp;&nbsp; f ∘ f⁻¹ = Id<sub>J</sub>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Fonctions trigonométriques inverses</h3>
+            <p>Les fonctions trigonométriques ne sont pas bijectives sur ℝ, donc on restreint leur domaine.</p>
+
+            <h4>🔹 Fonction arcsin (arc sinus)</h4>
+            <div class="theorem-box">
+                <h4>📐 Définition</h4>
+                <p>sin : [-π/2, π/2] → [-1, 1] est bijective</p>
+                <p style="margin-top:8px;"><strong>arcsin : [-1, 1] → [-π/2, π/2]</strong></p>
+                <p>arcsin(y) = x ⟺ sin(x) = y</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Propriétés de arcsin</div>
+                arcsin(-x) = -arcsin(x) &nbsp;&nbsp;(impaire)<br>
+                -π/2 ≤ arcsin(x) ≤ π/2<br>
+                sin(arcsin(x)) = x &nbsp;&nbsp;|&nbsp;&nbsp; arcsin(sin(x)) = x (sur [-π/2, π/2])
+            </div>
+
+            <h4>🔹 Fonction arccos (arc cosinus)</h4>
+            <div class="theorem-box">
+                <h4>📐 Définition</h4>
+                <p>cos : [0, π] → [-1, 1] est bijective</p>
+                <p style="margin-top:8px;"><strong>arccos : [-1, 1] → [0, π]</strong></p>
+                <p>arccos(y) = x ⟺ cos(x) = y</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Propriétés de arccos</div>
+                arccos(-x) = π - arccos(x)<br>
+                0 ≤ arccos(x) ≤ π<br>
+                arccos(x) + arcsin(x) = π/2
+            </div>
+
+            <h4>🔹 Dérivées</h4>
+            <table class="formula-table">
+                <tr><th>Fonction</th><th>Dérivée</th></tr>
+                <tr><td>arcsin(x)</td><td>1/√(1 - x²)</td></tr>
+                <tr><td>arccos(x)</td><td>-1/√(1 - x²)</td></tr>
+                <tr><td>arctan(x)</td><td>1/(1 + x²)</td></tr>
+            </table>
+
+            <div class="example-box">
+                <h4>💡 Dérivation de arcsin</h4>
+                <p>y = arcsin(x) ⟺ sin(y) = x</p>
+                <p>Dérivons : cos(y) × y' = 1</p>
+                <p>y' = 1/cos(y) = 1/√(1 - sin²(y))</p>
+                <p>y' = 1/√(1 - x²)</p>
+                <p><strong>arcsin'(x) = 1/√(1 - x²)</strong></p>
+            </div>
+
+            <h4>🔹 Fonction arctan (arc tangente)</h4>
+            <div class="theorem-box">
+                <h4>📐 Définition</h4>
+                <p>tan : ]-π/2, π/2[ → ℝ est bijective</p>
+                <p style="margin-top:8px;"><strong>arctan : ℝ → ]-π/2, π/2[</strong></p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Propriétés de arctan</div>
+                arctan(-x) = -arctan(x) &nbsp;&nbsp;(impaire)<br>
+                lim<sub>x→+∞</sub> arctan(x) = π/2<br>
+                lim<sub>x→-∞</sub> arctan(x) = -π/2<br>
+                arctan(x) + arctan(1/x) = π/2 &nbsp;&nbsp;(pour x > 0)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calcul avec arctan</h4>
+                <p>Calculer arctan(1) + arctan(2) + arctan(3)</p>
+                <p>En utilisant la formule arctan(a) + arctan(b) :</p>
+                <p>arctan(1) + arctan(2) = arctan((1+2)/(1-2)) + adjustment</p>
+                <p>= arctan(3) + π (car dénominateur négatif)</p>
+                <p>arctan(1) + arctan(2) + arctan(3) = arctan(3) + π + arctan(3)</p>
+                <p>= <strong>π</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Fonctions hyperboliques et leurs réciproques</h3>
+            <p>Les fonctions hyperboliques sont définies à partir de l'exponentielle.</p>
+
+            <h4>🔹 Fonctions hyperboliques directes</h4>
+            <div class="formula-box">
+                <div class="formula-title">Définitions</div>
+                <strong>sh(x)</strong> = (eˣ - e⁻ˣ)/2 &nbsp;&nbsp;(sinus hyperbolique)<br><br>
+                <strong>ch(x)</strong> = (eˣ + e⁻ˣ)/2 &nbsp;&nbsp;(cosinus hyperbolique)<br><br>
+                <strong>th(x)</strong> = sh(x)/ch(x) &nbsp;&nbsp;(tangente hyperbolique)
+            </div>
+
+            <h4>🔹 Propriétés</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>ch²(x) - sh²(x) = 1</strong> (identité hyperbolique)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>sh</strong> est impaire, <strong>ch</strong> est paire</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>sh'(x) = ch(x)</strong> et <strong>ch'(x) = sh(x)</strong></p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>th'(x) = 1 - th²(x)</strong></p></div>
+            </div>
+
+            <h4>🔹 Fonctions hyperboliques réciproques</h4>
+            <div class="theorem-box">
+                <h4>📐 Arguments hyperboliques</h4>
+                <p><strong>argsinh(y)</strong> = ln(y + √(y² + 1))</p>
+                <p><strong>argcosh(y)</strong> = ln(y + √(y² - 1)) &nbsp;&nbsp;(pour y ≥ 1)</p>
+                <p><strong>argtanh(y)</strong> = (1/2) × ln((1+y)/(1-y)) &nbsp;&nbsp;(pour |y| < 1)</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : argsinh</h4>
+                <p>y = argsinh(x) ⟺ sh(y) = x</p>
+                <p>(eʸ - e⁻ʸ)/2 = x</p>
+                <p>Multiplions par 2eʸ : e²ʸ - 2xeʸ - 1 = 0</p>
+                <p>Posons t = eʸ : t² - 2xt - 1 = 0</p>
+                <p>t = x ± √(x² + 1)</p>
+                <p>Comme t = eʸ > 0 : t = x + √(x² + 1)</p>
+                <p>argsinh(x) = ln(x + √(x² + 1))</p>
+            </div>
+
+            <h4>🔹 Dérivées</h4>
+            <table class="formula-table">
+                <tr><th>Fonction</th><th>Dérivée</th></tr>
+                <tr><td>argsinh(x)</td><td>1/√(x² + 1)</td></tr>
+                <tr><td>argcosh(x)</td><td>1/√(x² - 1)</td></tr>
+                <tr><td>argtanh(x)</td><td>1/(1 - x²)</td></tr>
+            </table>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Dérivée de argsinh</h4>
+                <p>argsinh(x) = ln(x + √(x² + 1))</p>
+                <p>Dérivons :</p>
+                <p>= 1/(x + √(x²+1)) × (1 + x/√(x²+1))</p>
+                <p>= 1/(x + √(x²+1)) × (√(x²+1) + x)/√(x²+1)</p>
+                <p>= 1/√(x² + 1)</p>
+                <p><strong>argsinh'(x) = 1/√(x² + 1)</strong></p>
+            </div>
+
+            <h4>🔹 Résumé : Liens entre fonctions</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔄</span><p><strong>exp ↔ ln</strong> &nbsp;&nbsp;|&nbsp;&nbsp; exp(x) = y ⟺ ln(y) = x</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>sin ↔ arcsin</strong> &nbsp;&nbsp;|&nbsp;&nbsp; sin(x) = y ⟺ arcsin(y) = x (sur [-π/2, π/2])</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>sh ↔ argsinh</strong> &nbsp;&nbsp;|&nbsp;&nbsp; sh(x) = y ⟺ argsinh(y) = x</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>xⁿ ↔ x<sup>1/n</sup></strong> &nbsp;&nbsp;|&nbsp;&nbsp; xⁿ = y ⟺ x = ∛y</p></div>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Attention aux domaines</h4>
+                <p>• <strong>sin</strong> est bijective sur [-π/2, π/2] → arcsin prend ses valeurs dans [-π/2, π/2]</p>
+                <p>• <strong>ch</strong> est bijective sur [0, +∞[ → argcosh prend ses valeurs dans [0, +∞[</p>
+                <p>• <strong>argcosh</strong> n'existe que pour x ≥ 1 (car ch(x) ≥ 1)</p>
+            </div>
+        </div>
+
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+            <div class="resume-images">
+                <a href="https://drive.google.com/file/d/1udokM9r881BSFg1Pg90UKg-dUKf-XilZ/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+            </div>
+        </section>
+
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/15pbg6JOysni5fqzD7kC534JaA2SXs7ge/preview
+" width="640" height="480" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+          <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/17EHJ26mMXPclo6l1w1wa6f9o8NktSxqy/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+        <a href="mathematiques.html" class="next-lesson" style="background: linear-gradient(135deg, #9333EA, #7E22CE);">
+            <div>
+                <p class="next-lesson-text">Retour</p>
+                <p class="next-lesson-title">Toutes les leçons de Maths →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

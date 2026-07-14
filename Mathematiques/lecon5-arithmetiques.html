@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon 5 : Arithmétiques dans ℤ - Mathématiques Bac Math</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .formula-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid #EAB308; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: #92400E; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); border-left: 4px solid #F97316; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #C2410C; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #FDE68A; }
+        .toc h3 { color: #92400E; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: #B45309; font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .theorem-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid #3B82F6; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .theorem-box h4 { color: #1E40AF; font-size: 0.95rem; margin-bottom: 8px; }
+        .theorem-box p { margin-bottom: 6px; color: #1E3A8A; }
+        .demo-box { background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-left: 4px solid #8B5CF6; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .demo-box h4 { color: #6D28D9; font-size: 0.95rem; margin-bottom: 8px; }
+        .demo-box p { margin-bottom: 6px; color: #4C1D95; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Mathematiques/mathematiques.html">Mathématiques</a>
+                <a href="../Informatique/informatique.html">Informatique</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philosophie</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #EAB308;">
+            <h1>Leçon 5 : Arithmétiques dans ℤ</h1>
+            <p class="breadcrumb">Mathématiques › Leçon 5 › Bac Math Tunisie</p>
+            <span class="badge">Programme Officiel</span>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan de la leçon</h3>
+            <ol>
+                <li><a href="#p1">Divisibilité dans ℤ</a></li>
+                <li><a href="#p2">Le PGCD et le PPCM</a></li>
+                <li><a href="#p3">Nombres premiers entre eux — Théorème de Bézout</a></li>
+                <li><a href="#p4">Théorème de Gauss et Lemme d'Euclide</a></li>
+                <li><a href="#p5">Nombres premiers et théorème fondamental de l'arithmétique</a></li>
+                <li><a href="#p6">Congruences dans ℤ</a></li>
+                <li><a href="#p7">Petit théorème de Fermat et applications</a></li>
+                <li><a href="#p8">Exercices d'entraînement</a></li>
+            </ol>
+        </div>
+
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1Lvm2kYPCuyViwxINOKL34mcIdRn9Ud0b/preview
+" width="600" height="120" frameborder="0" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Divisibilité dans ℤ</h3>
+
+            <h4>Définition</h4>
+            <p>Soit <strong>a ∈ ℤ</strong> et <strong>b ∈ ℤ*</strong>. On dit que <strong>b divise a</strong>, et on note <strong>b | a</strong>, lorsqu'il existe un entier <strong>k ∈ ℤ</strong> tel que :</p>
+            <div class="formula-box">
+                <div class="formula-title">Définition de la divisibilité</div>
+                b | a &nbsp;⇔&nbsp; ∃k ∈ ℤ : a = b × k
+            </div>
+            <p>Autrement dit, a est un <strong>multiple</strong> de b.</p>
+
+            <h4>Terminologie</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📌</span><p><strong>b divise a</strong> → b est un <em>diviseur</em> de a</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>b | a</strong> → a est un <em>multiple</em> de b</p></div>
+                <div class="key-point"><span class="icon">📌</span><p>Si b > 0 et b | a → b ≤ |a| (sauf si a = 0)</p></div>
+            </div>
+
+            <h4>Propriétés de la divisibilité</h4>
+            <div class="theorem-box">
+                <h4>Théorème 1 — Transitivité</h4>
+                <p>Si a | b et b | c, alors <strong>a | c</strong>.</p>
+                <p><em>Démonstration :</em> a | b → ∃k : b = a·k. b | c → ∃l : c = b·l = a·k·l. Donc a | c. ∎</p>
+            </div>
+
+            <div class="theorem-box">
+                <h4>Théorème 2 — Linéarité</h4>
+                <p>Si d | a et d | b, alors pour tous α, β ∈ ℤ : <strong>d | (α·a + β·b)</strong>.</p>
+                <p>En particulier : d | (a + b), d | (a − b), d | (λ·a).</p>
+            </div>
+
+            <div class="theorem-box">
+                <h4>Théorème 3 — Divisibilité et multiplication</h4>
+                <p>Si d | a, alors d | (a·b) pour tout b ∈ ℤ.</p>
+                <p>Si d | a et d | b, alors d | (a·b).</p>
+            </div>
+
+            <h4>Division euclidienne dans ℤ</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème de la division euclidienne</div>
+                Soit a ∈ ℤ et b ∈ ℕ*. Il existe un <strong>unique</strong> couple (q, r) ∈ ℤ × ℕ tel que :<br><br>
+                <strong>a = b·q + r</strong> &nbsp;&nbsp; et &nbsp;&nbsp; <strong>0 ≤ r &lt; b</strong>
+            </div>
+            <p>• <strong>q</strong> est le <em>quotient</em> entier (peut être négatif)</p>
+            <p>• <strong>r</strong> est le <em>reste</em> (toujours positif ou nul)</p>
+
+            <div class="example-box">
+                <h4>💡 Exemples de division euclidienne</h4>
+                <p>• 47 ÷ 6 : 47 = 6 × 7 + <strong>5</strong> &nbsp;&nbsp;(q = 7, r = 5) ✓</p>
+                <p>• −23 ÷ 5 : −23 = 5 × (−5) + <strong>2</strong> &nbsp;&nbsp;(q = −5, r = 2) ✓</p>
+                <p>• −100 ÷ 7 : −100 = 7 × (−15) + <strong>5</strong> &nbsp;&nbsp;(q = −15, r = 5) ✓</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Erreur fréquente à éviter</h4>
+                <p>Quand a est négatif, <strong>ne pas oublier que le reste doit rester positif ou nul</strong>.</p>
+                <p>−23 ÷ 5 ≠ 5 × (−4) + (−3) → r = −3 est <strong>invalide</strong></p>
+                <p>La bonne décomposition est : −23 = 5 × (−5) + 2 → r = 2 ✓</p>
+            </div>
+
+            <h4>Critères de divisibilité</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">2️⃣</span><p><strong>÷ 2 :</strong> le dernier chiffre est pair (0, 2, 4, 6, 8)</p></div>
+                <div class="key-point"><span class="icon">3️⃣</span><p><strong>÷ 3 :</strong> la somme des chiffres est divisible par 3</p></div>
+                <div class="key-point"><span class="icon">4️⃣</span><p><strong>÷ 4 :</strong> le nombre formé par les deux derniers chiffres est divisible par 4</p></div>
+                <div class="key-point"><span class="icon">5️⃣</span><p><strong>÷ 5 :</strong> le dernier chiffre est 0 ou 5</p></div>
+                <div class="key-point"><span class="icon">7️⃣</span><p><strong>÷ 7 :</strong> on soustrait le double du dernier chiffre du reste → résultat divisible par 7</p></div>
+                <div class="key-point"><span class="icon">9️⃣</span><p><strong>÷ 9 :</strong> la somme des chiffres est divisible par 9</p></div>
+                <div class="key-point"><span class="icon">🔟</span><p><strong>÷ 10 :</strong> le dernier chiffre est 0</p></div>
+                <div class="key-point"><span class="icon">1️⃣1️⃣</span><p><strong>÷ 11 :</strong> |(somme rangs pairs) − (somme rangs impairs)| divisible par 11</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Application des critères</h4>
+                <p>• 1 284 : 1+2+8+4 = 15 → 15 divisible par 3 ✓ donc 1284 est divisible par 3</p>
+                <p>• 1 284 : dernier chiffre pair → divisible par 2 ✓</p>
+                <p>• 84 : 84 ÷ 4 = 21 → divisible par 4 ✓</p>
+                <p>• 2 574 : (2+7) − (5+4) = 9 − 9 = 0 → divisible par 11 ✓</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Le PGCD et le PPCM</h3>
+
+            <h4>Définition du PGCD</h4>
+            <div class="formula-box">
+                <div class="formula-title">PGCD — Plus Grand Commun Diviseur</div>
+                Le PGCD de deux entiers a et b (non tous nuls) est le plus grand entier positif qui divise simultanément a et b.<br><br>
+                <strong>d = pgcd(a, b)</strong> &nbsp;⇔&nbsp; d > 0, d | a, d | b, et ∀d' > 0 : (d' | a et d' | b) ⇒ d' ≤ d
+            </div>
+
+            <h4>Définition du PPCM</h4>
+            <div class="formula-box">
+                <div class="formula-title">PPCM — Plus Petit Commun Multiple</div>
+                Le PPCM de deux entiers a ≠ 0 et b ≠ 0 est le plus petit entier positif qui est un multiple simultané de a et b.<br><br>
+                <strong>m = ppcm(a, b)</strong> &nbsp;⇔&nbsp; m > 0, a | m, b | m, et ∀m' > 0 : (a | m' et b | m') ⇒ m ≤ m'
+            </div>
+
+            <div class="theorem-box">
+                <h4>Théorème fondamental — Relation entre PGCD et PPCM</h4>
+                <p>Pour tout a, b ∈ ℤ* :</p>
+                <p><strong>pgcd(a, b) × ppcm(a, b) = |a × b|</strong></p>
+                <p>Cette relation est très utile pour calculer l'un quand on connaît l'autre.</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : a = 12, b = 18</h4>
+                <p>pgcd(12, 18) = 6</p>
+                <p>ppcm(12, 18) = |12 × 18| / 6 = 216 / 6 = <strong>36</strong></p>
+                <p>Vérification : 36 est bien divisible par 12 (36 = 12×3) et par 18 (36 = 18×2) ✓</p>
+            </div>
+
+            <h4>Algorithme d'Euclide — Calcul du PGCD</h4>
+            <div class="formula-box">
+                <div class="formula-title">Méthode d'Euclide</div>
+                <strong>Étape 1 :</strong> Division euclidienne : a = b·q + r &nbsp;&nbsp;(0 ≤ r &lt; b)<br><br>
+                <strong>Étape 2 :</strong> Si r = 0 → pgcd(a, b) = b.<br>
+                Sinon → remplacer (a ← b, b ← r) et recommencer.<br><br>
+                <strong>Étape 3 :</strong> Le dernier diviseur non nul est le PGCD.
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 : pgcd(156, 117)</h4>
+                <p>156 = 117 × 1 + <strong>39</strong></p>
+                <p>117 = 39 × 3 + <strong>0</strong> &nbsp;&nbsp;→ r = 0</p>
+                <p>⇒ <strong>pgcd(156, 117) = 39</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 : pgcd(48, 18)</h4>
+                <p>48 = 18 × 2 + <strong>12</strong></p>
+                <p>18 = 12 × 1 + <strong>6</strong></p>
+                <p>12 = 6 × 2 + <strong>0</strong></p>
+                <p>⇒ <strong>pgcd(48, 18) = 6</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 : pgcd(357, 231)</h4>
+                <p>357 = 231 × 1 + <strong>126</strong></p>
+                <p>231 = 126 × 1 + <strong>105</strong></p>
+                <p>126 = 105 × 1 + <strong>21</strong></p>
+                <p>105 = 21 × 5 + <strong>0</strong></p>
+                <p>⇒ <strong>pgcd(357, 231) = 21</strong></p>
+            </div>
+
+            <h4>Nombres premiers entre eux</h4>
+            <div class="formula-box">
+                <div class="formula-title">Définition</div>
+                Deux entiers a et b sont <strong>premiers entre eux</strong> si et seulement si :<br><br>
+                <strong>pgcd(a, b) = 1</strong>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Confusion courante</h4>
+                <p>Deux entiers peuvent être premiers entre eux <strong>sans être premiers eux-mêmes</strong>.</p>
+                <p>Exemple : pgcd(8, 9) = 1 → 8 et 9 sont premiers entre eux.</p>
+                <p>Pourtant 8 n'est pas premier (8 = 2³) et 9 n'est pas premier (9 = 3²).</p>
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">✓</span><p>pgcd(7, 12) = 1 → 7 et 12 premiers entre eux</p></div>
+                <div class="key-point"><span class="icon">✓</span><p>pgcd(15, 25) = 5 ≠ 1 → 15 et 25 ne sont pas premiers entre eux</p></div>
+                <div class="key-point"><span class="icon">✓</span><p>pgcd(a, 1) = 1 pour tout a ≠ 0</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Théorème de Bézout</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">Théorème de Bézout (1730–1783)</div>
+                Soit a et b deux entiers relatifs (non tous nuls).<br><br>
+                <strong>a et b sont premiers entre eux ⇔ ∃(u, v) ∈ ℤ² : a·u + b·v = 1</strong><br><br>
+                La relation a·u + b·v = 1 est appelée <em>relation de Bézout</em>.
+            </div>
+
+            <div class="theorem-box">
+                <h4>Démonstration</h4>
+                <p><strong>(⇒)</strong> Si pgcd(a,b) = 1, on peut trouver u et v par l'algorithme d'Euclide étendu (remontée).</p>
+                <p><strong>(⇐)</strong> Si ∃u,v : a·u + b·v = 1, soit d = pgcd(a,b). Alors d | a·u et d | b·v donc d | (a·u + b·v) = 1. Donc d = 1. ∎</p>
+            </div>
+
+            <h4>Algorithme d'Euclide étendu — Trouver u et v</h4>
+            <div class="formula-box">
+                <div class="formula-title">Méthode par remontée</div>
+                1. Appliquer l'algorithme d'Euclide pour obtenir les restes successifs.<br>
+                2. Remonter en exprimant chaque reste en fonction des précédents.<br>
+                3. Aboutir à l'expression de 1 = a·u + b·v.
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Trouver (u, v) pour 35 et 12</h4>
+                <p><strong>Étape 1 — Euclide :</strong></p>
+                <p>35 = 12 × 2 + <strong>11</strong> &nbsp;&nbsp;(1)</p>
+                <p>12 = 11 × 1 + <strong>1</strong> &nbsp;&nbsp;(2)</p>
+                <p><strong>Étape 2 — Remontée :</strong></p>
+                <p>De (2) : 1 = 12 − 11 × 1</p>
+                <p>De (1) : 11 = 35 − 12 × 2</p>
+                <p>En substituant :</p>
+                <p>1 = 12 − (35 − 12×2) × 1</p>
+                <p>1 = 12 − 35 + 12×2</p>
+                <p>1 = 12×3 − 35×1</p>
+                <p>→ <strong>35×(−1) + 12×3 = 1</strong></p>
+                <p>Donc : u = −1, v = 3 ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Trouver (u, v) pour 71 et 37</h4>
+                <p>71 = 37 × 1 + <strong>34</strong></p>
+                <p>37 = 34 × 1 + <strong>3</strong></p>
+                <p>34 = 3 × 11 + <strong>1</strong></p>
+                <p>→ pgcd = 1 ✓</p>
+                <p style="margin-top:8px;"><strong>Remontée :</strong></p>
+                <p>1 = 34 − 3×11</p>
+                <p>1 = 34 − (37−34)×11 = 34×12 − 37×11</p>
+                <p>1 = (71−37)×12 − 37×11 = 71×12 − 37×23</p>
+                <p>→ <strong>u = 12, v = −23</strong></p>
+                <p>Vérification : 71×12 + 37×(−23) = 852 − 851 = 1 ✓</p>
+            </div>
+
+            <h4>Corollaire 1 — Équation diophantienne ax + by = c</h4>
+            <div class="formula-box">
+                <div class="formula-title">Condition d'existence de solutions entières</div>
+                L'équation <strong>a·x + b·y = c</strong> admet des solutions (x, y) ∈ ℤ²<br>
+                <strong>⇔ pgcd(a, b) | c</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Résoudre : 6x + 10y = 2</h4>
+                <p>pgcd(6, 10) = 2 et 2 | 2 → des solutions existent ✓</p>
+                <p>On divise par 2 : 3x + 5y = 1</p>
+                <p>Par Bézout : 3×2 + 5×(−1) = 1 → solution particulière : x₀ = 2, y₀ = −1</p>
+                <p><strong>Solution générale :</strong></p>
+                <p>x = x₀ + (b/d)×t = 2 + 5t</p>
+                <p>y = y₀ − (a/d)×t = −1 − 3t</p>
+                <p>avec t ∈ ℤ</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Résoudre : 15x + 21y = 6</h4>
+                <p>pgcd(15, 21) = 3 et 3 | 6 → solutions existantes ✓</p>
+                <p>÷ 3 : 5x + 7y = 2</p>
+                <p>pgcd(5, 7) = 1 → 5×3 + 7×(−2) = 1</p>
+                <p>× 2 : 5×6 + 7×(−4) = 2 → x₀ = 6, y₀ = −4</p>
+                <p><strong>Solution générale :</strong> x = 6 + 7t, &nbsp; y = −4 − 5t &nbsp; (t ∈ ℤ)</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Quand l'équation n'a pas de solution</h4>
+                <p>L'équation 6x + 10y = 5 n'a <strong>aucune solution entière</strong> car pgcd(6, 10) = 2 et 2 ∤ 5.</p>
+                <p>Le côté gauche est toujours pair, le côté droit est impair → impossible.</p>
+            </div>
+
+            <h4>Corollaire 2 — Critère de divisibilité via Bézout</h4>
+            <div class="theorem-box">
+                <h4>Théorème</h4>
+                <p>Si a | bc et pgcd(a, b) = 1, alors <strong>a | c</strong>.</p>
+                <p>C'est une autre formulation du <strong>théorème de Gauss</strong> (voir partie suivante).</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Théorème de Gauss et Lemme d'Euclide</h3>
+
+            <h4>Lemme d'Euclide</h4>
+            <div class="formula-box">
+                <div class="formula-title">Lemme d'Euclide</div>
+                Si <strong>p</strong> est un nombre premier et <strong>p | a·b</strong>, alors :<br><br>
+                <strong>p | a</strong> &nbsp;&nbsp;&nbsp; ou &nbsp;&nbsp;&nbsp; <strong>p | b</strong>
+            </div>
+            <p>Ce lemme est la base de la démonstration de l'unicité dans la décomposition en facteurs premiers.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemples</h4>
+                <p>• 7 | 21 × 5 → 7 | 21 (car 21 = 3 × 7) ✓</p>
+                <p>• 3 | 6 × 10 → 3 | 6 (car 6 = 2 × 3) ✓</p>
+                <p>• 5 | 7 × 15 → 5 | 15 (car 15 = 3 × 5) ✓</p>
+            </div>
+
+            <div class="demo-box">
+                <h4>Démonstration du lemme d'Euclide</h4>
+                <p>Si p | a·b. Si p | a → démonstration terminée.</p>
+                <p>Sinon : pgcd(p, a) = 1 (car p est premier et p ∤ a).</p>
+                <p>Par Gauss : p | b. ∎</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Conséquence importante</h4>
+                <p>Si p est premier et <strong>p | a²</strong>, alors <strong>p | a</strong>.</p>
+                <p>Car p | a·a → par le lemme avec a·a : p | a ou p | a.</p>
+                <p>→ Dans les deux cas : <strong>p | a</strong>.</p>
+            </div>
+
+            <h4>Théorème de Gauss</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème de Gauss (1777–1855)</div>
+                Si <strong>a | b·c</strong> et <strong>pgcd(a, b) = 1</strong>, alors :<br><br>
+                <strong>a | c</strong>
+            </div>
+
+            <div class="demo-box">
+                <h4>Démonstration via Bézout</h4>
+                <p>pgcd(a, b) = 1 → ∃(u, v) : a·u + b·v = 1</p>
+                <p>En multipliant par c : a·u·c + b·v·c = c</p>
+                <p>Or : a | a·u·c (trivial) et a | b·c·v (car a | b·c et v ∈ ℤ)</p>
+                <p>Donc : a | (a·u·c + b·v·c) = c</p>
+                <p>∎</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Hypothèse ESSENTIELLE : pgcd(a, b) = 1</h4>
+                <p><strong>Sans</strong> cette hypothèse, Gauss <strong>ne s'applique pas</strong> !</p>
+                <p>Contre-exemple : a = 6, b = 4, c = 3</p>
+                <p>6 | 4×3 = 12 ✓ mais pgcd(6, 4) = 2 ≠ 1</p>
+                <p>→ Gauss ne s'applique pas. Et en effet : 6 ∤ 3 ✗</p>
+            </div>
+
+            <h4>Quand appliquer Gauss ? — Méthodologie</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">1️⃣</span><p>Hypothèse : a | b·c</p></div>
+                <div class="key-point"><span class="icon">2️⃣</span><p>But : montrer que a | c</p></div>
+                <div class="key-point"><span class="icon">3️⃣</span><p>Vérifie : pgcd(a, b) = 1 ?</p></div>
+                <div class="key-point"><span class="icon">4️⃣</span><p>Si oui → applique Gauss ! → a | c</p></div>
+                <div class="key-point"><span class="icon">5️⃣</span><p>Si non → utiliser une autre méthode (lemme d'Euclide, décomposition...)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple d'application de Gauss</h4>
+                <p><strong>Montrer que si 6 | 5n alors 6 | n, pour tout n ∈ ℤ.</strong></p>
+                <p>6 | 5n et pgcd(6, 5) = 1 → par Gauss : 6 | n ✓</p>
+                <p style="margin-top:12px;"><strong>Autre exemple :</strong> Montrer que si 15 | 8n alors 5 | n.</p>
+                <p>pgcd(15, 8) = 1 ✓. 15 | 8n → par Gauss : 15 | n.</p>
+                <p>Donc 5 | n (car 5 | 15 et 15 | n → 5 | n par transitivité). ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Résoudre avec Gauss</h4>
+                <p><strong>Montrer que si 12 | n² alors 12 | n.</strong></p>
+                <p>12 | n². On écrit 12 = 3 × 4 avec pgcd(3, 4) = 1.</p>
+                <p>• 3 | n² → 3 | n (lemme d'Euclide, 3 est premier)</p>
+                <p>• 4 | n² → 2² | n². Puis par Gauss modifié : 2 | n (en observant que 4|n² ⇒ 2|n² ⇒ par Gauss avec pgcd(2,2)=2... méthode directe : n² pair → n pair → 2|n)</p>
+                <p>En fait, pour 4 : si 4 | n², alors n est pair (sinon n² impair) → 2 | n, mais 4 | 2² = 4 ✓ donc 4 | n² n'implique pas toujours 4 | n. Contre-exemple : n=2 → 4|4 mais 4∤2</p>
+                <p>Mais 12 | n² → 3 | n et 4 | n² → on peut montrer 12 | n dans ce cas par une analyse plus fine.</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Nombres premiers et théorème fondamental</h3>
+
+            <h4>Définition</h4>
+            <p>Un entier naturel <strong>p ≥ 2</strong> est dit <strong>premier</strong> si ses seuls diviseurs positifs sont <strong>1</strong> et <strong>p</strong> lui-même.</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🚫</span><p><strong>1 n'est pas premier</strong> (par définition)</p></div>
+                <div class="key-point"><span class="icon">🔢</span><p><strong>2 est le seul nombre premier pair</strong></p></div>
+                <div class="key-point"><span class="icon">🔢</span><p>Tout entier ≥ 2 est soit premier, soit décomposable en facteurs premiers</p></div>
+            </div>
+
+            <h4>Liste des nombres premiers jusqu'à 100</h4>
+            <p style="font-family: 'Courier New'; font-size: 1rem; color: #92400E;"><strong>2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97</strong></p>
+            <p>→ Il y en a <strong>25</strong> entre 1 et 100.</p>
+
+            <h4>Théorème d'Euclide — L'infinité des nombres premiers</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème d'Euclide (300 av. J.-C.)</div>
+                L'ensemble des nombres premiers est <strong>infini</strong>.
+            </div>
+
+            <div class="demo-box">
+                <h4>Démonstration par l'absurde</h4>
+                <p>Supposons l'ensemble des nombres premiers <strong>fini</strong> : {p₁, p₂, ..., pₙ}.</p>
+                <p>Considérons N = p₁ × p₂ × ... × pₙ + 1.</p>
+                <p>Pour tout i : en divisant N par pᵢ, le reste est 1 → pᵢ ∤ N.</p>
+                <p>Donc N admet un diviseur premier non列表 dans {p₁, ..., pₙ}.</p>
+                <p>→ <strong>Contradiction.</strong></p>
+                <p>L'ensemble des nombres premiers est donc <strong>infini</strong>. ∎</p>
+            </div>
+
+            <h4>Crible d'Ératosthène</h4>
+            <p>Méthode pour trouver tous les nombres premiers jusqu'à n :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">①</span><p>Écrire tous les entiers de 2 à n</p></div>
+                <div class="key-point"><span class="icon">②</span><p>Cocher 2 (premier) et barrer tous ses multiples</p></div>
+                <div class="key-point"><span class="icon">③</span><p>Cocher 3 et barrer tous ses multiples</p></div>
+                <div class="key-point"><span class="icon">④</span><p>Le prochain nombre non barré est premier → répéter</p></div>
+                <div class="key-point"><span class="icon">⑤</span><p>S'arrêter quand on dépasse √n</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Crible jusqu'à 50</h4>
+                <p>On s'arrête à √50 ≈ 7,07 → on teste 2, 3, 5, 7.</p>
+                <p>Restent non barrés : 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47</p>
+                <p>(49 = 7×7 a été barré)</p>
+            </div>
+
+            <h4>Théorème fondamental de l'arithmétique</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème fondamental (Gauss)</div>
+                Tout entier <strong>n ≥ 2</strong> se décompose de manière <strong>unique</strong> (à l'ordre près) en produit de nombres premiers :<br><br>
+                <strong>n = p₁^α¹ × p₂^α² × ... × pₖ^αᵏ</strong><br><br>
+                où les pᵢ sont premiers distincts et les αᵢ sont des entiers > 0.
+            </div>
+            <p>L'<strong>unicité</strong> de cette décomposition est cruciale — c'est ce qui rend les nombres premiers si importants.</p>
+
+            <div class="example-box">
+                <h4>💡 Décomposition en facteurs premiers</h4>
+                <p>• 1260 = 2² × 3² × 5¹ × 7¹ &nbsp;&nbsp;(2×2×3×3×5×7 = 1260)</p>
+                <p>• 2024 = 2³ × 11¹ × 23¹ &nbsp;&nbsp;(8×11×23 = 2024)</p>
+                <p>• 100 = 2² × 5²</p>
+                <p>• 360 = 2³ × 3² × 5¹</p>
+                <p>• 1 n'a pas de décomposition (cas spécial)</p>
+            </div>
+
+            <h4>Comment décomposer un nombre</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➗</span><p>Diviser successivement par les nombres premiers dans l'ordre croissant</p></div>
+                <div class="key-point"><span class="icon">🔍</span><p>Pour chaque diviseur premier p trouvé, continuer à diviser le quotient</p></div>
+                <div class="key-point"><span class="icon">📝</span><p>Noter le nombre de fois que chaque premier divise le nombre</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Décomposer 1260</h4>
+                <p>1260 ÷ 2 = 630 → encore ÷ 2 = 315 &nbsp;&nbsp;(2²)</p>
+                <p>315 ÷ 3 = 105 → encore ÷ 3 = 35 &nbsp;&nbsp;(3²)</p>
+                <p>35 ÷ 5 = 7 &nbsp;&nbsp;(5¹)</p>
+                <p>7 ÷ 7 = 1 &nbsp;&nbsp;(7¹)</p>
+                <p>→ <strong>1260 = 2² × 3² × 5 × 7</strong></p>
+            </div>
+
+            <h4>Nombre de diviseurs d'un entier</h4>
+            <div class="formula-box">
+                <div class="formula-title">Formule du nombre de diviseurs</div>
+                Si n = p₁^α¹ × p₂^α² × ... × pₖ^αᵏ,<br>
+                alors le nombre total de diviseurs positifs de n est :<br><br>
+                <strong>τ(n) = (α₁ + 1)(α₂ + 1)...(αₖ + 1)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : n = 1260 = 2² × 3² × 5¹ × 7¹</h4>
+                <p>τ(1260) = (2+1)(2+1)(1+1)(1+1) = 3×3×2×2 = <strong>36 diviseurs</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : n = 360 = 2³ × 3² × 5¹</h4>
+                <p>τ(360) = (3+1)(2+1)(1+1) = 4×3×2 = <strong>24 diviseurs</strong></p>
+                <p>Liste : 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90, 120, 180, 360</p>
+            </div>
+
+            <h4>Test de primalité</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p>Calculer √n</p></div>
+                <div class="key-point"><span class="icon">🔍</span><p>Tester la divisibilité par tous les nombres premiers ≤ √n</p></div>
+                <div class="key-point"><span class="icon">✅</span><p>Aucun ne divise n → n est premier</p></div>
+                <div class="key-point"><span class="icon">❌</span><p>Un divise n → n est composé</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 97 est-il premier ?</h4>
+                <p>√97 ≈ 9,85 → tester : 2, 3, 5, 7</p>
+                <p>97 n'est divisible par aucun → <strong>97 est premier</strong> ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 221 est-il premier ?</h4>
+                <p>√221 ≈ 14,86 → tester : 2, 3, 5, 7, 11, 13</p>
+                <p>221 ÷ 13 = 17 ✓</p>
+                <p>→ <strong>221 est composé</strong> : 221 = 13 × 17</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 6 -->
+        <div class="math-content" id="p6">
+            <h3>📓 6. Congruences dans ℤ</h3>
+
+            <h4>Définition</h4>
+            <div class="formula-box">
+                <div class="formula-title">Congruence modulo n</div>
+                Soit n ∈ ℕ* et a, b ∈ ℤ. On dit que <strong>a est congru à b modulo n</strong> et on note :<br><br>
+                <strong>a ≡ b [n]</strong><br><br>
+                si et seulement si <strong>n | (a − b)</strong>, c'est-à-dire a − b = k·n pour un certain k ∈ ℤ.
+            </div>
+
+            <p>Autrement dit, <strong>a</strong> et <strong>b</strong> ont le <strong>même reste</strong> dans la division par <strong>n</strong>.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemples fondamentaux</h4>
+                <p>• 17 ≡ 5 [12] &nbsp;&nbsp;car 17 − 5 = 12 = 1×12 ✓</p>
+                <p>• 25 ≡ 1 [12] &nbsp;&nbsp;car 25 − 1 = 24 = 2×12 ✓</p>
+                <p>• −3 ≡ 7 [10] &nbsp;car −3 − 7 = −10 = (−1)×10 ✓</p>
+                <p>• 42 ≡ 0 [7] &nbsp;&nbsp;&nbsp;car 42 − 0 = 42 = 6×7 ✓</p>
+                <p>• 3² ≡ 9 [7] &nbsp;&nbsp;car 9 − 3² = 0 ✓</p>
+            </div>
+
+            <h4>Propriétés fondamentales des congruences</h4>
+            <div class="theorem-box">
+                <h4>Théorème 1 — Compatibilité avec les opérations</h4>
+                <p>Si a ≡ a' [n] et b ≡ b' [n], alors :</p>
+                <p>• <strong>a + b ≡ a' + b' [n]</strong> &nbsp;&nbsp;(addition)</p>
+                <p>• <strong>a − b ≡ a' − b' [n]</strong> &nbsp;&nbsp;(soustraction)</p>
+                <p>• <strong>a·b ≡ a'·b' [n]</strong> &nbsp;&nbsp;(multiplication)</p>
+                <p>• <strong>aᵏ ≡ a'ᵏ [n]</strong> &nbsp;&nbsp;(puissance, k ∈ ℕ*)</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple d'application</h4>
+                <p>Calculer 7²² mod 10.</p>
+                <p>7 ≡ 7 [10]</p>
+                <p>7² = 49 ≡ 9 [10]</p>
+                <p>7⁴ ≡ 9² = 81 ≡ 1 [10]</p>
+                <p>7²² = 7⁴ˣ⁵ × 7² ≡ 1⁵ × 7² ≡ 7² ≡ <strong>9 [10]</strong></p>
+            </div>
+
+            <div class="theorem-box">
+                <h4>Théorème 2 — Simplification</h4>
+                <p>Si <strong>a·c ≡ b·c [n]</strong> et <strong>pgcd(c, n) = 1</strong>, alors :</p>
+                <p><strong>a ≡ b [n]</strong></p>
+                <p><em>(On peut simplifier par c quand c est premier avec le modulo.)</em></p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ ATTENTION — Division NON permise en général</h4>
+                <p>Si a·c ≡ b·c [n], on <strong>ne peut PAS</strong> conclure a ≡ b [n].</p>
+                <p>Exemple : 2×2 ≡ 4×2 [6] → 4 ≡ 8 [6] ✓, mais 2 ≡ 4 [6] ✗</p>
+                <p><strong>Règle :</strong> simplifier est possible <strong>uniquement si pgcd(c, n) = 1</strong>.</p>
+            </div>
+
+            <h4>Classe résiduelle modulo n</h4>
+            <div class="formula-box">
+                <div class="formula-title">Classe de congruence</div>
+                La classe de congruence de a modulo n est :<br><br>
+                <strong>ā = {a + k·n | k ∈ ℤ}</strong><br><br>
+                Il y a exactement <strong>n classes</strong> distinctes modulo n :<br>
+                <strong>0̄, 1̄, 2̄, ..., (n−1)̄</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemples de classes modulo 5</h4>
+                <p>3̄ = {...−7, −2, 3, 8, 13,...} &nbsp;(tous les nombres congrus à 3 modulo 5)</p>
+                <p>7̄ = 2̄ (car 7 − 2 = 5) &nbsp;→ 7̄ = 2̄</p>
+                <p>12̄ = 2̄ (car 12 − 2 = 10 = 2×5) &nbsp;→ 12̄ = 2̄</p>
+            </div>
+
+            <h4>Système de congruences — Théorème des restes chinois</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème des restes chinois</div>
+                Si m et n sont <strong>premiers entre eux</strong> (pgcd(m,n) = 1),<br>
+                alors pour tout (a, b), le système :<br><br>
+                <strong>x ≡ a [m]</strong><br>
+                <strong>x ≡ b [n]</strong><br><br>
+                admet une <strong>unique solution modulo m·n</strong>.
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Résoudre : x ≡ 3 [5] et x ≡ 4 [7]</h4>
+                <p>x = 3 + 5k ≡ 4 [7] → 5k ≡ 1 [7]</p>
+                <p>5 ≡ 5 [7]. On cherche l'inverse de 5 modulo 7.</p>
+                <p>5×3 = 15 ≡ 1 [7] → 5⁻¹ ≡ 3 [7]</p>
+                <p>k ≡ 3×1 ≡ 3 [7]</p>
+                <p>k = 3 + 7t</p>
+                <p>x = 3 + 5(3 + 7t) = 18 + 35t</p>
+                <p>→ <strong>x ≡ 18 [35]</strong></p>
+                <p>Vérification : 18 ≡ 3 [5] ✓ &nbsp; 18 ≡ 4 [7] ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Système triple : x ≡ 1 [3], x ≡ 2 [5], x ≡ 3 [7]</h4>
+                <p>pgcd(3,5)=1, pgcd(3,7)=1, pgcd(5,7)=1 ✓</p>
+                <p>Résoudre (1) et (2) : x ≡ 1 [3], x ≡ 2 [5]</p>
+                <p>x = 1 + 3k ≡ 2 [5] → 3k ≡ 1 [5]</p>
+                <p>3×2 = 6 ≡ 1 [5] → k ≡ 2 [5] → k = 2 + 5t</p>
+                <p>x = 1 + 3(2+5t) = 7 + 15t → x ≡ 7 [15]</p>
+                <p>Maintenant : x ≡ 7 [15] et x ≡ 3 [7]</p>
+                <p>x = 7 + 15k ≡ 3 [7] → 15k ≡ 3−7 ≡ −4 ≡ 3 [7]</p>
+                <p>15 ≡ 1 [7] → k ≡ 3 [7] → k = 3 + 7t</p>
+                <p>x = 7 + 15(3+7t) = 52 + 105t</p>
+                <p>→ <strong>x ≡ 52 [105]</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 7 -->
+        <div class="math-content" id="p7">
+            <h3>📔 7. Petit théorème de Fermat et applications</h3>
+
+            <h4>Petit théorème de Fermat</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème de Fermat (1640)</div>
+                Soit <strong>p</strong> un nombre premier et <strong>a ∈ ℤ</strong>.<br><br>
+                Si <strong>p ∤ a</strong> (a non divisible par p), alors :<br><br>
+                <strong>a^(p−1) ≡ 1 [p]</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Corollaire immédiat</div>
+                Pour tout a ∈ ℤ :<br>
+                <strong>a^p ≡ a [p]</strong><br><br>
+                (valable même si p | a, car alors a^p ≡ 0 ≡ a [p])
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Applications directes</h4>
+                <p>• 3^10 ≡ 1 [11] &nbsp;&nbsp;(car p=11, 3∤11)</p>
+                <p>• 2^6 ≡ 1 [7] &nbsp;&nbsp;(car p=7, 2∤7)</p>
+                <p>• 5^12 ≡ 1 [13] &nbsp;(car p=13, 5∤13)</p>
+                <p>• 7^3 ≡ 7 [3] &nbsp;(corollaire : 7 ≡ 1 [3] → 1³ = 1 ≡ 1 [3])</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Calculer le reste de 3^100 modulo 11</h4>
+                <p>Par Fermat : 3^10 ≡ 1 [11]</p>
+                <p>100 = 10 × 10</p>
+                <p>3^100 = (3^10)^10 ≡ 1^10 ≡ <strong>1 [11]</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Calculer le reste de 2^9 modulo 11</h4>
+                <p>2^10 ≡ 1 [11]</p>
+                <p>2^9 × 2 ≡ 1 [11] → 2^9 ≡ 2⁻¹ [11]</p>
+                <p>On cherche l'inverse de 2 modulo 11 :</p>
+                <p>2 × 6 = 12 ≡ 1 [11] → 2⁻¹ ≡ 6 [11]</p>
+                <p>→ <strong>2^9 ≡ 6 [11]</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Démontrer que 42^28 − 2 est divisible par 29</h4>
+                <p>29 est premier.</p>
+                <p>Par Fermat : 42^28 ≡ 1 [29] (car 29 ∤ 42)</p>
+                <p>Donc 42^28 − 2 ≡ 1 − 2 ≡ −1 ≡ 28 [29]</p>
+                <p>→ <strong>29 ∤ (42^28 − 2)</strong> — wait, −1 ≠ 0 [29].</p>
+                <p>Réessayer : 42 ≡ 13 [29]. 13^28 ≡ ?</p>
+                <p>13^2 = 169 ≡ 169−145 = 24 [29]</p>
+                <p>13^4 ≡ 24² = 576 ≡ 576−522 = 54 ≡ 54−29 = 25 [29]</p>
+                <p>13^7... méthode directe par 13^(28) = (13²)^14 etc.</p>
+                <p>En fait : 13^(28) ≡ (13²)^14 = 24^14. Pas simple directement.</p>
+                <p>13^28 = 13^(2×14) = (13^14)². Par Fermat : 13^28 = (13^29)/13 ≡ 13/13 = 1 [29]. ✓</p>
+                <p>Donc 42^28 ≡ 1 [29] → 42^28 − 2 ≡ −1 [29] ≠ 0.</p>
+                <p>Contre-exemple : le résultat n'est PAS divisible par 29.</p>
+            </div>
+
+            <h4>Inverses modulo p</h4>
+            <div class="formula-box">
+                <div class="formula-title">Inverse modulo p</div>
+                Si p est premier et a ∤ p, alors a admet un inverse modulo p.<br>
+                Cet inverse est l'entier b tel que a·b ≡ 1 [p].<br><br>
+                Par Fermat : a^(p−2) est l'inverse de a modulo p.<br>
+                (car a·a^(p−2) = a^(p−1) ≡ 1 [p])
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Trouver l'inverse de 5 modulo 13</h4>
+                <p>pgcd(5, 13) = 1 → inverse existe.</p>
+                <p>5 × 8 = 40 ≡ 1 [13] (car 39 = 3×13)</p>
+                <p>→ <strong>8 est l'inverse de 5 modulo 13</strong>.</p>
+                <p>Vérification : 5×8 = 40 = 39 + 1 → 1 [13] ✓</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 8 -->
+        <div class="math-content" id="p8">
+            <h3>📕 8. Exercices d'entraînement</h3>
+
+            <div class="example-box">
+                <h4>📝 Exercice 1 — Division euclidienne</h4>
+                <p>Déterminer q et r tels que : a = (−47) et b = 8.</p>
+                <p><strong>Solution :</strong> −47 = 8 × (−6) + 1 → q = −6, r = 1 ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 2 — PGCD par Euclide</h4>
+                <p>Calculer pgcd(245, 91).</p>
+                <p><strong>Solution :</strong></p>
+                <p>245 = 91 × 2 + <strong>63</strong></p>
+                <p>91 = 63 × 1 + <strong>28</strong></p>
+                <p>63 = 28 × 2 + <strong>7</strong></p>
+                <p>28 = 7 × 4 + <strong>0</strong></p>
+                <p>→ <strong>pgcd(245, 91) = 7</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 3 — Relation de Bézout</h4>
+                <p>Trouver u et v tels que 35u + 12v = 1.</p>
+                <p><strong>Solution :</strong> u = −1, v = 3 (démontré précédemment)</p>
+                <p>Vérification : 35×(−1) + 12×3 = −35 + 36 = 1 ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 4 — Équation diophantienne</h4>
+                <p>Résoudre : 14x + 21y = 7.</p>
+                <p><strong>Solution :</strong></p>
+                <p>pgcd(14, 21) = 7 et 7 | 7 → solutions ✓</p>
+                <p>÷ 7 : 2x + 3y = 1</p>
+                <p>Bézout : 2×(−1) + 3×1 = 1 → x₀ = −1, y₀ = 1</p>
+                <p>→ x = −1 + 3t, &nbsp; y = 1 − 2t &nbsp; (t ∈ ℤ)</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 5 — Application de Gauss</h4>
+                <p>Montrer que si 35 | 12n alors 35 | n.</p>
+                <p><strong>Solution :</strong></p>
+                <p>pgcd(35, 12) = 1</p>
+                <p>35 | 12n et pgcd(35, 12) = 1 → par Gauss : 35 | n ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 6 — Nombres premiers</h4>
+                <p>Décomposer 5544 en facteurs premiers.</p>
+                <p><strong>Solution :</strong></p>
+                <p>5544 ÷ 2 = 2772 → ÷ 2 = 1386 → ÷ 2 = 693 &nbsp;&nbsp;(2³)</p>
+                <p>693 ÷ 3 = 231 → ÷ 3 = 77 &nbsp;&nbsp;(3²)</p>
+                <p>77 ÷ 7 = 11 &nbsp;&nbsp;(7¹)</p>
+                <p>11 ÷ 11 = 1 &nbsp;&nbsp;(11¹)</p>
+                <p>→ <strong>5544 = 2³ × 3² × 7 × 11</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 7 — Congruences</h4>
+                <p>Trouver le reste de 7^2024 divisé par 17.</p>
+                <p><strong>Solution :</strong></p>
+                <p>17 est premier, 7∤17.</p>
+                <p>Par Fermat : 7^16 ≡ 1 [17]</p>
+                <p>2024 = 16 × 126 + 8</p>
+                <p>7^2024 = 7^(16×126+8) = (7^16)^126 × 7^8 ≡ 1^126 × 7^8 ≡ 7^8 [17]</p>
+                <p>7² = 49 ≡ 49−34 = 15 [17]</p>
+                <p>7⁴ ≡ 15² = 225 ≡ 225−204 = 21 ≡ 4 [17]</p>
+                <p>7⁸ ≡ 4² = 16 [17]</p>
+                <p>→ <strong>Reste = 16</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 8 — Théorème des restes chinois</h4>
+                <p>Trouver le plus petit x > 0 tel que : x ≡ 2 [3], x ≡ 3 [4], x ≡ 1 [5].</p>
+                <p><strong>Solution :</strong></p>
+                <p>pgcd(3,4)=1, pgcd(3,5)=1, pgcd(4,5)=1 ✓</p>
+                <p>1° et 2° : x ≡ 2 [3], x ≡ 3 [4] → x ≡ 11 [12]</p>
+                <p>Avec 3° : x ≡ 1 [5]</p>
+                <p>x = 11 + 12k ≡ 1 [5] → 12k ≡ −10 ≡ 0 [5]</p>
+                <p>12 ≡ 2 [5] → 2k ≡ 0 [5] → k ≡ 0 [5] (car pgcd(2,5)=1)</p>
+                <p>k = 5t → x = 11 + 12×5t = 11 + 60t</p>
+                <p>→ <strong>x ≡ 11 [60]</strong> &nbsp;&nbsp;→ plus petit x > 0 : <strong>x = 11</strong></p>
+                <p>Vérification : 11 ≡ 2 [3] ✓, 11 ≡ 3 [4] ✓, 11 ≡ 1 [5] ✓</p>
+            </div>
+        </div>
+
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel — Arithmétique</h2>
+            <div class="resume-images">
+                <a href="https://drive.google.com/file/d/1-E-B_TLapf4X7GwPlfvEBnMNUojSFY1M/view?usp=drive_link">
+                    <button>📥 Télécharger le résumé</button>
+                </a>
+            </div>
+        </section>
+
+         <!-- SECTION VIDÉO -->
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1XhpK-KvTbI1Nf_b6E2lp-P7N4AeWKB6X/preview
+" width="640" height="480" allow="autoplay"></iframe>
+            </div>
+        </section>
+        *  <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/1JaGh09PK-NyEcvaCiVvxTyOgAdAhEBZw/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+        <a href="lecon6-coniques.html" class="next-lesson" style="background: linear-gradient(135deg, #EAB308, #CA8A04);">
+            <div>
+                <p class="next-lesson-text">Leçon suivante</p>
+                <p class="next-lesson-title">Leçon 6 : Les Coniques →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

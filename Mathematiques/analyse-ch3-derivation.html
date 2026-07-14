@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH3: Dérivation - Analyse</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .math-content h4 { color: #DC2626; font-size: 1rem; margin: 18px 0 10px 0; }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1E40AF; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid var(--warning); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .theorem-box { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); border-left: 4px solid #7C3AED; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .theorem-box h4 { color: #6D28D9; font-size: 0.95rem; margin-bottom: 8px; }
+        .theorem-box p { color: #5B21B6; margin-bottom: 6px; }
+        table.formula-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-family: 'Courier New', monospace; }
+        table.formula-table th, table.formula-table td { padding: 8px 12px; border: 1px solid #E5E7EB; text-align: left; }
+        table.formula-table th { background: #EFF6FF; color: #1E40AF; }
+        table.formula-table tr:nth-child(even) { background: #F9FAFB; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+              <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #DC2626;">
+            <h1>CH3: Dérivation</h1>
+            <p class="breadcrumb">Mathématiques > Analyse > CH3</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan du chapitre</h3>
+            <ol>
+                <li><a href="#p1">Dérivabilité et nombre dérivé</a></li>
+                <li><a href="#p2">Formules de dérivation</a></li>
+                <li><a href="#p3">Dérivées des fonctions usuelles</a></li>
+                <li><a href="#p4">Dérivées successives</a></li>
+                <li><a href="#p5">Applications de la dérivation</a></li>
+            </ol>
+        </div>
+
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1RAIiCPQwAkdWE1hK0APoSRA3joxx3b2Z/preview
+" width="600" height="120" frameborder="0" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Dérivabilité et nombre dérivé</h3>
+            <p>La <strong>dérivation</strong> permet d'étudier le taux de variation instantané d'une fonction, c'est-à-dire sa vitesse de changement en chaque point.</p>
+
+            <h4>🔹 Nombre dérivé en un point</h4>
+            <div class="theorem-box">
+                <h4>📐 Définition</h4>
+                <p>Soit f une fonction définie sur un intervalle I et a ∈ I.</p>
+                <p>f est <strong>dérivable en a</strong> si et seulement si la limite suivante existe (et est finie) :</p>
+                <p style="text-align:center; font-size:1.2rem; margin:12px 0;">f'(a) = lim<sub>h→0</sub> [f(a + h) - f(a)]/h</p>
+                <p>Cette limite s'appelle le <strong>nombre dérivé</strong> de f en a.</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Notation alternative</div>
+                f'(a) = lim<sub>x→a</sub> [f(x) - f(a)]/(x - a)
+            </div>
+
+            <h4>🔹 Interprétation géométrique</h4>
+            <div class="theorem-box">
+                <h4>📐 Tangente à une courbe</h4>
+                <p>Si f est dérivable en a, alors la courbe C<sub>f</sub> admet une tangente au point A(a, f(a)).</p>
+                <p style="margin-top:8px; text-align:center;">Équation de la tangente :</p>
+                <p style="text-align:center; font-size:1.1rem;"><strong>y = f'(a)(x - a) + f(a)</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Tangente à une parabole</h4>
+                <p>f(x) = x² au point a = 3</p>
+                <p>f'(x) = 2x donc f'(3) = 6</p>
+                <p>f(3) = 9</p>
+                <p><strong>Équation de la tangente :</strong></p>
+                <p>y = 6(x - 3) + 9 = 6x - 18 + 9</p>
+                <p>y = <strong>6x - 9</strong></p>
+            </div>
+
+            <h4>🔹 Dérivabilité et continuité</h4>
+            <div class="theorem-box">
+                <h4>📐 Théorème fondamental</h4>
+                <p><strong>Si f est dérivable en a, alors f est continue en a.</strong></p>
+                <p style="margin-top:8px;"><em>La réciproque est fausse ! Une fonction peut être continue sans être dérivable.</em></p>
+            </div>
+
+            <h4>🔹 Dérivabilité à gauche et à droite</h4>
+            <div class="formula-box">
+                <div class="formula-title">Dérivées latérales</div>
+                f'<sub>+</sub>(a) = lim<sub>h→0⁺</sub> [f(a + h) - f(a)]/h<br>
+                f'<sub>-</sub>(a) = lim<sub>h→0⁻</sub> [f(a + h) - f(a)]/h
+            </div>
+
+            <div class="theorem-box">
+                <h4>📐 Condition de dérivabilité</h4>
+                <p>f est dérivable en a &nbsp;⟺&nbsp; f'<sub>+</sub>(a) = f'<sub>-</sub>(a) (et finie)</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : |x| en x = 0</h4>
+                <p>f(x) = |x| est <strong>continue</strong> en 0 (f(0) = 0)</p>
+                <p>Mais :</p>
+                <p>f'<sub>+</sub>(0) = lim<sub>h→0⁺</sub> h/h = 1</p>
+                <p>f'<sub>-</sub>(0) = lim<sub>h→0⁻</sub> (-h)/h = -1</p>
+                <p>f'<sub>+</sub>(0) ≠ f'<sub>-</sub>(0) → <strong>f n'est pas dérivable en 0</strong></p>
+                <p><em>La courbe admet un "point anguleux" en x = 0.</em></p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Cas de non-dérivabilité</h4>
+                <p>• <strong>Point anguleux</strong> : f'<sub>+</sub>(a) ≠ f'<sub>-</sub>(a) (ex: |x|)</p>
+                <p>• <strong>Tangente verticale</strong> : f'(a) = ±∞ (ex: √x en 0)</p>
+                <p>• <strong>Point de rebroussement</strong> : f'<sub>+</sub> = f'<sub>-</sub> = ±∞ (ex: x<sup>1/3</sup>)</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Formules de dérivation</h3>
+            <p>Ces formules sont les outils de base pour dériver n'importe quelle fonction.</p>
+
+            <h4>🔹 Opérations algébriques</h4>
+            <table class="formula-table">
+                <tr>
+                    <th>Fonction</th>
+                    <th>Dérivée</th>
+                </tr>
+                <tr>
+                    <td>(f + g)'</td>
+                    <td>f' + g'</td>
+                </tr>
+                <tr>
+                    <td>(f - g)'</td>
+                    <td>f' - g'</td>
+                </tr>
+                <tr>
+                    <td>(k × f)'</td>
+                    <td>k × f' (k constante)</td>
+                </tr>
+                <tr>
+                    <td>(f × g)'</td>
+                    <td>f'g + fg' <strong>(produit)</strong></td>
+                </tr>
+                <tr>
+                    <td>(f/g)'</td>
+                    <td>(f'g - fg')/g² <strong>(quotient)</strong></td>
+                </tr>
+            </table>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Dérivée d'un produit</h4>
+                <p>f(x) = x² × sin(x)</p>
+                <p>f'(x) = (x²)' × sin(x) + x² × (sin(x))'</p>
+                <p>f'(x) = 2x × sin(x) + x² × cos(x)</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Dérivée d'un quotient</h4>
+                <p>f(x) = x/(x + 1)</p>
+                <p>f'(x) = [(1)(x+1) - (x)(1)]/(x+1)²</p>
+                <p>f'(x) = (x + 1 - x)/(x+1)²</p>
+                <p>f'(x) = <strong>1/(x+1)²</strong></p>
+            </div>
+
+            <h4>🔹 Dérivée d'une fonction composée</h4>
+            <div class="theorem-box">
+                <h4>📐 Formule de composition (chaînage)</h4>
+                <p>Si g est dérivable en u et f est dérivable en x, alors :</p>
+                <p style="text-align:center; font-size:1.1rem; margin:10px 0;"><strong>(f ∘ g)'(x) = f'(g(x)) × g'(x)</strong></p>
+                <p>En notation plus simple : d(f(g(x)))/dx = f'(g(x)) × g'(x)</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Cas particulier important</div>
+                (uⁿ)' = n × u' × u<sup>n-1</sup> &nbsp;&nbsp;(n ∈ ℤ)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Fonction composée</h4>
+                <p>f(x) = (3x² + 2)⁵</p>
+                <p>On pose u = 3x² + 2, donc u' = 6x</p>
+                <p>f'(x) = 5 × u' × u⁴</p>
+                <p>f'(x) = 5 × 6x × (3x² + 2)⁴</p>
+                <p>f'(x) = <strong>30x(3x² + 2)⁴</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : sin(2x + 1)</h4>
+                <p>f(x) = sin(2x + 1)</p>
+                <p>Composée : f(x) = g(h(x)) avec h(x) = 2x + 1, g(u) = sin(u)</p>
+                <p>h'(x) = 2, g'(u) = cos(u)</p>
+                <p>f'(x) = cos(2x + 1) × 2 = <strong>2cos(2x + 1)</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : √(x² + 1)</h4>
+                <p>f(x) = √(x² + 1) = (x² + 1)<sup>1/2</sup></p>
+                <p>u = x² + 1, u' = 2x</p>
+                <p>f'(x) = (1/2) × u' × u<sup>-1/2</sup></p>
+                <p>f'(x) = (1/2) × 2x × (x² + 1)<sup>-1/2</sup></p>
+                <p>f'(x) = x/√(x² + 1)</p>
+            </div>
+
+            <h4>🔹 Dérivée de l'inverse</h4>
+            <div class="formula-box">
+                <div class="formula-title">Inverse d'une fonction</div>
+                (1/f)' = -f'/f² &nbsp;&nbsp;(si f ≠ 0)
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Dérivées des fonctions usuelles</h3>
+            <p>Ce tableau doit être <strong>parfaitement mémorisé</strong>.</p>
+
+            <h4>🔹 Fonctions algébriques</h4>
+            <table class="formula-table">
+                <tr><th>f(x)</th><th>f'(x)</th><th>Domaine</th></tr>
+                <tr><td>k (constante)</td><td>0</td><td>ℝ</td></tr>
+                <tr><td>xⁿ (n ∈ ℕ)</td><td>nxⁿ⁻¹</td><td>ℝ</td></tr>
+                <tr><td>xⁿ (n ∈ ℤ⁻)</td><td>nxⁿ⁻¹</td><td>ℝ\{0} si n < 0</td></tr>
+                <tr><td>√x</td><td>1/(2√x)</td><td>]0, +∞[</td></tr>
+                <tr><td>x<sup>α</sup></td><td>αx<sup>α-1</sup></td><td> Selon α</td></tr>
+                <tr><td>1/x</td><td>-1/x²</td><td>ℝ\{0}</td></tr>
+            </table>
+
+            <h4>🔹 Fonctions transcendantes</h4>
+            <table class="formula-table">
+                <tr><th>f(x)</th><th>f'(x)</th><th>Domaine</th></tr>
+                <tr><td>eˣ</td><td>eˣ</td><td>ℝ</td></tr>
+                <tr><td>aˣ</td><td>aˣ × ln(a)</td><td>ℝ</td></tr>
+                <tr><td>ln(x)</td><td>1/x</td><td>]0, +∞[</td></tr>
+                <tr><td>log<sub>a</sub>(x)</td><td>1/(x × ln(a))</td><td>]0, +∞[</td></tr>
+                <tr><td>sin(x)</td><td>cos(x)</td><td>ℝ</td></tr>
+                <tr><td>cos(x)</td><td>-sin(x)</td><td>ℝ</td></tr>
+                <tr><td>tan(x)</td><td>1 + tan²(x) = 1/cos²(x)</td><td>ℝ\{π/2 + kπ}</td></tr>
+            </table>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Dérivée de x³ + 2√x - 5/x²</h4>
+                <p>f(x) = x³ + 2x<sup>1/2</sup> - 5x⁻²</p>
+                <p>f'(x) = 3x² + 2 × (1/2)x<sup>-1/2</sup> - 5 × (-2)x⁻³</p>
+                <p>f'(x) = 3x² + x<sup>-1/2</sup> + 10x⁻³</p>
+                <p>f'(x) = 3x² + 1/√x + 10/x³</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Dérivée de e<sup>x²</sup></h4>
+                <p>f(x) = e<sup>x²</sup></p>
+                <p>Composée : f'(x) = e<sup>x²</sup> × (x²)'</p>
+                <p>f'(x) = e<sup>x²</sup> × 2x</p>
+                <p>f'(x) = <strong>2x × e<sup>x²</sup></strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Dérivée de ln(3x + 2)</h4>
+                <p>f(x) = ln(3x + 2)</p>
+                <p>Composée : f'(x) = (1/(3x + 2)) × (3x + 2)'</p>
+                <p>f'(x) = (1/(3x + 2)) × 3</p>
+                <p>f'(x) = <strong>3/(3x + 2)</strong></p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Erreurs fréquentes</h4>
+                <p>• (eˣ)' = eˣ (pas eˣ⁻¹ !)</p>
+                <p>• (ln(x))' = 1/x (pas 1/ln(x) !)</p>
+                <p>• (1/f)' = -f'/f² (pas f'/f !)</p>
+                <p>• Ne pas oublier le "× u'" dans les composées !</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Dérivées successives</h3>
+            <p>On peut dériver une fonction plusieurs fois de suite pour obtenir les <strong>dérivées successives</strong>.</p>
+
+            <h4>🔹 Définition</h4>
+            <div class="formula-box">
+                <div class="formula-title">Dérivées successives</div>
+                f' = dérivée première<br>
+                f'' = (f')' = dérivée seconde<br>
+                f''' = (f'')' = dérivée troisième<br>
+                f<sup>(n)</sup> = dérivée n-ième
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Polynôme</h4>
+                <p>f(x) = 5x⁴ - 3x³ + 2x² - x + 7</p>
+                <p>f'(x) = 20x³ - 9x² + 4x - 1</p>
+                <p>f''(x) = 60x² - 18x + 4</p>
+                <p>f'''(x) = 120x - 18</p>
+                <p>f⁽⁴⁾(x) = 120</p>
+                <p>f⁽⁵⁾(x) = <strong>0</strong> (car dérivée d'ordre > degré d'un polynôme)</p>
+            </div>
+
+            <h4>🔹 Formule de Leibniz</h4>
+            <div class="theorem-box">
+                <h4>📐 Formule de Leibniz</h4>
+                <p>Pour les dérivées successives d'un produit :</p>
+                <p>(uv)<sup>(n)</sup> = Σ<sub>k=0</sub><sup>n</sup> C<sub>n</sub><sup>k</sup> × u<sup>(k)</sup> × v<sup>(n-k)</sup></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Application de Leibniz</h4>
+                <p>Calculer f⁽²⁾(x) où f(x) = x × eˣ</p>
+                <p>(uv)'' = u''v + 2u'v' + uv''</p>
+                <p>u = x, v = eˣ</p>
+                <p>u' = 1, u'' = 0</p>
+                <p>v' = eˣ, v'' = eˣ</p>
+                <p>f''(x) = 0 × eˣ + 2 × 1 × eˣ + x × eˣ</p>
+                <p>f''(x) = (2 + x)eˣ</p>
+            </div>
+
+            <h4>🔹 Classe d'une fonction</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📚</span><p><strong>f ∈ C⁰</strong> : f est continue</p></div>
+                <div class="key-point"><span class="icon">📚</span><p><strong>f ∈ C¹</strong> : f est dérivable avec f' continue</p></div>
+                <div class="key-point"><span class="icon">📚</span><p><strong>f ∈ Cⁿ</strong> : f admet des dérivées continues jusqu'à l'ordre n</p></div>
+                <div class="key-point"><span class="icon">📚</span><p><strong>f ∈ C<sup>∞</sup></strong> : f est indéfiniment dérivable (ex: eˣ, sin, cos)</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Applications de la dérivation</h3>
+            <p>La dérivation a de nombreuses applications en analyse et en géométrie.</p>
+
+            <h4>🔹 Sens de variation d'une fonction</h4>
+            <div class="theorem-box">
+                <h4>📐 Théorème fondamental</h4>
+                <p>Soit f dérivable sur un intervalle I :</p>
+                <p>• f est <strong>croissante</strong> sur I &nbsp;⟺&nbsp; ∀x ∈ I, f'(x) ≥ 0</p>
+                <p>• f est <strong>décroissante</strong> sur I &nbsp;⟺&nbsp; ∀x ∈ I, f'(x) ≤ 0</p>
+                <p>• f est <strong>constante</strong> sur I &nbsp;⟺&nbsp; ∀x ∈ I, f'(x) = 0</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Attention</h4>
+                <p>Si f'(x) > 0 en tout point → f est <strong>strictement croissante</strong></p>
+                <p>Mais f peut être strictement croissante avec f'(x) = 0 en certains points (ex: x³)</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Étudier les variations</h4>
+                <p>f(x) = 2x³ - 3x² - 12x + 5</p>
+                <p>f'(x) = 6x² - 6x - 12 = 6(x² - x - 2)</p>
+                <p>f'(x) = 6(x - 2)(x + 1)</p>
+                <p>Tableau de signes :</p>
+                <table style="margin:12px 0; border-collapse:collapse; width:100%;">
+                    <tr><th>x</th><td>-∞</td><td></td><td>-1</td><td></td><td>2</td><td></td><td>+∞</td></tr>
+                    <tr><th>f'(x)</th><td>+</td><td>+</td><td>0</td><td>-</td><td>0</td><td>+</td><td>+</td></tr>
+                    <tr><th>f(x)</th><td>↗</td><td>↗</td><td>max</td><td>↘</td><td>min</td><td>↗</td><td>↗</td></tr>
+                </table>
+            </div>
+
+            <h4>🔹 Extremums locaux</h4>
+            <div class="theorem-box">
+                <h4>📐 Condition nécessaire (Fermat)</h4>
+                <p>Si f admet un extremum local en a et si f est dérivable en a, alors :</p>
+                <p style="text-align:center;"><strong>f'(a) = 0</strong></p>
+            </div>
+
+            <div class="theorem-box">
+                <h4>📐 Condition suffisante</h4>
+                <p>Si f'(a) = 0 et si f' change de signe en a :</p>
+                <p>• f' passe de + à - → <strong>maximum local</strong></p>
+                <p>• f' passe de - à + → <strong>minimum local</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Trouver les extremums</h4>
+                <p>f(x) = x³ - 3x</p>
+                <p>f'(x) = 3x² - 3 = 3(x² - 1)</p>
+                <p>f'(x) = 0 ⟺ x = -1 ou x = 1</p>
+                <p>• En x = -1 : f' passe de + à - → <strong>maximum</strong> (f(-1) = 2)</p>
+                <p>• En x = 1 : f' passe de - à + → <strong>minimum</strong> (f(1) = -2)</p>
+            </div>
+
+            <h4>🔹 Dérivée et convexité</h4>
+            <div class="theorem-box">
+                <h4>📐 Convexité</h4>
+                <p>• f est <strong>convexe</strong> sur I ⟺ f'' ≥ 0 sur I</p>
+                <p>• f est <strong>concave</strong> sur I ⟺ f'' ≤ 0 sur I</p>
+            </div>
+
+            <div class="theorem-box">
+                <h4>📐 Point d'inflexion</h4>
+                <p>Un point d'inflexion est un point où la convexité change.</p>
+                <p>f admet un point d'inflexion en a ⟺ f''(a) = 0 et f'' change de signe en a</p>
+            </div>
+
+            <h4>🔹 Formules de Taylor</h4>
+            <div class="theorem-box">
+                <h4>📐 Formule de Taylor-Young à l'ordre n</h4>
+                <p>Si f ∈ Cⁿ au voisinage de a :</p>
+                <p>f(x) = f(a) + f'(a)(x-a) + f''(a)/2!(x-a)² + ... + f⁽ⁿ⁾(a)/n!(x-a)ⁿ + o((x-a)ⁿ)</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Taylor-Young de eˣ en 0</h4>
+                <p>eˣ = 1 + x + x²/2! + x³/3! + ... + xⁿ/n! + o(xⁿ)</p>
+                <p>À l'ordre 3 : eˣ ≈ 1 + x + x²/2 + x³/6</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Taylor-Young de sin(x) en 0</h4>
+                <p>sin(x) = x - x³/3! + x⁵/5! - x⁷/7! + ...</p>
+                <p>À l'ordre 5 : sin(x) ≈ x - x³/6 + x⁵/120</p>
+            </div>
+
+            <h4>🔹 Application : Équation de la normale</h4>
+            <div class="theorem-box">
+                <h4>📐 Normale à une courbe</h4>
+                <p>La normale en A(a, f(a)) est perpendiculaire à la tangente :</p>
+                <p style="text-align:center;"><strong>(x - a) + f'(a)(y - f(a)) = 0</strong></p>
+                <p>Ou encore : f'(a)(x - a) + (y - f(a)) = 0</p>
+            </div>
+        </div>
+
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+            <div class="resume-images">
+                <a href="https://drive.google.com/file/d/1CkeVvoDakLH3kBBE35yYb-kEv3Ns8wg7/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+            </div>
+        </section>
+
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1agaDE_ZSo1BHfrKClNXfdog4jCK1dg4a/preview
+" width="640" height="480" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+           <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/1te05ju55jUtNNtaBdgt1G7s0-TzGJWbT/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+        <a href="CH8-integration.html" class="next-lesson" style="background: linear-gradient(135deg, #DC2626, #B91C1C);">
+            <div>
+                <p class="next-lesson-text">Chapitre suivant</p>
+                <p class="next-lesson-title">CH8: Intégration →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

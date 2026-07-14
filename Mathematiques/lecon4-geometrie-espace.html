@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon 4 : Géométrie dans l'Espace - Mathématiques Bac Math Tunisien</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1D4ED8; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid #EAB308; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .important-box { background: linear-gradient(135deg, #FEE2E2, #FECACA); border-left: 4px solid #EF4444; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .important-box h4 { color: #B91C1C; font-size: 0.95rem; margin-bottom: 8px; }
+        .important-box p { color: #991B1B; margin-bottom: 6px; }
+        .serie-download-section { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 2px solid #10B981; text-align: center; }
+        .serie-download-section h3 { color: #065F46; margin-bottom: 12px; font-size: 1.1rem; }
+        .serie-download-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; border-radius: var(--radius-lg); font-size: 1.05rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+        .serie-download-btn:hover { background: linear-gradient(135deg, #059669, #047857); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
+        .serie-download-btn svg { width: 20px; height: 20px; }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+               <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <div class="lesson-header">
+            <h1>Leçon 4 : Géométrie dans l'Espace</h1>
+            <p class="breadcrumb">Mathématiques > Bac Math > Leçon 4</p>
+        </div>
+
+        <!-- TABLE DES MATIÈRES -->
+        <div class="toc">
+            <h3>📋 Plan de la leçon</h3>
+            <ol>
+                <li><a href="#p1">Repérage dans l'espace</a></li>
+                <li><a href="#p2">Vecteurs dans l'espace</a></li>
+                <li><a href="#p3">Produit scalaire dans l'espace</a></li>
+                <li><a href="#p4">Produit vectoriel et produit mixte</a></li>
+                <li><a href="#p5">Droites dans l'espace</a></li>
+                <li><a href="#p6">Plans dans l'espace</a></li>
+                <li><a href="#p7">Positions relatives</a></li>
+                <li><a href="#p8">Distance d'un point à un plan</a></li>
+                <li><a href="#p9">La sphère et la boule</a></li>
+                <li><a href="#p10">Perpendicularité dans l'espace</a></li>
+                <li><a href="#p11">Transformations dans l'espace</a></li>
+                <li><a href="#p12">Applications et problèmes types</a></li>
+            </ol>
+        </div>
+
+        <!-- SECTION PODCAST -->
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1q8CoESNhE4ev0Wk52-gSYRK2O1xu9XYE/preview
+
+"
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+
+             <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1M_FvOPb8U7wkPR1J8d-yO7TUuU7q6oBH/preview
+
+"
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+             <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1QB-zGcauCyYRdOBTYs-udCYadCnGD1wx/preview
+
+"
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 : REPÉRAGE DANS L'ESPACE -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Repérage dans l'espace</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">1.1 Repère cartésien dans l'espace</h3>
+            <p>Dans l'espace, un <strong>repère cartésien</strong> est défini par un point origine O et une base de trois vecteurs non coplanaires (i⃗, j⃗, k⃗). Ces trois vecteurs forment une base de l'espace vectoriel ℝ³.</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Repère orthonormal (O, i⃗, j⃗, k⃗)</strong> : les trois vecteurs sont deux à deux orthogonaux et de norme 1. C'est le repère le plus utilisé en géométrie analytique.</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Repère orthogonal</strong> : les trois vecteurs sont deux à deux orthogonaux mais pas nécessairement unitaires.</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Repère quelconque</strong> : les vecteurs ne sont pas forcément orthogonaux ni unitaires.</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">1.2 Coordonnées cartésiennes d'un point</h3>
+            <p>Tout point M de l'espace est caractérisé par un triplet unique (x, y, z) appelé <strong>coordonnées cartésiennes</strong> de M dans le repère (O, i⃗, j⃗, k⃗). Ces coordonnées vérifient la relation suivante :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Formule fondamentale des coordonnées</div>
+                <strong>OM⃗ = x·i⃗ + y·j⃗ + z·k⃗</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Lecture des coordonnées</h4>
+                <p>Dans un repère orthonormal (O, i⃗, j⃗, k⃗), le point M(2, -1, 3) signifie que :</p>
+                <p>OM⃗ = 2·i⃗ + (-1)·j⃗ + 3·k⃗ = 2·i⃗ - 1·j⃗ + 3·k⃗</p>
+                <p>Projection sur les axes : Mₓ(2, 0, 0), Mᵧ(0, -1, 0), Mₖ(0, 0, 3)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">1.3 Coordonnées cylindriques</h3>
+            <p>Les <strong>coordonnées cylindriques</strong> (r, θ, z) d'un point M sont particulièrement utiles pour les problèmes à symétrie de révolution autour de l'axe Oz. Elles sont définies par :</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📍</span><p><strong>r ≥ 0</strong> : distance de M' (projection orthogonale de M sur le plan xOy) à l'origine O. C'est le rayon polaire.</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>θ</strong> : angle orienté entre l'axe Ox et le vecteur OM'. Cet angle est défini modulo 2π.</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>z</strong> : côte algébrique de M, c'est-à-dire la distance algébrique de M au plan xOy, comptée positivement vers le haut.</p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Passage des coordonnées cylindriques aux coordonnées cartésiennes</div>
+                <strong>x = r·cos(θ)</strong><br>
+                <strong>y = r·sin(θ)</strong><br>
+                <strong>z = z</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Passage inverse (carthésiennes vers cylindriques)</div>
+                <strong>r = √(x² + y²)</strong><br>
+                <strong>θ = arctan(y/x) (avec correction du quadrant)</strong><br>
+                <strong>z = z</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Conversion cylindriques → cartésiennes</h4>
+                <p>Soit le point M en coordonnées cylindriques (r = 4, θ = π/3, z = 2)</p>
+                <p>x = 4·cos(π/3) = 4·(1/2) = 2</p>
+                <p>y = 4·sin(π/3) = 4·(√3/2) = 2√3</p>
+                <p>z = 2</p>
+                <p>Donc M(2, 2√3, 2) en coordonnées cartésiennes</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">1.4 Coordonnées sphériques</h3>
+            <p>Les <strong>coordonnées sphériques</strong> (ρ, θ, φ) d'un point M sont particulièrement adaptées aux problèmes à symétrie sphérique autour de O.</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📍</span><p><strong>ρ ≥ 0</strong> : distance OM. C'est la distance du point M à l'origine.</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>θ</strong> : angle orienté entre l'axe Ox et la projection de OM sur le plan xOy. Même angle que dans les coordonnées cylindriques.</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>φ</strong> : angle entre l'axe Oz et le vecteur OM. Cet angle vérifie 0 ≤ φ ≤ π.</p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Passage des coordonnées sphériques aux coordonnées cartésiennes</div>
+                <strong>x = ρ·sin(φ)·cos(θ)</strong><br>
+                <strong>y = ρ·sin(φ)·sin(θ)</strong><br>
+                <strong>z = ρ·cos(φ)</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Relations entre coordonnées sphériques et cylindriques</div>
+                <strong>ρ = √(r² + z²)</strong><br>
+                <strong>φ = arctan(r/z)</strong><br>
+                <strong>θ = θ (identique)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Conversion sphériques → cartésiennes</h4>
+                <p>Soit le point M en coordonnées sphériques (ρ = 6, θ = π/4, φ = π/3)</p>
+                <p>x = 6·sin(π/3)·cos(π/4) = 6·(√3/2)·(√2/2) = 6·√6/4 = (3√6)/2</p>
+                <p>y = 6·sin(π/3)·sin(π/4) = 6·(√3/2)·(√2/2) = 6·√6/4 = (3√6)/2</p>
+                <p>z = 6·cos(π/3) = 6·(1/2) = 3</p>
+                <p>Donc M((3√6)/2, (3√6)/2, 3)</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Attention aux conventions</h4>
+                <p>Les conventions pour les coordonnées sphériques varient selon les auteurs. En mathématiques françaises, on utilise généralement (ρ, θ, φ) avec φ l'angle depuis l'axe Oz. En physique, on utilise souvent (r, θ, φ) avec θ l'angle depuis l'axe Oz. Vérifiez toujours les conventions utilisées dans votre cours.</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 : VECTEURS DANS L'ESPACE -->
+        <div class="math-content" id="p2">
+            <h3>📘 2. Vecteurs dans l'espace</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">2.1 Définition et représentation</h3>
+            <p>Un <strong>vecteur</strong> dans l'espace est un triplet (x, y, z) de nombres réels. Soient deux points A(x₁, y₁, z₁) et B(x₂, y₂, z₂), le vecteur AB⃗ est défini par :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Coordonnées d'un vecteur</div>
+                <strong>AB⃗ = (x₂ - x₁, y₂ - y₁, z₂ - z₁)</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">2.2 Opérations sur les vecteurs</h3>
+            <p>Soient u⃗ = (x₁, y₁, z₁) et v⃗ = (x₂, y₂, z₂), et λ un scalaire réel :</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➕</span><p><strong>Addition</strong> : u⃗ + v⃗ = (x₁ + x₂, y₁ + y₂, z₁ + z₂)</p></div>
+                <div class="key-point"><span class="icon">➖</span><p><strong>Soustraction</strong> : u⃗ - v⃗ = (x₁ - x₂, y₁ - y₂, z₁ - z₂)</p></div>
+                <div class="key-point"><span class="icon">✖️</span><p><strong>Multiplication par un scalaire</strong> : λ·u⃗ = (λ·x₁, λ·y₁, λ·z₁)</p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Norme d'un vecteur</div>
+                <strong>‖u⃗‖ = √(x₁² + y₁² + z₁²)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calculs vectoriels</h4>
+                <p>Soient u⃗ = (2, -1, 3) et v⃗ = (1, 4, -2)</p>
+                <p><strong>u⃗ + v⃗</strong> = (2+1, -1+4, 3+(-2)) = (3, 3, 1)</p>
+                <p><strong>3·u⃗</strong> = (3×2, 3×(-1), 3×3) = (6, -3, 9)</p>
+                <p><strong>‖u⃗‖</strong> = √(4 + 1 + 9) = √14</p>
+                <p><strong>‖v⃗‖</strong> = √(1 + 16 + 4) = √21</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">2.3 Vecteurs colinéaires</h3>
+            <p>Deux vecteurs u⃗ = (x₁, y₁, z₁) et v⃗ = (x₂, y₂, z₂) sont <strong>colinéaires</strong> si et seulement si l'un est un multiple scalaire de l'autre.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Condition de colinéarité</div>
+                <strong>u⃗ et v⃗ colinéaires ⇔ ∃λ ∈ ℝ : v⃗ = λ·u⃗</strong><br>
+                <strong>⇔ x₁/y₁ = x₂/y₂ = x₁/z₁ = x₂/z₂ = y₁/z₁ = y₂/z₂</strong>
+            </div>
+
+            <div class="important-box">
+                <h4>⭐ Point clé à retenir</h4>
+                <p>Dans l'espace, deux vecteurs non nuls sont colinéaires si et seulement si leurs coordonnées sont proportionnelles. Cette condition est équivalente à vérifier que le produit vectoriel est nul.</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">2.4 Vecteurs coplanaires</h3>
+            <p>Trois vecteurs u⃗, v⃗ et w⃗ sont <strong>coplanaires</strong> s'ils peuvent être représentés dans un même plan. Une condition nécessaire et suffisante est que leur produit mixte soit nul.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Condition de coplanarité</div>
+                <strong>u⃗, v⃗ et w⃗ coplanaires ⇔ [u⃗, v⃗, w⃗] = 0</strong><br>
+                <strong>où [u⃗, v⃗, w⃗] = (u⃗ ∧ v⃗) · w⃗ (produit mixte)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Vérification de la coplanarité</h4>
+                <p>Soient u⃗ = (1, 0, 0), v⃗ = (0, 1, 0) et w⃗ = (1, 1, 0)</p>
+                <p>Ces trois vecteurs sont coplanaires car w⃗ = u⃗ + v⃗, donc ils appartiennent tous au plan xOy.</p>
+                <p>En revanche, u⃗ = (1, 0, 0), v⃗ = (0, 1, 0) et w⃗ = (0, 0, 1) ne sont PAS coplanaires : ils forment une base de l'espace.</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">2.5 Base de l'espace</h3>
+            <p>Trois vecteurs u⃗, v⃗ et w⃗ forment une <strong>base</strong> de l'espace si et seulement si ils sont linéairement indépendants, c'est-à-dire si aucun d'entre eux n'est combinaison linéaire des deux autres.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Indépendance linéaire</div>
+                <strong>α·u⃗ + β·v⃗ + γ·w⃗ = 0⃗ ⇔ α = β = γ = 0</strong>
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📚</span><p><strong>Base orthonormale</strong> : trois vecteurs deux à deux orthogonaux et de norme 1 (comme (i⃗, j⃗, k⃗))</p></div>
+                <div class="key-point"><span class="icon">📚</span><p><strong>Base orthogonale</strong> : trois vecteurs deux à deux orthogonaux</p></div>
+                <div class="key-point"><span class="icon">📚</span><p><strong>Base quelconque</strong> : trois vecteurs linéairement indépendants</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 : PRODUIT SCALAIRE -->
+        <div class="math-content" id="p3">
+            <h3>📘 3. Produit scalaire dans l'espace</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">3.1 Définition</h3>
+            <p>Le <strong>produit scalaire</strong> de deux vecteurs u⃗ = (x₁, y₁, z₁) et v⃗ = (x₂, y₂, z₂) est le nombre réel défini par :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Définition algébrique du produit scalaire</div>
+                <strong>u⃗ · v⃗ = x₁·x₂ + y₁·y₂ + z₁·z₂</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Définition géométrique du produit scalaire</div>
+                <strong>u⃗ · v⃗ = ‖u⃗‖ × ‖v⃗‖ × cos(θ)</strong><br>
+                <strong>où θ est l'angle entre u⃗ et v⃗</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calcul du produit scalaire</h4>
+                <p>Soient u⃗ = (1, 2, -1) et v⃗ = (3, -1, 2)</p>
+                <p><strong>Méthode 1 (algébrique)</strong> :</p>
+                <p>u⃗ · v⃗ = 1×3 + 2×(-1) + (-1)×2 = 3 - 2 - 2 = <strong>-1</strong></p>
+                <p><strong>Méthode 2 (géométrique)</strong> :</p>
+                <p>‖u⃗‖ = √(1+4+1) = √6</p>
+                <p>‖v⃗‖ = √(9+1+4) = √14</p>
+                <p>cos θ = (u⃗ · v⃗)/(‖u⃗‖·‖v⃗‖) = -1/(√6·√14) = -1/√84</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">3.2 Propriétés du produit scalaire</h3>
+            <p>Pour tous vecteurs u⃗, v⃗, w⃗ et tout scalaire λ :</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Symétrie</strong> : u⃗ · v⃗ = v⃗ · u⃗</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Linéarité</strong> : (α·u⃗ + β·v⃗) · w⃗ = α(u⃗ · w⃗) + β(v⃗ · w⃗)</p></div>
+                <div class="key-point"><span class="icon">➕</span><p><strong>Positivité</strong> : u⃗ · u⃗ = ‖u⃗‖² ≥ 0, et u⃗ · u⃗ = 0 ⇔ u⃗ = 0⃗</p></div>
+                <div class="key-point"><span class="icon">⟂</span><p><strong>Orthogonalité</strong> : u⃗ · v⃗ = 0 ⇔ u⃗ ⟂ v⃗</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">3.3 Applications du produit scalaire</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Norme d'un vecteur via le produit scalaire</div>
+                <strong>‖u⃗‖ = √(u⃗ · u⃗)</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Angle entre deux vecteurs</div>
+                <strong>cos(θ) = (u⃗ · v⃗) / (‖u⃗‖ × ‖v⃗‖)</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Projection orthogonale</div>
+                <strong>proj_{v⃗}(u⃗) = [(u⃗ · v⃗) / (v⃗ · v⃗)] × v⃗</strong><br>
+                <strong>Cette projection est un vecteur colinéaire à v⃗</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Distance entre deux points</div>
+                <strong>AB = √[(B - A) · (B - A)] = √[(x_B - x_A)² + (y_B - y_A)² + (z_B - z_A)²]</strong>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Attention aux erreurs fréquentes</h4>
+                <p>Le produit scalaire donne toujours un <strong>nombre réel</strong>, jamais un vecteur. Ne confondez pas avec le produit vectoriel qui donne un vecteur orthogonal aux deux facteurs.</p>
+            </div>
+
+            <div class="important-box">
+                <h4>⭐ Théorème d'Al-Kashi</h4>
+                <p>Dans tout triangle ABC, on a la relation suivante (généralisation du théorème de Pythagore) :</p>
+                <p><strong>BC² = AB² + AC² - 2·AB·AC·cos(∠BAC)</strong></p>
+                <p>Cette formule est très utile pour calculer des distances et des angles dans l'espace en ramenant les problèmes à des triangles.</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 : PRODUIT VECTORIEL ET PRODUIT MIXTE -->
+        <div class="math-content" id="p4">
+            <h3>📘 4. Produit vectoriel et produit mixte</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">4.1 Définition du produit vectoriel</h3>
+            <p>Le <strong>produit vectoriel</strong> de u⃗ = (x₁, y₁, z₁) et v⃗ = (x₂, y₂, z₂) est le vecteur défini par :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Formule du produit vectoriel</div>
+                <strong>u⃗ ∧ v⃗ = (y₁·z₂ - z₁·y₂, z₁·x₂ - x₁·z₂, x₁·y₂ - y₁·x₂)</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Formulation avec un déterminant</div>
+                <strong>u⃗ ∧ v⃗ = |i⃗  j⃗  k⃗|</strong><br>
+                <strong>          |x₁  y₁  z₁|</strong><br>
+                <strong>          |x₂  y₂  z₂|</strong>
+            </div>
+
+            <div class="important-box">
+                <h4>⭐ Propriété fondamentale</h4>
+                <p>Le vecteur u⃗ ∧ v⃗ est <strong>orthogonal</strong> à la fois à u⃗ et à v⃗. Son sens est donné par la règle de la main droite : si les doigts de la main droite s'orientent de u⃗ vers v⃗ (angle le plus petit), le pouce indique le sens de u⃗ ∧ v⃗.</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">4.2 Propriétés du produit vectoriel</h3>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Antisymétrie</strong> : u⃗ ∧ v⃗ = - (v⃗ ∧ u⃗)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Linéarité</strong> : (α·u⃗ + β·w⃗) ∧ v⃗ = α(u⃗ ∧ v⃗) + β(w⃗ ∧ v⃗)</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>Norme</strong> : ‖u⃗ ∧ v⃗‖ = ‖u⃗‖ × ‖v⃗‖ × |sin(θ)|</p></div>
+                <div class="key-point"><span class="icon">⟂</span><p><strong>Colinéarité</strong> : u⃗ ∧ v⃗ = 0⃗ ⇔ u⃗ et v⃗ sont colinéaires</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">4.3 Applications du produit vectoriel</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Aire d'un parallélogramme</div>
+                <strong>A = ‖u⃗ ∧ v⃗‖</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Aire d'un triangle</div>
+                <strong>A_triangle = ½ × ‖u⃗ ∧ v⃗‖</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Vecteur normal à un plan</div>
+                <strong>Si u⃗ et v⃗ sont deux vecteurs directeurs d'un plan P,</strong><br>
+                <strong>alors n⃗ = u⃗ ∧ v⃗ est un vecteur normal (perpendiculaire) à P</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calcul du produit vectoriel</h4>
+                <p>Soient u⃗ = (1, 0, 0) et v⃗ = (0, 1, 0)</p>
+                <p>u⃗ ∧ v⃗ = (0×0 - 0×1, 0×0 - 1×0, 1×1 - 0×0) = (0, 0, 1)</p>
+                <p>Le résultat est bien k⃗, orthogonal à i⃗ et j⃗</p>
+                <p><strong>Vérification</strong> : ‖u⃗ ∧ v⃗‖ = 1 = ‖u⃗‖·‖v⃗‖·sin(π/2) ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Vecteur normal à un plan</h4>
+                <p>Soit le plan P contenant A(1, 0, 0), B(0, 1, 0) et C(0, 0, 1)</p>
+                <p>AB⃗ = (-1, 1, 0) et AC⃗ = (-1, 0, 1)</p>
+                <p>n⃗ = AB⃗ ∧ AC⃗ = |i⃗  j⃗  k⃗|</p>
+                <p>                    |-1  1  0|</p>
+                <p>                    |-1  0  1|</p>
+                <p>n⃗ = (1×1 - 0×0, 0×(-1) - (-1)×1, (-1)×0 - 1×(-1)) = (1, 1, 1)</p>
+                <p>Le vecteur (1, 1, 1) est orthogonal au plan ABC.</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">4.4 Définition du produit mixte</h3>
+            <p>Le <strong>produit mixte</strong> de trois vecteurs u⃗, v⃗ et w⃗ est le scalaire défini par :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Définition du produit mixte</div>
+                <strong>[u⃗, v⃗, w⃗] = (u⃗ ∧ v⃗) · w⃗</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Formulation déterminantale</div>
+                <strong>[u⃗, v⃗, w⃗] = |x₁  y₁  z₁|</strong><br>
+                <strong>                |x₂  y₂  z₂|</strong><br>
+                <strong>                |x₃  y₃  z₃|</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">4.5 Propriétés du produit mixte</h3>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Permutation circulaire</strong> : [u⃗, v⃗, w⃗] = [v⃗, w⃗, u⃗] = [w⃗, u⃗, v⃗]</p></div>
+                <div class="key-point"><span class="icon">⟷</span><p><strong>Changement de signe</strong> : [u⃗, v⃗, w⃗] = -[v⃗, u⃗, w⃗]</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Linéarité</strong> : linéaire par rapport à chaque argument</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>Coplanarité</strong> : [u⃗, v⃗, w⃗] = 0 ⇔ u⃗, v⃗ et w⃗ sont coplanaires</p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Volume d'un parallélépipède</div>
+                <strong>V_parallélépipède = |[u⃗, v⃗, w⃗]|</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Volume d'un tétraèdre</div>
+                <strong>V_tétraèdre = ⅙ × |[u⃗, v⃗, w⃗]|</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calcul du produit mixte et du volume</h4>
+                <p>Soient u⃗ = (1, 0, 0), v⃗ = (1, 1, 0) et w⃗ = (1, 1, 1)</p>
+                <p>[u⃗, v⃗, w⃗] = |1  0  0| = 1×(1×1 - 0×1) - 0 + 0 = 1</p>
+                <p>                    |1  1  1|</p>
+                <p>                    |1  1  1|</p>
+                <p><strong>Volume du parallélépipède</strong> = |1| = 1</p>
+                <p><strong>Volume du tétraèdre</strong> = 1/6</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Rappel des différences</h4>
+                <p>• <strong>Produit scalaire</strong> u⃗ · v⃗ → <em>Nombre réel</em> (‖u⃗‖·‖v⃗‖·cos θ)</p>
+                <p>• <strong>Produit vectoriel</strong> u⃗ ∧ v⃗ → <em>Vecteur</em> orthogonal (‖u⃗‖·‖v⃗‖·sin θ·n⃗)</p>
+                <p>• <strong>Produit mixte</strong> [u⃗, v⃗, w⃗] → <em>Nombre réel</em> (volume signé)</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 : DROITES DANS L'ESPACE -->
+        <div class="math-content" id="p5">
+            <h3>📘 5. Droites dans l'espace</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">5.1 Définition</h3>
+            <p>Une <strong>droite</strong> dans l'espace est définie de manière unique par :</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📍</span><p><strong>Un point</strong> par lequel elle passe (point d'ancrage)</p></div>
+                <div class="key-point"><span class="icon">➡️</span><p><strong>Un vecteur directeur</strong> qui donne son orientation</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">5.2 Équation paramétrique d'une droite</h3>
+            <p>Une droite D passant par un point A(x₀, y₀, z₀) et de vecteur directeur v⃗ = (a, b, c) a pour <strong>équation paramétrique</strong> :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Équation paramétrique</div>
+                <strong>x = x₀ + t·a</strong><br>
+                <strong>y = y₀ + t·b</strong> &nbsp;&nbsp;&nbsp; (t ∈ ℝ)<br>
+                <strong>z = z₀ + t·c</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Équation paramétrique</h4>
+                <p>Droite passant par A(1, 2, 3) et B(4, 5, 6)</p>
+                <p>Vecteur directeur : v⃗ = AB⃗ = (3, 3, 3)</p>
+                <p>Équation paramétrique :</p>
+                <p>x = 1 + 3t</p>
+                <p>y = 2 + 3t &nbsp;&nbsp;&nbsp; (t ∈ ℝ)</p>
+                <p>z = 3 + 3t</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">5.3 Équation symétrique d'une droite</h3>
+            <p>Si a, b et c sont tous non nuls, on peut éliminer le paramètre t :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Équation symétrique</div>
+                <strong>(x - x₀) / a = (y - y₀) / b = (z - z₀) / c</strong>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Attention aux divisions par zéro</h4>
+                <p>Si l'une des composantes du vecteur directeur est nulle, l'équation symétrique n'est pas définie. Par exemple, pour une droite de vecteur directeur (2, 0, -1), on écrira :</p>
+                <p>(x - x₀)/2 = (z - z₀)/(-1) et y = y₀</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Formes d'équations d'une droite</h4>
+                <p>Soit la droite D passant par A(2, 1, 0) avec v⃗ = (1, 3, -2)</p>
+                <p><strong>Paramétrique</strong> : x = 2 + t, y = 1 + 3t, z = -2t</p>
+                <p><strong>Symétrique</strong> : (x-2)/1 = (y-1)/3 = (z-0)/(-2)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">5.4 Systèmes d'équations cartésiennes</h3>
+            <p>Une droite peut aussi être définie comme l'intersection de deux plans non parallèles :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Système d'équations cartésiennes</div>
+                <strong>D = P₁ ∩ P₂</strong><br>
+                <strong>{ a₁x + b₁y + c₁z + d₁ = 0</strong><br>
+                <strong>{ a₂x + b₂y + c₂z + d₂ = 0</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Droite comme intersection de plans</h4>
+                <p>La droite D définie par :</p>
+                <p>{ x + y + z = 3</p>
+                <p>{ x - y = 1</p>
+                <p>Le vecteur directeur est orthogonal aux deux normales :</p>
+                <p>n⃗₁ = (1, 1, 1), n⃗₂ = (1, -1, 0)</p>
+                <p>v⃗ = n⃗₁ ∧ n⃗₂ = (1, 1, -2)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">5.5 Droites remarquables</h3>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Droite (AB)</strong> : passant par A et B, vecteur AB⃗</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>Médiane d'un tétraèdre</strong> : joignant un sommet au centre de gravité de la face opposée</p></div>
+                <div class="key-point"><span class="icon">⬆️</span><p><strong>Hauteur</strong> : perpendiculaire à une face, passant par le sommet opposé</p></div>
+                <div class="key-point"><span class="icon">📍</span><p><strong>Médiatrice</strong> : perpendiculaire à un segment en son milieu</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 6 : PLANS DANS L'ESPACE -->
+        <div class="math-content" id="p6">
+            <h3>📘 6. Plans dans l'espace</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">6.1 Définition</h3>
+            <p>Un <strong>plan</strong> dans l'espace est défini de manière unique par :</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📍</span><p><strong>Un point</strong> du plan (point d'ancrage)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Un vecteur normal</strong> (perpendiculaire au plan)</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">6.2 Équation cartésienne d'un plan</h3>
+            <p>Soit un plan P passant par A(x₀, y₀, z₀) et de vecteur normal n⃗ = (a, b, c). L'équation cartésienne est :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Équation cartésienne d'un plan</div>
+                <strong>a(x - x₀) + b(y - y₀) + c(z - z₀) = 0</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Forme développée</div>
+                <strong>ax + by + cz + d = 0</strong><br>
+                <strong>où d = -a·x₀ - b·y₀ - c·z₀</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Équation d'un plan</h4>
+                <p>Plan passant par A(1, 2, 3) avec n⃗ = (2, -1, 1)</p>
+                <p>2(x-1) - 1(y-2) + 1(z-3) = 0</p>
+                <p>2x - 2 - y + 2 + z - 3 = 0</p>
+                <p><strong>Équation finale</strong> : 2x - y + z - 3 = 0</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">6.3 Plans remarquables</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Plans coordonnés</div>
+                <strong>Plan (xOy)</strong> : z = 0<br>
+                <strong>Plan (xOz)</strong> : y = 0<br>
+                <strong>Plan (yOz)</strong> : x = 0
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Plans parallèles aux plans coordonnés</div>
+                <strong>Plan parallèle à (xOy)</strong> : z = constante<br>
+                <strong>Plan parallèle à (xOz)</strong> : y = constante<br>
+                <strong>Plan parallèle à (yOz)</strong> : x = constante
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">6.4 Plan défini par trois points</h3>
+            <p>Si A, B, C sont trois points non alignés, on peut déterminer le plan (ABC) en calculant un vecteur normal :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Vecteur normal d'un plan défini par trois points</div>
+                <strong>n⃗ = AB⃗ ∧ AC⃗</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Plan par trois points</h4>
+                <p>Soit le plan (ABC) avec A(1, 0, 0), B(0, 1, 0) et C(0, 0, 1)</p>
+                <p>AB⃗ = (-1, 1, 0), AC⃗ = (-1, 0, 1)</p>
+                <p>n⃗ = AB⃗ ∧ AC⃗ = (1, 1, 1)</p>
+                <p>Équation : 1(x-1) + 1(y-0) + 1(z-0) = 0</p>
+                <p><strong>x + y + z = 1</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">6.5 Équation paramétrique d'un plan</h3>
+            <p>Un plan passant par A et de vecteurs directeurs u⃗ et v⃗ (non colinéaires) admet l'équation paramétrique :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Équation paramétrique d'un plan</div>
+                <strong>M(x, y, z) ∈ P ⇔ AM⃗ = α·u⃗ + β·v⃗</strong><br><br>
+                <strong>x = x_A + α·u₁ + β·v₁</strong><br>
+                <strong>y = y_A + α·u₂ + β·v₂</strong> &nbsp;&nbsp;&nbsp; (α, β ∈ ℝ)<br>
+                <strong>z = z_A + α·u₃ + β·v₃</strong>
+            </div>
+
+            <div class="important-box">
+                <h4>⭐ Point clé à retenir</h4>
+                <p>Un vecteur normal n⃗ = (a, b, c) est <strong>perpendiculaire</strong> à tous les vecteurs du plan. Cela signifie que n⃗ est orthogonal à tous les vecteurs directeurs du plan.</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 7 : POSITIONS RELATIVES -->
+        <div class="math-content" id="p7">
+            <h3>📘 7. Positions relatives</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">7.1 Position de deux droites</h3>
+            <p>Deux droites D₁(A, v⃗₁) et D₂(B, v⃗₂) dans l'espace peuvent avoir les positions suivantes :</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➡️</span><p><strong>Parallèles</strong> : v⃗₁ et v⃗₂ sont colinéaires (∃λ : v⃗₂ = λ·v⃗₁)</p></div>
+                <div class="key-point"><span class="icon">✖️</span><p><strong>Sécantes</strong> : elles se coupent en un point (non parallèles et coplanaires)</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Confondues</strong> : cas particulier de parallèles où A ∈ D₂</p></div>
+                <div class="key-point"><span class="icon">↔️</span><p><strong>Gauches</strong> : non parallèles et non coplanaires</p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Condition de coplanarité de deux droites</div>
+                <strong>D₁ et D₂ coplanaires ⇔ [AB⃗, v⃗₁, v⃗₂] = 0</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Droites gauches</h4>
+                <p>D₁ : passant par A(0, 0, 0) avec v⃗₁ = (1, 0, 0)</p>
+                <p>D₂ : passant par B(0, 1, 1) avec v⃗₂ = (0, 1, 0)</p>
+                <p>v⃗₁ ∧ v⃗₂ = (0, 0, 1) ≠ 0⃗ → les droites ne sont pas parallèles</p>
+                <p>[AB⃗, v⃗₁, v⃗₂] = [(0,1,1), (1,0,0), (0,1,0)] = 1 ≠ 0</p>
+                <p>→ Les droites sont gauches (non coplanaires et non parallèles)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">7.2 Position d'une droite et d'un plan</h3>
+            <p>Une droite D(v⃗) et un plan P(n⃗) peuvent avoir les positions suivantes :</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➡️</span><p><strong>Droite parallèle au plan</strong> : v⃗ · n⃗ = 0 (le vecteur directeur est orthogonal au vecteur normal)</p></div>
+                <div class="key-point"><span class="icon">✖️</span><p><strong>Droite sécante au plan</strong> : ils se coupent en un point</p></div>
+                <div class="key-point"><span class="icon">⬆️</span><p><strong>Droite perpendiculaire au plan</strong> : v⃗ et n⃗ sont colinéaires</p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Condition de parallélisme droite-plan</div>
+                <strong>D ∥ P ⇔ v⃗ · n⃗ = 0</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Condition de perpendicularité droite-plan</div>
+                <strong>D ⟂ P ⇔ ∃λ ≠ 0 : v⃗ = λ·n⃗</strong>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">7.3 Position de deux plans</h3>
+            <p>Deux plans P₁(n⃗₁) et P₂(n⃗₂) peuvent avoir les positions suivantes :</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➡️</span><p><strong>Parallèles</strong> : n⃗₁ et n⃗₂ sont colinéaires (et les points vérifient la même proportion)</p></div>
+                <div class="key-point"><span class="icon">✖️</span><p><strong>Sécants</strong> : n⃗₁ et n⃗₂ ne sont pas colinéaires → ils se coupent selon une droite</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Confondus</strong> : cas particulier de parallèles où les équations sont proportionnelles</p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Plans parallèles : condition sur les coefficients</div>
+                <strong>P₁ : a₁x + b₁y + c₁z + d₁ = 0</strong><br>
+                <strong>P₂ : a₂x + b₂y + c₂z + d₂ = 0</strong><br>
+                <strong>P₁ ∥ P₂ ⇔ a₁/a₂ = b₁/b₂ = c₁/c₂ ≠ d₁/d₂</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Plans sécants</h4>
+                <p>P₁ : x + y + z = 3</p>
+                <p>P₂ : x - y = 1</p>
+                <p>n⃗₁ = (1, 1, 1), n⃗₂ = (1, -1, 0)</p>
+                <p>Ces vecteurs ne sont pas colinéaires → les plans sont sécants</p>
+                <p>Leur intersection est la droite D d'équations :</p>
+                <p>{ x + y + z = 3</p>
+                <p>{ x - y = 1</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Comment déterminer la position ?</h4>
+                <p>Pour déterminer la position relative de deux objets géométriques, on utilise généralement les vecteurs directeurs (pour les droites) et les vecteurs normaux (pour les plans). Les produits scalaire et vectoriel permettent de tester l'orthogonalité et la colinéarité.</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 8 : DISTANCES -->
+        <div class="math-content" id="p8">
+            <h3>📘 8. Distance d'un point à un plan</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">8.1 Distance d'un point à un plan</h3>
+            <p>Soit un point A(x₀, y₀, z₀) et un plan P : ax + by + cz + d = 0. La <strong>distance</strong> de A au plan P est :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Formule de la distance point-plan</div>
+                <strong>d(A, P) = |a·x₀ + b·y₀ + c·z₀ + d| / √(a² + b² + c²)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calcul de distance point-plan</h4>
+                <p>Point A(1, 2, 3) et plan P : 2x + y - 2z + 1 = 0</p>
+                <p>d(A, P) = |2×1 + 1×2 - 2×3 + 1| / √(4 + 1 + 4)</p>
+                <p>= |2 + 2 - 6 + 1| / √9</p>
+                <p>= |-1| / 3 = <strong>1/3</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">8.2 Projeté orthogonal sur un plan</h3>
+            <p>Le <strong>projeté orthogonal</strong> H de A sur le plan P est le point de P tel que AH soit perpendiculaire à P.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Coordonnées du projeté orthogonal</div>
+                <strong>H = A - [(a·x₀ + b·y₀ + c·z₀ + d) / (a² + b² + c²)] × (a, b, c)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Projeté orthogonal</h4>
+                <p>A(1, 2, 3) sur P : x + y + z = 6 (donc a=b=c=1, d=-6)</p>
+                <p>Distance : d(A, P) = |1+2+3-6| / √3 = 0 → A ∈ P !</p>
+                <p>Pour A(1, 2, 3) sur P : 2x + y - 2z + 1 = 0 :</p>
+                <p>H = (1, 2, 3) - [(-1)/9] × (2, 1, -2)</p>
+                <p>H = (1 + 2/9, 2 + 1/9, 3 - 2/9)</p>
+                <p>H = <strong>(11/9, 19/9, 25/9)</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">8.3 Distance d'un point à une droite</h3>
+            <p>Soit un point A et une droite D passant par B avec vecteur directeur v⃗. La distance est :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Formule de la distance point-droite</div>
+                <strong>d(A, D) = ‖AB⃗ ∧ v⃗‖ / ‖v⃗‖</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Distance point-droite</h4>
+                <p>Point A(1, 1, 1), droite D passant par B(2, 0, 1) avec v⃗ = (1, -1, 2)</p>
+                <p>AB⃗ = (-1, 1, 0)</p>
+                <p>AB⃗ ∧ v⃗ = (2, 2, 0)</p>
+                <p>‖AB⃗ ∧ v⃗‖ = √(4 + 4 + 0) = √8 = 2√2</p>
+                <p>‖v⃗‖ = √(1 + 1 + 4) = √6</p>
+                <p>d(A, D) = 2√2 / √6 = <strong>2√3/3</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">8.4 Distance entre deux droites gauches</h3>
+            <p>Pour deux droites gauches D₁(A, v⃗₁) et D₂(B, v⃗₂) :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Distance entre deux droites gauches</div>
+                <strong>d(D₁, D₂) = |[AB⃗, v⃗₁, v⃗₂]| / ‖v⃗₁ ∧ v⃗₂‖</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Distance entre droites gauches</h4>
+                <p>D₁ : A(0,0,0), v⃗₁ = (1,0,0)</p>
+                <p>D₂ : B(0,1,1), v⃗₂ = (0,1,0)</p>
+                <p>AB⃗ = (0,1,1)</p>
+                <p>[AB⃗, v⃗₁, v⃗₂] = (AB⃗ ∧ v⃗₁) · v⃗₂ = (0,0,1) · (0,1,0) = 0</p>
+                <p>→ Les droites sont coplanaires !</p>
+                <p>En fait, D₁ ⊂ plan yOz et D₂ ⊂ plan x=0 → elles se croisent en (0,1,0)</p>
+            </div>
+
+            <div class="important-box">
+                <h4>⭐ Formule alternative pour la distance point-droite</h4>
+                <p>La distance d'un point A à une droite D peut aussi se calculer par :</p>
+                <p><strong>d(A, D)² = ‖AB⃗‖² - [(AB⃗ · v⃗)/(‖v⃗‖²)]² × ‖v⃗‖²</strong></p>
+                <p>C'est une application du théorème de Pythagore dans le triangle rectangle formé par A, B et le projeté orthogonal.</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 9 : LA SPHÈRE -->
+        <div class="math-content" id="p9">
+            <h3>📘 9. La sphère et la boule</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">9.1 Définitions</h3>
+            <p>Une <strong>sphère</strong> de centre C et de rayon R est l'ensemble des points M tels que CM = R.</p>
+            <p>Une <strong>boule</strong> de centre C et de rayon R est l'ensemble des points M tels que CM ≤ R.</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">⚪</span><p><strong>Sphère</strong> : surface frontière, points à distance exactement R</p></div>
+                <div class="key-point"><span class="icon">🔵</span><p><strong>Boule ouverte</strong> : intérieur, points à distance < R</p></div>
+                <div class="key-point"><span class="icon">💿</span><p><strong>Boule fermée</strong> : intérieur + frontière, points à distance ≤ R</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">9.2 Équation d'une sphère</h3>
+            <p>Une sphère de centre C(α, β, γ) et de rayon R a pour <strong>équation cartésienne</strong> :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Équation cartésienne d'une sphère</div>
+                <strong>(x - α)² + (y - β)² + (z - γ)² = R²</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Forme développée</div>
+                <strong>x² + y² + z² + 2px + 2qy + 2rz + d = 0</strong><br>
+                <strong>Centre : C(-p, -q, -r)</strong><br>
+                <strong>Rayon : R = √(p² + q² + r² - d)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Équation d'une sphère</h4>
+                <p>Sphère de centre C(1, 2, 3) et de rayon R = 5</p>
+                <p>(x-1)² + (y-2)² + (z-3)² = 25</p>
+                <p>Développement : x² + y² + z² - 2x - 4y - 6z + 1 + 4 + 9 - 25 = 0</p>
+                <p>Soit : x² + y² + z² - 2x - 4y - 6z - 11 = 0</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">9.3 Sphère passant par quatre points</h3>
+            <p>Une sphère est déterminée de manière unique par quatre points non coplanaires. Pour trouver son équation, on résout un système de quatre équations.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Sphère par quatre points</h4>
+                <p>Déterminer la sphère passant par A(1,0,0), B(0,1,0), C(0,0,1) et D(1,1,1)</p>
+                <p>Équation : x² + y² + z² + 2px + 2qy + 2rz + d = 0</p>
+                <p>En A : 1 + 2p + d = 0 → (1)</p>
+                <p>En B : 1 + 2q + d = 0 → (2)</p>
+                <p>En C : 1 + 2r + d = 0 → (3)</p>
+                <p>En D : 3 + 2p + 2q + 2r + d = 0 → (4)</p>
+                <p>En soustrayant (4) de [(1)+(2)+(3)] : -1 = d → d = -1</p>
+                <p>De (1) : 2p = 0 → p = 0, de même q = 0, r = 0</p>
+                <p><strong>Équation</strong> : x² + y² + z² - 1 = 0, centre O(0,0,0), R = 1</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">9.4 Intersection d'une sphère et d'un plan</h3>
+            <p>L'intersection d'une sphère S(C, R) et d'un plan P dépend de la distance d(C, P) :</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">∅</span><p><strong>Vide</strong> : si d(C, P) > R (le plan est extérieur)</p></div>
+                <div class="key-point"><span class="icon">📍</span><p><strong>Un point</strong> : si d(C, P) = R (le plan est tangent)</p></div>
+                <div class="key-point"><span class="icon">⭕</span><p><strong>Un cercle</strong> : si d(C, P) < R, de rayon r = √(R² - d²)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Intersection sphère-plan</h4>
+                <p>Sphère S : (x-1)² + (y-2)² + (z-3)² = 25, C(1,2,3), R = 5</p>
+                <p>Plan P : x + y + z = 12</p>
+                <p>d(C, P) = |1+2+3-12| / √3 = |-6| / √3 = 2√3 ≈ 3,46</p>
+                <p>Puisque d(C,P) = 2√3 < 5, l'intersection est un cercle</p>
+                <p>Rayon du cercle : r = √(25 - 12) = √13</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">9.5 Intersection d'une sphère et d'une droite</h3>
+            <p>Pour trouver l'intersection d'une droite et d'une sphère, on substitue les coordonnées paramétriques de la droite dans l'équation de la sphère. On obtient une équation du second degré :</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">∅</span><p><strong>Aucune solution</strong> : Δ < 0 (la droite est extérieure)</p></div>
+                <div class="key-point"><span class="icon">📍</span><p><strong>Une solution</strong> : Δ = 0 (la droite est tangente)</p></div>
+                <div class="key-point"><span class="icon">⚫⚫</span><p><strong>Deux solutions</strong> : Δ > 0 (la droite est sécante)</p></div>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Sphère tangente à un plan</h4>
+                <p>Quand une sphère est tangente à un plan, le plan est perpendiculaire au rayon qui joint le centre au point de tangence. Le point de tangence est le projeté orthogonal du centre sur le plan.</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 10 : PERPENDICULARITÉ -->
+        <div class="math-content" id="p10">
+            <h3>📘 10. Perpendicularité dans l'espace</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">10.1 Droites perpendiculaires</h3>
+            <p>Deux droites D₁ et D₂ sont <strong>perpendiculaires</strong> si leurs vecteurs directeurs sont orthogonaux. Attention : deux droites perpendiculaires dans l'espace ne sont pas forcément sécantes !</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Condition de perpendicularité de deux droites</div>
+                <strong>D₁ ⟂ D₂ ⇔ v⃗₁ · v⃗₂ = 0</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Droites perpendiculaires gauches</h4>
+                <p>D₁ : passant par A(0,0,0) avec v⃗₁ = (1,0,0) (axe Ox)</p>
+                <p>D₂ : passant par B(0,1,1) avec v⃗₂ = (0,1,0) (parallèle à Oy)</p>
+                <p>v⃗₁ · v⃗₂ = 1×0 + 0×1 + 0×0 = 0</p>
+                <p>→ Les droites sont perpendiculaires mais ne se croisent pas (droites gauches perpendiculaires)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">10.2 Droite perpendiculaire à un plan</h3>
+            <p>Une droite D est <strong>perpendiculaire</strong> à un plan P si elle est orthogonale à toute droite de P passant par son point d'intersection avec P.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Condition de perpendicularité droite-plan</div>
+                <strong>D ⟂ P ⇔ v⃗_D est colinéaire à n⃗_P</strong>
+            </div>
+
+            <div class="important-box">
+                <h4>⭐ Théorème de perpendicularité</h4>
+                <p>Si une droite est perpendiculaire à deux droites sécantes d'un plan, alors elle est perpendiculaire au plan.</p>
+                <p>Ce théorème est très utilisé pour démontrer qu'une droite est perpendiculaire à un plan : il suffit de vérifier qu'elle est orthogonale à deux droites non colinéaires du plan.</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">10.3 Plans perpendiculaires</h3>
+            <p>Deux plans P₁ et P₂ sont <strong>perpendiculaires</strong> si le vecteur normal de l'un est orthogonal au vecteur normal de l'autre, ce qui est équivalent à dire que P₁ contient une droite perpendiculaire à P₂.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Condition de perpendicularité de deux plans</div>
+                <strong>P₁ ⟂ P₂ ⇔ n⃗₁ · n⃗₂ = 0</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Plans perpendiculaires</h4>
+                <p>P₁ : x + y = 1 (n⃗₁ = (1,1,0))</p>
+                <p>P₂ : x - y + z = 0 (n⃗₂ = (1,-1,1))</p>
+                <p>n⃗₁ · n⃗₂ = 1×1 + 1×(-1) + 0×1 = 0</p>
+                <p>→ Les plans P₁ et P₂ sont perpendiculaires</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">10.4 Applications de la perpendicularité</h3>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Altitude d'un tétraèdre</strong> : perpendiculaire à une face, passant par le sommet opposé</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>Médiatrice d'un segment</strong> : plan perpendiculaire au segment en son milieu</p></div>
+                <div class="key-point"><span class="icon">🔵</span><p><strong>Plan tangent à une sphère</strong> : perpendiculaire au rayon au point de contact</p></div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Équation du plan tangent à une sphère</div>
+                <strong>Si S : (x-α)² + (y-β)² + (z-γ)² = R² et T(x₀, y₀, z₀) ∈ S,</strong><br>
+                <strong>alors le plan tangent en T a pour équation :</strong><br>
+                <strong>(x₀-α)(x-x₀) + (y₀-β)(y-y₀) + (z₀-γ)(z-z₀) = 0</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Plan tangent à une sphère</h4>
+                <p>Sphère S : x² + y² + z² = 9 (centre O, R = 3)</p>
+                <p>Point de contact T(2, 1, 2) (vérifions : 4+1+4=9 ✓)</p>
+                <p>Plan tangent : 2x + y + 2z - 9 = 0</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 11 : TRANSFORMATIONS -->
+        <div class="math-content" id="p11">
+            <h3>📘 11. Transformations dans l'espace</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">11.1 Translation</h3>
+            <p>Une <strong>translation</strong> de vecteur w⃗ transforme tout point M en M' tel que MM⃗' = w⃗.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Coordonnées d'une translation</div>
+                <strong>M(x, y, z) → M'(x + a, y + b, z + c)</strong><br>
+                <strong>où w⃗ = (a, b, c)</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Translation</h4>
+                <p>Translation de vecteur w⃗ = (2, -1, 3)</p>
+                <p>Image de A(1, 2, 0) : A'(3, 1, 3)</p>
+                <p>Image de la droite D : x = t, y = 1 - t, z = 2t</p>
+                <p>D' : x = 2 + t, y = 1 - t, z = 3 + 2t</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">11.2 Homothétie</h3>
+            <p>Une <strong>homothétie</strong> de centre O et de rapport k transforme tout point M en M' tel que OM⃗' = k·OM⃗.</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Coordonnées d'une homothétie</div>
+                <strong>M(x, y, z) → M'(kx, ky, kz)</strong><br>
+                <strong>Centre O(0, 0, 0) dans le repère</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Homothétie de centre C(α, β, γ) et rapport k</div>
+                <strong>M(x, y, z) → M'(α + k(x-α), β + k(y-β), γ + k(z-γ))</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Homothétie</h4>
+                <p>Homothétie de centre A(1, 2, 3) et rapport k = 2</p>
+                <p>Image du point B(4, 5, 6) :</p>
+                <p>B' = (1 + 2(4-1), 2 + 2(5-2), 3 + 2(6-3))</p>
+                <p>B' = (1 + 6, 2 + 6, 3 + 6) = (7, 8, 9)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">11.3 Rotation autour d'un axe</h3>
+            <p>Une <strong>rotation</strong> d'angle θ autour d'un axe Δ transforme tout point M en M' tel que :</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📍</span><p><strong>Points sur l'axe</strong> : restent invariants</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Plans perpendiculaires à l'axe</strong> : tournent dans leur plan</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>Distance à l'axe</strong> : conservée</p></div>
+            </div>
+
+            <div class="important-box">
+                <h4>⭐ Rotation autour de l'axe Oz</h4>
+                <p>Dans le repère orthonormal (O, i⃗, j⃗, k⃗), la rotation d'angle θ autour de Oz a pour expression :</p>
+                <p><strong>x' = x·cos(θ) - y·sin(θ)</strong></p>
+                <p><strong>y' = x·sin(θ) + y·cos(θ)</strong></p>
+                <p><strong>z' = z</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">11.4 Effets sur les figures usuelles</h3>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Translation</strong> : conserve les distances, les angles, le parallélisme</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Homothétie</strong> : conserve les angles, multiplie les distances par |k|, les aires par k², les volumes par |k|³</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Rotation</strong> : conserve les distances, les angles, l'orientation</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Effet d'une homothétie sur une sphère</h4>
+                <p>Sphère S : (x-1)² + (y-2)² + (z-3)² = 4, centre C(1,2,3), R = 2</p>
+                <p>Homothétie de centre O(0,0,0) et rapport k = 3 :</p>
+                <p>Image C' : (3, 6, 9), nouveau rayon R' = 3×2 = 6</p>
+                <p>Nouvelle équation : x² + y² + z² - 6x - 12y - 18z + 36 = 0</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 12 : APPLICATIONS -->
+        <div class="math-content" id="p12">
+            <h3>📘 12. Applications et problèmes types</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">12.1 Démontrer que quatre points sont coplanaires</h3>
+            <p>Pour démontrer que quatre points A, B, C, D sont <strong>coplanaires</strong>, on peut utiliser le produit mixte :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Condition de coplanarité</div>
+                <strong>A, B, C, D coplanaires ⇔ [AB⃗, AC⃗, AD⃗] = 0</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exercice type : Coplanarité</h4>
+                <p>Montrer que A(1,0,0), B(0,1,0), C(0,0,1) et D(1,1,1) sont coplanaires.</p>
+                <p>AB⃗ = (-1,1,0), AC⃗ = (-1,0,1), AD⃗ = (0,1,1)</p>
+                <p>[AB⃗, AC⃗, AD⃗] = | -1  1  0 |</p>
+                <p>                       | -1  0  1 |</p>
+                <p>                       |  0  1  1 |</p>
+                <p>= (-1)×(0×1 - 1×1) - 1×((-1)×1 - 1×0) + 0×((-1)×1 - 0×0)</p>
+                <p>= (-1)×(-1) - 1×(-1) + 0 = 1 + 1 = 2 ≠ 0</p>
+                <p>→ Les points ne sont PAS coplanaires !</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">12.2 Déterminer le projeté orthogonal sur un plan</h3>
+            <p>Le <strong>projeté orthogonal</strong> H de A sur le plan P est obtenu en déplaçant A le long de la perpendiculaire au plan jusqu'à atteindre le plan.</p>
+
+            <div class="example-box">
+                <h4>💡 Exercice type : Projeté orthogonal</h4>
+                <p>Déterminer le projeté orthogonal H de A(1, 2, 3) sur P : x + y + z = 6.</p>
+                <p>La droite perpendiculaire à P passant par A :</p>
+                <p>D : x = 1 + t, y = 2 + t, z = 3 + t (direction n⃗ = (1,1,1))</p>
+                <p>On cherche t tel que le point appartienne à P :</p>
+                <p>(1+t) + (2+t) + (3+t) = 6 → 6 + 3t = 6 → t = 0</p>
+                <p>→ A est déjà sur le plan ! Vérifions : 1+2+3=6 ✓</p>
+                <p>Pour A'(1, 2, 4) : (1+t) + (2+t) + (4+t) = 6 → 7 + 3t = 6 → t = -1/3</p>
+                <p>H = (1 - 1/3, 2 - 1/3, 4 - 1/3) = (2/3, 5/3, 11/3)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">12.3 Intersection de trois plans</h3>
+            <p>Pour trouver l'intersection de trois plans P₁, P₂, P₃, on résout le <strong>système linéaire</strong> de leurs équations cartésiennes.</p>
+
+            <div class="example-box">
+                <h4>💡 Exercice type : Intersection de trois plans</h4>
+                <p>P₁ : x + y + z = 6</p>
+                <p>P₂ : x - y = 2</p>
+                <p>P₃ : y - z = 0</p>
+                <p>De P₂ : y = x - 2</p>
+                <p>De P₃ : z = y = x - 2</p>
+                <p>Dans P₁ : x + (x-2) + (x-2) = 6 → 3x - 4 = 6 → x = 10/3</p>
+                <p>y = 10/3 - 2 = 4/3, z = 4/3</p>
+                <p><strong>Intersection</strong> : le point unique I(10/3, 4/3, 4/3)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">12.4 Tangente à une courbe dans l'espace</h3>
+            <p>Pour une courbe paramétrée C : M(t) = (x(t), y(t), z(t)), le <strong>vecteur tangent</strong> en M(t₀) est :</p>
+
+            <div class="formula-box">
+                <div class="formula-title">📝 Vecteur tangent à une courbe</div>
+                <strong>T⃗ = (x'(t₀), y'(t₀), z'(t₀))</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exercice type : Tangente à une courbe</h4>
+                <p>C : x = t, y = t², z = t³</p>
+                <p>Vecteur tangent en t = 1 : T⃗ = (1, 2, 3)</p>
+                <p>Équation de la tangente en M(1, 1, 1) :</p>
+                <p>(x-1)/1 = (y-1)/2 = (z-1)/3</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Erreurs fréquentes à éviter</h4>
+                <p>1. Confondre <strong>droite perpendiculaire</strong> et <strong>droite orthogonale</strong> : dans l'espace, deux droites orthogonales peuvent être gauches.</p>
+                <p>2. Oublier que le <strong>produit vectoriel</strong> donne un vecteur perpendiculaire, pas une distance.</p>
+                <p>3. Utiliser la formule de distance point-plan sans vérifier que le <strong>dénominateur n'est pas nul</strong> (cas d'un plan mal défini).</p>
+            </div>
+
+            <div class="important-box">
+                <h4>⭐ Résumé des formules essentielles</h4>
+                <p><strong>Distance point-plan :</strong> d(A,P) = |ax₀ + by₀ + cz₀ + d| / √(a² + b² + c²)</p>
+                <p><strong>Distance point-droite :</strong> d(A,D) = ‖AB⃗ ∧ v⃗‖ / ‖v⃗‖</p>
+                <p><strong>Volume parallélépipède :</strong> V = |[u⃗, v⃗, w⃗]|</p>
+                <p><strong>Aire parallélogramme :</strong> A = ‖u⃗ ∧ v⃗‖</p>
+                <p><strong>Équation plan :</strong> a(x-x₀) + b(y-y₀) + c(z-z₀) = 0</p>
+            </div>
+        </div>
+
+        <!-- SECTION RÉSUMÉ IMAGE -->
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+            <div class="resume-image-container">
+               
+            
+                            <br><br>
+                <a href="https://drive.google.com/file/d/16_OsC-lESLwkmVXQPWNn0uV_qDQxb_tC/view?usp=drive_link" download>
+                    <button>📥 Télécharger la photo</button>
+                </a>
+                <a href="https://drive.google.com/file/d/187u6Xn6nrEjrYmOb3WD1WoyPnkrhEiOR/view?usp=drive_link" download>
+                        <button>📥 Télécharger la photo</button>
+                    </a>
+                <a href="https://drive.google.com/file/d/1p43NSr7W3e-cbMp4cAsq3Bqj1ki0v-73/view?usp=drive_linké" download>
+                    <button>📥 Télécharger la photo</button>
+                </a></div>
+        </section>
+
+        <!-- SECTION VIDÉO -->
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/19ZMSYeYh5sXnW0g_kmN1KCTbawXv05Lo/preview
+"
+                        width="640" height="360" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/14pv3ZBOVwZYdLxIXb6PZkpj8d6uncfTI/preview
+"
+                        width="640" height="360" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1ZUA_iNtaqjv9i_P227ZSKjg-q5Dxxgft/preview
+"
+                        width="640" height="360" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+
+         <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/12ePrmlqN5cdTqRmlzdG_pe8fhNS_7YkC/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+        <!-- BOUTON LEÇON SUIVANTE -->
+        <a href="lecon5-arithmetiques.html" class="next-lesson">
+            <div>
+                <p class="next-lesson-text">arithmetiquess</p>
+                <p class="next-lesson-title">Arithmetiques --> </p>
+            </div>
+            <span class="next-lesson-arrow">←</span>
+        </a>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

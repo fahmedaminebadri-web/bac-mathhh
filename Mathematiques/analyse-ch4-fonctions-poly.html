@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH4: Fonctions polynômes, rationnelles et trigonométriques - Analyse</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .math-content h4 { color: var(--primary); font-size: 1rem; margin-top: 20px; margin-bottom: 8px; }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: #1E40AF; }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1E3A8A; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid #22C55E; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid #EAB308; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .exercise-box { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); border-left: 4px solid #F97316; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .exercise-box h4 { color: #C2410C; font-size: 0.95rem; margin-bottom: 8px; }
+        .exercise-box p { margin-bottom: 6px; color: #7C2D12; }
+        .proof-box { background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-left: 4px solid #8B5CF6; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .proof-box h4 { color: #6D28D9; font-size: 0.95rem; margin-bottom: 8px; }
+        .proof-box p { margin-bottom: 6px; color: #4C1D95; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #3B82F6;">
+            <h1>CH4: Fonctions polynômes, rationnelles et trigonométriques</h1>
+            <p class="breadcrumb">Mathématiques > Analyse > CH4</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan du chapitre</h3>
+            <ol>
+                <li><a href="#p1">Fonctions polynômes</a></li>
+                <li><a href="#p2">Fonctions rationnelles</a></li>
+                <li><a href="#p3">Fonctions trigonométriques</a></li>
+                <li><a href="#p4">Étude de fonctions et exemples</a></li>
+                <li><a href="#p5">Exercices résolus</a></li>
+            </ol>
+        </div>
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1VcwjSD6uIZJPQXZMc7kfjS3-A_P8CGrV/preview
+" width="600" height="120" frameborder="0" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Fonctions polynômes</h3>
+            <h4>Définition</h4>
+            <p>Une <strong>fonction polynôme</strong> est une fonction de la forme :</p>
+            <div class="formula-box">
+                <div class="formula-title">Forme générale d'un polynôme</div>
+                P(x) = aₙxⁿ + aₙ₋₁xⁿ⁻¹ + ... + a₁x + a₀<br>
+                où aₙ, aₙ₋₁, ..., a₀ ∈ ℝ et aₙ ≠ 0
+            </div>
+            <p>Le nombre <strong>n</strong> est appelé le <em>degré</em> du polynôme. Le coefficient aₙ est le <em>coefficient dominant</em>.</p>
+            
+            <h4>Fonctions usuelles par degré</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Degré 0</strong> : P(x) = c (constante) — droite horizontale</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Degré 1</strong> : P(x) = ax + b — fonction affine (droite)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Degré 2</strong> : P(x) = ax² + bx + c — fonction quadratique (parabole)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Degré 3</strong> : P(x) = ax³ + bx² + cx + d — fonction cubique</p></div>
+            </div>
+
+            <h4>Factorisation des polynômes</h4>
+            <p>Tout polynôme de degré <em>n</em> peut s'écrire sous forme factorisée :</p>
+            <div class="formula-box">
+                <div class="formula-title">Factorisation</div>
+                P(x) = aₙ × (x - r₁)(x - r₂)...(x - rₙ)<br>
+                où r₁, r₂, ..., rₙ sont les racines du polynôme
+            </div>
+            <div class="warning-box">
+                <h4>⚠️ Racines et discriminant (degré 2)</h4>
+                <p>Pour ax² + bx + c = 0 :</p>
+                <p>• Δ = b² - 4ac</p>
+                <p>• Si Δ > 0 : deux racines réelles distinctes</p>
+                <p>• Si Δ = 0 : une racine double (x = -b/2a)</p>
+                <p>• Si Δ < 0 : deux racines complexes conjuguées</p>
+            </div>
+
+            <h4>Opérations sur les polynômes</h4>
+            <p>• <strong>Addition</strong> : on additionne les coefficients des termes de même degré</p>
+            <p>• <strong>Multiplication</strong> : on développe en appliquant la distributivité</p>
+            <p>• <strong>Division euclidienne</strong> : pour A et B polynômes, ∃!(Q, R) tels que A = BQ + R avec deg(R) < deg(B)</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — Factorisation</h4>
+                <p>P(x) = x³ - 4x² - 7x + 10</p>
+                <p>On cherche une racine évidente : P(1) = 1 - 4 - 7 + 10 = 0</p>
+                <p>Donc (x - 1) est un facteur. Division euclidienne :</p>
+                <p>P(x) = (x - 1)(x² - 3x - 10) = (x - 1)(x - 5)(x + 2)</p>
+                <p>Racines : 1, 5, -2</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — Division euclidienne</h4>
+                <p>Diviser x³ + 2x² - 5x + 3 par x² - 1 :</p>
+                <p>x³ + 2x² - 5x + 3 = (x + 2)(x² - 1) + (-3x + 5)</p>
+                <p>Donc Q(x) = x + 2 et R(x) = -3x + 5</p>
+                <p>Vérification : (x+2)(x²-1) + (-3x+5) = x³ + 2x² - x - 2 - 3x + 5 = x³ + 2x² - 5x + 3 ✓</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Fonctions rationnelles</h3>
+            <h4>Définition</h4>
+            <p>Une <strong>fonction rationnelle</strong> est le quotient de deux polynômes :</p>
+            <div class="formula-box">
+                <div class="formula-title">Forme générale</div>
+                f(x) = P(x) / Q(x) &nbsp;&nbsp;|&nbsp;&nbsp; avec Q(x) ≠ 0<br><br>
+                <strong>Domaine de définition :</strong> Df = ℝ \ {x | Q(x) = 0}
+            </div>
+
+            <h4>Asymptotes</h4>
+            <p>Les fonctions rationnelles peuvent admettre différents types d'asymptotes :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📉</span><p><strong>Asymptote verticale</strong> : en x = a si Q(a) = 0 et P(a) ≠ 0</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Asymptote horizontale</strong> : si deg(P) < deg(Q) → y = 0 ; si deg(P) = deg(Q) → y = aₙ/bₙ</p></div>
+                <div class="key-point"><span class="icon">📈</span><p><strong>Asymptote oblique</strong> : si deg(P) = deg(Q) + 1, on effectue la division euclidienne</p></div>
+            </div>
+
+            <h4>Décomposition en éléments simples</h4>
+            <p>Pour étudier et intégrer une fonction rationnelle, on la décompose en éléments simples.</p>
+            <div class="formula-box">
+                <div class="formula-title">Cas 1 — Pôles simples</div>
+                f(x) = (2x + 1) / ((x - 1)(x + 2))<br>
+                = A/(x - 1) + B/(x + 2)<br>
+                On trouve A = 3/2 et B = 1/2
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Cas 2 — Pôles multiples</div>
+                f(x) = (x²) / ((x - 1)²(x + 2))<br>
+                = A/(x - 1) + B/(x - 1)² + C/(x + 2)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple — Asymptote oblique</h4>
+                <p>f(x) = (x² + 3x + 1) / (x + 1)</p>
+                <p>Division euclidienne : x² + 3x + 1 = (x + 1)(x + 2) - 1</p>
+                <p>donc f(x) = x + 2 - 1/(x + 1)</p>
+                <p>Asymptote oblique : <strong>y = x + 2</strong></p>
+                <p>La courbe se rapproche de la droite y = x + 2 quand |x| → ∞</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple — Domaine et asymptotes</h4>
+                <p>f(x) = (x² - 4) / (x² - x - 2)</p>
+                <p>Dénominateur : x² - x - 2 = (x - 2)(x + 1)</p>
+                <p>Domaine : Df = ℝ \ {-1, 2}</p>
+                <p>Asymptotes verticales : x = -1 et x = 2</p>
+                <p>Asymptote horizontale : y = 1 (car deg num = deg dén)</p>
+                <p>Simplification : f(x) = (x - 2)(x + 2) / ((x - 2)(x + 1)) = (x + 2)/(x + 1) pour x ≠ 2</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Trou (lacune)</h4>
+                <p>Si P(a) = 0 et Q(a) = 0, il y a simplification possible :</p>
+                <p>Ex : f(x) = (x² - 4)/(x - 2) = (x - 2)(x + 2)/(x - 2) = x + 2 pour x ≠ 2</p>
+                <p>Il y a un <em>trou</em> au point (2, 4) qui n'appartient pas à la courbe.</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Fonctions trigonométriques</h3>
+            <h4>Les fonctions trigonométriques usuelles</h4>
+            <p>En terminale math tunisienne, on studie trois fonctions trigonométriques principales :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>sin(x)</strong> : fonction impaire, période 2π, bornée entre -1 et 1</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>cos(x)</strong> : fonction paire, période 2π, bornée entre -1 et 1</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>tan(x)</strong> = sin(x)/cos(x), période π, asymptotes verticales en x = π/2 + kπ</p></div>
+            </div>
+
+            <h4>Propriétés fondamentales</h4>
+            <div class="formula-box">
+                <div class="formula-title">Identité fondamentale</div>
+                sin²(x) + cos²(x) = 1 &nbsp;&nbsp;|&nbsp;&nbsp; ∀x ∈ ℝ
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Formules d'addition</div>
+                sin(a + b) = sin(a)cos(b) + cos(a)sin(b)<br>
+                sin(a - b) = sin(a)cos(b) - cos(a)sin(b)<br>
+                cos(a + b) = cos(a)cos(b) - sin(a)sin(b)<br>
+                cos(a - b) = cos(a)cos(b) + sin(a)sin(b)
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Formules de duplication</div>
+                sin(2x) = 2sin(x)cos(x)<br>
+                cos(2x) = cos²(x) - sin²(x) = 2cos²(x) - 1 = 1 - 2sin²(x)<br>
+                tan(2x) = 2tan(x) / (1 - tan²(x))
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Formules de Carnot (passage produit → somme)</div>
+                cos(a)cos(b) = [cos(a-b) + cos(a+b)] / 2<br>
+                sin(a)sin(b) = [cos(a-b) - cos(a+b)] / 2<br>
+                sin(a)cos(b) = [sin(a+b) + sin(a-b)] / 2
+            </div>
+
+            <h4>Dérivées des fonctions trigonométriques</h4>
+            <div class="formula-box">
+                <div class="formula-title">Dérivées</div>
+                (sin x)' = cos x<br>
+                (cos x)' = -sin x<br>
+                (tan x)' = 1 + tan²(x) = 1/cos²(x)
+            </div>
+
+            <h4>Limites remarquables</h4>
+            <div class="formula-box">
+                <div class="formula-title">Limites importantes</div>
+                lim(x→0) sin(x)/x = 1<br>
+                lim(x→0) tan(x)/x = 1<br>
+                lim(x→0) (1 - cos(x))/x² = 1/2<br>
+                lim(x→∞) sin(x)/x = 0
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — Dérivation trigonométrique</h4>
+                <p>f(x) = sin³(2x + 1)</p>
+                <p>f'(x) = 3sin²(2x+1) × cos(2x+1) × 2</p>
+                <p>f'(x) = 6 sin²(2x+1) cos(2x+1)</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — Calcul de limite</h4>
+                <p>lim(x→0) sin(3x)/tan(2x)</p>
+                <p>= lim(x→0) sin(3x)/3x × 2x/tan(2x) × 3x/(2x)</p>
+                <p>= 1 × 1 × 3/2 = <strong>3/2</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — Linéarisation</h4>
+                <p>Exprimer cos³(x) en fonction de cos(3x) :</p>
+                <p>cos³(x) = (1/4)(3cos(x) + cos(3x))</p>
+                <p>Cette formule est utile pour l'intégration.</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Étude complète de fonctions</h3>
+            <h4>Méthode d'étude d'une fonction</h4>
+            <p>Pour étudier une fonction f, on suit toujours le plan suivant :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📝</span><p><strong>1.</strong> Déterminer le domaine de définition Df</p></div>
+                <div class="key-point"><span class="icon">📝</span><p><strong>2.</strong> Étudier la parité (f(-x)) et la périodicité</p></div>
+                <div class="key-point"><span class="icon">📝</span><p><strong>3.</strong> Calculer les limites aux bornes du domaine</p></div>
+                <div class="key-point"><span class="icon">📝</span><p><strong>4.</strong> Calculer f'(x) et étudier son signe (tableau de variation)</p></div>
+                <div class="key-point"><span class="icon">📝</span><p><strong>5.</strong> Chercher les asymptotes (verticales, horizontales, obliques)</p></div>
+                <div class="key-point"><span class="icon">📝</span><p><strong>6.</strong> Tracer la courbe représentative</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple complet — f(x) = (x² - 3x + 2)/(x - 1)</h4>
+                <p><strong>1. Domaine :</strong> x - 1 ≠ 0 → Df = ℝ \ {1}</p>
+                <p><strong>2. Simplification :</strong> (x-1)(x-2)/(x-1) = x - 2 pour x ≠ 1</p>
+                <p>Il y a un <em>trou</em> en (1, -1) et une <em>droite</em> y = x - 2 pour x ≠ 1</p>
+                <p><strong>3. Limites :</strong></p>
+                <p>• lim(x→1⁺) f(x) = -1+ (par simplification)</p>
+                <p>• lim(x→±∞) f(x) = ±∞ (droite oblique)</p>
+                <p><strong>4. Asymptote oblique :</strong> y = x - 2 (droite)</p>
+                <p><strong>5. Tracé :</strong> tracer la droite y = x - 2 avec un trou en x = 1</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple — Fonction trigonométrique</h4>
+                <p>f(x) = sin(x) + (1/2)sin(2x)</p>
+                <p>Période : T = 2π (PPCM de 2π et π)</p>
+                <p>f'(x) = cos(x) + cos(2x)</p>
+                <p>f'(x) = 0 → cos(x) + 2cos²(x) - 1 = 0</p>
+                <p>→ cos(x) = 1/2 ou cos(x) = -1</p>
+                <p>→ x = ±π/3 + 2kπ ou x = π + 2kπ</p>
+                <p>Tableau de variation sur [0, 2π] :</p>
+                <p>x : 0 → π/3 → π → 5π/3 → 2π</p>
+                <p>f' : + → 0 → - → 0 → +</p>
+                <p>f : 0 → f(π/3)=3√3/4 ≈ 1,3 → 0 → f(5π/3)=-3√3/4 → 0</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Exercices résolus</h3>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 1 — Polynôme</h4>
+                <p>Soit P(x) = 2x³ - 7x² + 2x + 3</p>
+                <p>a) Montrer que 1 est racine de P</p>
+                <p>b) Factoriser P(x)</p>
+                <p>c) Résoudre P(x) = 0</p>
+                <p><strong>Solution :</strong></p>
+                <p>a) P(1) = 2 - 7 + 2 + 3 = 0 ✓</p>
+                <p>b) Division euclidienne par (x - 1) :</p>
+                <p>P(x) = (x - 1)(2x² - 5x - 3)</p>
+                <p>Δ = 25 + 24 = 49 > 0 → 2x² - 5x - 3 = (x - 3)(2x + 1)</p>
+                <p>c) P(x) = (x - 1)(x - 3)(2x + 1) = 0</p>
+                <p>→ Solutions : x = 1, x = 3, x = -1/2</p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 2 — Fonction rationnelle</h4>
+                <p>Soit f(x) = (x² + x - 2)/(x² + 3x + 2)</p>
+                <p>a) Déterminer Df</p>
+                <p>b) Déterminer les asymptotes</p>
+                <p>c) Écrire la fonction sous forme simplifiée</p>
+                <p><strong>Solution :</strong></p>
+                <p>a) x² + 3x + 2 = (x+1)(x+2) = 0 → Df = ℝ \ {-1, -2}</p>
+                <p>b) AV : x = -1 et x = -2</p>
+                <p>AH : y = 1 (car deg num = deg dén = 2, rapport coefficients = 1)</p>
+                <p>c) x² + x - 2 = (x+2)(x-1)</p>
+                <p>f(x) = (x+2)(x-1)/(x+2)(x+1) = (x-1)/(x+1) pour x ≠ -2</p>
+                <p>Trou en x = -2 : f(-2) = (-2-1)/(-2+1) = -3/-1 = 3</p>
+                <p>Trou au point (-2, 3)</p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 3 — Trigonométrie</h4>
+                <p>Simplifier : A = (sin(3x) - 3sin(x)) / (cos(3x) - cos(x))</p>
+                <p><strong>Solution :</strong></p>
+                <p>sin(3x) = 3sin(x) - 4sin³(x) → sin(3x) - 3sin(x) = -4sin³(x)</p>
+                <p>cos(3x) = 4cos³(x) - 3cos(x) → cos(3x) - cos(x) = 4cos³(x) - 4cos(x)</p>
+                <p>= 4cos(x)(cos²(x) - 1) = -4cos(x)sin²(x)</p>
+                <p>A = (-4sin³(x))/(-4cos(x)sin²(x)) = tan(x)</p>
+            </div>
+        </div>
+
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+            <div class="resume-images">
+                <a href="https://drive.google.com/file/d/1a1-Eu0QnKzTXzGos0-d1USCUa1ms6k8K/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+            </div>
+        </section>
+
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1Nmara8MDnKIArjyW2dDdziQujCgdm2Ph/preview
+" width="640" height="360" frameborder="0" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+
+
+        <a href="CH5-fonction-logarithme-nepérien.html" class="next-lesson" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">
+            <div>
+                <p class="next-lesson-text">Chapitre suivant</p>
+                <p class="next-lesson-title">CH5: Fonction logarithme népérien →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

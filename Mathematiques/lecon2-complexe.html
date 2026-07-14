@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon 2 : Les Nombres Complexes - Mathématiques Bac Math Tunisien</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1D4ED8; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid #EAB308; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .important-box { background: linear-gradient(135deg, #FEE2E2, #FECACA); border-left: 4px solid #EF4444; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .important-box h4 { color: #B91C1C; font-size: 0.95rem; margin-bottom: 8px; }
+        .important-box p { color: #991B1B; margin-bottom: 6px; }
+        .serie-download-section { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 2px solid #10B981; text-align: center; }
+        .serie-download-section h3 { color: #065F46; margin-bottom: 12px; font-size: 1.1rem; }
+        .serie-download-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; border-radius: var(--radius-lg); font-size: 1.05rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+        .serie-download-btn:hover { background: linear-gradient(135deg, #059669, #047857); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
+        .serie-download-btn svg { width: 20px; height: 20px; }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+               <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <div class="lesson-header">
+            <h1>Leçon 2 : Les Nombres Complexes</h1>
+            <p class="breadcrumb">Mathématiques > Bac Math > Leçon 2</p>
+        </div>
+
+        <!-- TABLE DES MATIÈRES -->
+        <div class="toc">
+            <h3>📋 Plan de la leçon</h3>
+            <ol>
+                <li><a href="#p1">Introduction et historique des nombres complexes</a></li>
+                <li><a href="#p2">Forme algébrique d'un nombre complexe</a></li>
+                <li><a href="#p3">Opérations sur les nombres complexes</a></li>
+                <li><a href="#p4">Conjugué d'un nombre complexe</a></li>
+                <li><a href="#p5">Module d'un nombre complexe</a></li>
+                <li><a href="#p6">Argument d'un nombre complexe</a></li>
+                <li><a href="#p7">Forme trigonométrique</a></li>
+                <li><a href="#p8">Formules d'Euler et de Moivre</a></li>
+                <li><a href="#p9">Équations dans ℂ</a></li>
+                <li><a href="#p10">Représentation géométrique</a></li>
+                <li><a href="#p11">Transformations dans le plan complexe</a></li>
+                <li><a href="#p12">Lieux géométriques</a></li>
+            </ol>
+        </div>
+
+        <!-- SECTION PODCAST -->
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/182vEaKblIifA4SfEzoYaSk2hStXIaTSn/preview
+" 
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+
+                <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1swUJKfxX241uO9Md9rXBf7pO_PpHM92R/preview
+
+" 
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+
+                <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1NRG5FC0lzx4jGdHDBpaXUjFt3yKONiio/preview
+
+" 
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+
+                <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1bWt96VfSNHjQow7g2gv3aWNP7eldMH0C/preview
+
+" 
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+
+
+
+
+            </div>
+        </section>
+
+        <!-- PARTIE 1 : INTRODUCTION -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Introduction et historique des nombres complexes</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">1.1 Pourquoi avons-nous besoin des nombres complexes ?</h3>
+            <p>Depuis l'Antiquité, les mathématiciens ont progressivement enrichi notre conception du nombre. Cette évolution peut se résumer ainsi :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔢</span><p><strong>ℕ</strong> : Les entiers naturels (0, 1, 2, 3...) permettent de compter</p></div>
+                <div class="key-point"><span class="icon">➖</span><p><strong>ℤ</strong> : Les entiers relatifs (...-2, -1, 0, 1, 2...) permettent de soustraire</p></div>
+                <div class="key-point"><span class="icon">➗</span><p><strong>ℚ</strong> : Les rationnels (a/b) permettent de diviser</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>ℝ</strong> : Les réels permettent de mesurer toutes les grandeurs continues (√2, π, e...)</p></div>
+            </div>
+
+            <p>Cependant, l'ensemble <strong>ℝ</strong> reste insuffisant pour résoudre certaines équations algébriques fondamentales. Considérons l'équation la plus simple :</p>
+            <div class="formula-box">
+                <div class="formula-title">L'équation impossible dans ℝ</div>
+                x² + 1 = 0
+            </div>
+
+            <p>Cette équation n'admet <strong>aucune solution réelle</strong> car aucun nombre réel élevé au carré ne peut donner un résultat négatif. Pour résoudre ce problème fondamental, les mathématiciens du XVIe siècle ont introduit progressivement le concept de « nombre imaginaire ».</p>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">1.2 Historique</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📜</span><p><strong>Cardan (1545)</strong> : Premier à utiliser des « nombres impossibles » pour résoudre des équations cubiques</p></div>
+                <div class="key-point"><span class="icon">📜</span><p><strong>Bombelli (1572)</strong> : Formalise les règles de calcul avec ces nombres « imaginaires »</p></div>
+                <div class="key-point"><span class="icon">📜</span><p><strong>Euler (1748)</strong> : Introduit le symbole <strong>i</strong> pour désigner l'unité imaginaire</p></div>
+                <div class="key-point"><span class="icon">📜</span><p><strong>Gauss (1831)</strong> : Donne une interprétation géométrique et nommée « plan complexe »</p></div>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Anecdote historique importante</h4>
+                <p>Le terme « imaginaire » a été donné par Descartes en 1637 de manière péjorative, car il considérait ces nombres comme « impossibles » ou « imaginaires ».</p>
+                <p>Malgré cela, ces nombres se sont révélés être des outils mathématiques essentiels et fondamentaux !</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 : FORME ALGÉBRIQUE -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Forme algébrique d'un nombre complexe</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">2.1 Définition de l'unité imaginaire</h3>
+            <p>On appelle <strong>unité imaginaire</strong> le nombre noté <strong>i</strong> qui vérifie la propriété fondamentale suivante :</p>
+            <div class="formula-box">
+                <div class="formula-title">Propriété fondamentale de i</div>
+                <strong>i² = -1</strong>
+            </div>
+            <p>C'est cette simple propriété qui permet de résoudre l'équation x² + 1 = 0 :</p>
+            <div class="formula-box">
+                <div class="formula-title">Solution complexe</div>
+                x² = -1 ⟹ x = ±i
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">2.2 Définition de l'ensemble ℂ</h3>
+            <p>L'ensemble des <strong>nombres complexes</strong>, noté <strong>ℂ</strong>, est l'ensemble de tous les nombres de la forme :</p>
+            <div class="formula-box">
+                <div class="formula-title">Forme algébrique d'un complexe</div>
+                <strong>z = a + bi</strong> où a ∈ ℝ et b ∈ ℝ
+            </div>
+            <p>Cette écriture est appelée <strong>forme algébrique</strong> (ou forme canonique) du nombre complexe z.</p>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">2.3 Partie réelle et partie imaginaire</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📌</span><p><strong>a</strong> est appelée la <strong>partie réelle</strong> de z, notée <strong>Re(z)</strong> ou ℜ(z)</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>b</strong> est appelée la <strong>partie imaginaire</strong> de z, notée <strong>Im(z)</strong></p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemples concrets</h4>
+                <p>• z₁ = 3 + 4i → Re(z₁) = 3 et Im(z₁) = 4</p>
+                <p>• z₂ = -5 - 2i → Re(z₂) = -5 et Im(z₂) = -2</p>
+                <p>• z₃ = 7 → Re(z₃) = 7 et Im(z₃) = 0 (c'est un nombre réel)</p>
+                <p>• z₄ = -3i → Re(z₄) = 0 et Im(z₄) = -3 (c'est un imaginaire pur)</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">2.4 Cas particuliers importants</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔢</span><p>Si <strong>b = 0</strong>, alors z = a est un <strong>nombre réel</strong>. On a donc ℝ ⊂ ℂ</p></div>
+                <div class="key-point"><span class="icon">🔢</span><p>Si <strong>a = 0</strong> et <strong>b ≠ 0</strong>, alors z = bi est un <strong>imaginaire pur</strong></p></div>
+                <div class="key-point"><span class="icon">🔢</span><p>Le nombre <strong>0 = 0 + 0i</strong> est à la fois réel et imaginaire pur</p></div>
+                <div class="key-point"><span class="icon">🔢</span><p>Deux nombres complexes sont <strong>égaux</strong> si et seulement si ils ont mêmes parties réelles et imaginaires</p></div>
+            </div>
+
+            <div class="important-box">
+                <h4>⛔ Condition d'égalité</h4>
+                <p>Soient z₁ = a + bi et z₂ = c + di.</p>
+                <p>z₁ = z₂ ⟺ a = c ET b = d</p>
+                <p>C'est la seule façon d'égaler deux nombres complexes !</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 : OPÉRATIONS -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Opérations sur les nombres complexes</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">3.1 Addition et soustraction</h3>
+            <p>Soient z₁ = a + bi et z₂ = c + di deux nombres complexes. On définit :</p>
+            <div class="formula-box">
+                <div class="formula-title">Addition</div>
+                z₁ + z₂ = (a + c) + (b + d)i
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Soustraction</div>
+                z₁ - z₂ = (a - c) + (b - d)i
+            </div>
+            <p>L'addition et la soustraction s'effectuent donc en additionnant (ou soustrayant) séparément les parties réelles et les parties imaginaires.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple d'addition</h4>
+                <p>z₁ = 3 + 5i et z₂ = 2 - 3i</p>
+                <p>z₁ + z₂ = (3 + 2) + (5 - 3)i = <strong>5 + 2i</strong></p>
+                <p>z₁ - z₂ = (3 - 2) + (5 + 3)i = <strong>1 + 8i</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">3.2 Multiplication</h3>
+            <p>La multiplication de deux nombres complexes se fait en développant et en utilisant la règle fondamentale i² = -1 :</p>
+            <div class="formula-box">
+                <div class="formula-title">Multiplication</div>
+                (a + bi)(c + di) = (ac - bd) + (ad + bc)i
+            </div>
+            <p>Cette formule se déduit directement du développement algébrique classique en remarquant que (bi)(di) = bd·i² = bd·(-1) = -bd.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple détaillé : Calcul de (3 + 2i)(1 - 5i)</h4>
+                <p>= 3×1 + 3×(-5i) + 2i×1 + 2i×(-5i)</p>
+                <p>= 3 - 15i + 2i - 10i²</p>
+                <p>= 3 - 13i - 10×(-1)</p>
+                <p>= 3 - 13i + 10</p>
+                <p>= <strong>13 - 13i</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Autres exemples de multiplication</h4>
+                <p>• i × i = i² = <strong>-1</strong></p>
+                <p>• 2i × 3i = 6i² = <strong>-6</strong></p>
+                <p>• (1 + i)² = 1 + 2i + i² = 1 + 2i - 1 = <strong>2i</strong></p>
+                <p>• (1 + i)(1 - i) = 1 - i² = 1 - (-1) = <strong>2</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">3.3 Division</h3>
+            <p>Pour diviser deux nombres complexes, on multiplie le numérateur et le dénominateur par le <strong>conjugué</strong> du dénominateur afin d'obtenir un dénominateur réel :</p>
+            <div class="formula-box">
+                <div class="formula-title">Division</div>
+                (a + bi) / (c + di) = [(a + bi)(c - di)] / (c² + d²)
+            </div>
+            <p>Cette technique permet de faire disparaître le « i » du dénominateur car (c + di)(c - di) = c² + d² ∈ ℝ.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple détaillé : Calcul de (2 + 3i) / (1 - 2i)</h4>
+                <p>= (2 + 3i)(1 + 2i) / [(1)² + (-2)²]</p>
+                <p>= (2 + 4i + 3i + 6i²) / (1 + 4)</p>
+                <p>= (2 + 7i - 6) / 5</p>
+                <p>= (-4 + 7i) / 5</p>
+                <p>= <strong>-4/5 + (7/5)i</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Vérification du résultat</h4>
+                <p>On peut vérifier : (-4/5 + 7i/5)(1 - 2i)</p>
+                <p>= (-4/5)(1) + (-4/5)(-2i) + (7i/5)(1) + (7i/5)(-2i)</p>
+                <p>= -4/5 + 8i/5 + 7i/5 - 14i²/5</p>
+                <p>= -4/5 + 15i/5 + 14/5</p>
+                <p>= 10/5 + 3i = 2 + 3i ✓</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">3.4 Propriétés algébriques de ℂ</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➕</span><p><strong>Associativité :</strong> (z₁ + z₂) + z₃ = z₁ + (z₂ + z₃)</p></div>
+                <div class="key-point"><span class="icon">➕</span><p><strong>Commutativité :</strong> z₁ + z₂ = z₂ + z₁</p></div>
+                <div class="key-point"><span class="icon">🔢</span><p><strong>Élément neutre :</strong> 0 + i0 = 0</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Opposé :</strong> z + (-z) = 0</p></div>
+            </div>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">✖️</span><p><strong>Associativité :</strong> (z₁z₂)z₃ = z₁(z₂z₃)</p></div>
+                <div class="key-point"><span class="icon">✖️</span><p><strong>Commutativité :</strong> z₁z₂ = z₂z₁</p></div>
+                <div class="key-point"><span class="icon">🔢</span><p><strong>Élément neutre :</strong> 1 × z = z</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Inverse :</strong> z × (1/z) = 1 (pour z ≠ 0)</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 : CONJUGUÉ -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Conjugué d'un nombre complexe</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">4.1 Définition</h3>
+            <p>Le <strong>conjugué</strong> du nombre complexe z = a + bi est le nombre complexe noté <strong>z̄</strong> (ou z*) défini par :</p>
+            <div class="formula-box">
+                <div class="formula-title">Conjugué d'un complexe</div>
+                <strong>z̄ = a - bi</strong>
+            </div>
+            <p>Géométriquement, le conjugué correspond à la <strong>symétrie</strong> du point M(a, b) par rapport à l'axe des réels dans le plan complexe.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemples de conjugués</h4>
+                <p>• Si z = 3 + 4i, alors z̄ = <strong>3 - 4i</strong></p>
+                <p>• Si z = -5 + 2i, alors z̄ = <strong>-5 - 2i</strong></p>
+                <p>• Si z = 7 (réel), alors z̄ = <strong>7</strong> (le conjugué d'un réel est lui-même)</p>
+                <p>• Si z = -3i (imaginaire pur), alors z̄ = <strong>3i</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">4.2 Propriétés fondamentales du conjugué</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Double conjugaison :</strong> z̄̄ = z</p></div>
+                <div class="key-point"><span class="icon">➕</span><p><strong>Conjugué d'une somme :</strong> (z₁ + z₂)̄ = z̄₁ + z̄₂</p></div>
+                <div class="key-point"><span class="icon">✖️</span><p><strong>Conjugué d'un produit :</strong> (z₁ × z₂)̄ = z̄₁ × z̄₂</p></div>
+                <div class="key-point"><span class="icon">➗</span><p><strong>Conjugué d'un quotient :</strong> (z₁ / z₂)̄ = z̄₁ / z̄₂</p></div>
+            </div>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📈</span><p><strong>Conjugué d'une puissance :</strong> (zⁿ)̄ = (z̄)ⁿ pour tout n ∈ ℤ</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Conjugué d'un réel :</strong> Si z ∈ ℝ, alors z̄ = z</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Conjugué d'un imaginaire pur :</strong> Si z = bi (b ∈ ℝ), alors z̄ = -z</p></div>
+                <div class="key-point"><span class="icon">➕</span><p><strong>Parties réelles et imaginaires :</strong> Re(z) = (z + z̄)/2 et Im(z) = (z - z̄)/(2i)</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">4.3 Propriété essentielle du produit z × z̄</h3>
+            <div class="formula-box">
+                <div class="formula-title">Produit complexe × conjugué</div>
+                z × z̄ = (a + bi)(a - bi) = a² + b² ∈ ℝ⁺
+            </div>
+            <p>Cette propriété est <strong>fondamentale</strong> et permet notamment :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p>De calculer les modules (comme nous le verrons plus tard)</p></div>
+                <div class="key-point"><span class="icon">➗</span><p>De rationaliser les dénominateurs dans les divisions</p></div>
+                <div class="key-point"><span class="icon">✅</span><p>De vérifier qu'un résultat est correct en calculant z × z̄</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Application : Vérification d'une division</h4>
+                <p>Vérifions que (1 + i) / (1 - i) = i</p>
+                <p>Calculons z × z̄ : (1 + i)(1 - i) = 1 - i² = 2 ∈ ℝ⁺ ✓</p>
+                <p>Multiplions le résultat par le dénominateur : i(1 - i) = i - i² = i + 1 = 1 + i ✓</p>
+                <p>Donc (1 + i) / (1 - i) = i est correct !</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 : MODULE -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Module d'un nombre complexe</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">5.1 Définition</h3>
+            <p>Le <strong>module</strong> du nombre complexe z = a + bi est le nombre réel positif noté <strong>|z|</strong> défini par :</p>
+            <div class="formula-box">
+                <div class="formula-title">Module d'un complexe</div>
+                <strong>|z| = √(a² + b²)</strong>
+            </div>
+            <p>Géométriquement, le module représente la <strong>distance</strong> du point M(a, b) à l'origine O du plan complexe. C'est l'équivalent de la valeur absolue pour les nombres réels.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemples de calcul de module</h4>
+                <p>• z₁ = 3 + 4i → |z₁| = √(9 + 16) = √25 = <strong>5</strong></p>
+                <p>• z₂ = -5 + 12i → |z₂| = √(25 + 144) = √169 = <strong>13</strong></p>
+                <p>• z₃ = 1 - i → |z₃| = √(1 + 1) = √2</p>
+                <p>• z₄ = 7i → |z₄| = √(0 + 49) = <strong>7</strong></p>
+                <p>• z₅ = 5 → |z₅| = √(25 + 0) = <strong>5</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">5.2 Propriétés du module</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📌</span><p><strong>Positivité :</strong> |z| ≥ 0 pour tout z ∈ ℂ, et |z| = 0 si et seulement si z = 0</p></div>
+                <div class="key-point"><span class="icon">✖️</span><p><strong>Relation module-produit :</strong> |z₁ × z₂| = |z₁| × |z₂|</p></div>
+                <div class="key-point"><span class="icon">➗</span><p><strong>Relation module-quotient :</strong> |z₁ / z₂| = |z₁| / |z₂| (avec z₂ ≠ 0)</p></div>
+                <div class="key-point"><span class="icon">📈</span><p><strong>Relation module-puissance :</strong> |zⁿ| = |z|ⁿ pour tout n ∈ ℤ</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">5.3 Inégalités triangulaires</h3>
+            <div class="formula-box">
+                <div class="formula-title">Première inégalité triangulaire</div>
+                <strong>|z₁ + z₂| ≤ |z₁| + |z₂|</strong>
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Seconde inégalité triangulaire</div>
+                <strong>||z₁| - |z₂|| ≤ |z₁ + z₂|</strong>
+            </div>
+            <p>Ces inégalités rappellent l'inégalité de la distance dans un triangle : un côté est toujours inférieur ou égal à la somme des deux autres.</p>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">5.4 Lien entre module et conjugué</h3>
+            <div class="formula-box">
+                <div class="formula-title">Relation fondamentale module-conjugué</div>
+                <strong>|z|² = z × z̄ = a² + b²</strong>
+            </div>
+            <p>C'est une relation très importante qui permet de calculer facilement le module à partir du conjugué.</p>
+
+            <div class="example-box">
+                <h4>💡 Application : Vérification du module</h4>
+                <p>Si z = 1 + i, alors z̄ = 1 - i</p>
+                <p>z × z̄ = (1 + i)(1 - i) = 1 - i² = 2</p>
+                <p>Donc |z|² = 2 et |z| = √2 ✓</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Erreurs fréquentes à éviter</h4>
+                <p>• Ne confondez pas |z|² et z² !</p>
+                <p>• |z|² = a² + b² (toujours positif)</p>
+                <p>• z² = (a + bi)² = a² - b² + 2abi (peut être complexe)</p>
+                <p>• En général, |z₁ + z₂| ≠ |z₁| + |z₂| (c'est une inégalité, pas une égalité)</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 6 : ARGUMENT -->
+        <div class="math-content" id="p6">
+            <h3>📘 6. Argument d'un nombre complexe</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">6.1 Définition</h3>
+            <p>Soit z = a + bi un nombre complexe <strong>non nul</strong>. On appelle <strong>argument</strong> de z, noté <strong>Arg(z)</strong>, tout angle θ ∈ ℝ tel que :</p>
+            <div class="formula-box">
+                <div class="formula-title">Définition de l'argument</div>
+                <strong>cos θ = a/|z|</strong> et <strong>sin θ = b/|z|</strong>
+            </div>
+            <p>L'argument représente l'<strong>angle orienté</strong> que fait le vecteur <strong>OM</strong> avec l'axe des réels positifs, mesuré en radians.</p>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔄</span><p>L'argument est défini <strong>à 2π près</strong> : si θ est un argument, alors θ + 2kπ (k ∈ ℤ) est aussi un argument</p></div>
+                <div class="key-point"><span class="icon">📌</span><p>L'argument n'est <strong>pas défini</strong> pour z = 0</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">6.2 Arguments remarquables</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">0️⃣</span><p><strong>Arg(1) = 0</strong> (point sur l'axe réel positif)</p></div>
+                <div class="key-point"><span class="icon">π️⃣</span><p><strong>Arg(-1) = π</strong> (point sur l'axe réel négatif)</p></div>
+                <div class="key-point"><span class="icon">π/2️⃣</span><p><strong>Arg(i) = π/2</strong> (point sur l'axe imaginaire positif)</p></div>
+                <div class="key-point"><span class="icon">-π/2️⃣</span><p><strong>Arg(-i) = -π/2</strong> ou 3π/2 (axe imaginaire négatif)</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">6.3 Propriétés de l'argument</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">✖️</span><p><strong>Argument d'un produit :</strong> Arg(z₁ × z₂) = Arg(z₁) + Arg(z₂) (mod 2π)</p></div>
+                <div class="key-point"><span class="icon">➗</span><p><strong>Argument d'un quotient :</strong> Arg(z₁ / z₂) = Arg(z₁) - Arg(z₂) (mod 2π)</p></div>
+                <div class="key-point"><span class="icon">📈</span><p><strong>Argument d'une puissance :</strong> Arg(zⁿ) = n·Arg(z) (mod 2π)</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Argument du conjugué :</strong> Arg(z̄) = -Arg(z) (mod 2π)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calcul d'argument</h4>
+                <p>Déterminer un argument de z = 1 + i√3</p>
+                <p>|z| = √(1 + 3) = 2</p>
+                <p>cos θ = 1/2 et sin θ = √3/2</p>
+                <p>Donc θ = π/3 (mod 2π)</p>
+                <p>Arg(1 + i√3) = π/3 + 2kπ, k ∈ ℤ</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">6.4 Détermination pratique de l'argument</h3>
+            <p>Pour déterminer l'argument de z = a + bi, on suit ces étapes :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">1️⃣</span><p>Calculer le module r = √(a² + b²)</p></div>
+                <div class="key-point"><span class="icon">2️⃣</span><p>Calculer cos θ = a/r et sin θ = b/r</p></div>
+                <div class="key-point"><span class="icon">3️⃣</span><p>Identifier θ en utilisant le cercle trigonométrique</p></div>
+                <div class="key-point"><span class="icon">4️⃣</span><p>Vérifier que cos²θ + sin²θ = 1</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 7 : FORME TRIGONOMÉTRIQUE -->
+        <div class="math-content" id="p7">
+            <h3>📗 7. Forme trigonométrique</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">7.1 Définition</h3>
+            <p>Tout nombre complexe non nul z peut s'écrire sous la forme <strong>trigonométrique</strong> :</p>
+            <div class="formula-box">
+                <div class="formula-title">Forme trigonométrique</div>
+                <strong>z = r(cos θ + i sin θ)</strong>
+            </div>
+            <p>où <strong>r = |z|</strong> est le module et <strong>θ = Arg(z)</strong> est un argument de z.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple fondamental : z = 1 + i</h4>
+                <p>r = √(1² + 1²) = √2</p>
+                <p>cos θ = 1/√2 et sin θ = 1/√2</p>
+                <p>θ = π/4</p>
+                <p>Donc : z = √2(cos(π/4) + i sin(π/4))</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">7.2 Passage de la forme algébrique à la forme trigonométrique</h3>
+            <p>Pour mettre z = a + bi sous forme trigonométrique :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">1️⃣</span><p><strong>Calculer le module :</strong> r = √(a² + b²)</p></div>
+                <div class="key-point"><span class="icon">2️⃣</span><p><strong>Déterminer un argument θ</strong> vérifiant cos θ = a/r et sin θ = b/r</p></div>
+                <div class="key-point"><span class="icon">3️⃣</span><p><strong>Écrire :</strong> z = r(cos θ + i sin θ)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : z = -1 + i√3</h4>
+                <p>r = √((-1)² + (√3)²) = √(1 + 3) = √4 = 2</p>
+                <p>cos θ = -1/2 et sin θ = √3/2</p>
+                <p>Ces valeurs correspondent à θ = 2π/3 (120°)</p>
+                <p>donc : z = 2(cos(2π/3) + i sin(2π/3))</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : z = -2 - 2i√3</h4>
+                <p>r = √(4 + 12) = √16 = 4</p>
+                <p>cos θ = -2/4 = -1/2 et sin θ = -2√3/4 = -√3/2</p>
+                <p>Ces valeurs correspondent à θ = 4π/3 (240°) ou -2π/3</p>
+                <p>donc : z = 4(cos(4π/3) + i sin(4π/3))</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">7.3 Passage de la forme trigonométrique à la forme algébrique</h3>
+            <p>Si z = r(cos θ + i sin θ), alors :</p>
+            <div class="formula-box">
+                <div class="formula-title">Passage inverse</div>
+                <strong>a = r cos θ</strong> et <strong>b = r sin θ</strong>
+            </div>
+            <p>donc z = a + bi</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple : z = 3(cos(π/6) + i sin(π/6))</h4>
+                <p>cos(π/6) = √3/2 et sin(π/6) = 1/2</p>
+                <p>a = 3 × √3/2 = 3√3/2</p>
+                <p>b = 3 × 1/2 = 3/2</p>
+                <p>donc : z = (3√3/2) + (3/2)i</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">7.4 Notation exponentielle</h3>
+            <p>En utilisant la formule d'Euler (voir section suivante), on peut écrire :</p>
+            <div class="formula-box">
+                <div class="formula-title">Notation exponentielle</div>
+                <strong>z = r·e^(iθ)</strong>
+            </div>
+            <p>C'est une notation plus compacte et très utilisée en physique et en ingénierie.</p>
+        </div>
+
+        <!-- PARTIE 8 : FORMULES D'EULER ET DE MOIVRE -->
+        <div class="math-content" id="p8">
+            <h3>📙 8. Formules d'Euler et Formule de Moivre</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">8.1 Formules d'Euler</h3>
+            <p>Les <strong>formules d'Euler</strong> établissent un lien fondamental entre les fonctions exponentielles et trigonométriques :</p>
+            <div class="formula-box">
+                <div class="formula-title">Formules d'Euler</div>
+                <strong>cos θ = (e^(iθ) + e^(-iθ)) / 2</strong><br><br>
+                <strong>sin θ = (e^(iθ) - e^(-iθ)) / 2i</strong>
+            </div>
+
+            <p>Réciproquement, on peut écrire :</p>
+            <div class="formula-box">
+                <div class="formula-title">Formule d'Euler directe</div>
+                <strong>e^(iθ) = cos θ + i sin θ</strong>
+            </div>
+            <p>C'est la célèbre <strong>formule d'Euler</strong>, considérée comme l'une des plus belles formules mathématiques. En particulier :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📌</span><p><strong>e^(iπ) + 1 = 0</strong> (relation d'Euler, reliant les 5 constantes fondamentales)</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>e^(iπ/2) = i</strong></p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>e^(-iπ/2) = -i</strong></p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>e^(2iπ) = 1</strong></p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">8.2 Formule de Moivre</h3>
+            <p>La <strong>formule de De Moivre</strong> permet de calculer les puissances de nombres complexes sous forme trigonométrique :</p>
+            <div class="formula-box">
+                <div class="formula-title">Formule de Moivre</div>
+                <strong>[cos θ + i sin θ]^n = cos(nθ) + i sin(nθ)</strong> pour tout n ∈ ℤ
+            </div>
+            <p>Cette formule est particulièrement utile pour :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p>Calculer les puissances de complexes</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Démontrer les formules trigonométriques de duplication et de multiplication</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Résoudre les équations de la forme zⁿ = a</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calcul de (1 + i)^10</h4>
+                <p>1 + i = √2(cos(π/4) + i sin(π/4))</p>
+                <p>(1 + i)^10 = (√2)^10 × [cos(10×π/4) + i sin(10×π/4)]</p>
+                <p>= 2^5 × [cos(5π/2) + i sin(5π/2)]</p>
+                <p>= 32 × [cos(π/2 + 2π) + i sin(π/2 + 2π)]</p>
+                <p>= 32 × [0 + i×1] = <strong>32i</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Calcul de (√3 - i)^6</h4>
+                <p>√3 - i a pour module 2 et argument -π/6</p>
+                <p>(√3 - i)^6 = 2^6 × [cos(-6×π/6) + i sin(-6×π/6)]</p>
+                <p>= 64 × [cos(-π) + i sin(-π)]</p>
+                <p>= 64 × [-1 + i×0] = <strong>-64</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">8.3 Applications aux formules trigonométriques</h3>
+            <p>La formule de Moivre permet de démontrer les formules de :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>Duplication :</strong> cos(2θ) = cos²θ - sin²θ, sin(2θ) = 2sinθ·cosθ</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Triplication :</strong> cos(3θ) = 4cos³θ - 3cosθ</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Linéarisation :</strong> exprimer cosⁿθ et sinⁿθ en fonction de cos(kθ) et sin(kθ)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Linéarisation de cos²θ</h4>
+                <p>cos²θ = [(e^(iθ) + e^(-iθ))/2]²</p>
+                <p>= [e^(2iθ) + 2 + e^(-2iθ)]/4</p>
+                <p>= [2cos(2θ) + 2]/4</p>
+                <p>= (1 + cos(2θ))/2</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 9 : ÉQUATIONS -->
+        <div class="math-content" id="p9">
+            <h3>📕 9. Équations dans ℂ</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">9.1 Équations du premier degré</h3>
+            <p>Les équations de la forme az + b = 0 avec a, b ∈ ℂ et a ≠ 0 ont toujours une <strong>solution unique</strong> :</p>
+            <div class="formula-box">
+                <div class="formula-title">Solution d'une équation du 1er degré</div>
+                <strong>z = -b/a</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : 2z + 3 - i = 0</h4>
+                <p>2z = -3 + i</p>
+                <p>z = (-3 + i)/2 = <strong>-3/2 + i/2</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">9.2 Équations du second degré</h3>
+            <p>Soit l'équation <strong>az² + bz + c = 0</strong> avec a, b, c ∈ ℂ et a ≠ 0. Le <strong>discriminant</strong> est Δ = b² - 4ac.</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📌</span><p><strong>Si Δ ≠ 0 :</strong> deux solutions distinctes<br>
+                z₁ = (-b + √Δ) / 2a et z₂ = (-b - √Δ) / 2a</p></div>
+                <div class="key-point"><span class="icon">📌</span><p><strong>Si Δ = 0 :</strong> une solution double<br>
+                z₀ = -b / 2a</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : z² + 2z + 5 = 0</h4>
+                <p>Δ = 4 - 20 = -16</p>
+                <p>√Δ = √(-16) = 4i</p>
+                <p>z₁ = (-2 + 4i) / 2 = <strong>-1 + 2i</strong></p>
+                <p>z₂ = (-2 - 4i) / 2 = <strong>-1 - 2i</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">9.3 Cas des coefficients réels</h3>
+            <p>Quand a, b, c sont <strong>réels</strong> et Δ < 0, les deux solutions sont <strong>complexes conjuguées</strong> :</p>
+            <div class="formula-box">
+                <div class="formula-title">Solutions complexes conjuguées</div>
+                <strong>z₁ = (-b + i√|Δ|) / 2a</strong> et <strong>z₂ = (-b - i√|Δ|) / 2a = z̄₁</strong>
+            </div>
+            <p>C'est une <strong>propriété fondamentale</strong> : les coefficients réels impliquent des racines conjuguées.</p>
+
+            <div class="important-box">
+                <h4>⛔ Théorème fondamental à retenir</h4>
+                <p>Si a, b, c ∈ ℝ et Δ < 0, alors les solutions de ax² + bx + c = 0 sont deux nombres complexes conjugués.</p>
+                <p>Cette propriété permet de vérifier rapidement ses calculs !</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">9.4 Équations du type zⁿ = a</h3>
+            <p>Pour résoudre zⁿ = a où a ∈ ℂ, on écrit a sous forme trigonométrique a = r(cos θ + i sin θ), alors :</p>
+            <div class="formula-box">
+                <div class="formula-title">Racines n-ièmes</div>
+                <strong>z_k = r^(1/n) × [cos((θ + 2kπ)/n) + i sin((θ + 2kπ)/n)]</strong><br>
+                pour k = 0, 1, 2, ..., n-1
+            </div>
+            <p>L'équation admet <strong>n solutions</strong> distinctes, appelées <strong>racines n-ièmes</strong> de a, réparties régulièrement sur un cercle de rayon r^(1/n).</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple : z³ = 8</h4>
+                <p>8 = 8(cos 0 + i sin 0)</p>
+                <p>r = 8, θ = 0, n = 3</p>
+                <p>r^(1/3) = 2</p>
+                <p>z₀ = 2(cos 0 + i sin 0) = <strong>2</strong></p>
+                <p>z₁ = 2(cos(2π/3) + i sin(2π/3)) = <strong>-1 + i√3</strong></p>
+                <p>z₂ = 2(cos(4π/3) + i sin(4π/3)) = <strong>-1 - i√3</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : z⁴ = 16</h4>
+                <p>16 = 16(cos 0 + i sin 0)</p>
+                <p>r = 16, θ = 0, n = 4</p>
+                <p>r^(1/4) = 2</p>
+                <p>z₀ = 2(cos 0 + i sin 0) = <strong>2</strong></p>
+                <p>z₁ = 2(cos(π/2) + i sin(π/2)) = <strong>2i</strong></p>
+                <p>z₂ = 2(cos(π) + i sin(π)) = <strong>-2</strong></p>
+                <p>z₃ = 2(cos(3π/2) + i sin(3π/2)) = <strong>-2i</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : z² = i</h4>
+                <p>i = cos(π/2) + i sin(π/2)</p>
+                <p>r = 1, θ = π/2, n = 2</p>
+                <p>r^(1/2) = 1</p>
+                <p>z₀ = cos(π/4) + i sin(π/4) = <strong>(√2/2) + i(√2/2)</strong></p>
+                <p>z₁ = cos(5π/4) + i sin(5π/4) = <strong>(-√2/2) - i(√2/2)</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 10 : REPRÉSENTATION GÉOMÉTRIQUE -->
+        <div class="math-content" id="p10">
+            <h3>📒 10. Représentation géométrique des nombres complexes</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">10.1 Plan complexe (Plan d'Argand-Gauss)</h3>
+            <p>Le <strong>plan complexe</strong> est un repère orthonormal direct (O, u, v) où chaque point M(x, y) représente le complexe z = x + iy.</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📍</span><p><strong>O</strong> est l'origine du repère</p></div>
+                <div class="key-point"><span class="icon">➡️</span><p><strong>Axe horizontal (Ox)</strong> : appelé <strong>axe réel</strong>, noté Re(z)</p></div>
+                <div class="key-point"><span class="icon">⬆️</span><p><strong>Axe vertical (Oy)</strong> : appelé <strong>axe imaginaire</strong>, noté Im(z)</p></div>
+                <div class="key-point"><span class="icon">📍</span><p>Le point M est appelé <strong>l'image</strong> de z, et z est l'<strong>affixe</strong> de M</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">10.2 Interprétation géométrique des notions fondamentales</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📏</span><p><strong>Module |z| :</strong> distance OM</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Argument Arg(z) :</strong> angle orienté (u⃗, OM⃗)</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Conjugué z̄ :</strong> symétrique de M par rapport à l'axe réel</p></div>
+                <div class="key-point"><span class="icon">📏</span><p><strong>|z₁ - z₂| :</strong> distance entre les points M₁ et M₂</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">10.3 Interprétation de la multiplication par i</h3>
+            <p>La multiplication par <strong>i</strong> correspond à une <strong>rotation de 90°</strong> (π/2 radians) dans le sens trigonométrique (inverse des aiguilles d'une montre) autour de l'origine.</p>
+            <div class="example-box">
+                <h4>💡 Exemples de rotation par i</h4>
+                <p>• 1 × i = i (le point (1,0) tourne vers (0,1))</p>
+                <p>• i × i = -1 (le point (0,1) tourne vers (-1,0))</p>
+                <p>• z = 2 + 3i → z × i = -3 + 2i</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">10.4 Interprétation de la multiplication par un complexe</h3>
+            <p>La multiplication par un complexe de module r et d'argument θ correspond à :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔍</span><p><strong>Une homothétie</strong> de rapport r (agrandissement si r > 1, réduction si r < 1)</p></div>
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Une rotation</strong> d'angle θ autour de l'origine</p></div>
+            </div>
+            <p>C'est ce qu'on appelle une <strong>similitude directe</strong> de centre O.</p>
+        </div>
+
+        <!-- PARTIE 11 : TRANSFORMATIONS -->
+        <div class="math-content" id="p11">
+            <h3>📘 11. Transformations dans le plan complexe</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">11.1 Translation</h3>
+            <p>La translation de vecteur <strong>u⃗</strong> d'affixe b correspond à :</p>
+            <div class="formula-box">
+                <div class="formula-title">Translation</div>
+                <strong>z' = z + b</strong> (où b est un complexe)
+            </div>
+            <p>Tous les points se déplacent de la même manière : le vecteur de translation est le même pour tous.</p>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">11.2 Homothétie</h3>
+            <p>L'homothétie de centre O et de rapport k correspond à :</p>
+            <div class="formula-box">
+                <div class="formula-title">Homothétie</div>
+                <strong>z' = k·z</strong> (où k ∈ ℝ⁺)
+            </div>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔍</span><p>Si k > 1 : agrandissement</p></div>
+                <div class="key-point"><span class="icon">🔍</span><p>Si 0 < k < 1 : réduction</p></div>
+                <div class="key-point"><span class="icon">🔍</span><p>Si k < 0 : homothétie + rotation de π</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">11.3 Rotation</h3>
+            <p>La rotation de centre O et d'angle θ correspond à :</p>
+            <div class="formula-box">
+                <div class="formula-title">Rotation</div>
+                <strong>z' = e^(iθ)·z</strong> ou <strong>z' = (cos θ + i sin θ)·z</strong>
+            </div>
+            <p>La rotation conserve les distances et les angles.</p>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">11.4 Similitude directe</h3>
+            <p>La <strong>similitude directe</strong> (combinaison de rotation et homothétie) de centre O, de rapport k et d'angle θ :</p>
+            <div class="formula-box">
+                <div class="formula-title">Similitude directe</div>
+                <strong>z' = k·e^(iθ)·z</strong>
+            </div>
+
+            <p>La similitude directe la plus générale (de centre Ω) est :</p>
+            <div class="formula-box">
+                <div class="formula-title">Similitude de centre Ω</div>
+                <strong>z' = a·z + b</strong> où a, b ∈ ℂ, a ≠ 0
+            </div>
+            <p>Le centre Ω a pour affixe ω = b/(1 - a).</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Rotation de 60° du point z = 1 + i</h4>
+                <p>z' = e^(iπ/3) × (1 + i)</p>
+                <p>= (cos(π/3) + i sin(π/3)) × (1 + i)</p>
+                <p>= (1/2 + i√3/2) × (1 + i)</p>
+                <p>= 1/2 + i/2 + i√3/2 - √3/2</p>
+                <p>= <strong>(1/2 - √3/2) + i(1/2 + √3/2)</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 12 : LIEUX GÉOMÉTRIQUES -->
+        <div class="math-content" id="p12">
+            <h3>📗 12. Lieux géométriques dans le plan complexe</h3>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:4px;">12.1 Cercle</h3>
+            <p>L'ensemble des points M(z) tels que |z - a| = r est un <strong>cercle</strong> de centre A(a) et de rayon r.</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation d'un cercle</div>
+                <strong>|z - a| = r</strong>
+            </div>
+            <p>En coordonnées cartésiennes, si a = α + iβ :</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation cartésienne du cercle</div>
+                <strong>(x - α)² + (y - β)² = r²</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : |z - 2i| = 3</h4>
+                <p>C'est le cercle de centre A(0, 2) et de rayon 3.</p>
+                <p>En cartésien : x² + (y - 2)² = 9</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">12.2 Médiatrice</h3>
+            <p>L'ensemble des points M(z) équidistants de A(a) et B(b) est la <strong>médiatrice</strong> du segment [AB].</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation de la médiatrice</div>
+                <strong>|z - a| = |z - b|</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : |z + 1| = |z - i|</h4>
+                <p>C'est la médiatrice du segment reliant A(-1, 0) et B(0, 1).</p>
+                <p>En coordonnées : |z + 1|² = |z - i|²</p>
+                <p>(x + 1)² + y² = x² + (y - 1)²</p>
+                <p>x² + 2x + 1 + y² = x² + y² - 2y + 1</p>
+                <p>2x = -2y ⟹ <strong>x = -y</strong></p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">12.3 Droite</h3>
+            <p>L'ensemble des points M(z) tels que Arg(z - a) = θ (ou Arg(z - a) = θ + π) est une <strong>droite</strong> passant par A(a) et faisant un angle θ avec l'axe réel.</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation d'une droite (argument constant)</div>
+                <strong>Arg(z - a) = θ</strong>
+            </div>
+
+            <p>Plus généralement, une droite peut s'écrire sous la forme :</p>
+            <div class="formula-box">
+                <div class="formula-title">Équation d'une droite</div>
+                <strong>αx + βy + γ = 0</strong> avec α, β, γ ∈ ℝ
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Re(z) = 2·Im(z)</h4>
+                <p>Si z = x + iy, alors x = 2y</p>
+                <p>C'est la droite d'équation x - 2y = 0</p>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">12.4 Disques et demi-plans</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔴</span><p><strong>Disque ouvert :</strong> |z - a| < r</p></div>
+                <div class="key-point"><span class="icon">🔴</span><p><strong>Disque fermé :</strong> |z - a| ≤ r</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Demi-plan :</strong> Re(z) > k ou Im(z) < k</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>Secteur angulaire :</strong> θ₁ < Arg(z - a) < θ₂</p></div>
+            </div>
+
+            <h3 style="color:#B45309; font-size:1rem; margin-top:16px;">12.5 Applications aux triangles</h3>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p>Triangle ABC équilatéral ⟺ z_A + j·z_B + j²·z_C = 0 (où j = e^(2iπ/3))</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Triangle ABC rectangle en A ⟺ (z_B - z_A) / (z_C - z_A) est un imaginaire pur</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Barycentre G ⟺ z_G = (α·z_A + β·z_B)/(α + β)</p></div>
+            </div>
+        </div>
+
+       <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+       
+
+                <!-- Bouton de téléchargement -->
+                <br><br>
+                <a href="https://drive.google.com/file/d/1jXF_utw23QqpNLqs9RuHqhmHS0Run0nG/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+                <a href="https://drive.google.com/file/d/1pJxuH9WjloEJpoiZ8rCPQ9zs5GMjjR92/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+                <a href="https://drive.google.com/file/d/1GsIAqowHnWZYb3d64bxlVbuq7bF4FJMw/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+                <a href="https://drive.google.com/file/d/1wQywdtE_2VsKn8FRj-zdhZxZadJT6S_k/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- SECTION VIDÉO -->
+         <!-- SECTION VIDÉO -->
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1AGLlw23LhXKn6U052QpgxY3tYLErIQU-/preview
+" 
+                        width="640" height="480" allow="autoplay">
+                </iframe>
+            </div>
+
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1M-UbDvH2kqBAntKf7c_00Hs_D3CmLHAK/preview
+
+" 
+                        width="640" height="480" allow="autoplay">
+                </iframe>
+            </div>
+
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1uqGzGuNQXQ8nfcYCcWsOxVGZYDhbSbZf/preview
+
+" 
+                        width="640" height="480" allow="autoplay">
+                </iframe>
+            </div>
+
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1ojGeTy0PtAk5qxN_Q5ErFt0Pc4KcfOD2/preview
+
+" 
+                        width="640" height="480" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+
+         <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/1ct4bQLs2YMD5QAWPIRTYefbEUtmmDi4h/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+        <!-- BOUTON SUIVANT -->
+        <a href="lecon3-geometrie-plan.html" class="next-lesson">
+            <div>
+                <p class="next-lesson-text">Leçon suivante</p>
+                <p class="next-lesson-title">Leçon 3 : Géométrie dans le Plan →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

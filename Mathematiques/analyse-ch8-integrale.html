@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH8: Intégrales d'une fonction continue - Analyse - Bac Math</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: #1E40AF; }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1E3A8A; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid #22C55E; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid #EAB308; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .theorem-box { background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-left: 4px solid #8B5CF6; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .theorem-box h4 { color: #6D28D9; font-size: 0.95rem; margin-bottom: 8px; }
+        .theorem-box p { margin-bottom: 6px; color: #4C1D95; }
+        .demo-box { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); border-left: 4px solid #F97316; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .demo-box h4 { color: #C2410C; font-size: 0.95rem; margin-bottom: 8px; }
+        .demo-box p { margin-bottom: 6px; color: #7C2D12; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Mathematiques/mathematiques.html">Mathématiques</a>
+                <a href="../Informatique/informatique.html">Informatique</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philosophie</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #3B82F6;">
+            <h1>CH8: Intégrales d'une fonction continue</h1>
+            <p class="breadcrumb">Mathématiques > Analyse > CH8 › Bac Math Tunisie</p>
+            <span class="badge">Programme Officiel</span>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan du chapitre</h3>
+            <ol>
+                <li><a href="#p1">Primitives d'une fonction</a></li>
+                <li><a href="#p2">L'intégrale définie — Définition et interprétation</a></li>
+                <li><a href="#p3">Propriétés de l'intégrale</a></li>
+                <li><a href="#p4">Formule fondamentale de l'analyse (Théorème de Barrow)</a></li>
+                <li><a href="#p5">Calcul d'aires</a></li>
+                <li><a href="#p6">Techniques d'intégration</a></li>
+                <li><a href="#p7">Primitives des fonctions usuelles composées</a></li>
+                <li><a href="#p8">Exercices résolus</a></li>
+            </ol>
+        </div>
+
+          <!-- SECTION PODCAST -->
+        <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/17NWWy5vRLRU909rqgD7eP5GgLIM7UAug/preview
+"
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Primitives d'une fonction</h3>
+
+            <h4>Définition</h4>
+            <p>Soit <strong>f</strong> une fonction définie sur un intervalle <strong>I</strong>. Une <strong>primitive</strong> de f sur I est une fonction <strong>F</strong> définie sur I telle que :</p>
+            <div class="formula-box">
+                <div class="formula-title">Définition de primitive</div>
+                F est une primitive de f sur I &nbsp;⇔&nbsp; <strong>F'(x) = f(x)</strong> &nbsp;&nbsp;∀x ∈ I
+            </div>
+
+            <h4>Propriété fondamentale</h4>
+            <div class="theorem-box">
+                <h4>Théorème</h4>
+                <p>Si <strong>F</strong> est une primitive de f sur I, alors <strong>toutes les primitives</strong> de f sur I sont de la forme :</p>
+                <p><strong>F(x) + C</strong> &nbsp;&nbsp; où C est une constante réelle arbitraire</p>
+                <p>Notation : L'ensemble de toutes les primitives de f est : <strong>{F + C | C ∈ ℝ}</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemples fondamentaux</h4>
+                <p>• f(x) = 3x² → Primitive : F(x) = x³ + C ✓ (F' = 3x²)</p>
+                <p>• f(x) = cos(x) → Primitive : F(x) = sin(x) + C ✓</p>
+                <p>• f(x) = eˣ → Primitive : F(x) = eˣ + C ✓ (eˣ est sa propre primitive)</p>
+                <p>• f(x) = 1/x → Primitive : F(x) = ln|x| + C ✓</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Primitives vs dérivées</h4>
+                <p>La dérivation est une opération <strong>linéaire</strong> et <strong>facile</strong>.</p>
+                <p>L'intégration (recherche de primitives) est <strong>plus difficile</strong> et ne suit pas de méthode systématique dans le cas général.</p>
+                <p>Il est essentiel de <strong>connaître par cœur</strong> les primitives des fonctions usuelles.</p>
+            </div>
+
+            <h4>Primitives des fonctions usuelles</h4>
+            <div class="formula-box">
+                <div class="formula-title">Table de primitives — Fonctions élémentaires</div>
+                ∫ xⁿ dx = xⁿ⁺¹/(n+1) + C &nbsp;&nbsp; <strong>pour n ≠ −1</strong><br>
+                ∫ 1/x dx = ln|x| + C<br>
+                ∫ eˣ dx = eˣ + C<br>
+                ∫ aˣ dx = aˣ/ln(a) + C &nbsp;&nbsp; (a > 0, a ≠ 1)<br>
+                ∫ sin(x) dx = −cos(x) + C<br>
+                ∫ cos(x) dx = sin(x) + C<br>
+                ∫ 1/cos²(x) dx = tan(x) + C<br>
+                ∫ 1/sin²(x) dx = −cot(x) + C<br>
+                ∫ 1/√x dx = 2√x + C
+            </div>
+
+            <h4>Primitives de fonctions composées</h4>
+            <div class="formula-box">
+                <div class="formula-title">Formules avec u(x)</div>
+                Si u est une fonction dérivable sur I :<br><br>
+                ∫ u'(x)·uⁿ(x) dx = uⁿ⁺¹(x)/(n+1) + C &nbsp;&nbsp; <strong>pour n ≠ −1</strong><br>
+                ∫ u'(x)/u(x) dx = ln|u(x)| + C<br>
+                ∫ u'(x)·e^(u(x)) dx = e^(u(x)) + C<br>
+                ∫ u'(x)·sin(u(x)) dx = −cos(u(x)) + C<br>
+                ∫ u'(x)·cos(u(x)) dx = sin(u(x)) + C
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — Primitive simple</h4>
+                <p>Primitive de f(x) = 3x²</p>
+                <p>F(x) = x³ + C ✓</p>
+                <p>Vérification : (x³ + C)' = 3x²</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — Composition : ∫ 2x·e^(x²) dx</h4>
+                <p>On reconnaît : u'(x) = 2x, u(x) = x²</p>
+                <p>∫ u'(x)·e^(u(x)) dx = e^(u(x)) + C</p>
+                <p>= <strong>e^(x²) + C</strong></p>
+                <p>Vérification : (e^(x²))' = e^(x²)·2x = 2x·e^(x²) ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — Composition : ∫ (3x² + 1/x + 2eˣ) dx</h4>
+                <p>= ∫ 3x² dx + ∫ 1/x dx + ∫ 2eˣ dx</p>
+                <p>= x³ + ln|x| + 2eˣ + C</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 4 — Composition : ∫ x·(x²+1)⁵ dx</h4>
+                <p>u = x²+1 → u' = 2x → x dx = du/2</p>
+                <p>∫ x·u⁵ dx = ∫ (du/2)·u⁵ = (1/2)·∫ u⁵ du</p>
+                <p>= (1/2)·u⁶/6 + C = u⁶/12 + C</p>
+                <p>= <strong>(x²+1)⁶/12 + C</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 5 — Tangente : ∫ tan(x) dx</h4>
+                <p>∫ tan(x) dx = ∫ sin(x)/cos(x) dx</p>
+                <p>cos(x) = u → −sin(x)dx = du → sin(x)dx = −du</p>
+                <p>= ∫ (−du)/u = −ln|u| + C = <strong>−ln|cos(x)| + C</strong></p>
+                <p>= ln|1/cos(x)| + C = ln|tan(x)| + C/2... en fait : ∫ tan(x) = −ln|cos(x)| + C ✓</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. L'intégrale définie</h3>
+
+            <h4>Approche géométrique — Introduction</h4>
+            <p>Si <strong>f est positive</strong> sur [a, b], l'intégrale ∫ₐᵇ f(x)dx représente l'aire de la région limitée par :</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📈</span><p>La courbe de f</p></div>
+                <div class="key-point"><span class="icon">↔</span><p>L'axe des abscisses (Ox)</p></div>
+                <div class="key-point"><span class="icon">↕</span><p>Les verticales x = a et x = b</p></div>
+            </div>
+
+            <h4>Définition formelle</h4>
+            <div class="formula-box">
+                <div class="formula-title">Intégrale définie</div>
+                Soit f une fonction admettant une primitive F sur [a, b]. On appelle <strong>intégrale définie</strong> de a à b le nombre :<br><br>
+                <strong>∫ₐᵇ f(x)dx = [F(x)]ₐᵇ = F(b) − F(a)</strong><br><br>
+                Le résultat est un <strong>nombre réel</strong> (pas une fonction).
+            </div>
+            <p>Notation : <strong>[F(x)]ₐᵇ</strong> signifie F(b) − F(a).</p>
+
+            <div class="warning-box">
+                <h4>⚠️ Ordre des bornes</h4>
+                <p>∫ₐᵇ f(x)dx = F(b) − F(a)</p>
+                <p>∫ᵇₐ f(x)dx = F(a) − F(b) = −∫ₐᵇ f(x)dx</p>
+                <p><strong>Quand on inverse les bornes, l'intégrale change de signe.</strong></p>
+            </div>
+
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔄</span><p><strong>Changement de signe :</strong> ∫ₐᵇ = −∫ᵇₐ</p></div>
+                <div class="key-point"><span class="icon">📍</span><p><strong>Borne supérieure = inférieure :</strong> ∫ₐₐ = 0</p></div>
+            </div>
+
+            <h4>Signe de l'intégrale</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📈</span><p>Si f ≥ 0 sur [a, b] (f positive) → <strong>∫ₐᵇ f(x)dx ≥ 0</strong></p></div>
+                <div class="key-point"><span class="icon">📉</span><p>Si f ≤ 0 sur [a, b] (f négative) → <strong>∫ₐᵇ f(x)dx ≤ 0</strong></p></div>
+                <div class="key-point"><span class="icon">📊</span><p>Si f change de signe → l'intégrale = somme des aires algébriques</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : ∫₀² x² dx</h4>
+                <p>F(x) = x³/3</p>
+                <p>∫₀² x² dx = F(2) − F(0) = 8/3 − 0 = <strong>8/3</strong></p>
+                <p>Interprétation : aire sous la parabole y = x² entre 0 et 2 = 8/3 u.a.</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple avec signe négatif : ∫₀² (−x²) dx</h4>
+                <p>F(x) = −x³/3</p>
+                <p>∫₀² (−x²) dx = F(2) − F(0) = −8/3 − 0 = <strong>−8/3</strong></p>
+                <p>Interprétation : l'aire (algébrique) est négative car la courbe est sous l'axe.</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Propriétés de l'intégrale</h3>
+
+            <h4>Propriétés de linéarité</h4>
+            <div class="theorem-box">
+                <h4>Théorème 1 — Linéarité</h4>
+                <p>∫ₐᵇ (f + g)(x)dx = <strong>∫ₐᵇ f(x)dx + ∫ₐᵇ g(x)dx</strong></p>
+                <p>∫ₐᵇ λ·f(x)dx = <strong>λ · ∫ₐᵇ f(x)dx</strong> &nbsp;&nbsp;(λ ∈ ℝ)</p>
+            </div>
+
+            <h4>Relation de Chasles</h4>
+            <div class="theorem-box">
+                <h4>Théorème 2 — Relation de Chasles</h4>
+                <p>Pour tous a, b, c ∈ ℝ :</p>
+                <p><strong>∫ₐᵇ f(x)dx + ∫ᵇᶜ f(x)dx = ∫ₐᶜ f(x)dx</strong></p>
+                <p>Peu importe l'ordre de a, b, c (les bornes peuvent être dans n'importe quel ordre).</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple de Chasles</h4>
+                <p>∫₀² x² dx + ∫₂⁵ x² dx = ∫₀⁵ x² dx</p>
+                <p>8/3 + [x³/3]₂⁵ = 8/3 + (125/3 − 8/3) = 125/3 ✓</p>
+            </div>
+
+            <h4>Positivité et comparaison</h4>
+            <div class="theorem-box">
+                <h4>Théorème 3 — Positivité</h4>
+                <p>Si <strong>f ≥ g</strong> sur [a, b] avec <strong>a < b</strong>, alors :</p>
+                <p><strong>∫ₐᵇ f(x)dx ≥ ∫ₐᵇ g(x)dx</strong></p>
+                <p>En particulier : f ≥ 0 → ∫ₐᵇ f ≥ 0</p>
+            </div>
+
+            <div class="theorem-box">
+                <h4>Théorème 4 — Inégalité triangulaire</h4>
+                <p>Pour tout a < b :</p>
+                <p><strong>|∫ₐᵇ f(x)dx| ≤ ∫ₐᵇ |f(x)| dx</strong></p>
+            </div>
+
+            <h4>Valeur moyenne d'une fonction</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème de la moyenne</div>
+                Si f est <strong>continue</strong> sur [a, b], alors il existe <strong>c ∈ [a, b]</strong> tel que :<br><br>
+                <strong>∫ₐᵇ f(x)dx = (b − a) · f(c)</strong><br><br>
+                La <strong>valeur moyenne</strong> de f sur [a, b] est :<br>
+                <strong>m = (1/(b−a)) · ∫ₐᵇ f(x)dx</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple — Valeur moyenne</h4>
+                <p>Valeur moyenne de f(x) = x² sur [0, 2] :</p>
+                <p>moyenne = (1/2) · ∫₀² x² dx = (1/2) · (8/3) = <strong>4/3</strong></p>
+                <p>Il existe c ∈ [0, 2] tel que f(c) = 4/3</p>
+                <p>c² = 4/3 → c = 2/√3 ≈ 1,155 ∈ [0, 2] ✓</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Formule fondamentale de l'analyse (Théorème de Barrow)</h3>
+
+            <h4>Théorème de Barrow</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème fondamental (Barrow, 1630–1704)</div>
+                Si F est une primitive de f sur [a, b], alors :<br><br>
+                <strong>∫ₐᵇ f(x)dx = F(b) − F(a)</strong>
+            </div>
+            <p>Ce théorème établit le lien fondamental entre <strong>dérivation et intégration</strong> : ce sont des opérations inverses.</p>
+
+            <h4>Fonction intégrale</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème fondamental de l'analyse</div>
+                Si f est continue sur [a, b], la fonction G définie par :<br><br>
+                <strong>G(x) = ∫ₐˣ f(t)dt</strong><br><br>
+                est <strong>dérivable</strong> sur [a, b] et :<br>
+                <strong>G'(x) = f(x)</strong> &nbsp;&nbsp; pour tout x ∈ [a, b]
+            </div>
+            <p>G est une primitive de f. La dérivée de l'intégrale redonne la fonction.</p>
+
+            <div class="example-box">
+                <h4>💡 Théorème fondamental : d/dx [∫₀ˣ t² dt]</h4>
+                <p>= d/dx [x³/3] = x² ✓</p>
+                <p>→ La dérivée de l'intégrale redonne la fonction de départ !</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Calcul d'intégrale par Barrow</h4>
+                <p>∫₁ᵉ (1/x) dx</p>
+                <p>= [ln|x|]₁ᵉ = ln(e) − ln(1) = 1 − 0 = <strong>1</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Intégrale avec paramètre</h4>
+                <p>Calculer d/dx [∫₀ˣ e^(t²) dt]</p>
+                <p>Par le théorème fondamental : = e^(x²) ✓</p>
+            </div>
+
+            <div class="demo-box">
+                <h4>Démonstration du théorème de Barrow</h4>
+                <p>Soit F primitive de f. On veut montrer ∫ₐᵇ f = F(b) − F(a).</p>
+                <p>Considérer G(x) = ∫ₐˣ f(t)dt. Par le théorème fondamental, G'(x) = f(x).</p>
+                <p>Donc G est aussi une primitive de f.</p>
+                <p>Deux primitives diffèrent d'une constante : G(x) = F(x) + C.</p>
+                <p>G(a) = ∫ₐᵃ f = 0 = F(a) + C → C = −F(a)</p>
+                <p>G(b) = ∫ₐᵇ f = F(b) − F(a) ∎</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Calcul d'aires</h3>
+
+            <h4>Aire entre une courbe et l'axe des abscisses</h4>
+            <div class="formula-box">
+                <div class="formula-title">Aire algébrique</div>
+                Si f ≥ 0 sur [a, b] : <strong>A = ∫ₐᵇ f(x)dx</strong><br>
+                Si f ≤ 0 sur [a, b] : <strong>A = −∫ₐᵇ f(x)dx</strong><br>
+                Si f change de signe : on somme les aires positives et négatives sur chaque intervalle
+            </div>
+
+            <h4>Aire entre deux courbes</h4>
+            <div class="formula-box">
+                <div class="formula-title">Théorème — Aire entre f et g</div>
+                Si <strong>f ≥ g</strong> sur [a, b], l'aire de la région comprise entre les courbes est :<br><br>
+                <strong>A = ∫ₐᵇ (f(x) − g(x)) dx</strong>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — Aire sous une courbe</h4>
+                <p>Aire entre y = x², x = 0, x = 1 et l'axe Ox</p>
+                <p>f(x) = x² ≥ 0 sur [0, 1]</p>
+                <p>A = ∫₀¹ x² dx = [x³/3]₀¹ = 1/3 − 0 = <strong>1/3 u.a.</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — Aire entre deux courbes</h4>
+                <p>Aire entre y = x et y = x² entre x = 0 et x = 1</p>
+                <p>Sur [0, 1] : x ≥ x²</p>
+                <p>A = ∫₀¹ (x − x²) dx</p>
+                <p>= [x²/2 − x³/3]₀¹ = (1/2 − 1/3) − 0 = (3−2)/6 = <strong>1/6 u.a.</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — sin(x) entre 0 et 2π</h4>
+                <p>sin(x) ≥ 0 sur [0, π] : A₁ = ∫₀ᵠ sin(x)dx = [−cos(x)]₀ᵠ = −(−1) + 1 = 2</p>
+                <p>sin(x) ≤ 0 sur [π, 2π] : A₂ = −∫ᵠ²ᵠ sin(x)dx = −[−cos(x)]ᵠ²ᵠ = −(−1 − 1) = 2</p>
+                <p><strong>Aire totale = 2 + 2 = 4 u.a.</strong></p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Aire = valeur absolue</h4>
+                <p>L'aire <strong>géométrique</strong> est toujours positive :</p>
+                <p><strong>Aire = ∫ₐᵇ |f(x)| dx</strong></p>
+                <p>Méthode :</p>
+                <p>① Trouver les zéros de f sur [a, b]</p>
+                <p>② Séparer l'intégrale sur chaque sous-intervalle</p>
+                <p>③ Prendre la valeur absolue de chaque morceau et additionner</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Aire de |x² − 1| sur [−2, 2]</h4>
+                <p>x² − 1 = 0 → x = −1 et x = 1</p>
+                <p>• Sur [−2, −1] : x² ≥ 1 → |x²−1| = x²−1</p>
+                <p>• Sur [−1, 1] : x² ≤ 1 → |x²−1| = 1−x²</p>
+                <p>• Sur [1, 2] : x² ≥ 1 → |x²−1| = x²−1</p>
+                <p>A = ∫₋₂₋₁ (x²−1)dx + ∫₋₁¹ (1−x²)dx + ∫₁² (x²−1)dx</p>
+                <p>= [x³/3−x]₋₂₋₁ + [x−x³/3]₋₁¹ + [x³/3−x]₁²</p>
+                <p>= [(−1/3+1) − (−8/3+2)] + [(1−1/3) − (−1+1/3)] + [(8/3−2) − (1/3−1)]</p>
+                <p>= (2/3+2/3) + (2/3+2/3) + (2/3+2/3) = 6 × (2/3) = <strong>4 u.a.</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 6 -->
+        <div class="math-content" id="p6">
+            <h3>📓 6. Techniques d'intégration</h3>
+
+            <h4>Intégration par parties (IPP)</h4>
+            <div class="formula-box">
+                <div class="formula-title">Formule d'intégration par parties</div>
+                <strong>∫ u·v' dx = u·v − ∫ u'·v dx</strong><br><br>
+                Version définie :<br>
+                <strong>∫ₐᵇ u·v' dx = [u·v]ₐᵇ − ∫ₐᵇ u'·v dx</strong>
+            </div>
+            <p>Le choix de u et dv est crucial. Règle mnémotechnique : <strong>LIATE</strong></p>
+            <p><em>Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential</em></p>
+            <p>→ On choisit u dans cet ordre de priorité.</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — IPP classique : ∫ x·eˣ dx</h4>
+                <p>Selon LIATE : x (algébrique) → u = x ; eˣ (exponentielle) → dv = eˣdx</p>
+                <p>du = dx ; v = eˣ</p>
+                <p>= x·eˣ − ∫ 1·eˣ dx</p>
+                <p>= x·eˣ − eˣ + C</p>
+                <p>= <strong>eˣ(x − 1) + C</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — IPP itérée : ∫ x²·eˣ dx</h4>
+                <p><strong>IPP 1 :</strong> u = x², dv = eˣdx → du = 2x dx, v = eˣ</p>
+                <p>= x²eˣ − ∫ 2x·eˣ dx = x²eˣ − 2∫ x·eˣ dx</p>
+                <p><strong>IPP 2 :</strong> ∫ x·eˣ dx = x·eˣ − eˣ (par IPP) = eˣ(x−1)</p>
+                <p>Résultat : x²eˣ − 2eˣ(x−1) = eˣ(x² − 2x + 2) + C</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — IPP sur ln : ∫ ln(x) dx</h4>
+                <p>∫ ln(x) dx = ∫ 1·ln(x) dx</p>
+                <p>u = ln(x), dv = dx → du = (1/x)dx, v = x</p>
+                <p>= x·ln(x) − ∫ x·(1/x) dx</p>
+                <p>= x·ln(x) − ∫ 1 dx</p>
+                <p>= <strong>x·ln(x) − x + C</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 4 — IPP sur arctan : ∫ arctan(x) dx</h4>
+                <p>∫ arctan(x) dx = ∫ 1·arctan(x) dx</p>
+                <p>u = arctan(x), dv = dx → du = dx/(1+x²), v = x</p>
+                <p>= x·arctan(x) − ∫ x/(1+x²) dx</p>
+                <p>= x·arctan(x) − (1/2)ln(1+x²) + C</p>
+                <p>= <strong>x·arctan(x) − (1/2)ln(1+x²) + C</strong></p>
+            </div>
+
+            <h4>Changement de variable</h4>
+            <div class="formula-box">
+                <div class="formula-title">Changement de variable</div>
+                Pour calculer ∫ f(x) dx :<br><br>
+                <strong>Poser u = g(x)</strong> → <strong>du = g'(x)dx</strong><br>
+                Réécrire l'intégrale en fonction de u.<br>
+                Calculer ∫ f(u) du.<br>
+                Remplacer u par g(x) à la fin.
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — Changement simple : ∫ x·cos(x²) dx</h4>
+                <p>Poser u = x² → du = 2x dx → x dx = du/2</p>
+                <p>= ∫ cos(u) · (du/2) = (1/2)·∫ cos(u) du</p>
+                <p>= (1/2)·sin(u) + C</p>
+                <p>= <strong>(1/2)·sin(x²) + C</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — Racine : ∫ dx/(1+√x)</h4>
+                <p>Poser u = √x → x = u² → dx = 2u du</p>
+                <p>= ∫ 2u/(1+u) du = 2∫ (u+1−1)/(u+1) du</p>
+                <p>= 2∫ (1 − 1/(u+1)) du</p>
+                <p>= 2(u − ln|u+1|) + C</p>
+                <p>= <strong>2√x − 2ln(√x+1) + C</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — Tangente : ∫ dx/(1+x²)</h4>
+                <p>C'est une primitive classique : = <strong>arctan(x) + C</strong></p>
+                <p>Ou par changement : u = arctan(x)...</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 7 -->
+        <div class="math-content" id="p7">
+            <h3>📔 7. Primitives des fonctions usuelles composées — Résumé</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">Formules de primitives composées</div>
+                ∫ (ax+b)ⁿ dx = (ax+b)ⁿ⁺¹/[(n+1)a] + C &nbsp;&nbsp; (n ≠ −1)<br>
+                ∫ dx/(ax+b) = (1/a)ln|ax+b| + C<br>
+                ∫ e^(ax+b) dx = (1/a)e^(ax+b) + C<br>
+                ∫ sin(ax+b) dx = −(1/a)cos(ax+b) + C<br>
+                ∫ cos(ax+b) dx = (1/a)sin(ax+b) + C<br>
+                ∫ dx/cos²(ax+b) = (1/a)tan(ax+b) + C<br>
+                ∫ dx/√(ax+b) = (2/a)√(ax+b) + C
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Récapitulatif d'exemples</h4>
+                <p>• ∫ (3x+5)⁴ dx = (3x+5)⁵/15 + C</p>
+                <p>• ∫ dx/(2x−3) = (1/2)ln|2x−3| + C</p>
+                <p>• ∫ e^(−x) dx = −e^(−x) + C</p>
+                <p>• ∫ sin(2x+π/4) dx = −(1/2)cos(2x+π/4) + C</p>
+                <p>• ∫ dx/√(5x−2) = (2/5)√(5x−2) + C</p>
+            </div>
+
+            <h4>Primitives rationnelles</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p>Si numérateur = dérivée du dénominateur → ln|dénominateur| + C</p></div>
+                <div class="key-point"><span class="icon">📐</span><p>Décomposer en éléments simples si degré(num) ≥ degré(déno)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : ∫ (2x+1)/(x²+x+1) dx</h4>
+                <p>On remarque : numérateur = dérivée de (x²+x+1)</p>
+                <p>= ln|x²+x+1| + C ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : ∫ dx/(x²+4)</h4>
+                <p>= (1/2)arctan(x/2) + C</p>
+                <p>En effet : ∫ dx/(x²+a²) = (1/a)arctan(x/a) + C</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 8 -->
+        <div class="math-content" id="p8">
+            <h3>📕 8. Exercices résolus</h3>
+
+            <div class="example-box">
+                <h4>📝 Exercice 1 — Calcul d'intégrale simple</h4>
+                <p>Calculer ∫₀¹ (3x² + 2x + 1) dx</p>
+                <p><strong>Solution :</strong></p>
+                <p>= [x³ + x² + x]₀¹</p>
+                <p>= (1 + 1 + 1) − (0 + 0 + 0)</p>
+                <p>= <strong>3</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 2 — Aire sous une courbe</h4>
+                <p>Calculer l'aire entre y = √x, x = 1, x = 4 et l'axe Ox</p>
+                <p><strong>Solution :</strong></p>
+                <p>A = ∫₁⁴ √x dx = ∫₁⁴ x^(1/2) dx</p>
+                <p>= [x^(3/2) / (3/2)]₁⁴</p>
+                <p>= (2/3)·[4^(3/2) − 1^(3/2)]</p>
+                <p>= (2/3)·(8 − 1) = (2/3)·7 = <strong>14/3 u.a.</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 3 — Intégration par parties</h4>
+                <p>Calculer ∫₀¹ x·e^(−x) dx</p>
+                <p><strong>Solution :</strong></p>
+                <p>IPP : u = x, dv = e^(−x)dx → du = dx, v = −e^(−x)</p>
+                <p>= [−x·e^(−x)]₀¹ − ∫₀¹ (−e^(−x)) dx</p>
+                <p>= [−x·e^(−x)]₀¹ + [e^(−x)]₀¹</p>
+                <p>= (−1·e^(−1) − 0) + (e^(−1) − 1)</p>
+                <p>= −1/e + 1/e − 1 = <strong>−1</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 4 — Aire entre deux courbes</h4>
+                <p>Aire entre y = 2x et y = x²</p>
+                <p><strong>Solution :</strong></p>
+                <p>Intersection : 2x = x² → x(x−2) = 0 → x = 0 et x = 2</p>
+                <p>Sur [0, 2] : 2x ≥ x²</p>
+                <p>A = ∫₀² (2x − x²) dx</p>
+                <p>= [x² − x³/3]₀²</p>
+                <p>= (4 − 8/3) − (0 − 0)</p>
+                <p>= 4/3</p>
+                <p>Aire = <strong>4/3 u.a.</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 5 — Primitive avec ln</h4>
+                <p>Calculer ∫ (x+2)/(x+1) dx</p>
+                <p><strong>Solution :</strong></p>
+                <p>(x+2)/(x+1) = (x+1+1)/(x+1) = 1 + 1/(x+1)</p>
+                <p>= ∫ 1 dx + ∫ 1/(x+1) dx</p>
+                <p>= x + ln|x+1| + C</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 6 — Théorème de la moyenne</h4>
+                <p>Calculer la valeur moyenne de f(x) = 1/x sur [1, e]</p>
+                <p><strong>Solution :</strong></p>
+                <p>moyenne = (1/(e−1)) · ∫₁ᵉ (1/x) dx</p>
+                <p>= (1/(e−1)) · [ln|x|]₁ᵉ</p>
+                <p>= (1/(e−1)) · (1 − 0)</p>
+                <p>= <strong>1/(e−1)</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 7 — Primitive de tan²(x)</h4>
+                <p>Calculer ∫ tan²(x) dx</p>
+                <p><strong>Solution :</strong></p>
+                <p>tan²(x) = sec²(x) − 1</p>
+                <p>= ∫ sec²(x) dx − ∫ 1 dx</p>
+                <p>= <strong>tan(x) − x + C</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 Exercice 8 — Changement de variable</h4>
+                <p>Calculer ∫₀¹ x·√(1+x²) dx</p>
+                <p><strong>Solution :</strong></p>
+                <p>Poser u = 1+x² → du = 2x dx → x dx = du/2</p>
+                <p>Quand x=0 : u=1 ; quand x=1 : u=2</p>
+                <p>= ∫₁² √u · (du/2) = (1/2)∫₁² u^(1/2) du</p>
+                <p>= (1/2)·[u^(3/2)/(3/2)]₁²</p>
+                <p>= (1/3)·(2^(3/2) − 1)</p>
+                <p>= <strong>(2√2 − 1)/3</strong></p>
+            </div>
+        </div>
+
+         <!-- SECTION RÉSUMÉ IMAGE -->
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+            <div class="resume-image-container">
+                
+                            <br><br>
+                <a href="https://drive.google.com/file/d/1o_Y_W-4LdRGFy3WqIn7vffOnhIRKtSlT/view?usp=drive_link" download>
+                    <button>📥 Télécharger la photo</button>
+                </a></div>
+        </section>
+
+        <!-- SECTION VIDÉO -->
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1ut1YtJy0AdaiMTPev-rnEHqWVlfJt6Yr/preview
+"
+                        width="640" height="360" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+
+          <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/1ymmNwl397NsIn7goDSeP_fwf6ATV0q-j/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+        <a href="CH9-equations-differentielles.html" class="next-lesson" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">
+            <div>
+                <p class="next-lesson-text">Chapitre suivant</p>
+                <p class="next-lesson-title">CH9 : Équations différentielles →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH2: Limites et Continuité - Analyse</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .math-content h4 { color: #059669; font-size: 1rem; margin: 18px 0 10px 0; }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: var(--secondary); }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1E40AF; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid var(--success); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid var(--warning); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .theorem-box { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); border-left: 4px solid #7C3AED; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .theorem-box h4 { color: #6D28D9; font-size: 0.95rem; margin-bottom: 8px; }
+        .theorem-box p { color: #5B21B6; margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+             <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux leçons de Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #059669;">
+            <h1>CH2: Limites et Continuité</h1>
+            <p class="breadcrumb">Mathématiques > Analyse > CH2</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan du chapitre</h3>
+            <ol>
+                <li><a href="#p1">Limites de fonctions</a></li>
+                <li><a href="#p2">Opérations sur les limites</a></li>
+                <li><a href="#p3">Continuité d'une fonction</a></li>
+                <li><a href="#p4">Théorèmes des valeurs intermédiaires</a></li>
+                <li><a href="#p5">Limites remarquables</a></li>
+            </ol>
+        </div>
+
+       <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/1rVbGTcOx7N9UrfDRDui9YIbInK8j3fB5/preview
+" width="600" height="120" frameborder="0" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Limites de fonctions</h3>
+            <p>La <strong>limite d'une fonction</strong> en un point décrit le comportement de f(x) quand x s'approche de ce point.</p>
+
+            <h4>🔹 Limite en un point (finie)</h4>
+            <div class="theorem-box">
+                <h4>📐 Définition</h4>
+                <p>lim<sub>x→a</sub> f(x) = ℓ signifie :</p>
+                <p>Pour tout ε > 0, il existe δ > 0 tel que :</p>
+                <p>0 < |x - a| < δ ⟹ |f(x) - ℓ| < ε</p>
+                <p><em>On peut rendre f(x) aussi proche de ℓ qu'on veut, pourvu que x soit suffisamment proche de a.</em></p>
+            </div>
+
+            <h4>🔹 Limite à droite et à gauche</h4>
+            <div class="formula-box">
+                <div class="formula-title">Limites latérales</div>
+                lim<sub>x→a<sup>+</sup></sub> f(x) = ℓ⁺ &nbsp;&nbsp;|&nbsp;&nbsp; x s'approche de a par valeurs supérieures<br>
+                lim<sub>x→a<sup>-</sup></sub> f(x) = ℓ⁻ &nbsp;&nbsp;|&nbsp;&nbsp; x s'approche de a par valeurs inférieures
+            </div>
+
+            <div class="theorem-box">
+                <h4>📐 Théorème fondamental</h4>
+                <p>lim<sub>x→a</sub> f(x) = ℓ &nbsp;&nbsp;⟺&nbsp;&nbsp; lim<sub>x→a<sup>+</sup></sub> f(x) = lim<sub>x→a<sup>-</sup></sub> f(x) = ℓ</p>
+                <p>Si les limites à gauche et à droite sont différentes, la limite n'existe pas.</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Fonction valeur absolue</h4>
+                <p>f(x) = |x| en x = 0</p>
+                <p>lim<sub>x→0<sup>+</sup></sub> |x| = lim<sub>x→0<sup>+</sup></sub> x = 0</p>
+                <p>lim<sub>x→0<sup>-</sup></sub> |x| = lim<sub>x→0<sup>-</sup></sub> (-x) = 0</p>
+                <p>Donc lim<sub>x→0</sub> |x| = <strong>0</strong> ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Partie entière</h4>
+                <p>E(x) = partie entière de x</p>
+                <p>En x = 2 :</p>
+                <p>lim<sub>x→2<sup>-</sup></sub> E(x) = 1</p>
+                <p>lim<sub>x→2<sup>+</sup></sub> E(x) = 2</p>
+                <p>Donc lim<sub>x→2</sub> E(x) <strong>n'existe pas</strong></p>
+            </div>
+
+            <h4>🔹 Limites à l'infini</h4>
+            <div class="formula-box">
+                <div class="formula-title">Limites infinies</div>
+                lim<sub>x→+∞</sub> f(x) = +∞ &nbsp;⟺&nbsp; ∀A > 0, ∃M : x > M ⟹ f(x) > A<br><br>
+                lim<sub>x→-∞</sub> f(x) = ℓ &nbsp;⟺&nbsp; ∀ε > 0, ∃M : x < M ⟹ |f(x) - ℓ| < ε
+            </div>
+
+            <h4>🔹 Asymptotes</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📉</span><p><strong>Asymptote verticale</strong> en x = a : lim<sub>x→a</sub> f(x) = ±∞</p></div>
+                <div class="key-point"><span class="icon">📈</span><p><strong>Asymptote horizontale</strong> en +∞ : lim<sub>x→+∞</sub> f(x) = ℓ (droite y = ℓ)</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Asymptote oblique</strong> en +∞ : lim<sub>x→+∞</sub> [f(x) - (ax + b)] = 0 (droite y = ax + b)</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Asymptotes</h4>
+                <p>f(x) = (2x + 1)/(x - 3)</p>
+                <p><strong>Asymptote verticale</strong> : x = 3 (dénominateur nul)</p>
+                <p>lim<sub>x→3</sub> f(x) = ±∞</p>
+                <p><strong>Asymptote oblique</strong> : Division euclidienne</p>
+                <p>f(x) = 2 + 7/(x - 3)</p>
+                <p>Quand x → ∞, 7/(x - 3) → 0, donc asymptote y = <strong>2</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Opérations sur les limites</h3>
+            <p>Voici les règles pour calculer les limites quand x → a (ou ±∞).</p>
+
+            <h4>🔹 Tableau récapitulatif des opérations</h4>
+            <div class="formula-box">
+                <div class="formula-title">Limites de polynômes et fractions rationnelles</div>
+                lim<sub>x→±∞</sub> P(x) = ±∞ &nbsp;&nbsp;(signe du coefficient dominant)<br><br>
+                lim<sub>x→±∞</sub> P(x)/Q(x) = rapport des coefficients dominants
+            </div>
+
+            <h4>🔹 Somme et produit</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➕</span><p>ℓ + ℓ' = ℓ + ℓ' (si deux limites finies)</p></div>
+                <div class="key-point"><span class="icon">➕</span><p>ℓ + (+∞) = +∞ &nbsp;&nbsp;|&nbsp;&nbsp; ℓ + (-∞) = -∞</p></div>
+                <div class="key-point"><span class="icon">➕</span><p>(+∞) + (+∞) = +∞</p></div>
+                <div class="key-point"><span class="icon">⚡</span><p>(+∞) + (-∞) = <strong>FI</strong> ⚠️</p></div>
+            </div>
+
+            <h4>🔹 Produit</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">✖️</span><p>ℓ × ℓ' = ℓℓ' (deux limites finies)</p></div>
+                <div class="key-point"><span class="icon">✖️</span><p>(+∞) × (+∞) = +∞ &nbsp;&nbsp;|&nbsp;&nbsp; (-∞) × (-∞) = +∞</p></div>
+                <div class="key-point"><span class="icon">✖️</span><p>(+∞) × (-∞) = -∞</p></div>
+                <div class="key-point"><span class="icon">⚡</span><p>0 × ∞ = <strong>FI</strong> ⚠️</p></div>
+            </div>
+
+            <h4>🔹 Quotient</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">➗</span><p>ℓ/ℓ' = ℓ/ℓ' &nbsp;&nbsp; si ℓ' ≠ 0</p></div>
+                <div class="key-point"><span class="icon">➗</span><p>ℓ/±∞ = 0</p></div>
+                <div class="key-point"><span class="icon">➗</span><p>±∞/ℓ = ±∞ &nbsp;&nbsp;(ℓ ≠ 0)</p></div>
+                <div class="key-point"><span class="icon">⚡</span><p>0/0 = <strong>FI</strong> &nbsp;&nbsp;|&nbsp;&nbsp; ±∞/±∞ = <strong>FI</strong> ⚠️</p></div>
+            </div>
+
+            <h4>🔹 Formes indéterminées (FI)</h4>
+            <div class="formula-box">
+                <div class="formula-title">Les 7 formes indéterminées</div>
+                ① ∞ - ∞ &nbsp;&nbsp;|&nbsp;&nbsp; ② 0 × ∞ &nbsp;&nbsp;|&nbsp;&nbsp; ③ 0/0<br>
+                ④ ∞/∞ &nbsp;&nbsp;|&nbsp;&nbsp; ⑤ 1<sup>∞</sup> &nbsp;&nbsp;|&nbsp;&nbsp; ⑥ ∞⁰ &nbsp;&nbsp;|&nbsp;&nbsp; ⑦ 0⁰
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Lever l'indétermination : Factorisation</h4>
+                <p>Calculer lim<sub>x→2</sub> (x² - 4)/(x - 2)</p>
+                <p>→ Forme : 0/0 (car x² - 4 = 0 quand x = 2)</p>
+                <p>→ Factoriser : (x² - 4) = (x - 2)(x + 2)</p>
+                <p>→ lim = lim<sub>x→2</sub> (x - 2)(x + 2)/(x - 2) = lim<sub>x→2</sub> (x + 2) = <strong>4</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Lever l'indétermination : Conjugué</h4>
+                <p>Calculer lim<sub>x→0</sub> (√(x+1) - 1)/x</p>
+                <p>→ Forme : 0/0</p>
+                <p>→ Multiplier par le conjugué :</p>
+                <p>= lim [(√(x+1) - 1)(√(x+1) + 1)]/[x(√(x+1) + 1)]</p>
+                <p>= lim [(x+1) - 1]/[x(√(x+1) + 1)]</p>
+                <p>= lim x/[x(√(x+1) + 1)] = lim 1/(√(x+1) + 1) = <strong>1/2</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Lever l'indétermination : Factoriser le degré dominant</h4>
+                <p>Calculer lim<sub>x→+∞</sub> (2x² + 3x - 1)/(x² - x + 5)</p>
+                <p>→ Forme : ∞/∞</p>
+                <p>→ Factoriser x² au numérateur et dénominateur :</p>
+                <p>= lim (2 + 3/x - 1/x²)/(1 - 1/x + 5/x²)</p>
+                <p>Quand x → ∞ : 3/x → 0, 1/x² → 0, 1/x → 0, 5/x² → 0</p>
+                <p>→ lim = (2 + 0 - 0)/(1 - 0 + 0) = <strong>2</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Continuité d'une fonction</h3>
+            <p>La <strong>continuité</strong> d'une fonction en un point signifie que sa courbe ne présente pas de "saut" en ce point.</p>
+
+            <h4>🔹 Définition</h4>
+            <div class="theorem-box">
+                <h4>📐 Continuité en un point</h4>
+                <p>f est <strong>continue en a</strong> ⟺ lim<sub>x→a</sub> f(x) = f(a)</p>
+                <p style="margin-top:8px;">Cela signifie :</p>
+                <p>• f(a) existe</p>
+                <p>• lim<sub>x→a</sub> f(x) existe</p>
+                <p>• Les deux sont égales</p>
+            </div>
+
+            <h4>🔹 Continuité à gauche et à droite</h4>
+            <div class="formula-box">
+                <div class="formula-title">Continuité latérale</div>
+                f est continue à droite en a &nbsp;⟺&nbsp; lim<sub>x→a<sup>+</sup></sub> f(x) = f(a)<br><br>
+                f est continue à gauche en a &nbsp;⟺&nbsp; lim<sub>x→a<sup>-</sup></sub> f(x) = f(a)
+            </div>
+
+            <div class="theorem-box">
+                <h4>📐 Théorème</h4>
+                <p>f est continue en a &nbsp;⟺&nbsp; f est continue à droite ET à gauche en a</p>
+            </div>
+
+            <h4>🔹 Continuité sur un intervalle</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📝</span><p><strong>f continue sur ]a, b[</strong> : continue en tout point de ]a, b[</p></div>
+                <div class="key-point"><span class="icon">📝</span><p><strong>f continue sur [a, b]</strong> : continue sur ]a, b[ et aux bornes</p></div>
+                <div class="key-point"><span class="icon">📝</span><p><strong>f continue sur ℝ</strong> : continue en tout réel</p></div>
+            </div>
+
+            <h4>🔹 Fonctions continues usuelles</h4>
+            <div class="formula-box">
+                <div class="formula-title">Fonctions continues sur ℝ</div>
+                • Fonctions polynomiales &nbsp;&nbsp;|&nbsp;&nbsp; • Fonction exponentielle eˣ<br>
+                • Fonctions sinus et cosinus &nbsp;&nbsp;|&nbsp;&nbsp; • Valeur absolue |x|<br>
+                • Racine carrée √x (sur [0, +∞[) &nbsp;&nbsp;|&nbsp;&nbsp; • ln(x) (sur ]0, +∞[)
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Points de discontinuité</h4>
+                <p>• <strong>Continuité impossible</strong> : division par zéro → asymptote</p>
+                <p>• <strong>Saut</strong> : partie entière, signe(x)</p>
+                <p>• <strong>Trou</strong> : fonction définie par morceaux avec formule différente à la jonction</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Continuité d'une fonction</h4>
+                <p>f(x) = x² - 3x + 1</p>
+                <p>C'est un polynôme → <strong>continue sur ℝ</strong></p>
+                <p>Vérification en x = 2 :</p>
+                <p>lim<sub>x→2</sub> f(x) = 4 - 6 + 1 = -1</p>
+                <p>f(2) = 4 - 6 + 1 = -1 ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Fonction avec valeur absolue</h4>
+                <p>f(x) = |x - 2|/(x - 2)</p>
+                <p>Étudier la continuité en x = 2 :</p>
+                <p>lim<sub>x→2<sup>+</sup></sub> |x-2|/(x-2) = lim (x-2)/(x-2) = 1</p>
+                <p>lim<sub>x→2<sup>-</sup></sub> |x-2|/(x-2) = lim -(x-2)/(x-2) = -1</p>
+                <p>Les limites sont différentes → <strong>discontinue</strong> en x = 2</p>
+            </div>
+
+            <h4>🔹 Opérations sur les fonctions continues</h4>
+            <div class="theorem-box">
+                <h4>📐 Propriétés</h4>
+                <p>Si f et g sont continues en a, alors :</p>
+                <p>• f + g est continue en a</p>
+                <p>• f × g est continue en a</p>
+                <p>• f/g est continue en a si g(a) ≠ 0</p>
+                <p>• f ∘ g est continue en a</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Théorèmes des valeurs intermédiaires</h3>
+            <p>Ces théorèmes sont fondamentaux pour démontrer l'existence de solutions d'équations.</p>
+
+            <h4>🔹 Théorème des valeurs intermédiaires (TVI)</h4>
+            <div class="theorem-box">
+                <h4>📐 TVI</h4>
+                <p>Si f est <strong>continue</strong> sur [a, b] et si k est entre f(a) et f(b)</p>
+                <p>Alors il existe <strong>au moins un</strong> c ∈ [a, b] tel que f(c) = k</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Montrer l'existence d'une solution</h4>
+                <p>Montrer que l'équation x³ - 3x + 1 = 0 a une solution dans [0, 1]</p>
+                <p>f(x) = x³ - 3x + 1 est continue sur [0, 1]</p>
+                <p>f(0) = 1 > 0</p>
+                <p>f(1) = 1 - 3 + 1 = -1 < 0</p>
+                <p>0 ∈ [f(1), f(0)] donc ∃ c ∈ [0, 1] tel que f(c) = 0</p>
+                <p><strong>Conclusion : l'équation a une solution dans [0, 1]</strong></p>
+            </div>
+
+            <h4>🔹 Corollaire : Images d'intervalles</h4>
+            <div class="theorem-box">
+                <h4>📐 Image d'un intervalle</h4>
+                <p>Si f est <strong>continue</strong> sur un intervalle I, alors f(I) est un intervalle.</p>
+                <p style="margin-top:8px;">En particulier : l'image d'un segment [a, b] par une fonction continue est le segment [m, M] où m = min f et M = max f sur [a, b].</p>
+            </div>
+
+            <h4>🔹 Théorème de la bijection (ouTVI strict)</h4>
+            <div class="theorem-box">
+                <h4>📐 Théorème de la bijection</h4>
+                <p>Si f est <strong>continue et strictement monotone</strong> sur [a, b]</p>
+                <p>Alors f est une bijection de [a, b] sur [f(a), f(b)]</p>
+                <p style="margin-top:8px;"><strong>Conséquence</strong> : l'équation f(x) = k a une <strong>solution unique</strong> dans [a, b].</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Solution unique</h4>
+                <p>Montrer que x³ + x - 2 = 0 a une solution unique dans ℝ</p>
+                <p>f(x) = x³ + x - 2 est continue sur ℝ</p>
+                <p>f'(x) = 3x² + 1 > 0 pour tout x</p>
+                <p>→ f est <strong>strictement croissante</strong> sur ℝ</p>
+                <p>lim<sub>x→-∞</sub> f(x) = -∞ et lim<sub>x→+∞</sub> f(x) = +∞</p>
+                <p>Donc pour tout k ∈ ℝ, ∃! c ∈ ℝ : f(c) = k</p>
+                <p>En particulier, ∃! solution pour f(x) = 0</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Conditions importantes</h4>
+                <p>• Le TVI donne l'<strong>existence</strong> d'une solution</p>
+                <p>• Pour l'<strong>unicité</strong>, il faut ajouter : f est <strong>strictement monotone</strong></p>
+                <p>• Si f n'est pas monotone : il peut y avoir plusieurs solutions</p>
+            </div>
+
+            <h4>🔹 Résolution approchée d'équations</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔍</span><p><strong>Dichotomie</strong> : on divise l'intervalle en 2 à chaque étape</p></div>
+                <div class="key-point"><span class="icon">🔍</span><p><strong>Méthode de Newton</strong> : x<sub>n+1</sub> = x<sub>n</sub> - f(x<sub>n</sub>)/f'(x<sub>n</sub>)</p></div>
+                <div class="key-point"><span class="icon">🔍</span><p><strong>Point fixe</strong> : si g(x) = x, la solution est un point fixe</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Limites remarquables</h3>
+            <p>Ces limites sont à <strong>connaître par cœur</strong> et s'utilisent fréquemment dans les exercices.</p>
+
+            <h4>🔹 Limites trigonométriques</h4>
+            <div class="formula-box">
+                <div class="formula-title">Limites fondamentales</div>
+                lim<sub>x→0</sub> sin(x)/x = 1 &nbsp;&nbsp;|&nbsp;&nbsp; lim<sub>x→0</sub> tan(x)/x = 1<br><br>
+                lim<sub>x→0</sub> (1 - cos(x))/x² = 1/2
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Application</h4>
+                <p>Calculer lim<sub>x→0</sub> sin(3x)/(2x)</p>
+                <p>= lim<sub>x→0</sub> [sin(3x)/(3x)] × [3x/(2x)]</p>
+                <p>= 1 × (3/2) = <strong>3/2</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : sin(5x)/sin(2x)</h4>
+                <p>lim<sub>x→0</sub> sin(5x)/sin(2x)</p>
+                <p>= lim [sin(5x)/(5x)] × [(2x)/sin(2x)] × (5/2)</p>
+                <p>= 1 × 1 × (5/2) = <strong>5/2</strong></p>
+            </div>
+
+            <h4>🔹 Limites exponentielles</h4>
+            <div class="formula-box">
+                <div class="formula-title">Nombre e</div>
+                lim<sub>x→0</sub> (1 + x)<sup>1/x</sup> = e &nbsp;&nbsp;(e ≈ 2,718)<br><br>
+                lim<sub>x→±∞</sub> (1 + 1/x)<sup>x</sup> = e
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : Forme 1<sup>∞</sup></h4>
+                <p>Calculer lim<sub>x→0</sub> (1 + 3x)<sup>1/(2x)</sup></p>
+                <p>= lim [(1 + 3x)<sup>1/(3x)</sup>]<sup>3/(2x) × (3x)</sup></p>
+                <p>= e<sup>3/2</sup></p>
+            </div>
+
+            <h4>🔹 Croissance comparée</h4>
+            <div class="formula-box">
+                <div class="formula-title">Croissance comparée</div>
+                lim<sub>x→+∞</sub> xⁿ/eˣ = 0 &nbsp;&nbsp;|&nbsp;&nbsp; lim<sub>x→+∞</sub> ln(x)/xⁿ = 0<br><br>
+                lim<sub>x→0⁺</sub> xⁿ × ln(x) = 0 &nbsp;&nbsp;|&nbsp;&nbsp; lim<sub>x→+∞</sub> xⁿ × aˣ = +∞ (si a > 1)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : ln(x)/x</h4>
+                <p>lim<sub>x→+∞</sub> ln(x)/x</p>
+                <p>= lim<sub>x→+∞</sub> (1/x)/(1) &nbsp;&nbsp;(par DL ou Hospital)</p>
+                <p>= 0</p>
+                <p><strong>Conclusion : le logarithme croît moins vite que x</strong></p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Règle de L'Hôpital</h4>
+                <p>Si on a une forme indéterminée 0/0 ou ∞/∞, on peut calculer :</p>
+                <p>lim f(x)/g(x) = lim f'(x)/g'(x)</p>
+                <p><em>à condition que les dérivées existent et que la nouvelle limite existe</em></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple : L'Hôpital</h4>
+                <p>lim<sub>x→0</sub> sin(x)/x &nbsp;&nbsp;(forme 0/0)</p>
+                <p>= lim<sub>x→0</sub> cos(x)/1 = <strong>1</strong></p>
+            </div>
+        </div>
+
+        <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+            <div class="resume-images">
+                <a href="https://drive.google.com/file/d/12zTfxxf5fRmIMOLFw0UAibfr_-c4tca2/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+            </div>
+        </section>
+
+        <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/13QbB100EOuFifpovI9qdpSIrSJEbYbd0/preview
+" width="640" height="480" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+            <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/11TY2IMZI7jgbZZpzvQfPW1ydduM0S9XG/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+
+
+        <a href="CH3-derivation.html" class="next-lesson" style="background: linear-gradient(135deg, #059669, #047857);">
+            <div>
+                <p class="next-lesson-text">Chapitre suivant</p>
+                <p class="next-lesson-title">CH3: Dérivation →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

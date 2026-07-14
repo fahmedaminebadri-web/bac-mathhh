@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH5: Fonction logarithme népérien - Analyse</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .math-content h4 { color: var(--primary); font-size: 1rem; margin-top: 20px; margin-bottom: 8px; }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: #1E40AF; }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1E3A8A; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid #22C55E; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid #EAB308; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .exercise-box { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); border-left: 4px solid #F97316; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .exercise-box h4 { color: #C2410C; font-size: 0.95rem; margin-bottom: 8px; }
+        .exercise-box p { margin-bottom: 6px; color: #7C2D12; }
+        .proof-box { background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-left: 4px solid #8B5CF6; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .proof-box h4 { color: #6D28D9; font-size: 0.95rem; margin-bottom: 8px; }
+        .proof-box p { margin-bottom: 6px; color: #4C1D95; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+              <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #3B82F6;">
+            <h1>CH5: Fonction logarithme népérien</h1>
+            <p class="breadcrumb">Mathématiques > Analyse > CH5</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan du chapitre</h3>
+            <ol>
+                <li><a href="#p1">Définition du logarithme népérien</a></li>
+                <li><a href="#p2">Propriétés algébriques de ln</a></li>
+                <li><a href="#p3">Limites et dérivée de ln</a></li>
+                <li><a href="#p4">Équations et inéquations logarithmiques</a></li>
+                <li><a href="#p5">Logarithme décimal et applications</a></li>
+                <li><a href="#p6">Exercices résolus</a></li>
+            </ol>
+        </div>
+
+         <!-- SECTION PODCAST -->
+            <section class="section-podcast">
+            <h2><span class="icon">🎧</span> Podcast — Écouter la leçon</h2>
+            <div class="audio-player">
+                <iframe src="https://drive.google.com/file/d/14MyMen8uwax3OjmYzUFc9h5Vni_T7F5D/preview"
+                        width="600" height="120" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Définition du logarithme népérien</h3>
+            <h4>Motivation — Pourquoi ln ?</h4>
+            <p>La fonction exponentielle <strong>exp(x) = eˣ</strong> est strictement croissante sur ℝ et prend toutes les valeurs positives. Elle est donc bijective de ℝ vers ]0, +∞[.</p>
+            <p>Sa bijection réciproque est appelée <strong>logarithme népérien</strong>, notée <strong>ln</strong>.</p>
+
+            <h4>Définition formelle</h4>
+            <div class="formula-box">
+                <div class="formula-title">Définition</div>
+                Pour tout x > 0 : &nbsp;&nbsp; ln(x) = y &nbsp;⇔&nbsp; eʸ = x
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Propriété fondamentale</div>
+                e^(ln x) = x &nbsp;&nbsp; (∀x > 0)<br>
+                ln(eˣ) = x &nbsp;&nbsp; (∀x ∈ ℝ)
+            </div>
+            <p>Le nombre <strong>e</strong> est la base du logarithme népérien :</p>
+            <div class="formula-box">
+                <div class="formula-title">Le nombre e</div>
+                e ≈ 2,718281828...<br>
+                e = lim(n→∞) (1 + 1/n)ⁿ
+            </div>
+
+            <h4>Valeurs remarquables</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔢</span><p><strong>ln(1) = 0</strong> car e⁰ = 1</p></div>
+                <div class="key-point"><span class="icon">🔢</span><p><strong>ln(e) = 1</strong> car e¹ = e</p></div>
+                <div class="key-point"><span class="icon">🔢</span><p><strong>ln(e²) = 2</strong> — ln(eⁿ) = n</p></div>
+                <div class="key-point"><span class="icon">🔢</span><p><strong>ln(0⁺) = -∞</strong> — lim(x→0⁺) ln(x) = -∞</p></div>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Domaine de définition strict</h4>
+                <p>ln(x) n'existe que pour <strong>x > 0</strong></p>
+                <p>→ ln(0) n'existe pas</p>
+                <p>→ ln(-3) n'existe pas</p>
+                <p>→ ln(x) défini sur ]0, +∞[ uniquement</p>
+            </div>
+
+            <h4>Représentation graphique</h4>
+            <p>La courbe de ln(x) est l'image de la courbe de eˣ par la symétrie d'axe y = x.</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📊</span><p><strong>Domaine :</strong> ]0, +∞[</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Image :</strong> ℝ (ln prend toutes les valeurs réelles)</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Strictement croissante</strong> sur ]0, +∞[</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Asymptote verticale</strong> : axe des ordonnées (x = 0)</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Propriétés algébriques de ln</h3>
+            <h4>Propriétés fondamentales</h4>
+            <div class="formula-box">
+                <div class="formula-title">Produit</div>
+                ln(a × b) = ln(a) + ln(b) &nbsp;&nbsp;|&nbsp;&nbsp; ∀a > 0, ∀b > 0
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Quotient</div>
+                ln(a / b) = ln(a) - ln(b) &nbsp;&nbsp;|&nbsp;&nbsp; ∀a > 0, ∀b > 0
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Puissance</div>
+                ln(aⁿ) = n × ln(a) &nbsp;&nbsp;|&nbsp;&nbsp; ∀a > 0, ∀n ∈ ℝ
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Racine</div>
+                ln(√a) = (1/2) × ln(a) &nbsp;&nbsp;|&nbsp;&nbsp; ln(a^(1/n)) = (1/n) × ln(a)
+            </div>
+
+            <h4>Autres propriétés utiles</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">🔑</span><p><strong>ln(a) = ln(b)</strong> ⇔ a = b (car ln est injective)</p></div>
+                <div class="key-point"><span class="icon">🔑</span><p><strong>ln(a) > ln(b)</strong> ⇔ a > b (car ln est croissante)</p></div>
+                <div class="key-point"><span class="icon">🔑</span><p><strong>ln(1/a) = -ln(a)</strong></p></div>
+                <div class="key-point"><span class="icon">🔑</span><p><strong>ln(a^b × a^c) = (b+c) × ln(a)</strong></p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — Calcul avec ln</h4>
+                <p>Calculer : A = ln(2) + ln(3) - ln(6)</p>
+                <p>A = ln(2×3) - ln(6) = ln(6) - ln(6) = <strong>0</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — Simplification</h4>
+                <p>Simplifier : B = ln(e²) + ln(e³) - 2ln(e)</p>
+                <p>B = 2 + 3 - 2×1 = <strong>3</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — Expression avec ln</h4>
+                <p>Écrire en fonction de ln(2) et ln(3) :</p>
+                <p>ln(12) = ln(3×4) = ln(3) + ln(4) = ln(3) + 2ln(2)</p>
+                <p>ln(1/9) = ln(1) - ln(9) = 0 - 2ln(3) = -2ln(3)</p>
+                <p>ln(√72) = (1/2)ln(72) = (1/2)ln(8×9) = (1/2)(ln(8)+ln(9))</p>
+                <p>= (1/2)(3ln(2) + 2ln(3)) = (3/2)ln(2) + ln(3)</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Erreurs fréquentes à éviter</h4>
+                <p>❌ ln(a + b) ≠ ln(a) + ln(b)</p>
+                <p>❌ ln(a²) ≠ 2ln(a) si on ne sait pas si a > 0</p>
+                <p>✅ ln(a²) = 2ln|a| (en toute généralité)</p>
+                <p>❌ ln(a)/ln(b) ≠ log_b(a) en base e, mais c'est bien la définition du log en base b</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Limites et dérivée de ln</h3>
+            <h4>Dérivée de ln(u(x))</h4>
+            <div class="formula-box">
+                <div class="formula-title">Dérivée de ln(x)</div>
+                (ln x)' = 1/x &nbsp;&nbsp;|&nbsp;&nbsp; ∀x > 0
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Dérivée de ln(u(x)) — Formule importante</div>
+                [ln(u(x))]' = u'(x) / u(x) &nbsp;&nbsp;|&nbsp;&nbsp; avec u(x) > 0
+            </div>
+
+            <h4>Limites remarquables</h4>
+            <div class="formula-box">
+                <div class="formula-title">Limites fondamentales</div>
+                lim(x→0⁺) ln(x) = -∞<br>
+                lim(x→+∞) ln(x) = +∞<br>
+                lim(x→0⁺) x·ln(x) = 0<br>
+                lim(x→0⁺) ln(1+x)/x = 1<br>
+                lim(x→+∞) ln(x)/x = 0
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Croissance comparée</div>
+                lim(x→0⁺) xᵅ · ln(x) = 0 &nbsp;&nbsp;|&nbsp;&nbsp; ∀α > 0<br>
+                lim(x→+∞) ln(x) / xᵅ = 0 &nbsp;&nbsp;|&nbsp;&nbsp; ∀α > 0<br>
+                lim(x→+∞) eˣ / xⁿ = +∞ &nbsp;&nbsp;|&nbsp;&nbsp; ∀n ∈ ℕ
+            </div>
+
+            <h4>Primitives</h4>
+            <div class="formula-box">
+                <div class="formula-title">Primitives avec ln</div>
+                ∫ (1/x) dx = ln|x| + C<br>
+                ∫ u'(x)/u(x) dx = ln|u(x)| + C
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — Dérivée</h4>
+                <p>f(x) = ln(x² + 1)</p>
+                <p>f'(x) = (2x) / (x² + 1)</p>
+                <p>Signe de f'(x) = signe de x</p>
+                <p>f est décroissante sur ]-∞, 0[ et croissante sur ]0, +∞[</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — Primitive</h4>
+                <p>Calculer ∫ x/(x²+1) dx</p>
+                <p>On pose u = x² + 1 → du = 2x dx</p>
+                <p>∫ x/(x²+1) dx = (1/2)∫ du/u = (1/2)ln|u| + C</p>
+                <p>= <strong>(1/2)ln(x²+1) + C</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — Limite avec ln</h4>
+                <p>lim(x→0⁺) (ln x) / (x - 1)</p>
+                <p>Quand x → 0⁺ : ln x → -∞, x - 1 → -1</p>
+                <p>= (-∞)/(-1) = <strong>+∞</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 4 — Forme indéterminée</h4>
+                <p>lim(x→0⁺) x·ln(x)</p>
+                <p>Forme : 0 × (-∞)</p>
+                <p>x·ln(x) = ln(x) / (1/x)</p>
+                <p>Quand x→0⁺ : num → -∞, denom → +∞</p>
+                <p>Règle de l'Hôpital : (1/x) / (-1/x²) = -x → 0</p>
+                <p>Donc lim(x→0⁺) x·ln(x) = <strong>0</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Équations et inéquations logarithmiques</h3>
+            <h4>Équations</h4>
+            <p>Pour résoudre une équation avec ln, on utilise la définition : ln(a) = ln(b) ⇔ a = b > 0</p>
+            <div class="formula-box">
+                <div class="formula-title">Méthode de résolution</div>
+                ln(f(x)) = ln(g(x)) &nbsp;⇔&nbsp; f(x) = g(x) &nbsp;et&nbsp; f(x) > 0 &nbsp;et&nbsp; g(x) > 0
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Forme ln(u) = k</div>
+                ln(u) = k &nbsp;⇔&nbsp; u = eᵏ &nbsp;&nbsp;(u > 0 toujours satisfait si k est réel)
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1 — Équation simple</h4>
+                <p>ln(2x - 1) = 3</p>
+                <p>⇔ 2x - 1 = e³</p>
+                <p>⇔ 2x = e³ + 1</p>
+                <p>⇔ x = (e³ + 1)/2</p>
+                <p>Vérification : 2x - 1 = e³ > 0 ✓</p>
+                <p>Solution : <strong>x = (e³ + 1)/2</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — Équation avec ln</h4>
+                <p>ln(x + 1) = ln(2x - 3)</p>
+                <p>⇔ x + 1 = 2x - 3 et x + 1 > 0 et 2x - 3 > 0</p>
+                <p>⇔ x = 4</p>
+                <p>Conditions : x > 1 (pour x+1>0) et x > 1,5 (pour 2x-3>0)</p>
+                <p>⇔ x > 1,5 ✓ pour x = 4</p>
+                <p>Solution : <strong>x = 4</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — Équation se ramenant à un produit</h4>
+                <p>ln(x) + ln(x - 2) = ln(3)</p>
+                <p>⇔ ln(x(x - 2)) = ln(3)</p>
+                <p>⇔ x(x - 2) = 3</p>
+                <p>⇔ x² - 2x - 3 = 0</p>
+                <p>⇔ (x - 3)(x + 1) = 0</p>
+                <p>⇔ x = 3 ou x = -1</p>
+                <p>Conditions : x > 0 et x > 2 → x > 2</p>
+                <p>Seule x = 3 convient</p>
+                <p>Solution : <strong>x = 3</strong></p>
+            </div>
+
+            <h4>Inéquations</h4>
+            <p>Pour les inéquations, on utilise la croissance de ln : si a > 0 et b > 0 :</p>
+            <div class="formula-box">
+                <div class="formula-title">Inéquations</div>
+                ln(a) < ln(b) &nbsp;⇔&nbsp; a < b<br>
+                ln(a) > ln(b) &nbsp;⇔&nbsp; a > b<br>
+                ln(a) < k &nbsp;⇔&nbsp; a < eᵏ<br>
+                ln(a) > k &nbsp;⇔&nbsp; a > eᵏ
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 4 — Inéquation</h4>
+                <p>ln(2x + 1) ≤ 2</p>
+                <p>⇔ 2x + 1 ≤ e² &nbsp;&nbsp;(car ln croissante et ln(x) ≤ k ⇔ x ≤ eᵏ)</p>
+                <p>⇔ 2x ≤ e² - 1</p>
+                <p>⇔ x ≤ (e² - 1)/2</p>
+                <p>Condition : 2x + 1 > 0 → x > -1/2</p>
+                <p>Solution : <strong>]-1/2, (e² - 1)/2]</strong></p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 5 — Inéquation produit</h4>
+                <p>ln(x) + ln(x - 3) > ln(10)</p>
+                <p>⇔ ln(x(x-3)) > ln(10)</p>
+                <p>⇔ x(x-3) > 10 &nbsp;&nbsp;(car ln croissante)</p>
+                <p>⇔ x² - 3x - 10 > 0</p>
+                <p>⇔ (x - 5)(x + 2) > 0</p>
+                <p>⇔ x < -2 ou x > 5</p>
+                <p>Conditions : x > 0 et x > 3 → x > 3</p>
+                <p>Solution : <strong>]5, +∞[</strong></p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Logarithme décimal et applications</h3>
+            <h4>Logarithme décimal (base 10)</h4>
+            <div class="formula-box">
+                <div class="formula-title">Définition</div>
+                log(x) = log₁₀(x) = ln(x) / ln(10) &nbsp;&nbsp;|&nbsp;&nbsp; x > 0
+            </div>
+            <p>Le logarithme décimal était utilisé avant les calculatrices pour simplifier les calculs (produits → sommes).</p>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>log(10) = 1</strong></p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>log(10ⁿ) = n</strong></p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>log(1) = 0</strong></p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>log(a·b) = log(a) + log(b)</strong></p></div>
+            </div>
+
+            <h4>Changement de base</h4>
+            <div class="formula-box">
+                <div class="formula-title">Formule générale de changement de base</div>
+                log_b(a) = ln(a) / ln(b) = 1 / log_a(b)
+            </div>
+
+            <h4>Applications du logarithme</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📊</span><p><strong>pH</strong> : pH = -log[H⁺] — mesure de l'acidité</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Décibel</strong> : L = 10·log(P/P₀) — niveau sonore</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Échelle de Richter</strong> : M = log(A/A₀) — magnitude sismique</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>Intérêts composés</strong> : ln(Capital) croît linéairement avec le temps</p></div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple — pH</h4>
+                <p>Si [H⁺] = 10⁻⁷ mol/L → pH = -log(10⁻⁷) = 7 (neutre)</p>
+                <p>Si [H⁺] = 10⁻³ mol/L → pH = 3 (acide)</p>
+                <p>Une diminution du pH de 1 correspond à une multiplication de [H⁺] par 10</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 6 -->
+        <div class="math-content" id="p6">
+            <h3>📓 6. Exercices résolus</h3>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 1 — Dérivation</h4>
+                <p>Calculer la dérivée de f(x) = x·ln(x) - x</p>
+                <p><strong>Solution :</strong></p>
+                <p>f'(x) = 1·ln(x) + x·(1/x) - 1 = ln(x) + 1 - 1 = <strong>ln(x)</strong></p>
+                <p>Remarque : une primitive de ln(x) est x·ln(x) - x</p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 2 — Limite</h4>
+                <p>Calculer lim(x→0⁺) (ln(1+x))/x</p>
+                <p><strong>Solution :</strong></p>
+                <p>lim(x→0⁺) (ln(1+x))/x = lim(x→0⁺) (ln(1+x) - ln(1))/x</p>
+                <p>= (ln)' à x=0 = 1/(1+0) = <strong>1</strong></p>
+                <p>Ou par changement : posons u = 1+x → u→1 : lim(u→1) ln(u)/(u-1) = 1</p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 3 — Équation</h4>
+                <p>Résoudre : ln(x² - 4) = ln(x + 2) + ln(2)</p>
+                <p><strong>Solution :</strong></p>
+                <p>⇔ ln(x² - 4) = ln(2(x + 2))</p>
+                <p>⇔ x² - 4 = 2(x + 2)</p>
+                <p>⇔ x² - 2x - 8 = 0</p>
+                <p>⇔ (x - 4)(x + 2) = 0</p>
+                <p>⇔ x = 4 ou x = -2</p>
+                <p>Conditions : x² - 4 > 0 → x < -2 ou x > 2</p>
+                <p>et x + 2 > 0 → x > -2</p>
+                <p>→ x = 4 convient, x = -2 ne convient pas (ln(0) n'existe pas)</p>
+                <p>Solution : <strong>x = 4</strong></p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 4 — Inéquation</h4>
+                <p>Résoudre : ln²(x) - 3ln(x) + 2 ≤ 0</p>
+                <p><strong>Solution :</strong></p>
+                <p>On pose t = ln(x), t ∈ ℝ</p>
+                <p>t² - 3t + 2 ≤ 0</p>
+                <p>(t - 1)(t - 2) ≤ 0</p>
+                <p>⇔ 1 ≤ t ≤ 2</p>
+                <p>⇔ 1 ≤ ln(x) ≤ 2</p>
+                <p>⇔ e¹ ≤ x ≤ e²</p>
+                <p>⇔ <strong>e ≤ x ≤ e²</strong></p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 5 — Primitive avec ln</h4>
+                <p>Calculer ∫ (2x+1)/(x²+x+1) dx</p>
+                <p><strong>Solution :</strong></p>
+                <p>On remarque que le numérateur est la dérivée du dénominateur</p>
+                <p>∫ (2x+1)/(x²+x+1) dx = <strong>ln(x²+x+1) + C</strong></p>
+            </div>
+        </div>
+
+        <!-- SECTION RÉSUMÉ IMAGE -->
+         <section class="section-resume">
+            <h2><span class="icon">🖼️</span> Résumé visuel</h2>
+            <div class="resume-image-container">
+               <a href="https://drive.google.com/file/d/10JoP6CnlUpRz1-aAzHJnsfNfjeWJ5cxg/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+                 <a href="https://drive.google.com/file/d/1YlKt-t47QMuWYzUAhbWUDF5Iwi47nOPa/view?usp=drive_link">
+                    <button>📥 Télécharger la photo</button>
+                </a>
+                
+            </div>
+        </section>
+
+        <!-- SECTION VIDÉO -->
+            <section class="section-video">
+            <h2><span class="icon">🎬</span> Vidéo explicative</h2>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1BbtYttfJ_btTVtLxR_3_JJ-H31dn5g2_/preview
+"
+                        width="640" height="360" frameborder="0" allow="autoplay">
+                </iframe>
+            </div>
+        </section>
+  <!-- SECTION SÉRIE DOWNLOAD -->
+<section class="serie-download-section">
+  <a href="https://drive.google.com/file/d/1TNeFxIGqXuBFCFY48-_F9wZO6KFi7QoW/view?usp=drive_link" 
+     download 
+     class="download-btn">
+     📥 Télécharger le PDF
+  </a>
+</section>
+
+<style>
+  .serie-download-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+  }
+
+  .download-btn:hover::before {
+    left: 100%;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+  }
+</style>
+        <a href="CH6-fonction-exponentielle.html" class="next-lesson" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">
+            <div>
+                <p class="next-lesson-text">Chapitre suivant</p>
+                <p class="next-lesson-title">CH6: Fonction exponentielle →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>

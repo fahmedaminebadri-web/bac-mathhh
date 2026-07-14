@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH7: Fonction puissance - Analyse</title>
+    <link rel="stylesheet" href="../Shared/style.css">
+    <style>
+        .math-content { background: var(--bg-white); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
+        .math-content h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .math-content p { margin-bottom: 12px; line-height: 1.8; color: var(--text-dark); }
+        .math-content h4 { color: var(--primary); font-size: 1rem; margin-top: 20px; margin-bottom: 8px; }
+        .formula-box { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 1.05rem; color: #1E40AF; }
+        .formula-box .formula-title { font-size: 0.85rem; color: #1E3A8A; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; }
+        .example-box { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 4px solid #22C55E; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .example-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 8px; }
+        .example-box p { margin-bottom: 6px; color: #14532d; }
+        .warning-box { background: linear-gradient(135deg, #FEF9C3, #FEF08A); border-left: 4px solid #EAB308; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .warning-box h4 { color: #B45309; font-size: 0.95rem; margin-bottom: 8px; }
+        .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+        .key-point { background: var(--bg-gray-50); padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; gap: 12px; align-items: flex-start; }
+        .key-point .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .key-point p { font-size: 0.88rem; margin: 0; line-height: 1.5; }
+        .toc { background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 28px; border: 1px solid #E9D5FF; }
+        .toc h3 { color: #7C3AED; margin-bottom: 14px; font-size: 1.05rem; }
+        .toc ol { padding-left: 22px; }
+        .toc li { margin-bottom: 8px; color: var(--text-dark); font-size: 0.92rem; }
+        .toc li a { color: var(--primary); font-weight: 500; }
+        .toc li a:hover { text-decoration: underline; }
+        .exercise-box { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); border-left: 4px solid #F97316; padding: 18px 22px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 16px 0; }
+        .exercise-box h4 { color: #C2410C; font-size: 0.95rem; margin-bottom: 8px; }
+        .exercise-box p { margin-bottom: 6px; color: #7C2D12; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../imgs/badri.png" alt="Logo" class="logo-image">
+                <span class="logo-text">From Bac-2-Fac</span>
+            </a>
+              <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../Physique/physique.html">Physique</a>
+                <a href="../Sciences/sciences.html">Sciences</a>
+                <a href="../Langues/Francais/francais.html">Français</a>
+                <a href="../Langues/Anglais/anglais.html">Anglais</a>
+                <a href="../Langues/Arabe/arabe.html">Arabe</a>
+                <a href="../Informatique/informatique.html">Info</a>
+                <a href="../Sciences-Humaines/Philosophie/philosophie.html">Philo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="mathematiques.html" class="back-btn">← Retour aux Mathématiques</a>
+
+        <div class="lesson-header" style="border-top: 4px solid #3B82F6;">
+            <h1>CH7: Fonction puissance</h1>
+            <p class="breadcrumb">Mathématiques > Analyse > CH7</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Plan du chapitre</h3>
+            <ol>
+                <li><a href="#p1">Définition de la fonction puissance</a></li>
+                <li><a href="#p2">Propriétés algébriques</a></li>
+                <li><a href="#p3">Fonction xⁿ pour n entier naturel</a></li>
+                <li><a href="#p4">Fonction x^(1/n) — Racine n-ième</a></li>
+                <li><a href="#p5">Fonction xᵅ pour α réel</a></li>
+                <li><a href="#p6">Limites et dérivées</a></li>
+                <li><a href="#p7">Exercices résolus</a></li>
+            </ol>
+        </div>
+
+        <!-- PARTIE 1 -->
+        <div class="math-content" id="p1">
+            <h3>📘 1. Définition de la fonction puissance</h3>
+            <h4>Idée générale</h4>
+            <p>La <strong>fonction puissance</strong> est une fonction de la forme f(x) = xᵅ où α est un exposant réel. Selon la nature de α (entier positif, entier négatif, rationnel, irrationnel), le domaine de définition et les propriétés changent.</p>
+
+            <h4>Définition</h4>
+            <div class="formula-box">
+                <div class="formula-title">Fonction puissance</div>
+                f(x) = xᵅ &nbsp;&nbsp;|&nbsp;&nbsp; α ∈ ℝ<br><br>
+                <strong>Rappel :</strong> xᵅ = e^(α·ln x) &nbsp;&nbsp;|&nbsp;&nbsp; pour x > 0 uniquement si α est non-entier
+            </div>
+
+            <h4>Lien avec ln et exp</h4>
+            <div class="formula-box">
+                <div class="formula-title">Formule de passage</div>
+                xᵅ = e^(α · ln x) &nbsp;&nbsp;|&nbsp;&nbsp; ∀x > 0, ∀α ∈ ℝ
+            </div>
+            <p>Cette formule est la clé : elle permet de définir xᵅ pour tout α réel et x > 0.</p>
+
+            <h4>Domaines selon α</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>α ∈ ℕ</strong> : Df = ℝ (polynôme)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>α ∈ ℤ⁻</strong> : Df = ℝ* (x⁻ⁿ = 1/xⁿ)</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>α = p/q</strong> (rationnel) : Df dépend de q</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>α ∉ ℚ</strong> : Df = ]0, +∞[ (défini par ln)</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 2 -->
+        <div class="math-content" id="p2">
+            <h3>📗 2. Propriétés algébriques</h3>
+            <h4>Propriétés valables pour tout α, β et x > 0</h4>
+            <div class="formula-box">
+                <div class="formula-title">Produit</div>
+                xᵅ · xᵝ = xᵅ⁺ᵝ
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Quotient</div>
+                xᵅ / xᵝ = xᵅ⁻ᵝ
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Puissance de puissance</div>
+                (xᵅ)ᵝ = xᵅ·ᵝ
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Propriété commutative</div>
+                (x·y)ᵅ = xᵅ · yᵅ &nbsp;&nbsp;|&nbsp;&nbsp; (x/y)ᵅ = xᵅ / yᵅ
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemples</h4>
+                <p>x³ · x⁴ = x⁷</p>
+                <p>(x²)⁵ = x¹⁰</p>
+                <p>(2x)³ = 8x³</p>
+                <p>(x/y)⁻² = x⁻² / y⁻² = y² / x²</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Erreurs fréquentes</h4>
+                <p>❌ xᵅ · yᵝ ≠ (xy)ᵅ⁺ᵝ (les exposants doivent être égaux)</p>
+                <p>❌ (xᵅ)ᵝ ≠ xᵅ^ᵝ (c'est xᵅ·ᵝ)</p>
+                <p>❌ x⁰ ≠ 0 (x⁰ = 1 pour tout x ≠ 0)</p>
+                <p>✅ (−2)⁴ = 16 mais (−2)³ = −8 (la parité compte pour les racines)</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 3 -->
+        <div class="math-content" id="p3">
+            <h3>📙 3. Fonction xⁿ pour n ∈ ℕ</h3>
+            <h4>Fonctions xⁿ — Polynômes</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📐</span><p><strong>n pair</strong> : f(x) = xⁿ est paire, positive, admet un minimum en 0</p></div>
+                <div class="key-point"><span class="icon">📐</span><p><strong>n impair</strong> : f(x) = xⁿ est impaire, strictement croissante, bijective ℝ→ℝ</p></div>
+            </div>
+
+            <h4>Dérivée de xⁿ</h4>
+            <div class="formula-box">
+                <div class="formula-title">Formule fondamentale</div>
+                (xⁿ)' = n·xⁿ⁻¹ &nbsp;&nbsp;|&nbsp;&nbsp; ∀n ∈ ℕ, ∀x ∈ ℝ
+            </div>
+
+            <h4>Primitive de xⁿ</h4>
+            <div class="formula-box">
+                <div class="formula-title">Primitive</div>
+                ∫ xⁿ dx = xⁿ⁺¹/(n+1) + C &nbsp;&nbsp;|&nbsp;&nbsp; ∀n ≠ -1
+            </div>
+
+            <h4>Fonctions x¹/², x¹/³, etc. — Racines</h4>
+            <p>Quand l'exposant est 1/n, on parle de <strong>racine n-ième</strong>.</p>
+            <div class="formula-box">
+                <div class="formula-title">Racine n-ième</div>
+                x^(1/n) = ⁿ√x &nbsp;&nbsp;|&nbsp;&nbsp; (ⁿ√x)ⁿ = x<br><br>
+                <strong>Domaine :</strong><br>
+                • Si n est impair : D = ℝ<br>
+                • Si n est pair : D = [0, +∞[
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Propriétés des racines</div>
+                ⁿ√a · ⁿ√b = ⁿ√(ab)<br>
+                ⁿ√a / ⁿ√b = ⁿ√(a/b)<br>
+                (ⁿ√a)ᵐ = ᵐⁿ√(aᵐ) = aᵐ/ⁿ
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1</h4>
+                <p>√4 = 2, √9 = 3</p>
+                <p>∛8 = 2, ∛(-8) = -2</p>
+                <p>√2 · √8 = √16 = 4</p>
+                <p>∛27 · ∛1000 = ∛(27000) = 30</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2 — Simplification</h4>
+                <p>√12 = √(4×3) = 2√3</p>
+                <p>∛54 = ∛(27×2) = 3∛2</p>
+                <p>√50 + √8 - √18 = 5√2 + 2√2 - 3√2 = 4√2</p>
+            </div>
+
+            <h4>Dérivée de x^(1/n)</h4>
+            <div class="formula-box">
+                <div class="formula-title">Dérivée d'une racine</div>
+                (x^(1/n))' = (1/n) · x^(1/n - 1) = x^((1-n)/n) / n
+            </div>
+            <div class="example-box">
+                <h4>💡 Exemple</h4>
+                <p>f(x) = √x = x^(1/2)</p>
+                <p>f'(x) = (1/2) · x^(-1/2) = 1/(2√x)</p>
+                <p>Dérivable sur ]0, +∞[ uniquement (car √x n'a pas de dérivée en 0)</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 4 -->
+        <div class="math-content" id="p4">
+            <h3>📕 4. Fonction xᵅ pour α réel (via ln)</h3>
+            <h4>Définition pour α ∈ ℝ</h4>
+            <p>Pour tout α réel et x > 0, on définit :</p>
+            <div class="formula-box">
+                <div class="formula-title">Définition par ln et exp</div>
+                xᵅ = e^(α · ln x) &nbsp;&nbsp;|&nbsp;&nbsp; ∀x > 0, ∀α ∈ ℝ
+            </div>
+
+            <h4>Fonctions xᵅ selon α</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📊</span><p><strong>α > 0</strong> : xᵅ est définie en x = 0 si α ≥ 1, et croît</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>α < 0</strong> : asymptote verticale en x = 0, décroissante</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>α = 0</strong> : f(x) = 1 (constante)</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>α = 1/n</strong> : f(x) = ⁿ√x</p></div>
+            </div>
+
+            <h4>Dérivée de xᵅ</h4>
+            <div class="formula-box">
+                <div class="formula-title">Formule universelle</div>
+                (xᵅ)' = α · xᵅ⁻¹ &nbsp;&nbsp;|&nbsp;&nbsp; ∀α ∈ ℝ, ∀x > 0
+            </div>
+            <p>Cette formule est la <strong>même</strong> que pour n entier !</p>
+
+            <div class="example-box">
+                <h4>💡 Exemple 1</h4>
+                <p>f(x) = x^(3/2)</p>
+                <p>f'(x) = (3/2) · x^(1/2) = (3/2)√x</p>
+                <p>Domaine : x ≥ 0 (car √x)</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 2</h4>
+                <p>f(x) = x^(-2) = 1/x²</p>
+                <p>f'(x) = (-2) · x^(-3) = -2/x³</p>
+                <p>f'(x) < 0 pour tout x ≠ 0 → strictement décroissante sur ]0,+∞[ et ]-∞,0[</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemple 3 — Primitive</h4>
+                <p>∫ x^(2/3) dx</p>
+                <p>= x^(5/3) / (5/3) + C = (3/5)·x^(5/3) + C</p>
+            </div>
+        </div>
+
+        <!-- PARTIE 5 -->
+        <div class="math-content" id="p5">
+            <h3>📒 5. Limites de xᵅ</h3>
+            <h4>Limites fondamentales</h4>
+            <div class="formula-box">
+                <div class="formula-title">Limites en +∞</div>
+                lim(x→+∞) xᵅ = +∞ &nbsp;&nbsp;|&nbsp;&nbsp; si α > 0<br>
+                lim(x→+∞) xᵅ = 0 &nbsp;&nbsp;|&nbsp;&nbsp; si α < 0<br>
+                lim(x→+∞) xᵅ = 1 &nbsp;&nbsp;|&nbsp;&nbsp; si α = 0
+            </div>
+            <div class="formula-box">
+                <div class="formula-title">Limites en 0⁺</div>
+                lim(x→0⁺) xᵅ = +∞ &nbsp;&nbsp;|&nbsp;&nbsp; si α < 0<br>
+                lim(x→0⁺) xᵅ = 0 &nbsp;&nbsp;|&nbsp;&nbsp; si α > 0<br>
+                lim(x→0⁺) x⁰ = 1
+            </div>
+
+            <h4>Croissance comparée des puissances</h4>
+            <div class="formula-box">
+                <div class="formula-title">Hiérarchie quand x → +∞</div>
+                xᵅ grandit d'autant plus vite que α est grand<br><br>
+                Si α > β : &nbsp; lim(x→+∞) xᵅ / xᵝ = +∞<br>
+                Si α < β : &nbsp; lim(x→+∞) xᵅ / xᵝ = 0
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Exemples de limites</h4>
+                <p>lim(x→+∞) x^(1/2) / x = lim x^(-1/2) = 0 ✓</p>
+                <p>lim(x→0⁺) x³ = 0</p>
+                <p>lim(x→0⁺) x^(-2) = +∞</p>
+                <p>lim(x→+∞) √x / x = 0</p>
+            </div>
+
+            <h4>Comparaison ln, xᵅ, eˣ</h4>
+            <div class="key-points">
+                <div class="key-point"><span class="icon">📊</span><p><strong>ln(x)</strong> croît plus lentement que toute puissance positive xᵅ</p></div>
+                <div class="key-point"><span class="icon">📊</span><p><strong>eˣ</strong> croît plus vite que toute puissance xᵅ</p></div>
+                <div class="key-point"><span class="icon">📊</span><p>ln(x) << xᵅ << eˣ &nbsp;&nbsp;(pour x → +∞)</p></div>
+            </div>
+        </div>
+
+        <!-- PARTIE 6 -->
+        <div class="math-content" id="p6">
+            <h3>📓 6. Exercices résolus</h3>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 1 — Simplification</h4>
+                <p>Simplifier : (x³·√x) / x^(1/2)</p>
+                <p><strong>Solution :</strong></p>
+                <p>x³ · x^(1/2) / x^(1/2) = x³ · x^(1/2 - 1/2) = x³ · x⁰ = x³</p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 2 — Dérivation</h4>
+                <p>f(x) = x²·√x = x^(5/2)</p>
+                <p><strong>Solution :</strong></p>
+                <p>f'(x) = (5/2) · x^(3/2) = (5/2)·x·√x</p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 3 — Primitive</h4>
+                <p>∫ x^(3/2) dx</p>
+                <p><strong>Solution :</strong></p>
+                <p>= x^(5/2) / (5/2) + C = (2/5)·x^(5/2) + C</p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 4 — Racines</h4>
+                <p>Simplifier : √(12x⁶)</p>
+                <p><strong>Solution :</strong></p>
+                <p>√(12) · √(x⁶) = 2√3 · |x³|</p>
+                <p>Si x ≥ 0 : = 2√3 · x³</p>
+                <p>Si x < 0 : = 2√3 · (-x)³ = -2√3·x³</p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 5 — Limite</h4>
+                <p>lim(x→+∞) x^(1/3) / √x</p>
+                <p><strong>Solution :</strong></p>
+                <p>= x^(1/3) / x^(1/2) = x^(1/3 - 1/2) = x^(-1/6)</p>
+                <p>Quand x→+∞, x^(-1/6) → 0</p>
+                <p>lim = <strong>0</strong></p>
+            </div>
+
+            <div class="exercise-box">
+                <h4>📝 Exercice 6 — Équation avec racine</h4>
+                <p>∛x = 2</p>
+                <p><strong>Solution :</strong></p>
+                <p>On cube : x = 2³ = 8</p>
+                <p>Solution : <strong>x = 8</strong></p>
+            </div>
+        </div>
+
+        
+
+          <section class="serie-download-section">
+       <a href="https://drive.google.com/uc?export=download&id=1m5z6azi6bEiRm8_sJHBpbkq798SsvHoX" 
+            download 
+            style="display:inline-block; margin-top:10px; padding:10px 20px; background:#007BFF; color:#fff; text-decoration:none; border-radius:5px;">
+            📥 Télécharger le PDF
+         </a>
+        </section>
+        
+
+        <a href="CH8-integrales.html" class="next-lesson" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">
+            <div>
+                <p class="next-lesson-text">Chapitre suivant</p>
+                <p class="next-lesson-title">CH8: Intégrales →</p>
+            </div>
+            <span class="next-lesson-arrow">→</span>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2027 From Bac-2-Fac - Tous droits réservés<br>📧 ahmedaminebadrii@gmail.com | 📞 25080244</p>
+    </footer>
+
+    <script src="../Shared/script.js"></script>
+</body>
+</html>
